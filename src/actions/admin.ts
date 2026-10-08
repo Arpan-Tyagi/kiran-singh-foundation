@@ -1,0 +1,80 @@
+"use server";
+
+import {
+  createBlogPostRecord,
+  createEventRecord,
+  updateApplicationStatus,
+} from "@/lib/supabase";
+import { revalidatePath } from "next/cache";
+
+export async function createBlogPostAction(formData: {
+  title: string;
+  summary: string;
+  contentMarkdown: string;
+  authorName?: string;
+  coverImageUrl?: string;
+  isAiDrafted?: boolean;
+}) {
+  const baseSlug =
+    formData.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "dispatch";
+  const slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
+
+  const created = await createBlogPostRecord({
+    slug,
+    title: formData.title,
+    summary: formData.summary,
+    contentMarkdown: formData.contentMarkdown,
+    authorName: formData.authorName || "Foundation Directorate",
+    coverImageUrl: formData.coverImageUrl || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80",
+    isAiDrafted: !!formData.isAiDrafted,
+    publishedAt: new Date().toISOString(),
+    isPublished: true,
+  });
+
+  revalidatePath("/dispatches");
+  revalidatePath("/admin/blogs");
+  return { success: true, post: created };
+}
+
+export async function createEventAction(formData: {
+  title: string;
+  category: "medical_camp" | "personality_workshop" | "community_drive" | "memorial_gathering";
+  description: string;
+  location: string;
+  scheduledAt: string;
+  capacity?: number;
+}) {
+  const baseSlug =
+    formData.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "event";
+  const slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
+
+  const whatsappRsvpLink = `https://wa.me/919840012345?text=${encodeURIComponent(`RSVP for ${formData.title}`)}`;
+
+  const created = await createEventRecord({
+    slug,
+    title: formData.title,
+    category: formData.category,
+    description: formData.description,
+    location: formData.location,
+    scheduledAt: formData.scheduledAt,
+    capacity: formData.capacity || 100,
+    isPublished: true,
+    whatsappRsvpLink,
+  });
+
+  revalidatePath("/events");
+  revalidatePath("/admin/events");
+  return { success: true, event: created };
+}
+
+export async function updateApplicationStatusAction(id: string, status: "pending" | "triaged" | "in_progress" | "resolved") {
+  const success = await updateApplicationStatus(id, status);
+  revalidatePath("/admin/applications");
+  return { success };
+}
