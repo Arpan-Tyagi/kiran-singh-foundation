@@ -3,6 +3,18 @@ import { generateEditorialDraft, EditorialDraftRequest } from "@/lib/gemini";
 
 export async function POST(req: NextRequest) {
   try {
+    const adminSession =
+      req.cookies.get("ksf-admin-session")?.value ||
+      req.cookies.get("sb-access-token")?.value ||
+      req.cookies.get("supabase-auth-token")?.value;
+
+    if (!adminSession) {
+      return NextResponse.json(
+        { error: "Unauthorized: Administrator session required." },
+        { status: 401 }
+      );
+    }
+
     const body = (await req.json()) as EditorialDraftRequest;
 
     if (!body || !body.rawNotes || typeof body.rawNotes !== "string") {

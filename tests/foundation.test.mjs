@@ -159,3 +159,73 @@ test("Transactional Communications & Admin Workspace Robustness", async (t) => {
     assert.ok(supabaseContent.includes("export async function fetchAllEventsAdmin"));
   });
 });
+
+test("Deep Investigator Architectural & Security Fixes (D1-D10)", async (t) => {
+  const supabaseContent = fs.readFileSync(path.resolve("src/lib/supabase.ts"), "utf-8");
+  const adminPageContent = fs.readFileSync(path.resolve("src/app/admin/page.tsx"), "utf-8");
+  const adminStudentsPageContent = fs.readFileSync(path.resolve("src/app/admin/students/page.tsx"), "utf-8");
+  const adminDeskClientContent = fs.readFileSync(path.resolve("src/components/admin/ApplicationsDeskClient.tsx"), "utf-8");
+  const adminActionsContent = fs.readFileSync(path.resolve("src/actions/admin.ts"), "utf-8");
+  const geminiContent = fs.readFileSync(path.resolve("src/lib/gemini.ts"), "utf-8");
+  const copilotDrawerContent = fs.readFileSync(path.resolve("src/components/AICopilotDrawer.tsx"), "utf-8");
+  const draftRouteContent = fs.readFileSync(path.resolve("src/app/api/ai/draft/route.ts"), "utf-8");
+  const dispatchSlugContent = fs.readFileSync(path.resolve("src/app/dispatches/[slug]/page.tsx"), "utf-8");
+  const intakeActionContent = fs.readFileSync(path.resolve("src/actions/intake.ts"), "utf-8");
+
+  await t.test("[D1] submitSupportApplication uses crypto.randomUUID() and avoids chained .select().single()", () => {
+    assert.ok(supabaseContent.includes("crypto.randomUUID()"), "Must use crypto.randomUUID() for UUID primary key");
+    assert.ok(!supabaseContent.includes('id: `app-${Date.now()}`'), "Must not use timestamp id prefix for applications");
+    const submitSection = supabaseContent.slice(supabaseContent.indexOf("submitSupportApplication"));
+    assert.ok(!submitSection.includes(".insert([newEntry]).select()"), "Must not chain .select().single() on anon insert");
+  });
+
+  await t.test("[D2] fetchStudents queries public_students and fetchStudentsAdmin queries students table", () => {
+    assert.ok(supabaseContent.includes('.from("public_students")'), "fetchStudents must query public_students view");
+    assert.ok(supabaseContent.includes("export async function fetchStudentsAdmin"), "Must export fetchStudentsAdmin");
+    assert.ok(adminStudentsPageContent.includes("fetchStudentsAdmin"), "Admin students page must call fetchStudentsAdmin");
+    assert.ok(adminPageContent.includes("fetchStudentsAdmin"), "Admin overview page must call fetchStudentsAdmin");
+    assert.ok(adminPageContent.includes("fetchAllEventsAdmin"), "Admin overview page must call fetchAllEventsAdmin");
+  });
+
+  await t.test("[D3] Gemini 2.5 Flash multi-turn ordering sanitizes leading model turns and filters initial greeting", () => {
+    assert.ok(geminiContent.includes("sanitizedHistory"), "Must sanitize incoming history");
+    assert.ok(geminiContent.includes('role === "model"') || geminiContent.includes("role === 'model'"), "Must check for leading model role");
+    assert.ok(copilotDrawerContent.includes("filter((_, idx) => idx > 0)"), "AICopilotDrawer must filter initial greeting from historyPayload");
+  });
+
+  await t.test("[D4] Server Actions in src/actions/admin.ts verify ksf-admin-session cookie", () => {
+    assert.ok(adminActionsContent.includes('import { cookies } from "next/headers"'));
+    assert.ok(adminActionsContent.includes('cookieStore.get("ksf-admin-session")'));
+    assert.ok(adminActionsContent.includes('return { success: false, error: "Unauthorized" }'));
+  });
+
+  await t.test("[D5] Admin WhatsApp links utilize sanitizeWhatsAppPhone utility", () => {
+    assert.ok(adminPageContent.includes("sanitizeWhatsAppPhone"), "src/app/admin/page.tsx must use sanitizeWhatsAppPhone");
+    assert.ok(!adminPageContent.includes('app.contact_phone.replace(/\\D/g, "")'), "Raw regex replace must be replaced in admin page");
+    assert.ok(adminDeskClientContent.includes("sanitizeWhatsAppPhone"), "ApplicationsDeskClient must use sanitizeWhatsAppPhone");
+    assert.ok(!adminDeskClientContent.includes('app.contact_phone.replace(/\\D/g, "")'), "Raw regex replace must be replaced in desk client");
+  });
+
+  await t.test("[D6] Supabase admin client exports getSupabaseAdminClient with SUPABASE_SERVICE_ROLE_KEY", () => {
+    assert.ok(supabaseContent.includes("export function getSupabaseAdminClient"), "Must export getSupabaseAdminClient");
+    assert.ok(supabaseContent.includes("SUPABASE_SERVICE_ROLE_KEY"), "Must support SUPABASE_SERVICE_ROLE_KEY");
+    assert.ok(supabaseContent.includes("getSupabaseAdminClient() || getSupabaseClient()"), "Must route admin operations through getSupabaseAdminClient");
+    assert.ok(supabaseContent.includes("return dbSuccess"), "Must return db update status in updateApplicationStatus");
+  });
+
+  await t.test("[D7] Secure AI Draft Endpoint returns 401 if unauthenticated", () => {
+    assert.ok(draftRouteContent.includes('req.cookies.get("ksf-admin-session")'));
+    assert.ok(draftRouteContent.includes("401"), "Must return 401 status code for unauthenticated requests");
+  });
+
+  await t.test("[D8] WhatsApp Share URL in dispatches detail page targets api.whatsapp.com/send", () => {
+    assert.ok(dispatchSlugContent.includes("https://api.whatsapp.com/send?text="), "Must use api.whatsapp.com/send");
+  });
+
+  await t.test("[D9] Priority and category validation in src/actions/intake.ts validates against allowed enums", () => {
+    assert.ok(intakeActionContent.includes("critical_emergency"), "Must include critical_emergency");
+    assert.ok(intakeActionContent.includes("standard") && intakeActionContent.includes("urgent"), "Must validate allowed priorities");
+    assert.ok(intakeActionContent.includes("VALID_CATEGORIES"), "Must validate allowed categories");
+  });
+});
+

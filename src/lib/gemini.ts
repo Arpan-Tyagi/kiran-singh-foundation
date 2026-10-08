@@ -169,14 +169,40 @@ export async function executeFoundationChatTurn(
 
   if (client) {
     try {
+      // Sanitize incoming history by dropping any leading turns where role === "model" or "assistant"
+      // so the contents array sent to @google/genai strictly starts with role: "user"
+      const sanitizedHistory = [...history];
+      while (
+        sanitizedHistory.length > 0 &&
+        (sanitizedHistory[0].role === "model" || sanitizedHistory[0].role === "assistant")
+      ) {
+        sanitizedHistory.shift();
+      }
+
+      // Build strictly alternating turn contents for Gemini SDK (user -> model -> user)
+      const alternatingTurns: Array<{ role: "user" | "model"; parts: [{ text: string }] }> = [];
+      for (const m of sanitizedHistory) {
+        const text = (m.content || "").trim();
+        if (!text) continue;
+        const role: "user" | "model" = m.role === "assistant" ? "model" : m.role;
+        const last = alternatingTurns[alternatingTurns.length - 1];
+        if (last && last.role === role) {
+          last.parts[0].text += `\n${text}`;
+        } else {
+          alternatingTurns.push({ role, parts: [{ text }] });
+        }
+      }
+
+      // If the last history turn is already 'user', avoid consecutive user turns before appending latestUserMessage
+      if (alternatingTurns.length > 0 && alternatingTurns[alternatingTurns.length - 1].role === "user") {
+        alternatingTurns.pop();
+      }
+
       const formattedContents = [
-        ...history.map((m) => ({
-          role: m.role === "assistant" ? "model" : m.role,
-          parts: [{ text: m.content }],
-        })),
+        ...alternatingTurns,
         {
-          role: "user",
-          parts: [{ text: latestUserMessage }],
+          role: "user" as const,
+          parts: [{ text: latestUserMessage.trim() }],
         },
       ];
 

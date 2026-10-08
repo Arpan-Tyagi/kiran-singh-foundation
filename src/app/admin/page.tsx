@@ -12,19 +12,20 @@ import {
   Clock,
 } from "lucide-react";
 import {
-  fetchStudents,
+  fetchStudentsAdmin,
   fetchDogs,
   fetchSupportApplications,
-  fetchEvents,
+  fetchAllEventsAdmin,
 } from "@/lib/supabase";
+import { sanitizeWhatsAppPhone } from "@/lib/whatsapp";
 
 export const revalidate = 0;
 
 export default async function AdminOverviewPage() {
-  const students = await fetchStudents();
+  const students = await fetchStudentsAdmin();
   const dogs = await fetchDogs();
   const applications = await fetchSupportApplications();
-  const events = await fetchEvents();
+  const events = await fetchAllEventsAdmin();
 
   const pendingApps = applications.filter((a) => a.status === "pending" || a.status === "triaged");
   const criticalApps = applications.filter((a) => a.priority === "critical_emergency");
@@ -210,7 +211,7 @@ export default async function AdminOverviewPage() {
                     </td>
                     <td className="py-3 text-right">
                       <a
-                        href={`https://wa.me/${app.contact_phone.replace(/\D/g, "")}`}
+                        href={`https://wa.me/${sanitizeWhatsAppPhone(app.contact_phone)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-1 px-3 py-1 rounded-full bg-emerald-600/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/40 text-[10px] font-mono"

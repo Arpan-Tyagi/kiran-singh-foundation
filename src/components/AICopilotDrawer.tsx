@@ -42,10 +42,13 @@ export default function AICopilotDrawer() {
     setIsLoading(true);
 
     try {
-      const historyPayload: ChatMessage[] = messages.map((m) => ({
-        role: m.role === "assistant" ? "model" : "user",
-        content: m.content,
-      }));
+      // Filter out initial greeting message so historyPayload begins with user turn
+      const historyPayload: ChatMessage[] = messages
+        .filter((_, idx) => idx > 0)
+        .map((m) => ({
+          role: m.role === "assistant" ? "model" : "user",
+          content: m.content,
+        }));
 
       const res = await submitFoundationChatTurnAction(historyPayload, userMsg);
 

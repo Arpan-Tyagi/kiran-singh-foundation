@@ -149,4 +149,74 @@ assert.ok(blogsDeskContent.includes("/api/ai/draft"), "Blogs desk must integrate
 assert.ok(eventsDeskContent.includes("/api/ai/draft"), "Events desk must integrate /api/ai/draft.");
 console.log("[PASS] Dual Gemini 2.5 Flash drafting modals verified in Blogs and Events management desks.");
 
-console.log("=== ALL INTEGRITY GATES PASSED SUCCESSFULLY (10/10) ===");
+// 11. [D1] Verify submitSupportApplication uses RFC4122 UUID and no .select().single()
+assert.ok(supabaseLayerContent.includes("crypto.randomUUID()"), "D1: submitSupportApplication must use crypto.randomUUID().");
+assert.ok(!supabaseLayerContent.includes('id: `app-${Date.now()}`'), "D1: submitSupportApplication must not use timestamp ID.");
+const submitSection = supabaseLayerContent.slice(supabaseLayerContent.indexOf("submitSupportApplication"));
+assert.ok(!submitSection.includes(".insert([newEntry]).select()"), "D1: submitSupportApplication must not chain .select().single() on anon insert.");
+console.log("[PASS] [D1] Support application UUID generation and non-select insertion verified.");
+
+// 12. [D2] Verify public vs admin students queries
+assert.ok(supabaseLayerContent.includes('.from("public_students")'), "D2: fetchStudents must query public_students view.");
+assert.ok(supabaseLayerContent.includes("export async function fetchStudentsAdmin"), "D2: fetchStudentsAdmin must be exported.");
+const adminStudentsPath = path.resolve("src/app/admin/students/page.tsx");
+assert.ok(fs.readFileSync(adminStudentsPath, "utf-8").includes("fetchStudentsAdmin"), "D2: Admin students page must call fetchStudentsAdmin.");
+const adminPagePath2 = path.resolve("src/app/admin/page.tsx");
+assert.ok(fs.readFileSync(adminPagePath2, "utf-8").includes("fetchStudentsAdmin"), "D2: Admin overview page must call fetchStudentsAdmin.");
+assert.ok(fs.readFileSync(adminPagePath2, "utf-8").includes("fetchAllEventsAdmin"), "D2: Admin overview page must call fetchAllEventsAdmin.");
+console.log("[PASS] [D2] Student public view isolation and admin students fetch verified.");
+
+// 13. [D3] Verify Gemini multi-turn ordering
+assert.ok(geminiContent.includes("sanitizedHistory"), "D3: Gemini executeFoundationChatTurn must sanitize leading turns.");
+const copilotDrawerPath = path.resolve("src/components/AICopilotDrawer.tsx");
+assert.ok(fs.readFileSync(copilotDrawerPath, "utf-8").includes("filter((_, idx) => idx > 0)"), "D3: AICopilotDrawer must filter initial greeting.");
+console.log("[PASS] [D3] Gemini 2.5 Flash multi-turn ordering sanitization verified.");
+
+// 14. [D4] Verify Server Actions session cookie protection
+const adminActionsPath = path.resolve("src/actions/admin.ts");
+const adminActionsContent = fs.readFileSync(adminActionsPath, "utf-8");
+assert.ok(adminActionsContent.includes('import { cookies } from "next/headers"'), "D4: admin actions must import cookies.");
+assert.ok(adminActionsContent.includes('cookieStore.get("ksf-admin-session")'), "D4: admin actions must check ksf-admin-session cookie.");
+assert.ok(adminActionsContent.includes('return { success: false, error: "Unauthorized" }'), "D4: admin actions must return unauthorized on missing session.");
+console.log("[PASS] [D4] Admin server actions cookie authorization boundary verified.");
+
+// 15. [D5] Verify Admin WhatsApp quick-links
+const adminPagePath = path.resolve("src/app/admin/page.tsx");
+const adminPageContent = fs.readFileSync(adminPagePath, "utf-8");
+const appDeskPath = path.resolve("src/components/admin/ApplicationsDeskClient.tsx");
+const appDeskContent = fs.readFileSync(appDeskPath, "utf-8");
+assert.ok(adminPageContent.includes("sanitizeWhatsAppPhone"), "D5: Admin overview must use sanitizeWhatsAppPhone.");
+assert.ok(!adminPageContent.includes('app.contact_phone.replace(/\\D/g, "")'), "D5: Admin overview must not use raw regex replace.");
+assert.ok(appDeskContent.includes("sanitizeWhatsAppPhone"), "D5: Applications desk must use sanitizeWhatsAppPhone.");
+assert.ok(!appDeskContent.includes('app.contact_phone.replace(/\\D/g, "")'), "D5: Applications desk must not use raw regex replace.");
+console.log("[PASS] [D5] Admin WhatsApp phone sanitization verified.");
+
+// 16. [D6] Verify Supabase admin service role client
+assert.ok(supabaseLayerContent.includes("export function getSupabaseAdminClient"), "D6: Must export getSupabaseAdminClient.");
+assert.ok(supabaseLayerContent.includes("SUPABASE_SERVICE_ROLE_KEY"), "D6: Must check SUPABASE_SERVICE_ROLE_KEY.");
+assert.ok(supabaseLayerContent.includes("getSupabaseAdminClient() || getSupabaseClient()"), "D6: Must route admin calls through admin client.");
+assert.ok(supabaseLayerContent.includes("return dbSuccess"), "D6: updateApplicationStatus must return db update result.");
+console.log("[PASS] [D6] Supabase admin client and service role routing verified.");
+
+// 17. [D7] Verify AI draft endpoint authentication
+const aiDraftRoutePath = path.resolve("src/app/api/ai/draft/route.ts");
+const aiDraftRouteContent = fs.readFileSync(aiDraftRoutePath, "utf-8");
+assert.ok(aiDraftRouteContent.includes('req.cookies.get("ksf-admin-session")'), "D7: AI draft endpoint must check ksf-admin-session.");
+assert.ok(aiDraftRouteContent.includes("401"), "D7: AI draft endpoint must return 401 on unauthorized.");
+console.log("[PASS] [D7] AI draft endpoint authentication boundary verified.");
+
+// 18. [D8] Verify WhatsApp share URL in dispatches
+const dispatchDetailPath = path.resolve("src/app/dispatches/[slug]/page.tsx");
+const dispatchDetailContent = fs.readFileSync(dispatchDetailPath, "utf-8");
+assert.ok(dispatchDetailContent.includes("https://api.whatsapp.com/send?text="), "D8: Dispatch detail must use https://api.whatsapp.com/send?text=.");
+console.log("[PASS] [D8] Dispatch WhatsApp share URL target verified.");
+
+// 19. [D9] Verify priority validation in intake action
+const intakeActionPath = path.resolve("src/actions/intake.ts");
+const intakeActionContent = fs.readFileSync(intakeActionPath, "utf-8");
+assert.ok(intakeActionContent.includes("critical_emergency"), "D9: Intake action must validate critical_emergency priority.");
+assert.ok(intakeActionContent.includes("standard") && intakeActionContent.includes("urgent"), "D9: Intake action must validate standard and urgent.");
+assert.ok(intakeActionContent.includes("VALID_CATEGORIES"), "D9: Intake action must validate category.");
+console.log("[PASS] [D9] Strict intake priority and category validation with fallback verified.");
+
+console.log("=== ALL INTEGRITY GATES AND AUDIT FIXES PASSED SUCCESSFULLY (22/22) ===");

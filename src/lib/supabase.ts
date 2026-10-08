@@ -95,6 +95,25 @@ export function getSupabaseClient(): SupabaseClient | null {
   }
 }
 
+export function getSupabaseAdminClient(): SupabaseClient | null {
+  if (
+    !supabaseUrl ||
+    supabaseUrl.includes("placeholder")
+  ) {
+    return null;
+  }
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || supabaseAnonKey;
+  if (!serviceRoleKey || serviceRoleKey.includes("placeholder")) {
+    return null;
+  }
+  try {
+    return createClient(supabaseUrl, serviceRoleKey);
+  } catch (err) {
+    console.warn("Failed to create Supabase admin client:", err);
+    return null;
+  }
+}
+
 /**
  * DB Row <-> TypeScript Model Mappers
  * Resolves impedance mismatch between PostgreSQL snake_case and application camelCase models.
@@ -212,7 +231,7 @@ export async function fetchStudents(): Promise<StudentScholar[]> {
   if (client) {
     try {
       const { data, error } = await client
-        .from("students")
+        .from("public_students")
         .select("*")
         .order("scholar_id", { ascending: true });
       if (!error && data && data.length > 0) {
@@ -220,6 +239,24 @@ export async function fetchStudents(): Promise<StudentScholar[]> {
       }
     } catch (e) {
       console.warn("fetchStudents db error:", e);
+    }
+  }
+  return SCHOLARS_COHORT;
+}
+
+export async function fetchStudentsAdmin(): Promise<StudentScholar[]> {
+  const client = getSupabaseAdminClient() || getSupabaseClient();
+  if (client) {
+    try {
+      const { data, error } = await client
+        .from("students")
+        .select("*")
+        .order("scholar_id", { ascending: true });
+      if (!error && data && data.length > 0) {
+        return data.map(mapDbStudentToStudent);
+      }
+    } catch (e) {
+      console.warn("fetchStudentsAdmin db error:", e);
     }
   }
   return SCHOLARS_COHORT;
@@ -263,7 +300,7 @@ export async function fetchEvents(): Promise<FoundationEvent[]> {
 }
 
 export async function fetchAllEventsAdmin(): Promise<FoundationEvent[]> {
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
   if (client) {
     try {
       const { data, error } = await client
@@ -286,7 +323,7 @@ export async function createEventRecord(event: Omit<FoundationEvent, "id">): Pro
     id: `evt-${Date.now()}`,
   };
 
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
   if (client) {
     try {
       const dbPayload = {
@@ -341,7 +378,7 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
 }
 
 export async function fetchAllBlogPostsAdmin(): Promise<BlogPost[]> {
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
   if (client) {
     try {
       const { data, error } = await client
@@ -386,7 +423,7 @@ export async function createBlogPostRecord(post: Omit<BlogPost, "id">): Promise<
     id: `blog-${Date.now()}`,
   };
 
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
   if (client) {
     try {
       const dbPayload = {
@@ -425,24 +462,24 @@ export async function submitSupportApplication(
   application: Omit<SupportApplication, "id" | "status" | "created_at">
 ): Promise<SupportApplication> {
   const client = getSupabaseClient();
+  const generatedId = crypto.randomUUID();
   const newEntry: SupportApplication = {
     ...application,
-    id: `app-${Date.now()}`,
+    id: generatedId,
     status: "pending",
     created_at: new Date().toISOString(),
   };
 
   if (client) {
     try {
-      const { data, error } = await client
+      const { error } = await client
         .from("support_applications")
-        .insert([newEntry])
-        .select()
-        .single();
-      if (!error && data) {
-        memoryApplications.unshift(data as SupportApplication);
-        return data as SupportApplication;
+        .insert([newEntry]);
+      if (!error) {
+        memoryApplications.unshift(newEntry);
+        return newEntry;
       }
+      console.warn("Supabase insert error, falling back to local memory store:", error);
     } catch (e) {
       console.warn("Supabase insert error, falling back to local memory store:", e);
     }
@@ -453,7 +490,7 @@ export async function submitSupportApplication(
 }
 
 export async function fetchSupportApplications(): Promise<SupportApplication[]> {
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
   if (client) {
     try {
       const { data, error } = await client
@@ -474,13 +511,19 @@ export async function updateApplicationStatus(
   id: string,
   newStatus: SupportApplication["status"]
 ): Promise<boolean> {
-  const client = getSupabaseClient();
+  const client = getSupabaseAdminClient() || getSupabaseClient();
+  let dbSuccess = false;
   if (client) {
     try {
-      await client
+      const { error } = await client
         .from("support_applications")
         .update({ status: newStatus })
         .eq("id", id);
+      if (!error) {
+        dbSuccess = true;
+      } else {
+        console.warn("Supabase updateApplicationStatus error:", error);
+      }
     } catch (e) {
       console.warn("Supabase updateApplicationStatus error:", e);
     }
@@ -491,5 +534,5 @@ export async function updateApplicationStatus(
     found.status = newStatus;
     return true;
   }
-  return false;
+  return dbSuccess;
 }

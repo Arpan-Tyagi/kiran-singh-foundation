@@ -44,8 +44,10 @@ export default async function DispatchDetailPage({ params }: Props) {
     notFound();
   }
 
-  const shareText = `Read "${post.title}" on the Kiran Singh Foundation Institutional Press:`;
-  const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n${post.title}`)}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kiransinghfoundation.org";
+  const postUrl = `${siteUrl}/dispatches/${post.slug}`;
+  const shareText = `Read "${post.title}" on the Kiran Singh Foundation Institutional Press: ${postUrl}`;
+  const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
   return (
     <article className="py-16 px-4 md:px-8 max-w-4xl mx-auto space-y-12">

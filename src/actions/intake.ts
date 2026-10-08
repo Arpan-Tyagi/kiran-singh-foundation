@@ -32,22 +32,38 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
       };
     }
 
-    const priority = data.priority || (data.category === "emergency_distress" ? "urgent" : "standard");
+    const VALID_CATEGORIES = ["volunteer_onboarding", "student_application", "emergency_distress"] as const;
+    type ValidCategory = (typeof VALID_CATEGORIES)[number];
+    const category: ValidCategory =
+      data.category && (VALID_CATEGORIES as readonly string[]).includes(data.category)
+        ? (data.category as ValidCategory)
+        : "volunteer_onboarding";
+
+    const VALID_PRIORITIES = ["standard", "urgent", "critical_emergency"] as const;
+    type ValidPriority = (typeof VALID_PRIORITIES)[number];
+
+    const defaultPriority: ValidPriority =
+      category === "emergency_distress" ? "urgent" : "standard";
+
+    const priority: ValidPriority =
+      data.priority && (VALID_PRIORITIES as readonly string[]).includes(data.priority)
+        ? (data.priority as ValidPriority)
+        : defaultPriority;
 
     const created = await submitSupportApplication({
       applicant_name: data.applicantName,
       contact_email: data.contactEmail || "not-provided@kiransinghfoundation.org",
       contact_phone: data.contactPhone,
-      category: data.category,
+      category,
       priority,
-      subject: data.subject || `Intake: ${data.category}`,
+      subject: data.subject || `Intake: ${category}`,
       message_details: data.messageDetails,
       location_data: data.locationData,
     });
 
     // Build immediate WhatsApp deep link
     let whatsappUrl: string;
-    if (data.category === "emergency_distress" || priority === "critical_emergency") {
+    if (category === "emergency_distress" || priority === "critical_emergency") {
       whatsappUrl = buildEmergencyWhatsAppUrl({
         callerName: data.applicantName,
         phone: data.contactPhone,
@@ -67,7 +83,7 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
     } else {
       whatsappUrl = buildMutualAidWhatsAppUrl({
         applicantName: data.applicantName,
-        category: data.category,
+        category,
         contact: data.contactPhone,
         brief: data.messageDetails,
       });
@@ -78,7 +94,7 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
       sendIntakeConfirmationEmail({
         toEmail: data.contactEmail,
         applicantName: data.applicantName,
-        category: data.category,
+        category,
         priority,
         referenceId: created.id,
         message: data.messageDetails,

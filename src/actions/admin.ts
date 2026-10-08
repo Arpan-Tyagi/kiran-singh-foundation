@@ -1,5 +1,6 @@
 "use server";
 
+import { cookies } from "next/headers";
 import {
   createBlogPostRecord,
   createEventRecord,
@@ -15,6 +16,12 @@ export async function createBlogPostAction(formData: {
   coverImageUrl?: string;
   isAiDrafted?: boolean;
 }) {
+  const cookieStore = await cookies();
+  const session = cookieStore.get("ksf-admin-session")?.value;
+  if (!session) {
+    return { success: false, error: "Unauthorized" };
+  }
+
   const baseSlug =
     formData.title
       .toLowerCase()
@@ -47,6 +54,12 @@ export async function createEventAction(formData: {
   scheduledAt: string;
   capacity?: number;
 }) {
+  const cookieStore = await cookies();
+  const session = cookieStore.get("ksf-admin-session")?.value;
+  if (!session) {
+    return { success: false, error: "Unauthorized" };
+  }
+
   const baseSlug =
     formData.title
       .toLowerCase()
@@ -74,6 +87,12 @@ export async function createEventAction(formData: {
 }
 
 export async function updateApplicationStatusAction(id: string, status: "pending" | "triaged" | "in_progress" | "resolved") {
+  const cookieStore = await cookies();
+  const session = cookieStore.get("ksf-admin-session")?.value;
+  if (!session) {
+    return { success: false, error: "Unauthorized" };
+  }
+
   const success = await updateApplicationStatus(id, status);
   revalidatePath("/admin/applications");
   return { success };

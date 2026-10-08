@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { updateApplicationStatusAction } from "@/actions/admin";
 import { SupportApplication } from "@/lib/supabase";
+import { sanitizeWhatsAppPhone } from "@/lib/whatsapp";
 
 export default function ApplicationsDeskClient({
   initialApplications,
@@ -147,7 +148,7 @@ export default function ApplicationsDeskClient({
               {/* Right Action & Status Controls */}
               <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-3 shrink-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/5">
                 <a
-                  href={`https://wa.me/${app.contact_phone.replace(/\D/g, "")}?text=${encodeURIComponent(
+                  href={`https://wa.me/${sanitizeWhatsAppPhone(app.contact_phone)}?text=${encodeURIComponent(
                     `Hello ${app.applicant_name}, this is the Kiran Singh Foundation Directorate responding to your inquiry (#${app.id}).`
                   )}`}
                   target="_blank"
