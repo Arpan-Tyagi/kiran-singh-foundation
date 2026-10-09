@@ -25,10 +25,29 @@ export interface SubmitIntakeResult {
 
 export async function submitIntakeAction(data: SubmitIntakeInput): Promise<SubmitIntakeResult> {
   try {
-    if (!data.applicantName || !data.contactPhone || !data.messageDetails) {
+    if (!data.applicantName?.trim() || !data.contactPhone?.trim() || !data.messageDetails?.trim()) {
       return {
         success: false,
         error: "Name, phone number, and details are required.",
+      };
+    }
+
+    const INDIAN_PHONE_REGEX = /^(?:\+?91|0)?[6-9]\d{9}$/;
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const cleanPhone = data.contactPhone.replace(/[\s-]/g, "");
+    if (!INDIAN_PHONE_REGEX.test(cleanPhone)) {
+      return {
+        success: false,
+        error: "Please provide a valid Indian mobile number (+91 or 10-digit).",
+      };
+    }
+
+    const sanitizedEmail = data.contactEmail?.trim() ? data.contactEmail.trim() : null;
+    if (sanitizedEmail && !EMAIL_REGEX.test(sanitizedEmail)) {
+      return {
+        success: false,
+        error: "Please provide a valid email address.",
       };
     }
 
@@ -50,44 +69,46 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
         ? (data.priority as ValidPriority)
         : defaultPriority;
 
-    const sanitizedEmail = data.contactEmail?.trim() ? data.contactEmail.trim() : null;
+    const cleanApplicantName = data.applicantName.trim();
+    const cleanMessageDetails = data.messageDetails.trim();
+    const cleanLocation = data.locationData?.trim() || undefined;
 
     const created = await submitSupportApplication({
-      applicant_name: data.applicantName,
+      applicant_name: cleanApplicantName,
       contact_email: sanitizedEmail,
-      contact_phone: data.contactPhone,
+      contact_phone: cleanPhone,
       category,
       priority,
-      subject: data.subject || `Intake: ${category}`,
-      message_details: data.messageDetails,
-      location_data: data.locationData,
+      subject: data.subject?.trim() || `Intake: ${category}`,
+      message_details: cleanMessageDetails,
+      location_data: cleanLocation,
     });
 
     // Build immediate WhatsApp deep link
     let whatsappUrl: string;
     if (category === "emergency_distress" || priority === "critical_emergency") {
       whatsappUrl = buildEmergencyWhatsAppUrl({
-        callerName: data.applicantName,
-        phone: data.contactPhone,
-        location: data.locationData || "Not specified",
-        description: data.messageDetails,
+        callerName: cleanApplicantName,
+        phone: cleanPhone,
+        location: cleanLocation || "Not specified",
+        description: cleanMessageDetails,
         isInjuredCanine: data.isInjuredCanine,
       });
 
       // Dispatch emergency alert email asynchronously
       sendEmergencyAdminAlertEmail({
-        callerName: data.applicantName,
-        phone: data.contactPhone,
-        location: data.locationData || "Not specified",
-        description: data.messageDetails,
+        callerName: cleanApplicantName,
+        phone: cleanPhone,
+        location: cleanLocation || "Not specified",
+        description: cleanMessageDetails,
         priority: priority === "critical_emergency" ? "critical_emergency" : "urgent",
       }).catch((e) => console.error("Emergency alert email error:", e));
     } else {
       whatsappUrl = buildMutualAidWhatsAppUrl({
-        applicantName: data.applicantName,
+        applicantName: cleanApplicantName,
         category,
-        contact: data.contactPhone,
-        brief: data.messageDetails,
+        contact: cleanPhone,
+        brief: cleanMessageDetails,
       });
     }
 

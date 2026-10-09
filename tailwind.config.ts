@@ -87,6 +87,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       boxShadow: {
+        card: "0 12px 32px -4px rgba(17, 24, 39, 0.05), 0 4px 12px -2px rgba(17, 24, 39, 0.02)",
         "elevation-1": "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
         "elevation-2": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)",
         "elevation-3": "0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04)",
@@ -94,6 +95,13 @@ const config: Config = {
         "gold-glow": "0 4px 20px -2px rgba(200, 157, 84, 0.25)",
         "emergency-glow": "0 4px 20px -2px rgba(220, 38, 38, 0.2)",
         "double-bezel": "0 1px 3px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.04)",
+      },
+      transitionDuration: {
+        "160": "160ms",
+      },
+      scale: {
+        "102": "1.02",
+        "103": "1.03",
       },
       borderRadius: {
         "2xl": "1.25rem",

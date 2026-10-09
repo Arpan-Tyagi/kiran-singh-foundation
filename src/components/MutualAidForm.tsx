@@ -87,6 +87,37 @@ export default function MutualAidForm() {
             </div>
           </div>
 
+          {/* Prominent 1-Tap Direct Emergency WhatsApp Lifeline Banner (Bypass Form Latency) */}
+          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-crimson-alert/10 border-2 border-crimson-alert/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center space-x-3.5 text-left">
+              <div className="w-10 h-10 rounded-full bg-crimson-alert flex items-center justify-center shrink-0 shadow-sm text-white">
+                <Phone className="w-5 h-5 animate-pulse" aria-hidden="true" strokeWidth={1.5} />
+              </div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="font-sans font-bold text-sm text-crimson-alert uppercase tracking-wide">
+                    Urgent Distress Lifeline
+                  </span>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-crimson-alert text-white uppercase tracking-wider">
+                    24/7 Live
+                  </span>
+                </div>
+                <p className="text-xs text-obsidian mt-0.5 leading-snug">
+                  Active trauma, canine injury, or critical community crisis? Bypass form latency to alert field dispatch instantly.
+                </p>
+              </div>
+            </div>
+            <a
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "919840012345"}?text=%F0%9F%9A%A8%20*%5BCRITICAL%20EMERGENCY%20DISPATCH%20LIFELINE%5D*%20Immediate%20field%20coordinator%20dispatch%20requested.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-6 py-3 rounded-full bg-crimson-alert hover:bg-crimson-alert-light active:scale-[0.98] text-white font-sans font-bold text-xs uppercase tracking-wider shadow-emergency-glow transition-all"
+            >
+              <span>1-Tap WhatsApp Emergency</span>
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
+            </a>
+          </div>
+
           {successResult ? (
             <div className="p-8 rounded-3xl bg-slate-50 border border-botanical-emerald/30 text-center space-y-6 animate-in fade-in zoom-in-95 duration-500">
               <div className="w-16 h-16 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 flex items-center justify-center mx-auto text-botanical-emerald">

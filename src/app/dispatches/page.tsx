@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Newspaper, Sparkles, ArrowUpRight, User } from "lucide-react";
+import { Newspaper, ArrowUpRight, User } from "lucide-react";
 import { fetchBlogPosts } from "@/lib/supabase";
 
 export const revalidate = 60;
@@ -49,9 +49,9 @@ export default async function DispatchesPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {post.isAiDrafted && (
-                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-lion-gold/40 text-lion-gold-dark text-[10px] font-mono flex items-center space-x-1.5 shadow-sm font-medium">
-                      <Sparkles className="w-3 h-3 text-lion-gold" />
-                      <span>Gemini 2.5 Structured</span>
+                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-lion-gold/40 text-lion-gold-dark text-[10px] font-mono flex items-center space-x-1.5 shadow-sm font-semibold">
+                      <span className="text-lion-gold font-bold">§</span>
+                      <span>Directorate Archival Monograph</span>
                     </div>
                   )}
                 </div>

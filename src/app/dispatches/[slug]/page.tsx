@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, User, Calendar, Sparkles, Phone } from "lucide-react";
+import { ArrowLeft, User, Calendar, Phone } from "lucide-react";
 import { Metadata } from "next";
 import { fetchBlogPostBySlug, fetchBlogPosts } from "@/lib/supabase";
 
@@ -81,9 +81,9 @@ export default async function DispatchDetailPage({ params }: Props) {
             </span>
           </span>
           {post.isAiDrafted && (
-            <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 flex items-center space-x-1 font-semibold">
-              <Sparkles className="w-3 h-3 text-lion-gold" />
-              <span>Gemini 2.5 Structured</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 flex items-center space-x-1.5 font-semibold">
+              <span className="text-lion-gold font-bold">§</span>
+              <span>Directorate Archival Monograph</span>
             </span>
           )}
         </div>

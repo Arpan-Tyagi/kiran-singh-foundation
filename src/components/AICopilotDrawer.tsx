@@ -19,7 +19,7 @@ export default function AICopilotDrawer() {
     {
       role: "assistant",
       content:
-        "Welcome to the Kiran Singh Foundation Intelligence Copilot. Grounded in the sacred memory of Late Kiran Singh ji (Ph.D. Apex Felid Ethology, AAZP Vandalur Analyst), I can assist you with details regarding our 40 sponsored scholars, our 34 rescued canines, or connect you with our 24/7 mutual-aid emergency grid.",
+        "Welcome to the Kiran Singh Foundation Institutional Concierge. Grounded in the sacred memory of Late Kiran Singh ji (Ph.D. Apex Felid Ethology, AAZP Vandalur Analyst), I can assist you with details regarding our 40 sponsored scholars, our 34 rescued canines, or connect you with our 24/7 mutual-aid emergency grid.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -42,9 +42,10 @@ export default function AICopilotDrawer() {
     setIsLoading(true);
 
     try {
-      // Filter out initial greeting message so historyPayload begins with user turn
+      // Filter out initial greeting message so historyPayload begins with user turn, capped to last 6 turns
       const historyPayload: ChatMessage[] = messages
         .filter((_, idx) => idx > 0)
+        .slice(-6)
         .map((m) => ({
           role: m.role === "assistant" ? "model" : "user",
           content: m.content,
@@ -88,7 +89,7 @@ export default function AICopilotDrawer() {
         <button
           onClick={() => setIsOpen(true)}
           className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 active:scale-95 transition-all duration-200"
-          aria-label="Open Foundation Intelligence Copilot"
+          aria-label="Open Institutional Concierge"
         >
           <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border p-0.5 bg-white shadow-sm">
             <Image
@@ -101,10 +102,10 @@ export default function AICopilotDrawer() {
           </div>
           <div className="flex flex-col text-left">
             <span className="text-xs font-serif font-bold text-obsidian group-hover:text-lion-gold transition-colors">
-              Gemini 2.5 Copilot
+              Institutional Concierge
             </span>
             <span className="text-[10px] font-mono text-slate">
-              Institutional Intelligence
+              Archive &amp; Welfare Desk
             </span>
           </div>
           <div className="w-2 h-2 rounded-full bg-botanical-emerald animate-pulse ml-1" />
@@ -129,17 +130,17 @@ export default function AICopilotDrawer() {
                 </div>
                 <div>
                   <h3 className="font-serif text-sm font-bold text-obsidian">
-                    Foundation Intelligence Copilot
+                    Foundation Archive Intelligence
                   </h3>
                   <p className="text-[10px] font-mono text-lion-gold-dark font-medium">
-                    Google Gemini 2.5 Flash &bull; Grounded Fact Model
+                    Institutional Record System &bull; Directorate Archive
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 rounded-full hover:bg-slate-200/60 text-slate hover:text-obsidian active:scale-95 transition-all"
-                aria-label="Close Copilot"
+                aria-label="Close Concierge"
               >
                 <X className="w-5 h-5" aria-hidden="true" strokeWidth={1.5} />
               </button>
@@ -173,7 +174,7 @@ export default function AICopilotDrawer() {
                       <>
                         <Bot className="w-3.5 h-3.5 text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
                         <span className="text-[10px] font-mono uppercase text-slate font-medium">
-                          Foundation Copilot
+                          Foundation Concierge
                         </span>
                       </>
                     ) : (
@@ -215,7 +216,7 @@ export default function AICopilotDrawer() {
               {isLoading && (
                 <div className="flex items-center space-x-2 text-slate text-xs font-mono p-2">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
-                  <span>Synthesizing institutional knowledge...</span>
+                  <span>Consulting institutional archives...</span>
                 </div>
               )}
               <div ref={messagesEndRef} />
@@ -249,7 +250,7 @@ export default function AICopilotDrawer() {
               </form>
               <div className="mt-2 text-center">
                 <span className="text-[10px] text-slate font-mono">
-                  Emergency triage &bull; Official Foundation System Prompt Active
+                  Emergency triage &bull; Directorate Archive Intelligence Active
                 </span>
               </div>
             </div>

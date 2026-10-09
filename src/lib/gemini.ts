@@ -28,6 +28,10 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
 6. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
 7. MULTI-CHANNEL COMMUNICATIONS: Primary engagement through WhatsApp (wa.me) and transactional emails.
 
+STRICT CAPACITY NEGATIVE CONSTRAINTS:
+- Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (Wing A) and exactly 34 rescued street dogs (Wing B).
+- Do not cite, claim, extrapolate, or invent counts other than 40 scholars and 34 dogs under any circumstances. Prohibiting claiming counts other than 40 scholars and 34 dogs is an inviolable mandate.
+
 VOICE & TONE:
 - Institutional, dignified, scholarly, compassionate, and precise.
 - When generating editorial drafts, write in high-caliber prose worthy of an archival institute.
@@ -91,15 +95,33 @@ Requirements:
 
   if (client) {
     try {
-      const response = await client.models.generateContent({
+      const abortController = new AbortController();
+      const timeoutId = setTimeout(() => abortController.abort(), 12000);
+
+      const generatePromise = client.models.generateContent({
         model: "gemini-2.5-flash",
         contents: prompt,
         config: {
           systemInstruction: FOUNDATION_SYSTEM_PROMPT,
           responseMimeType: "application/json",
           temperature: 0.3,
+          maxOutputTokens: 600,
+          httpOptions: { timeout: 12000 },
         },
       });
+
+      const timeoutPromise = new Promise<never>((_, reject) => {
+        abortController.signal.addEventListener("abort", () => {
+          reject(new Error("Gemini API call timed out via AbortSignal after 12000ms"));
+        });
+      });
+
+      let response;
+      try {
+        response = await Promise.race([generatePromise, timeoutPromise]);
+      } finally {
+        clearTimeout(timeoutId);
+      }
 
       const text = (response.text || "").trim();
       const cleaned = text
@@ -207,14 +229,32 @@ export async function executeFoundationChatTurn(
         },
       ];
 
-      const response = await client.models.generateContent({
+      const abortController = new AbortController();
+      const timeoutId = setTimeout(() => abortController.abort(), 12000);
+
+      const generatePromise = client.models.generateContent({
         model: "gemini-2.5-flash",
         contents: formattedContents,
         config: {
           systemInstruction: FOUNDATION_SYSTEM_PROMPT,
           temperature: 0.4,
+          maxOutputTokens: 600,
+          httpOptions: { timeout: 12000 },
         },
       });
+
+      const timeoutPromise = new Promise<never>((_, reject) => {
+        abortController.signal.addEventListener("abort", () => {
+          reject(new Error("Gemini API call timed out via AbortSignal after 12000ms"));
+        });
+      });
+
+      let response;
+      try {
+        response = await Promise.race([generatePromise, timeoutPromise]);
+      } finally {
+        clearTimeout(timeoutId);
+      }
 
       const replyText = response.text || "Thank you for reaching out to the Kiran Singh Foundation.";
 
@@ -260,7 +300,13 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("who was kiran singh") || userQueryLower.includes("founder") || userQueryLower.includes("history")) {
+  if (
+    userQueryLower.includes("kiran singh") ||
+    userQueryLower.includes("founder") ||
+    userQueryLower.includes("history") ||
+    userQueryLower.includes("amma") ||
+    userQueryLower.includes("ethology")
+  ) {
     return {
       reply: `Late Kiran Singh ji (Amma) was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Her vision powers our motto: "Working towards Change".`,
       suggestedAction: {

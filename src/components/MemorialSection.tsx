@@ -120,61 +120,145 @@ export default function MemorialSection() {
           </div>
         </div>
 
-        {/* 3 Core Historical Milestones Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-          {MEMORIAL_RECORDS.map((record, index) => {
-            const icons = [BookOpen, Award, Landmark];
-            const IconComponent = icons[index] || BookOpen;
+        {/* Asymmetrical Monograph Timeline & State Advisory Highlight Panel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Main Column: Monograph Timeline */}
+          <div className="lg:col-span-7 xl:col-span-8">
+            <div className="relative border-l-2 border-lion-gold/30 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-12">
+              {MEMORIAL_RECORDS.map((record, index) => {
+                const icons = [BookOpen, Award, Landmark];
+                const IconComponent = icons[index] || BookOpen;
 
-            return (
-              <div
-                key={record.id}
-                className="bg-white border border-border rounded-2xl p-6 sm:p-7 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Header Pill */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 rounded-full bg-lion-gold/10 border border-lion-gold/20 flex items-center justify-center text-lion-gold-dark">
-                      <IconComponent className="w-5 h-5" />
+                return (
+                  <div key={record.id} className="relative group">
+                    {/* Accession Reference Timeline Node */}
+                    <div className="absolute -left-[37px] sm:-left-[45px] top-0 w-8 h-8 rounded-full bg-white border-2 border-lion-gold flex items-center justify-center text-lion-gold-dark shadow-sm group-hover:bg-lion-gold group-hover:text-white transition-colors duration-160">
+                      <span className="font-mono text-[10px] font-bold">0{index + 1}</span>
                     </div>
-                    <span className="font-mono text-xs text-slate px-3 py-1 rounded-full bg-slate-50 border border-border">
-                      {record.period}
-                    </span>
+
+                    <div className="bg-white border border-border rounded-2xl p-6 sm:p-8 shadow-card hover:border-lion-gold/50 transition-all duration-300 space-y-5">
+                      {/* Header with Accession Reference Stamp */}
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4">
+                        <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark font-mono text-[10px] font-semibold tracking-wider uppercase">
+                          <span className="font-bold">§</span>
+                          <span>ACCESSION REF // {record.archivalDocumentRef}</span>
+                        </div>
+                        <span className="font-mono text-xs text-slate px-3 py-1 rounded-full bg-slate-50 border border-border font-medium">
+                          {record.period}
+                        </span>
+                      </div>
+
+                      <div>
+                        <div className="text-xs font-mono text-lion-gold-dark font-medium mb-1">
+                          {record.institution}
+                        </div>
+                        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-obsidian leading-snug">
+                          {record.title}
+                        </h3>
+                        <div className="text-[11px] font-mono text-slate mt-1">
+                          Discipline: <span className="text-obsidian font-medium">{record.researchDiscipline}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
+                        {record.detailedNarrative}
+                      </p>
+
+                      {/* Public Service Impact */}
+                      <div className="p-4 rounded-xl bg-slate-50/80 border border-border/80 space-y-1.5">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-slate flex items-center space-x-1.5 font-semibold">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-botanical-emerald shrink-0" />
+                          <span>Public Service Impact</span>
+                        </div>
+                        <p className="text-xs text-obsidian leading-relaxed font-sans">
+                          {record.advisoryAlignment}
+                        </p>
+                      </div>
+
+                      {/* Sources / Citations Footnote */}
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 text-[11px] font-mono text-slate border-t border-border/60">
+                        <span className="text-lion-gold-dark font-medium flex items-center space-x-1">
+                          <IconComponent className="w-3.5 h-3.5" />
+                          <span>{record.citations.length} Primary Archival Citations</span>
+                        </span>
+                        <span className="text-slate/60 text-[10px] uppercase tracking-wider">
+                          Verified Monograph
+                        </span>
+                      </div>
+                    </div>
                   </div>
+                );
+              })}
+            </div>
+          </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-obsidian leading-snug mb-2">
-                    {record.title}
-                  </h3>
+          {/* Side Column: State Advisory Highlight Panel */}
+          <div className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-24">
+            <div className="bg-white border-2 border-lion-gold/30 rounded-3xl p-6 sm:p-8 shadow-card space-y-6">
+              {/* Archival Badge */}
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/15 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+                <Landmark className="w-3.5 h-3.5" />
+                <span>State Advisory Highlight</span>
+              </div>
 
-                  <div className="text-xs font-mono text-lion-gold-dark font-medium mb-4">
-                    {record.institution}
+              <div>
+                <h3 className="font-serif text-2xl font-bold text-obsidian leading-tight">
+                  Zoological Authority &amp; Ministerial Alignment
+                </h3>
+                <p className="text-xs font-mono text-slate mt-1">
+                  AAZP Vandalur &bull; Office of the Chief Minister
+                </p>
+              </div>
+
+              {/* Quote Block */}
+              <div className="p-4 rounded-2xl bg-porcelain border border-border relative">
+                <p className="font-serif italic text-sm sm:text-base text-obsidian leading-relaxed">
+                  "Late Jayalalithaa ji lauded her disciplined methodology, profound empathy for apex felids, and commitment to public welfare, inspiring the core philosophy: &lsquo;Working towards Change&rsquo;."
+                </p>
+                <div className="mt-3 text-[11px] font-mono text-lion-gold-dark font-semibold uppercase tracking-wider">
+                  — State Governance Commendation (2004)
+                </div>
+              </div>
+
+              {/* Advisory Pillars */}
+              <div className="space-y-3 pt-1">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-border">
+                  <div className="font-sans font-semibold text-xs text-obsidian">
+                    1. Felid Ethology at AAZP Vandalur
                   </div>
-
-                  <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans mb-6">
-                    {record.detailedNarrative}
+                  <p className="text-[11px] text-slate font-sans mt-0.5 leading-relaxed">
+                    Pioneered safari corridor enrichment and operant conditioning that reduced resident predator pacing distress by over 60%.
                   </p>
                 </div>
 
-                {/* Advisory Alignment & Citations Card */}
-                <div className="pt-4 border-t border-border mt-auto space-y-3">
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-border/80">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-slate flex items-center space-x-1.5 mb-1 font-semibold">
-                      <CheckCircle2 className="w-3 h-3 text-botanical-emerald" />
-                      <span>Public Service Impact</span>
-                    </div>
-                    <p className="text-xs text-obsidian leading-relaxed font-sans">
-                      {record.advisoryAlignment}
-                    </p>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-border">
+                  <div className="font-sans font-semibold text-xs text-obsidian">
+                    2. State Wildlife Advisory to CM "Amma"
                   </div>
+                  <p className="text-[11px] text-slate font-sans mt-0.5 leading-relaxed">
+                    Shaped humane urban stray animal policies, modern zoo enclosures, and the veterinary modernization roadmap.
+                  </p>
+                </div>
 
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate pt-1">
-                    <span>Ref: {record.archivalDocumentRef}</span>
-                    <span className="text-lion-gold-dark font-medium">{record.citations.length} Verified Sources</span>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-border">
+                  <div className="font-sans font-semibold text-xs text-obsidian">
+                    3. Continuity into 40 Scholars &amp; 34 Canines
                   </div>
+                  <p className="text-[11px] text-slate font-sans mt-0.5 leading-relaxed">
+                    The same scientific discipline directly empowers our dual operational wings today without institutional drift.
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Archival Accession Stamp */}
+              <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-slate">
+                <span className="font-medium text-obsidian">§ ARCH-TNGov-CM-2004-KS-07</span>
+                <span className="text-botanical-emerald font-semibold uppercase tracking-wider text-[10px]">
+                  Verified Archive
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Archival Excerpt Banner */}

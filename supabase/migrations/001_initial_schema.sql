@@ -263,14 +263,15 @@ CREATE POLICY "Public read access for scholar cohort"
     TO anon, authenticated
     USING (TRUE);
 
--- Column-level security isolating sensitive student fields from public anon role
+-- Column-level security isolating sensitive student fields from anon and authenticated roles
 REVOKE SELECT (emergency_contact_phone, notes) ON students FROM anon;
+REVOKE SELECT (emergency_contact_phone, notes) ON students FROM authenticated;
 GRANT SELECT (
     id, scholar_id, full_name, academic_discipline, institution,
     cohort_year, soft_skills_track, internship_status, internship_term,
     internship_placement, expenses_and_stipend_covered, attendance_rate,
     created_at, updated_at
-) ON students TO anon;
+) ON students TO anon, authenticated;
 
 -- Public sanitized view for external integrations
 CREATE OR REPLACE VIEW public_students AS

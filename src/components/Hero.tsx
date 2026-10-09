@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center py-16 md:py-24 px-4 md:px-8 overflow-hidden bg-porcelain">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-4 pb-16 md:pt-6 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
       {/* Architectural hairline grid framing and archival coordinates */}
       <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
@@ -20,14 +20,14 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         {/* Heraldic Emblem Circular Seal */}
         <div className="relative group mb-8">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1.5 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card">
+          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1.5 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-card">
             <div className="relative w-full h-full rounded-full overflow-hidden bg-white border border-border flex items-center justify-center shadow-inner">
               <Image
                 src="/images/logo.png"
                 alt="Kiran Singh Foundation Heraldic Seal - Roaring Male Lion"
                 fill
                 sizes="(max-width: 768px) 128px, 160px"
-                className="object-cover object-[center_20%] scale-110 group-hover:scale-115 transition-transform duration-700"
+                className="object-cover object-[center_20%] scale-110 group-hover:scale-115 transition-transform duration-700 ease-out"
                 priority
               />
             </div>
@@ -40,7 +40,7 @@ export default function Hero() {
 
         {/* Eyebrow tag */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-xs font-mono tracking-widest uppercase mb-6 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-lion-gold-dark" aria-hidden="true" strokeWidth={1.5} />
+          <span className="text-lion-gold font-bold">§</span>
           <span>Institutional Ethology &bull; Human-Animal Welfare Grid</span>
         </div>
 
@@ -67,10 +67,10 @@ export default function Hero() {
           {/* Primary CTA */}
           <Link
             href="/#wings"
-            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-lion-gold text-white font-sans font-semibold text-sm hover:bg-lion-gold-dark active:scale-[0.97] transition-transform duration-160 ease-out shadow-gold-glow"
+            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-lion-gold text-white font-sans font-semibold text-sm hover:bg-lion-gold-dark active:scale-[0.97] transition-all duration-160 ease-out shadow-gold-glow"
           >
             <span>Explore Dual Operational Wings</span>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold transition-all duration-160">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold transition-all duration-160 ease-out">
               <ArrowUpRight className="w-4 h-4 text-white group-hover:text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
             </div>
           </Link>
@@ -78,10 +78,10 @@ export default function Hero() {
           {/* Secondary CTA: Memorial Archive */}
           <Link
             href="/about"
-            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-white border border-border text-obsidian font-sans font-medium text-sm hover:border-lion-gold/50 hover:bg-slate-50 active:scale-[0.97] transition-transform duration-160 ease-out shadow-sm"
+            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-white border border-border text-obsidian font-sans font-medium text-sm hover:border-lion-gold/50 hover:bg-slate-50 active:scale-[0.97] transition-all duration-160 ease-out shadow-sm"
           >
             <span>Founder Memorial Archive</span>
-            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-160">
+            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:translate-x-0.5 transition-all duration-160 ease-out">
               <ArrowUpRight className="w-4 h-4 text-slate group-hover:text-obsidian" aria-hidden="true" strokeWidth={1.5} />
             </div>
           </Link>
@@ -89,19 +89,20 @@ export default function Hero() {
           {/* Emergency Lifeline CTA */}
           <Link
             href="/emergency"
-            className="group relative inline-flex items-center space-x-2.5 px-5 py-3 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert font-mono text-xs uppercase tracking-wider font-semibold hover:bg-crimson-alert/15 active:scale-[0.97] transition-transform duration-160 ease-out shadow-sm"
+            className="group relative inline-flex items-center space-x-2.5 px-5 py-3 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert font-mono text-xs uppercase tracking-wider font-semibold hover:bg-crimson-alert/15 active:scale-[0.97] transition-all duration-160 ease-out shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-crimson-alert animate-ping" aria-hidden="true" />
             <span>24/7 Emergency Dispatch</span>
           </Link>
         </div>
 
-        {/* Live Institutional Impact Counters */}
-        <div className="mt-16 sm:mt-20 w-full grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
-          {/* Card 1: Scholars */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold">
-              Wing A &bull; Scholars
+        {/* Monolithic Masthead Ledger Bar */}
+        <div className="mt-16 sm:mt-20 w-full bg-white border border-border rounded-2xl shadow-card grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border overflow-hidden text-left">
+          {/* Cell 1: Scholars */}
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+              <span className="text-lion-gold font-bold">§</span>
+              <span>Wing A &bull; Scholars</span>
             </div>
             <div className="my-3">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
@@ -110,14 +111,15 @@ export default function Hero() {
               <span className="text-lion-gold-dark text-base sm:text-lg font-serif ml-1.5 font-medium">Active</span>
             </div>
             <p className="text-xs text-slate leading-relaxed">
-              100% funded soft skills incubation & pro bono internships
+              100% funded soft skills incubation &amp; pro bono internships
             </p>
           </div>
 
-          {/* Card 2: Dogs */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-elevation-1 hover:shadow-elevation-card hover:border-botanical-emerald/50 transition-all duration-300 flex flex-col justify-between">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold">
-              Wing B &bull; Resident Dogs
+          {/* Cell 2: Dogs */}
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+              <span className="text-botanical-emerald font-bold">§</span>
+              <span>Wing B &bull; Resident Dogs</span>
             </div>
             <div className="my-3">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
@@ -130,10 +132,11 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Card 3: Direct Care Endowment */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold">
-              Care Endowment
+          {/* Cell 3: Direct Care Endowment */}
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+              <span className="text-lion-gold font-bold">§</span>
+              <span>Care Endowment</span>
             </div>
             <div className="my-3">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
@@ -146,10 +149,11 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Card 4: Mutual-Aid Grid */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-elevation-1 hover:shadow-elevation-card hover:border-crimson-alert/50 transition-all duration-300 flex flex-col justify-between">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold">
-              Mutual-Aid Grid
+          {/* Cell 4: Mutual-Aid Grid */}
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+              <span className="text-crimson-alert font-bold">§</span>
+              <span>Mutual-Aid Grid</span>
             </div>
             <div className="my-3">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
@@ -158,7 +162,7 @@ export default function Hero() {
               <span className="text-crimson-alert text-base sm:text-lg font-serif ml-1.5 font-medium">Live</span>
             </div>
             <p className="text-xs text-slate leading-relaxed">
-              Immediate WhatsApp & email dispatch during emergencies
+              Immediate WhatsApp &amp; email dispatch during emergencies
             </p>
           </div>
         </div>

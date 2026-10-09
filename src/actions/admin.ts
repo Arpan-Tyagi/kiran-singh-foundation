@@ -98,14 +98,22 @@ export async function updateApplicationStatusAction(id: string, status: "pending
   return { success };
 }
 
-export async function authenticateDirectorateSession(role: string = "super_admin"): Promise<{ success: boolean; error?: string }> {
+export async function authenticateDirectorateSession(
+  secretOrPassphrase?: string,
+  role: string = "super_admin"
+): Promise<{ success: boolean; error?: string }> {
   try {
+    const validSecret = process.env.ADMIN_PORTAL_SECRET || "KSF@Directorate2026!";
+    if (!secretOrPassphrase || secretOrPassphrase.trim() !== validSecret.trim()) {
+      return { success: false, error: "Invalid directorate authorization key or passphrase." };
+    }
+
     const cookieStore = await cookies();
     cookieStore.set({
       name: "ksf-admin-session",
       value: role,
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
       maxAge: 86400,
@@ -123,7 +131,7 @@ export async function signOutDirectorateSession(): Promise<{ success: boolean }>
       name: "ksf-admin-session",
       value: "",
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
       maxAge: 0,

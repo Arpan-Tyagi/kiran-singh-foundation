@@ -48,17 +48,17 @@ export async function sendIntakeConfirmationEmail(payload: IntakeEmailPayload) {
 <head>
   <meta charset="UTF-8">
   <style>
-    body { background-color: #0A0B0D; color: #F4EFEA; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 40px 20px; }
-    .container { max-width: 600px; margin: 0 auto; background-color: #1A1C20; border: 1px solid #C89D54; border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-    .header { text-align: center; border-bottom: 1px solid rgba(200, 157, 84, 0.3); padding-bottom: 24px; margin-bottom: 28px; }
-    .emblem-title { color: #C89D54; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
-    .motto { color: #A39E96; font-size: 13px; font-style: italic; margin-top: 6px; }
-    .greeting { font-size: 18px; color: #F4EFEA; margin-bottom: 16px; }
-    .body-text { font-size: 15px; line-height: 1.6; color: #D6CFC7; }
-    .details-card { background-color: #121418; border-left: 3px solid #C89D54; padding: 16px; margin: 24px 0; border-radius: 4px; }
-    .detail-row { margin: 8px 0; font-size: 14px; }
-    .detail-label { color: #C89D54; font-weight: 600; }
-    .footer { text-align: center; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: #A39E96; }
+    body { background-color: #FBFBFB; color: #111827; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 40px 20px; }
+    .container { max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); }
+    .header { text-align: center; border-bottom: 1px solid #E5E7EB; padding-bottom: 24px; margin-bottom: 28px; }
+    .emblem-title { color: #8E6822; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+    .motto { color: #6B7280; font-size: 13px; font-style: italic; margin-top: 6px; }
+    .greeting { font-size: 18px; color: #111827; margin-bottom: 16px; font-weight: 600; }
+    .body-text { font-size: 15px; line-height: 1.6; color: #374151; }
+    .details-card { background-color: #FBFBFB; border: 1px solid #E5E7EB; border-left: 3px solid #8E6822; padding: 18px; margin: 24px 0; border-radius: 8px; }
+    .detail-row { margin: 8px 0; font-size: 14px; color: #1F2937; }
+    .detail-label { color: #8E6822; font-weight: 600; }
+    .footer { text-align: center; margin-top: 36px; padding-top: 24px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; }
   </style>
 </head>
 <body>
@@ -120,11 +120,11 @@ export async function sendEmergencyAdminAlertEmail(payload: EmergencyAdminEmailP
 <head>
   <meta charset="UTF-8">
   <style>
-    body { background-color: #0A0B0D; color: #F4EFEA; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 30px 15px; }
-    .alert-card { max-width: 600px; margin: 0 auto; background-color: #1A1C20; border: 2px solid #A82020; border-radius: 12px; padding: 30px; }
-    .banner { background-color: #A82020; color: #FFFFFF; font-weight: 700; text-align: center; padding: 12px; border-radius: 8px; letter-spacing: 1px; }
-    .info { margin: 20px 0; font-size: 15px; line-height: 1.6; }
-    .label { color: #C89D54; font-weight: 600; }
+    body { background-color: #FBFBFB; color: #111827; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 30px 15px; margin: 0; }
+    .alert-card { max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border: 2px solid #DC2626; border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px rgba(220, 38, 38, 0.08); }
+    .banner { background-color: #DC2626; color: #FFFFFF; font-weight: 700; text-align: center; padding: 12px; border-radius: 8px; letter-spacing: 1px; }
+    .info { margin: 20px 0; font-size: 15px; line-height: 1.6; color: #111827; }
+    .label { color: #8E6822; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -133,7 +133,7 @@ export async function sendEmergencyAdminAlertEmail(payload: EmergencyAdminEmailP
     <div class="info">
       <p><span class="label">Priority:</span> ${payload.priority.toUpperCase()}</p>
       <p><span class="label">Caller / Reporter:</span> ${payload.callerName}</p>
-      <p><span class="label">Phone:</span> <a href="tel:${payload.phone}" style="color: #F4EFEA;">${payload.phone}</a></p>
+      <p><span class="label">Phone:</span> <a href="tel:${payload.phone}" style="color: #111827; font-weight: 600;">${payload.phone}</a></p>
       <p><span class="label">Location Coordinates / Landmark:</span> ${payload.location}</p>
       <p><span class="label">Incident Details:</span> ${payload.description}</p>
       <p><span class="label">Timestamp:</span> ${new Date().toISOString()}</p>

@@ -4,7 +4,7 @@ import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ShieldCheck, Lock, Mail, ArrowRight, AlertCircle, Sparkles } from "lucide-react";
+import { ShieldCheck, Lock, Mail, ArrowRight, AlertCircle } from "lucide-react";
 import { authenticateDirectorateSession } from "@/actions/admin";
 
 function AdminLoginForm() {
@@ -24,25 +24,7 @@ function AdminLoginForm() {
 
     try {
       // Set secure HttpOnly cookie on the server for administration session
-      const res = await authenticateDirectorateSession("super_admin");
-      if (res.success) {
-        router.push(from);
-        router.refresh();
-      } else {
-        setError(res.error || "Authentication failed.");
-      }
-    } catch (err: any) {
-      setError(err?.message || "Authentication failed.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleQuickDirectorateLogin = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await authenticateDirectorateSession("super_admin");
+      const res = await authenticateDirectorateSession(password, "super_admin");
       if (res.success) {
         router.push(from);
         router.refresh();
@@ -136,24 +118,6 @@ function AdminLoginForm() {
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
             </button>
           </form>
-
-          <div className="relative my-4">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
-            </div>
-            <div className="relative flex justify-center text-[10px] font-mono uppercase">
-              <span className="bg-white px-3 text-slate-muted">Or Quick-Auth</span>
-            </div>
-          </div>
-
-          <button
-            onClick={handleQuickDirectorateLogin}
-            disabled={loading}
-            className="w-full py-2.5 rounded-full bg-porcelain border border-border hover:border-lion-gold/50 text-slate-muted hover:text-obsidian text-xs font-mono flex items-center justify-center space-x-2 active:scale-[0.98] transition-all disabled:opacity-50"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
-            <span>Enter as Super Admin (Field Coordinator)</span>
-          </button>
 
           <div className="pt-2 text-center">
             <Link
