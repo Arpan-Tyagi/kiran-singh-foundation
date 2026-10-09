@@ -21,7 +21,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 export interface SupportApplication {
   id: string;
   applicant_name: string;
-  contact_email: string;
+  contact_email: string | null;
   contact_phone: string;
   category: "volunteer_onboarding" | "student_application" | "emergency_distress";
   priority: "standard" | "urgent" | "critical_emergency";

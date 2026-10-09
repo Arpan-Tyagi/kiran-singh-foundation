@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ShieldCheck, Lock, Mail, ArrowRight, AlertCircle, Sparkles } from "lucide-react";
+import { authenticateDirectorateSession } from "@/actions/admin";
 
 function AdminLoginForm() {
   const router = useRouter();
@@ -22,10 +23,14 @@ function AdminLoginForm() {
     setError(null);
 
     try {
-      // Set secure cookie for administration session
-      document.cookie = `ksf-admin-session=super_admin; path=/; max-age=86400; SameSite=Lax`;
-      router.push(from);
-      router.refresh();
+      // Set secure HttpOnly cookie on the server for administration session
+      const res = await authenticateDirectorateSession("super_admin");
+      if (res.success) {
+        router.push(from);
+        router.refresh();
+      } else {
+        setError(res.error || "Authentication failed.");
+      }
     } catch (err: any) {
       setError(err?.message || "Authentication failed.");
     } finally {
@@ -33,10 +38,22 @@ function AdminLoginForm() {
     }
   };
 
-  const handleQuickDirectorateLogin = () => {
-    document.cookie = `ksf-admin-session=super_admin; path=/; max-age=86400; SameSite=Lax`;
-    router.push(from);
-    router.refresh();
+  const handleQuickDirectorateLogin = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await authenticateDirectorateSession("super_admin");
+      if (res.success) {
+        router.push(from);
+        router.refresh();
+      } else {
+        setError(res.error || "Authentication failed.");
+      }
+    } catch (err: any) {
+      setError(err?.message || "Authentication failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -57,7 +74,7 @@ function AdminLoginForm() {
 
           <div>
             <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-lion-gold/15 border border-lion-gold/30 text-lion-gold text-[10px] font-mono tracking-widest uppercase mb-2 font-medium">
-              <ShieldCheck className="w-3 h-3" />
+              <ShieldCheck className="w-3 h-3" aria-hidden="true" strokeWidth={1.5} />
               <span>Restricted Directorate Portal</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian uppercase tracking-wide">
@@ -70,7 +87,7 @@ function AdminLoginForm() {
 
           {error && (
             <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-crimson-alert text-xs flex items-center space-x-2 text-left font-mono">
-              <AlertCircle className="w-4 h-4 shrink-0 text-crimson-alert" />
+              <AlertCircle className="w-4 h-4 shrink-0 text-crimson-alert" aria-hidden="true" strokeWidth={1.5} />
               <span>{error}</span>
             </div>
           )}
@@ -81,7 +98,7 @@ function AdminLoginForm() {
                 Institutional Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-slate-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-slate-muted absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" strokeWidth={1.5} />
                 <input
                   type="email"
                   required
@@ -98,7 +115,7 @@ function AdminLoginForm() {
                 Authorization Key / Password
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-slate-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-slate-muted absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" strokeWidth={1.5} />
                 <input
                   type="password"
                   required
@@ -113,10 +130,10 @@ function AdminLoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition-all shadow-md mt-2 disabled:opacity-50"
+              className="w-full py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 active:scale-[0.98] transition-all shadow-md mt-2 disabled:opacity-50"
             >
               <span>Authorize Directorate Session</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
             </button>
           </form>
 
@@ -131,9 +148,10 @@ function AdminLoginForm() {
 
           <button
             onClick={handleQuickDirectorateLogin}
-            className="w-full py-2.5 rounded-full bg-porcelain border border-border hover:border-lion-gold/50 text-slate-muted hover:text-obsidian text-xs font-mono flex items-center justify-center space-x-2 transition-all"
+            disabled={loading}
+            className="w-full py-2.5 rounded-full bg-porcelain border border-border hover:border-lion-gold/50 text-slate-muted hover:text-obsidian text-xs font-mono flex items-center justify-center space-x-2 active:scale-[0.98] transition-all disabled:opacity-50"
           >
-            <Sparkles className="w-3.5 h-3.5 text-lion-gold" />
+            <Sparkles className="w-3.5 h-3.5 text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
             <span>Enter as Super Admin (Field Coordinator)</span>
           </button>
 

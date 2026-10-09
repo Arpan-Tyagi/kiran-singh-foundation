@@ -15,6 +15,7 @@ import {
   ArrowUpRight,
   LogOut,
 } from "lucide-react";
+import { signOutDirectorateSession } from "@/actions/admin";
 
 export default function AdminLayout({
   children,
@@ -38,10 +39,8 @@ export default function AdminLayout({
     { label: "34 Canines", href: "/admin/dogs", icon: Heart },
   ];
 
-  const handleSignOut = () => {
-    document.cookie = "ksf-admin-session=; path=/; max-age=0";
-    document.cookie = "sb-access-token=; path=/; max-age=0";
-    document.cookie = "supabase-auth-token=; path=/; max-age=0";
+  const handleSignOut = async () => {
+    await signOutDirectorateSession();
     router.push("/admin/login");
     router.refresh();
   };
@@ -78,23 +77,23 @@ export default function AdminLayout({
         <div className="flex items-center space-x-3 text-xs font-mono">
           <Link
             href="/"
-            className="px-4 py-2 rounded-full bg-porcelain border border-border text-obsidian hover:text-lion-gold hover:border-lion-gold/40 transition-colors flex items-center space-x-1 font-medium"
+            className="px-4 py-2 rounded-full bg-porcelain border border-border text-obsidian hover:text-lion-gold hover:border-lion-gold/40 active:scale-95 transition-all flex items-center space-x-1 font-medium"
           >
             <span>Public Site</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
           </Link>
 
           <div className="px-3 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-botanical-emerald flex items-center space-x-1.5 font-medium">
-            <ShieldCheck className="w-4 h-4" />
+            <ShieldCheck className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
             <span>RLS Active</span>
           </div>
 
           <button
             onClick={handleSignOut}
-            className="px-3.5 py-2 rounded-full bg-red-50 border border-red-200 text-crimson-alert hover:bg-red-100 transition-colors flex items-center space-x-1.5 font-medium"
+            className="px-3.5 py-2 rounded-full bg-red-50 border border-red-200 text-crimson-alert hover:bg-red-100 active:scale-95 transition-all flex items-center space-x-1.5 font-medium"
             title="Sign Out of Directorate Session"
           >
-            <LogOut className="w-3.5 h-3.5" />
+            <LogOut className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
             <span>Sign Out</span>
           </button>
         </div>
@@ -109,13 +108,13 @@ export default function AdminLayout({
             <Link
               key={item.href}
               href={item.href}
-              className={`whitespace-nowrap px-4 py-2.5 rounded-2xl border transition-all text-xs font-mono flex items-center space-x-2 ${
+              className={`whitespace-nowrap px-4 py-2.5 rounded-2xl border transition-all text-xs font-mono flex items-center space-x-2 active:scale-95 ${
                 isActive
                   ? "bg-white border-lion-gold text-lion-gold font-semibold shadow-sm"
                   : "bg-white/80 border-border text-slate-muted hover:text-obsidian hover:border-lion-gold/30 hover:bg-white"
               }`}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
               <span>{item.label}</span>
             </Link>
           );

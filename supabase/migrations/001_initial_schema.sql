@@ -152,7 +152,7 @@ CREATE TABLE blog_posts (
 CREATE TABLE support_applications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     applicant_name TEXT NOT NULL,
-    contact_email TEXT NOT NULL,
+    contact_email TEXT,
     contact_phone TEXT NOT NULL,
     category support_category NOT NULL,
     priority triage_priority NOT NULL DEFAULT 'standard',

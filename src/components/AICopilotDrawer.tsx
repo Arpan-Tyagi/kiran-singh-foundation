@@ -84,10 +84,10 @@ export default function AICopilotDrawer() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] right-6 z-40">
         <button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 transition-all duration-300"
+          className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 active:scale-95 transition-all duration-200"
           aria-label="Open Foundation Intelligence Copilot"
         >
           <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border p-0.5 bg-white shadow-sm">
@@ -138,10 +138,10 @@ export default function AICopilotDrawer() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-slate-200/60 text-slate hover:text-obsidian transition-colors"
+                className="p-2 rounded-full hover:bg-slate-200/60 text-slate hover:text-obsidian active:scale-95 transition-all"
                 aria-label="Close Copilot"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" strokeWidth={1.5} />
               </button>
             </div>
 
@@ -152,7 +152,7 @@ export default function AICopilotDrawer() {
                   key={i}
                   onClick={() => handleSend(prompt)}
                   disabled={isLoading}
-                  className="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-border text-slate hover:text-obsidian hover:border-lion-gold/50 transition-colors shadow-sm"
+                  className="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-border text-slate hover:text-obsidian hover:border-lion-gold/50 active:scale-95 transition-transform duration-150 shadow-sm"
                 >
                   {prompt}
                 </button>
@@ -171,14 +171,14 @@ export default function AICopilotDrawer() {
                   <div className="flex items-center space-x-1.5 mb-1 px-1">
                     {msg.role === "assistant" ? (
                       <>
-                        <Bot className="w-3.5 h-3.5 text-lion-gold" />
+                        <Bot className="w-3.5 h-3.5 text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
                         <span className="text-[10px] font-mono uppercase text-slate font-medium">
                           Foundation Copilot
                         </span>
                       </>
                     ) : (
                       <>
-                        <User className="w-3.5 h-3.5 text-slate" />
+                        <User className="w-3.5 h-3.5 text-slate" aria-hidden="true" strokeWidth={1.5} />
                         <span className="text-[10px] font-mono uppercase text-slate font-medium">
                           You
                         </span>
@@ -201,10 +201,10 @@ export default function AICopilotDrawer() {
                         <Link
                           href={msg.suggestedAction.href}
                           onClick={() => setIsOpen(false)}
-                          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/40 hover:bg-lion-gold hover:text-white transition-all text-xs font-semibold"
+                          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/40 hover:bg-lion-gold hover:text-white active:scale-95 transition-all text-xs font-semibold"
                         >
                           <span>{msg.suggestedAction.label}</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
+                          <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
                         </Link>
                       </div>
                     )}
@@ -214,15 +214,15 @@ export default function AICopilotDrawer() {
 
               {isLoading && (
                 <div className="flex items-center space-x-2 text-slate text-xs font-mono p-2">
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-lion-gold" />
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
                   <span>Synthesizing institutional knowledge...</span>
                 </div>
               )}
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Bar */}
-            <div className="p-4 border-t border-border bg-white">
+            {/* Input Bar with iOS safe area support */}
+            <div className="p-4 border-t border-border bg-white pb-[calc(1rem+env(safe-area-inset-bottom,0px))]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -241,10 +241,10 @@ export default function AICopilotDrawer() {
                 <button
                   type="submit"
                   disabled={isLoading || !input.trim()}
-                  className="p-2.5 rounded-full bg-lion-gold text-white disabled:opacity-40 hover:bg-lion-gold-dark transition-colors shadow-sm"
+                  className="p-2.5 rounded-full bg-lion-gold text-white disabled:opacity-40 hover:bg-lion-gold-dark active:scale-95 transition-all shadow-sm"
                   aria-label="Send message"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
                 </button>
               </form>
               <div className="mt-2 text-center">

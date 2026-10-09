@@ -31,7 +31,11 @@ export default function MutualAidForm() {
     setErrorMessage(null);
 
     try {
-      const res = await submitIntakeAction(formData);
+      const payload = {
+        ...formData,
+        contactEmail: formData.contactEmail.trim() ? formData.contactEmail.trim() : null,
+      };
+      const res = await submitIntakeAction(payload);
       if (res.success && res.referenceId) {
         setSuccessResult({
           referenceId: res.referenceId,
@@ -54,7 +58,7 @@ export default function MutualAidForm() {
           {/* Header */}
           <div className="text-center max-w-xl mx-auto mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase mb-4 font-semibold">
-              <HeartHandshake className="w-3.5 h-3.5" />
+              <HeartHandshake className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
               <span>Mutual-Aid Dispatch & Intake Grid</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-obsidian uppercase">
@@ -85,7 +89,7 @@ export default function MutualAidForm() {
           {successResult ? (
             <div className="p-8 rounded-3xl bg-slate-50 border border-botanical-emerald/30 text-center space-y-6 animate-in fade-in zoom-in-95 duration-500">
               <div className="w-16 h-16 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 flex items-center justify-center mx-auto text-botanical-emerald">
-                <CheckCircle className="w-8 h-8" />
+                <CheckCircle className="w-8 h-8" aria-hidden="true" strokeWidth={1.5} />
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-bold text-obsidian">
@@ -106,11 +110,11 @@ export default function MutualAidForm() {
                     href={successResult.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light text-white font-sans font-semibold text-sm shadow-md transition-all hover:scale-105"
+                    className="inline-flex items-center space-x-3 px-8 py-3.5 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light active:scale-[0.98] text-white font-sans font-semibold text-sm shadow-md transition-all hover:scale-105"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
                     <span>Open Pre-filled WhatsApp Alert Now</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
                   </a>
                 </div>
               )}
@@ -130,7 +134,7 @@ export default function MutualAidForm() {
                     isInjuredCanine: false,
                   });
                 }}
-                className="text-xs font-mono text-slate hover:text-obsidian underline block mx-auto pt-2"
+                className="text-xs font-mono text-slate hover:text-obsidian underline block mx-auto pt-2 active:scale-95 transition-transform"
               >
                 Submit Another Intake
               </button>
@@ -139,7 +143,7 @@ export default function MutualAidForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {errorMessage && (
                 <div className="p-4 rounded-2xl bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs flex items-center space-x-3">
-                  <AlertTriangle className="w-5 h-5 shrink-0 text-crimson-alert" />
+                  <AlertTriangle className="w-5 h-5 shrink-0 text-crimson-alert" aria-hidden="true" strokeWidth={1.5} />
                   <span>{errorMessage}</span>
                 </div>
               )}
@@ -313,13 +317,13 @@ export default function MutualAidForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-4 rounded-full font-sans font-semibold text-sm flex items-center justify-center space-x-3 transition-all ${
+                className={`w-full py-4 rounded-full font-sans font-semibold text-sm flex items-center justify-center space-x-3 active:scale-[0.98] transition-all duration-150 ${
                   formData.category === "emergency_distress"
                     ? "bg-crimson-alert hover:bg-crimson-alert-light text-white shadow-emergency-glow"
                     : "bg-lion-gold hover:bg-lion-gold-dark text-white shadow-gold-glow"
                 } disabled:opacity-50`}
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4" aria-hidden="true" strokeWidth={1.5} />
                 <span>
                   {loading
                     ? "Dispatching to Registry & WhatsApp..."

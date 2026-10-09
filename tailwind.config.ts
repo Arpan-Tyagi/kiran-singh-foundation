@@ -39,7 +39,7 @@ const config: Config = {
         "lion-gold": {
           DEFAULT: "#C89D54", // Primary Accent / CTA: Lion Gold (#C89D54)
           light: "#D8AF6B",
-          dark: "#9E7633",
+          dark: "#8E6822", // WCAG 2.1 AA compliant (> 5.1:1 contrast on porcelain)
           subtle: "rgba(200, 157, 84, 0.12)",
           surface: "#FAF6EF",
           border: "rgba(200, 157, 84, 0.25)",

@@ -97,3 +97,41 @@ export async function updateApplicationStatusAction(id: string, status: "pending
   revalidatePath("/admin/applications");
   return { success };
 }
+
+export async function authenticateDirectorateSession(role: string = "super_admin"): Promise<{ success: boolean; error?: string }> {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set({
+      name: "ksf-admin-session",
+      value: role,
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+      path: "/",
+      maxAge: 86400,
+    });
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error?.message || "Failed to establish directorate session." };
+  }
+}
+
+export async function signOutDirectorateSession(): Promise<{ success: boolean }> {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set({
+      name: "ksf-admin-session",
+      value: "",
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+      path: "/",
+      maxAge: 0,
+    });
+    cookieStore.delete("ksf-admin-session");
+    return { success: true };
+  } catch {
+    return { success: false };
+  }
+}
+

@@ -6,11 +6,11 @@ import { sendIntakeConfirmationEmail, sendEmergencyAdminAlertEmail } from "@/lib
 
 export interface SubmitIntakeInput {
   applicantName: string;
-  contactEmail: string;
+  contactEmail?: string | null;
   contactPhone: string;
   category: "volunteer_onboarding" | "student_application" | "emergency_distress";
   priority?: "standard" | "urgent" | "critical_emergency";
-  subject: string;
+  subject?: string;
   messageDetails: string;
   locationData?: string;
   isInjuredCanine?: boolean;
@@ -50,9 +50,11 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
         ? (data.priority as ValidPriority)
         : defaultPriority;
 
+    const sanitizedEmail = data.contactEmail?.trim() ? data.contactEmail.trim() : null;
+
     const created = await submitSupportApplication({
       applicant_name: data.applicantName,
-      contact_email: data.contactEmail || "not-provided@kiransinghfoundation.org",
+      contact_email: sanitizedEmail,
       contact_phone: data.contactPhone,
       category,
       priority,
@@ -90,9 +92,9 @@ export async function submitIntakeAction(data: SubmitIntakeInput): Promise<Submi
     }
 
     // Send confirmation email if email is provided
-    if (data.contactEmail && data.contactEmail.includes("@")) {
+    if (sanitizedEmail && sanitizedEmail.includes("@")) {
       sendIntakeConfirmationEmail({
-        toEmail: data.contactEmail,
+        toEmail: sanitizedEmail,
         applicantName: data.applicantName,
         category,
         priority,

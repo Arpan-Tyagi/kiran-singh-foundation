@@ -6,10 +6,16 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center py-16 md:py-24 px-4 md:px-8 overflow-hidden bg-porcelain">
-      {/* Subtle organic ambient diffusions */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-lion-gold/[0.04] blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-6 w-[400px] h-[400px] bg-botanical-emerald/[0.03] blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 right-6 w-[400px] h-[400px] bg-crimson-alert/[0.025] blur-[130px] rounded-full pointer-events-none" />
+      {/* Architectural hairline grid framing and archival coordinates */}
+      <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
+      <div className="absolute top-6 left-8 hidden lg:block font-mono text-[9px] text-slate/50 uppercase tracking-widest select-none pointer-events-none">
+        GRID REF // 12.8797° N, 80.0811° E (AAZP)
+      </div>
+      <div className="absolute top-6 right-8 hidden lg:block font-mono text-[9px] text-slate/50 uppercase tracking-widest select-none pointer-events-none">
+        INSTITUTIONAL ARCHIVE &bull; EST. 1994
+      </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         {/* Heraldic Emblem Circular Seal */}
@@ -34,7 +40,7 @@ export default function Hero() {
 
         {/* Eyebrow tag */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-xs font-mono tracking-widest uppercase mb-6 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-lion-gold" />
+          <Sparkles className="w-3.5 h-3.5 text-lion-gold-dark" aria-hidden="true" strokeWidth={1.5} />
           <span>Institutional Ethology &bull; Human-Animal Welfare Grid</span>
         </div>
 
@@ -45,7 +51,7 @@ export default function Hero() {
         </h1>
 
         {/* Motto & Mandate Excerpt */}
-        <p className="mt-4 font-mono text-sm sm:text-base md:text-lg text-lion-gold tracking-widest uppercase font-semibold">
+        <p className="mt-4 font-mono text-sm sm:text-base md:text-lg text-lion-gold-dark tracking-widest uppercase font-semibold">
           "Working towards Change"
         </p>
 
@@ -61,31 +67,31 @@ export default function Hero() {
           {/* Primary CTA */}
           <Link
             href="/#wings"
-            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-lion-gold text-white font-sans font-semibold text-sm hover:bg-lion-gold-dark active:scale-[0.98] transition-all duration-300 shadow-gold-glow"
+            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-lion-gold text-white font-sans font-semibold text-sm hover:bg-lion-gold-dark active:scale-[0.97] transition-transform duration-160 ease-out shadow-gold-glow"
           >
             <span>Explore Dual Operational Wings</span>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold transition-all duration-300">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-lion-gold" />
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold transition-all duration-160">
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
             </div>
           </Link>
 
           {/* Secondary CTA: Memorial Archive */}
           <Link
             href="/about"
-            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-white border border-border text-obsidian font-sans font-medium text-sm hover:border-lion-gold/50 hover:bg-slate-50 active:scale-[0.98] transition-all duration-300 shadow-sm"
+            className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-white border border-border text-obsidian font-sans font-medium text-sm hover:border-lion-gold/50 hover:bg-slate-50 active:scale-[0.97] transition-transform duration-160 ease-out shadow-sm"
           >
             <span>Founder Memorial Archive</span>
-            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-              <ArrowUpRight className="w-4 h-4 text-slate group-hover:text-obsidian" />
+            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-160">
+              <ArrowUpRight className="w-4 h-4 text-slate group-hover:text-obsidian" aria-hidden="true" strokeWidth={1.5} />
             </div>
           </Link>
 
           {/* Emergency Lifeline CTA */}
           <Link
             href="/emergency"
-            className="group relative inline-flex items-center space-x-2.5 px-5 py-3 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert font-mono text-xs uppercase tracking-wider font-semibold hover:bg-crimson-alert/15 transition-all shadow-sm"
+            className="group relative inline-flex items-center space-x-2.5 px-5 py-3 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert font-mono text-xs uppercase tracking-wider font-semibold hover:bg-crimson-alert/15 active:scale-[0.97] transition-transform duration-160 ease-out shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-crimson-alert animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-crimson-alert animate-ping" aria-hidden="true" />
             <span>24/7 Emergency Dispatch</span>
           </Link>
         </div>
@@ -101,7 +107,7 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 40
               </span>
-              <span className="text-lion-gold text-base sm:text-lg font-serif ml-1.5 font-medium">Active</span>
+              <span className="text-lion-gold-dark text-base sm:text-lg font-serif ml-1.5 font-medium">Active</span>
             </div>
             <p className="text-xs text-slate leading-relaxed">
               100% funded soft skills incubation & pro bono internships
@@ -133,7 +139,7 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 100%
               </span>
-              <span className="text-lion-gold text-base sm:text-lg font-serif ml-1.5 font-medium">Direct</span>
+              <span className="text-lion-gold-dark text-base sm:text-lg font-serif ml-1.5 font-medium">Direct</span>
             </div>
             <p className="text-xs text-slate leading-relaxed">
               Zero administrative cuts taken from scholar or canine care
