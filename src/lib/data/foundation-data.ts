@@ -95,6 +95,7 @@ export interface LeadershipMember {
   name: string;
   role: string;
   photoUrl: string;
+  photoPosition?: string;
   bio?: string;
   quote?: string;
 }
@@ -105,6 +106,7 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     name: "Shri Anil Kumar Singh",
     role: "President, Kiran Singh Foundation",
     photoUrl: "/images/leadership/anil-kumar-singh.jpg",
+    photoPosition: "object-[center_20%]",
     bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji (Amma).",
   },
   {
@@ -112,7 +114,16 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     name: "Shri Anuj Kumar Singh",
     role: "Secretary, Kiran Singh Foundation",
     photoUrl: "/images/leadership/anuj-kumar-singh.jpg",
+    photoPosition: "object-[center_15%]",
     bio: "Directing administrative execution, mutual-aid dispatch grids, student incubation logistics, and day-to-day sanctuary governance.",
+  },
+  {
+    id: "lead-03",
+    name: "Ms. Akansha Singh",
+    role: "Treasurer & Internship Controller",
+    photoUrl: "/images/leadership/akansha-singh.jpg",
+    photoPosition: "object-[65%_20%]",
+    bio: "Supervising foundation treasury accounts, endowment governance, and directing the pro bono Summer and Winter internship cohorts for student scholars.",
   },
 ];
 
