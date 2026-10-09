@@ -111,12 +111,12 @@ export default function EventsDeskClient({
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-parchment/10 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
         <div>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-parchment">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
             Gatherings & Medical Camps Manager
           </h2>
-          <p className="text-xs text-parchment-dim font-mono mt-0.5">
+          <p className="text-xs text-slate-muted font-mono mt-0.5">
             Schedule rabies clinics, scholar symposiums, and community flood readiness drills
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function EventsDeskClient({
               setShowAiDraftSection(true);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-lion-gold/15 border border-lion-gold/40 hover:bg-lion-gold/25 text-lion-gold font-mono text-xs transition-all shadow-sm"
+            className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-lion-gold/15 border border-lion-gold/40 hover:bg-lion-gold/25 text-lion-gold font-mono text-xs transition-all shadow-sm font-medium"
           >
             <Sparkles className="w-4 h-4" />
             <span>Draft with Gemini 2.5 Flash</span>
@@ -138,7 +138,7 @@ export default function EventsDeskClient({
               setShowAiDraftSection(false);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian font-sans font-semibold text-xs transition-all shadow-md"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs transition-all shadow-md"
           >
             <Plus className="w-4 h-4" />
             <span>Schedule New Event</span>
@@ -149,52 +149,50 @@ export default function EventsDeskClient({
       {/* Events Table / Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {events.map((evt) => (
-          <div key={evt.id} className="bezel-card">
-            <div className="bezel-card-inner p-6 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between text-[10px] font-mono mb-2">
-                  <span className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-lion-gold uppercase">
-                    {evt.category.replace("_", " ")}
-                  </span>
-                  <span className="text-parchment-dim">
-                    {new Date(evt.scheduledAt).toLocaleDateString()}
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-xl font-bold text-parchment">
-                  {evt.title}
-                </h3>
-
-                <p className="text-xs text-parchment-muted mt-2 font-sans line-clamp-3">
-                  {evt.description}
-                </p>
-
-                <div className="mt-4 pt-3 border-t border-white/5 space-y-1 text-xs font-mono text-parchment-dim">
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span>{evt.location}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-3.5 h-3.5" />
-                    <span>Capacity: {evt.capacity} attendees</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-                <a
-                  href={evt.whatsappRsvpLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-emerald-400 hover:underline flex items-center space-x-1"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>RSVP Deep Link</span>
-                </a>
-                <span className="text-[10px] font-mono text-emerald-400">
-                  Published Live
+          <div key={evt.id} className="bg-white border border-border rounded-2xl shadow-card p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between text-[10px] font-mono mb-2">
+                <span className="px-2.5 py-0.5 rounded-full bg-porcelain border border-border text-lion-gold font-semibold uppercase">
+                  {evt.category.replace("_", " ")}
+                </span>
+                <span className="text-slate-muted">
+                  {new Date(evt.scheduledAt).toLocaleDateString()}
                 </span>
               </div>
+
+              <h3 className="font-serif text-xl font-bold text-obsidian">
+                {evt.title}
+              </h3>
+
+              <p className="text-xs text-slate-muted mt-2 font-sans line-clamp-3 leading-relaxed">
+                {evt.description}
+              </p>
+
+              <div className="mt-4 pt-3 border-t border-border space-y-1 text-xs font-mono text-slate-muted">
+                <div className="flex items-center space-x-2">
+                  <MapPin className="w-3.5 h-3.5 text-lion-gold" />
+                  <span className="text-obsidian font-medium">{evt.location}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Users className="w-3.5 h-3.5 text-slate-muted" />
+                  <span>Capacity: {evt.capacity} attendees</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
+              <a
+                href={evt.whatsappRsvpLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono text-botanical-emerald hover:underline flex items-center space-x-1 font-medium"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span>RSVP Deep Link</span>
+              </a>
+              <span className="text-[10px] font-mono text-botanical-emerald font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                Published Live
+              </span>
             </div>
           </div>
         ))}
@@ -202,51 +200,51 @@ export default function EventsDeskClient({
 
       {/* Create Event Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-obsidian border border-parchment/20 rounded-3xl w-full max-w-xl p-6 sm:p-8 space-y-6 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-parchment/10 pb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/60 backdrop-blur-sm">
+          <div className="bg-white border border-border rounded-3xl w-full max-w-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full bg-lion-gold/20 flex items-center justify-center text-lion-gold">
+                <div className="w-8 h-8 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-parchment">
+                  <h3 className="font-serif text-xl font-bold text-obsidian">
                     Schedule Gathering & AI Announcement
                   </h3>
-                  <p className="text-[10px] font-mono text-lion-gold">
+                  <p className="text-[10px] font-mono text-lion-gold font-medium">
                     Grounded in Institutional Mandates &bull; @google/genai SDK
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1 rounded-full text-parchment-dim hover:text-parchment"
+                className="p-1 rounded-full text-slate-muted hover:text-obsidian"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Gemini 2.5 Flash Drafting Assistant Section */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-lion-gold/30 space-y-3">
+            <div className="p-4 rounded-2xl bg-porcelain border border-lion-gold/30 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Sparkles className="w-4 h-4 text-lion-gold" />
-                  <span className="font-serif text-sm font-bold text-parchment">
+                  <span className="font-serif text-sm font-bold text-obsidian">
                     Gemini 2.5 Flash Drafting Assistant
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setShowAiDraftSection(!showAiDraftSection)}
-                  className="text-[11px] font-mono text-lion-gold hover:underline"
+                  className="text-[11px] font-mono text-lion-gold hover:underline font-medium"
                 >
                   {showAiDraftSection ? "Hide Assistant" : "Expand Assistant"}
                 </button>
               </div>
 
               {showAiDraftSection && (
-                <div className="space-y-3 pt-2 border-t border-white/5">
-                  <p className="text-[11px] text-parchment-dim font-mono">
+                <div className="space-y-3 pt-2 border-t border-border">
+                  <p className="text-[11px] text-slate-muted font-mono">
                     Paste raw coordinator notes to auto-synthesize an institutional event title and description.
                   </p>
 
@@ -258,8 +256,8 @@ export default function EventsDeskClient({
                         onClick={() => setTargetTone(tone)}
                         className={`py-1.5 px-2 rounded-lg text-[10px] font-mono border transition-all ${
                           targetTone === tone
-                            ? "bg-lion-gold/20 border-lion-gold text-lion-gold font-semibold"
-                            : "bg-obsidian border-white/10 text-parchment-dim"
+                            ? "bg-lion-gold/15 border-lion-gold text-lion-gold font-semibold shadow-sm"
+                            : "bg-white border-border text-slate-muted hover:text-obsidian"
                         }`}
                       >
                         {tone.replace("_", " ")}
@@ -272,14 +270,14 @@ export default function EventsDeskClient({
                     value={rawNotes}
                     onChange={(e) => setRawNotes(e.target.value)}
                     placeholder="e.g. Mass anti-rabies drive in Tambaram for street dogs, need student volunteer marshals from the 40 scholars cohort..."
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl p-3 text-xs text-parchment focus:outline-none focus:border-lion-gold"
+                    className="w-full bg-white border border-border rounded-xl p-3 text-xs text-obsidian placeholder:text-slate-muted focus:outline-none focus:border-lion-gold"
                   />
 
                   <button
                     type="button"
                     onClick={handleGenerateAiDraft}
                     disabled={isDrafting || !rawNotes.trim()}
-                    className="w-full py-2.5 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian font-sans font-semibold text-xs flex items-center justify-center space-x-2 transition-all disabled:opacity-40"
+                    className="w-full py-2.5 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs flex items-center justify-center space-x-2 transition-all disabled:opacity-40 shadow-sm"
                   >
                     {isDrafting ? (
                       <>
@@ -295,13 +293,13 @@ export default function EventsDeskClient({
                   </button>
 
                   {draftError && (
-                    <div className="p-2.5 rounded-xl bg-crimson-alert/20 border border-crimson-alert/40 text-red-200 text-xs font-mono">
+                    <div className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-crimson-alert text-xs font-mono">
                       {draftError}
                     </div>
                   )}
 
                   {isAiAssisted && (
-                    <div className="flex items-center space-x-1.5 text-emerald-400 text-xs font-mono">
+                    <div className="flex items-center space-x-1.5 text-botanical-emerald text-xs font-mono font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Fields successfully auto-populated by Gemini 2.5 Flash</span>
                     </div>
@@ -312,7 +310,7 @@ export default function EventsDeskClient({
 
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                   Event Title *
                 </label>
                 <input
@@ -321,19 +319,19 @@ export default function EventsDeskClient({
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Adyar Suburban Anti-Rabies Field Camp"
-                  className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-lion-gold"
+                  className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                  <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                     Category
                   </label>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as any)}
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-4 py-2.5 text-xs text-parchment font-mono focus:border-lion-gold"
+                    className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian font-mono focus:bg-white focus:border-lion-gold"
                   >
                     <option value="medical_camp">Medical & Rabies Camp</option>
                     <option value="personality_workshop">Scholar Symposium</option>
@@ -343,20 +341,20 @@ export default function EventsDeskClient({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                  <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                     Scheduled Date & Time
                   </label>
                   <input
                     type="datetime-local"
                     value={scheduledAt}
                     onChange={(e) => setScheduledAt(e.target.value)}
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-4 py-2.5 text-xs text-parchment font-mono focus:border-lion-gold"
+                    className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian font-mono focus:bg-white focus:border-lion-gold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                   Location / Venue *
                 </label>
                 <input
@@ -365,12 +363,12 @@ export default function EventsDeskClient({
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="e.g. Vandalur Base Clinic or IIT Madras Corridor"
-                  className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-lion-gold"
+                  className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                   Description & Operational Directives *
                 </label>
                 <textarea
@@ -379,7 +377,7 @@ export default function EventsDeskClient({
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Provide scope, required supplies, and veterinarian assignments..."
-                  className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl p-3 text-xs text-parchment focus:border-lion-gold"
+                  className="w-full bg-porcelain border border-border rounded-xl p-3 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                 />
               </div>
 
@@ -387,14 +385,14 @@ export default function EventsDeskClient({
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 rounded-full border border-white/10 text-xs font-mono text-parchment-dim hover:text-parchment"
+                  className="px-5 py-2.5 rounded-full border border-border text-xs font-mono text-slate-muted hover:text-obsidian"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2.5 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian font-sans font-semibold text-xs transition-all disabled:opacity-50"
+                  className="px-6 py-2.5 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs transition-all disabled:opacity-50 shadow-md"
                 >
                   {loading ? "Scheduling..." : "Publish Event to Calendar"}
                 </button>

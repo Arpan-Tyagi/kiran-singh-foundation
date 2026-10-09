@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,10 +12,10 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-jakarta",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -51,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${jetbrains.variable}`}>
-      <body className="min-h-screen bg-obsidian text-parchment antialiased selection:bg-lion-gold selection:text-obsidian flex flex-col justify-between">
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} ${jetbrains.variable}`}>
+      <body className="min-h-screen bg-porcelain text-obsidian antialiased selection:bg-lion-gold/20 selection:text-obsidian flex flex-col justify-between">
         <div className="archival-grain" />
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>

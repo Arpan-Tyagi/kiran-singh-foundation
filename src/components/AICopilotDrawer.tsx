@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, X, Send, Bot, User, ArrowUpRight, AlertTriangle, RefreshCw } from "lucide-react";
+import { X, Send, Bot, User, ArrowUpRight, RefreshCw } from "lucide-react";
 import { submitFoundationChatTurnAction } from "@/actions/chat";
 import { ChatMessage, ChatTurnResponse } from "@/lib/gemini";
 
@@ -87,58 +87,58 @@ export default function AICopilotDrawer() {
       <div className="fixed bottom-6 right-6 z-40">
         <button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center space-x-3 px-4 py-3 rounded-full bg-slate-charcoal/95 border border-lion-gold/50 shadow-2xl shadow-black/80 backdrop-blur-xl hover:border-lion-gold hover:scale-105 transition-all duration-300"
+          className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 transition-all duration-300"
           aria-label="Open Foundation Intelligence Copilot"
         >
-          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-lion-gold/60 p-0.5 bg-obsidian">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border p-0.5 bg-white shadow-sm">
             <Image
               src="/images/logo.png"
               alt="Lion Emblem"
               fill
               sizes="32px"
-              className="object-cover rounded-full"
+              className="object-cover object-[center_20%] scale-110 rounded-full"
             />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-xs font-serif font-bold text-parchment group-hover:text-lion-gold transition-colors">
+            <span className="text-xs font-serif font-bold text-obsidian group-hover:text-lion-gold transition-colors">
               Gemini 2.5 Copilot
             </span>
-            <span className="text-[10px] font-mono text-parchment-dim">
+            <span className="text-[10px] font-mono text-slate">
               Institutional Intelligence
             </span>
           </div>
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-1" />
+          <div className="w-2 h-2 rounded-full bg-botanical-emerald animate-pulse ml-1" />
         </button>
       </div>
 
       {/* Drawer Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="w-full max-w-lg h-full bg-obsidian border-l border-parchment/10 flex flex-col shadow-2xl">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/25 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="w-full max-w-lg h-full bg-white border-l border-border flex flex-col shadow-2xl">
             {/* Header */}
-            <div className="p-4 border-b border-parchment/10 bg-slate-charcoal/80 flex items-center justify-between">
+            <div className="p-4 border-b border-border bg-slate-50/90 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden border border-lion-gold/40">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden border border-border shadow-sm">
                   <Image
                     src="/images/logo.png"
                     alt="Emblem"
                     fill
                     sizes="36px"
-                    className="object-cover"
+                    className="object-cover object-[center_20%] scale-110"
                   />
                 </div>
                 <div>
-                  <h3 className="font-serif text-sm font-bold text-parchment">
+                  <h3 className="font-serif text-sm font-bold text-obsidian">
                     Foundation Intelligence Copilot
                   </h3>
-                  <p className="text-[10px] font-mono text-lion-gold">
+                  <p className="text-[10px] font-mono text-lion-gold-dark font-medium">
                     Google Gemini 2.5 Flash &bull; Grounded Fact Model
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-white/10 text-parchment-dim hover:text-parchment transition-colors"
+                className="p-2 rounded-full hover:bg-slate-200/60 text-slate hover:text-obsidian transition-colors"
                 aria-label="Close Copilot"
               >
                 <X className="w-5 h-5" />
@@ -146,13 +146,13 @@ export default function AICopilotDrawer() {
             </div>
 
             {/* Quick Prompt Pills */}
-            <div className="p-3 bg-white/[0.02] border-b border-parchment/5 flex gap-2 overflow-x-auto text-[11px] font-mono scrollbar-none">
+            <div className="p-3 bg-slate-50/60 border-b border-border flex gap-2 overflow-x-auto text-[11px] font-mono scrollbar-none">
               {quickPrompts.map((prompt, i) => (
                 <button
                   key={i}
                   onClick={() => handleSend(prompt)}
                   disabled={isLoading}
-                  className="whitespace-nowrap px-3 py-1 rounded-full bg-white/5 border border-white/10 text-parchment-dim hover:text-lion-gold hover:border-lion-gold/40 transition-colors"
+                  className="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-border text-slate hover:text-obsidian hover:border-lion-gold/50 transition-colors shadow-sm"
                 >
                   {prompt}
                 </button>
@@ -160,7 +160,7 @@ export default function AICopilotDrawer() {
             </div>
 
             {/* Messages Scroll Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-porcelain">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
@@ -172,14 +172,14 @@ export default function AICopilotDrawer() {
                     {msg.role === "assistant" ? (
                       <>
                         <Bot className="w-3.5 h-3.5 text-lion-gold" />
-                        <span className="text-[10px] font-mono uppercase text-parchment-dim">
+                        <span className="text-[10px] font-mono uppercase text-slate font-medium">
                           Foundation Copilot
                         </span>
                       </>
                     ) : (
                       <>
-                        <User className="w-3.5 h-3.5 text-parchment-dim" />
-                        <span className="text-[10px] font-mono uppercase text-parchment-dim">
+                        <User className="w-3.5 h-3.5 text-slate" />
+                        <span className="text-[10px] font-mono uppercase text-slate font-medium">
                           You
                         </span>
                       </>
@@ -189,19 +189,19 @@ export default function AICopilotDrawer() {
                   <div
                     className={`max-w-[88%] p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-lion-gold/20 text-parchment border border-lion-gold/40 rounded-tr-none"
-                        : "bg-slate-charcoal text-parchment-muted border border-white/5 rounded-tl-none"
+                        ? "bg-lion-gold/15 text-obsidian border border-lion-gold/30 rounded-tr-none shadow-sm"
+                        : "bg-white text-obsidian border border-border rounded-tl-none shadow-sm"
                     }`}
                   >
                     <p className="whitespace-pre-wrap">{msg.content}</p>
 
                     {/* Suggested Action Pill */}
                     {msg.suggestedAction && (
-                      <div className="mt-3 pt-2.5 border-t border-white/10">
+                      <div className="mt-3 pt-2.5 border-t border-border">
                         <Link
                           href={msg.suggestedAction.href}
                           onClick={() => setIsOpen(false)}
-                          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-lion-gold/20 text-lion-gold border border-lion-gold/50 hover:bg-lion-gold hover:text-obsidian transition-all text-xs font-medium"
+                          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/40 hover:bg-lion-gold hover:text-white transition-all text-xs font-semibold"
                         >
                           <span>{msg.suggestedAction.label}</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
@@ -213,7 +213,7 @@ export default function AICopilotDrawer() {
               ))}
 
               {isLoading && (
-                <div className="flex items-center space-x-2 text-parchment-dim text-xs font-mono p-2">
+                <div className="flex items-center space-x-2 text-slate text-xs font-mono p-2">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin text-lion-gold" />
                   <span>Synthesizing institutional knowledge...</span>
                 </div>
@@ -222,7 +222,7 @@ export default function AICopilotDrawer() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-4 border-t border-parchment/10 bg-slate-charcoal">
+            <div className="p-4 border-t border-border bg-white">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -236,19 +236,19 @@ export default function AICopilotDrawer() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about Late Kiran Singh, 40 scholars, 34 dogs..."
                   disabled={isLoading}
-                  className="flex-1 bg-obsidian border border-parchment/20 rounded-full px-4 py-2.5 text-xs sm:text-sm text-parchment placeholder-parchment-dim focus:outline-none focus:border-lion-gold transition-colors"
+                  className="flex-1 bg-slate-50 border border-border rounded-full px-4 py-2.5 text-xs sm:text-sm text-obsidian placeholder-slate-400 focus:bg-white focus:outline-none focus:border-lion-gold focus:ring-2 focus:ring-lion-gold/15 transition-all"
                 />
                 <button
                   type="submit"
                   disabled={isLoading || !input.trim()}
-                  className="p-2.5 rounded-full bg-lion-gold text-obsidian disabled:opacity-40 hover:bg-lion-gold-light transition-colors"
+                  className="p-2.5 rounded-full bg-lion-gold text-white disabled:opacity-40 hover:bg-lion-gold-dark transition-colors shadow-sm"
                   aria-label="Send message"
                 >
                   <Send className="w-4 h-4" />
                 </button>
               </form>
               <div className="mt-2 text-center">
-                <span className="text-[10px] text-parchment-dim font-mono">
+                <span className="text-[10px] text-slate font-mono">
                   Emergency triage &bull; Official Foundation System Prompt Active
                 </span>
               </div>

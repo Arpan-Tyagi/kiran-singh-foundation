@@ -103,19 +103,19 @@ export default function BlogsDeskClient({
   return (
     <div className="space-y-8">
       {/* Header with CTA to open Gemini Modal */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-parchment/10 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
         <div>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-parchment">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
             Dispatches & Editorial Desk
           </h2>
-          <p className="text-xs text-parchment-dim font-mono mt-0.5">
+          <p className="text-xs text-slate-muted font-mono mt-0.5">
             Manage public dispatches integrated with Google Gemini 2.5 Flash
           </p>
         </div>
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian font-sans font-semibold text-xs transition-all shadow-md"
+          className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs transition-all shadow-md"
         >
           <Sparkles className="w-4 h-4" />
           <span>New Dispatch with Gemini 2.5 Flash</span>
@@ -125,39 +125,37 @@ export default function BlogsDeskClient({
       {/* Blogs List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog) => (
-          <div key={blog.id} className="bezel-card">
-            <div className="bezel-card-inner p-5 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between text-[10px] font-mono mb-3">
-                  <span className="text-parchment-dim">{blog.authorName}</span>
-                  {blog.isAiDrafted && (
-                    <span className="px-2 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold border border-lion-gold/40 flex items-center space-x-1">
-                      <Sparkles className="w-2.5 h-2.5" />
-                      <span>Gemini 2.5</span>
-                    </span>
-                  )}
-                </div>
-
-                <h3 className="font-serif text-lg font-bold text-parchment line-clamp-2">
-                  {blog.title}
-                </h3>
-
-                <p className="text-xs text-parchment-muted mt-2 line-clamp-3">
-                  {blog.summary}
-                </p>
+          <div key={blog.id} className="bg-white border border-border rounded-2xl shadow-card p-5 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between text-[10px] font-mono mb-3">
+                <span className="text-slate-muted font-medium">{blog.authorName}</span>
+                {blog.isAiDrafted && (
+                  <span className="px-2 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold border border-lion-gold/30 flex items-center space-x-1 font-medium">
+                    <Sparkles className="w-2.5 h-2.5" />
+                    <span>Gemini 2.5</span>
+                  </span>
+                )}
               </div>
 
-              <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-parchment-dim">
-                <span>{new Date(blog.publishedAt).toLocaleDateString()}</span>
-                <a
-                  href={`/dispatches/${blog.slug}`}
-                  target="_blank"
-                  className="text-lion-gold hover:underline flex items-center space-x-1"
-                >
-                  <span>View</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </div>
+              <h3 className="font-serif text-lg font-bold text-obsidian line-clamp-2">
+                {blog.title}
+              </h3>
+
+              <p className="text-xs text-slate-muted mt-2 line-clamp-3">
+                {blog.summary}
+              </p>
+            </div>
+
+            <div className="mt-6 pt-3 border-t border-border flex items-center justify-between text-xs font-mono text-slate-muted">
+              <span>{new Date(blog.publishedAt).toLocaleDateString()}</span>
+              <a
+                href={`/dispatches/${blog.slug}`}
+                target="_blank"
+                className="text-lion-gold hover:underline flex items-center space-x-1 font-medium"
+              >
+                <span>View</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
             </div>
           </div>
         ))}
@@ -165,25 +163,25 @@ export default function BlogsDeskClient({
 
       {/* Gemini 2.5 Flash Drafting Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-obsidian border border-lion-gold/30 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-parchment/10 pb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/60 backdrop-blur-sm">
+          <div className="bg-white border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full bg-lion-gold/20 flex items-center justify-center text-lion-gold">
+                <div className="w-8 h-8 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-parchment">
+                  <h3 className="font-serif text-xl font-bold text-obsidian">
                     Gemini 2.5 Flash Editorial Assistant
                   </h3>
-                  <p className="text-[10px] font-mono text-lion-gold">
+                  <p className="text-[10px] font-mono text-lion-gold font-medium">
                     Institutional Fact Grounded &bull; @google/genai SDK
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1 rounded-full text-parchment-dim hover:text-parchment"
+                className="p-1 rounded-full text-slate-muted hover:text-obsidian"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -192,7 +190,7 @@ export default function BlogsDeskClient({
             {/* Input Form for Raw Field Notes */}
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                   Target Tone
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -204,8 +202,8 @@ export default function BlogsDeskClient({
                         onClick={() => setTargetTone(tone)}
                         className={`py-2 px-3 rounded-xl text-xs font-mono border transition-all ${
                           targetTone === tone
-                            ? "bg-lion-gold/20 border-lion-gold text-lion-gold"
-                            : "bg-obsidian border-white/10 text-parchment-dim"
+                            ? "bg-lion-gold/15 border-lion-gold text-lion-gold font-semibold shadow-sm"
+                            : "bg-porcelain border-border text-slate-muted hover:text-obsidian"
                         }`}
                       >
                         {tone.replace("_", " ")}
@@ -216,7 +214,7 @@ export default function BlogsDeskClient({
               </div>
 
               <div>
-                <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                   Raw Field Notes / Rough Bullet Points *
                 </label>
                 <textarea
@@ -224,7 +222,7 @@ export default function BlogsDeskClient({
                   value={rawNotes}
                   onChange={(e) => setRawNotes(e.target.value)}
                   placeholder="e.g. Conducted health inspection on 34 resident dogs in Zone Alpha and Beta. Rabies booster schedule verified. Mention Late Kiran Singh's ethological standards..."
-                  className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl p-3 text-xs text-parchment focus:outline-none focus:border-lion-gold"
+                  className="w-full bg-porcelain border border-border rounded-xl p-3 text-xs text-obsidian placeholder:text-slate-muted focus:outline-none focus:border-lion-gold focus:bg-white"
                 />
               </div>
 
@@ -232,7 +230,7 @@ export default function BlogsDeskClient({
                 type="button"
                 onClick={handleGenerateDraft}
                 disabled={isDrafting || !rawNotes.trim()}
-                className="w-full py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian font-sans font-semibold text-xs flex items-center justify-center space-x-2 transition-all disabled:opacity-40"
+                className="w-full py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs flex items-center justify-center space-x-2 transition-all disabled:opacity-40 shadow-sm"
               >
                 {isDrafting ? (
                   <>
@@ -248,7 +246,7 @@ export default function BlogsDeskClient({
               </button>
 
               {draftError && (
-                <div className="p-3 rounded-xl bg-crimson-alert/20 border border-crimson-alert/40 text-red-200 text-xs font-mono">
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-crimson-alert text-xs font-mono">
                   {draftError}
                 </div>
               )}
@@ -256,14 +254,14 @@ export default function BlogsDeskClient({
 
             {/* Generated Draft Review & Refinement */}
             {generatedTitle && (
-              <form onSubmit={handlePublish} className="pt-4 border-t border-parchment/10 space-y-4">
-                <div className="flex items-center space-x-2 text-emerald-400 text-xs font-mono">
+              <form onSubmit={handlePublish} className="pt-4 border-t border-border space-y-4">
+                <div className="flex items-center space-x-2 text-botanical-emerald text-xs font-mono font-medium">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Draft Generated Successfully</span>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                  <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                     Headline
                   </label>
                   <input
@@ -271,12 +269,12 @@ export default function BlogsDeskClient({
                     required
                     value={generatedTitle}
                     onChange={(e) => setGeneratedTitle(e.target.value)}
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-3 py-2 text-xs text-parchment focus:border-lion-gold"
+                    className="w-full bg-porcelain border border-border rounded-xl px-3 py-2 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                  <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                     Executive Summary
                   </label>
                   <input
@@ -284,12 +282,12 @@ export default function BlogsDeskClient({
                     required
                     value={generatedSummary}
                     onChange={(e) => setGeneratedSummary(e.target.value)}
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl px-3 py-2 text-xs text-parchment focus:border-lion-gold"
+                    className="w-full bg-porcelain border border-border rounded-xl px-3 py-2 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-parchment-dim mb-1">
+                  <label className="block text-xs font-mono uppercase text-slate-muted mb-1 font-medium">
                     Formatted Markdown Content
                   </label>
                   <textarea
@@ -297,7 +295,7 @@ export default function BlogsDeskClient({
                     required
                     value={generatedContent}
                     onChange={(e) => setGeneratedContent(e.target.value)}
-                    className="w-full bg-slate-charcoal border border-parchment/20 rounded-xl p-3 text-xs text-parchment font-mono focus:border-lion-gold"
+                    className="w-full bg-porcelain border border-border rounded-xl p-3 text-xs text-obsidian font-mono focus:bg-white focus:border-lion-gold"
                   />
                 </div>
 
@@ -305,14 +303,14 @@ export default function BlogsDeskClient({
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-5 py-2.5 rounded-full border border-white/10 text-xs font-mono text-parchment-dim hover:text-parchment"
+                    className="px-5 py-2.5 rounded-full border border-border text-xs font-mono text-slate-muted hover:text-obsidian"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-6 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-sans font-semibold text-xs flex items-center space-x-2 shadow-lg disabled:opacity-50"
+                    className="px-6 py-2.5 rounded-full bg-botanical-emerald hover:bg-emerald-800 text-white font-sans font-semibold text-xs flex items-center space-x-2 shadow-md disabled:opacity-50"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>{isSubmitting ? "Publishing..." : "Publish Dispatch to Registry"}</span>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AlertCircle, Menu, X, ArrowUpRight, ShieldCheck, HeartPulse } from "lucide-react";
+import { Menu, X, ArrowUpRight, HeartPulse } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,13 +33,13 @@ export default function Navbar() {
       <div
         className={`mx-auto max-w-7xl rounded-full transition-all duration-500 px-4 md:px-6 py-2.5 flex items-center justify-between border ${
           isScrolled
-            ? "bg-obsidian/90 backdrop-blur-xl border-parchment/10 shadow-2xl shadow-black/80"
-            : "bg-slate-charcoal/60 backdrop-blur-md border-parchment/5"
+            ? "bg-white/95 backdrop-blur-xl border-border shadow-elevation-card"
+            : "bg-white/80 backdrop-blur-md border-border/80 shadow-elevation-1"
         }`}
       >
         {/* Emblem & Brand Identity */}
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden border border-lion-gold/40 p-0.5 bg-obsidian group-hover:border-lion-gold transition-colors duration-300">
+          <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden border border-border p-0.5 bg-white group-hover:border-lion-gold transition-colors duration-300 shadow-sm">
             <Image
               src="/images/logo.png"
               alt="Kiran Singh Foundation Emblem - Roaring Lion Seal"
@@ -50,17 +50,17 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-sm md:text-base font-semibold tracking-wider text-parchment uppercase leading-tight group-hover:text-lion-gold transition-colors">
+            <span className="font-serif text-sm md:text-base font-bold tracking-wider text-obsidian uppercase leading-tight group-hover:text-lion-gold transition-colors">
               Kiran Singh Foundation
             </span>
-            <span className="text-[10px] text-parchment-dim font-mono tracking-widest uppercase">
+            <span className="text-[10px] text-slate font-mono tracking-widest uppercase">
               Working towards Change
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1.5">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -69,8 +69,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 ${
                   isActive
-                    ? "bg-parchment/10 text-lion-gold border border-lion-gold/30"
-                    : "text-parchment-muted hover:text-parchment hover:bg-white/5"
+                    ? "bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/40 font-semibold"
+                    : "text-slate hover:text-obsidian hover:bg-slate-100/70"
                 }`}
               >
                 {link.label}
@@ -83,22 +83,22 @@ export default function Navbar() {
         <div className="flex items-center space-x-2 md:space-x-3">
           <Link
             href="/emergency"
-            className="group relative inline-flex items-center space-x-2 px-3.5 md:px-4 py-1.5 rounded-full bg-crimson-alert/20 border border-crimson-alert/40 text-red-300 text-xs font-medium hover:bg-crimson-alert/30 hover:border-crimson-alert transition-all duration-300"
+            className="group relative inline-flex items-center space-x-2 px-3.5 md:px-4 py-1.5 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs font-medium hover:bg-crimson-alert/15 hover:border-crimson-alert transition-all duration-300"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
             </span>
-            <span className="font-mono uppercase tracking-wider text-[11px]">Emergency Grid</span>
-            <div className="w-5 h-5 rounded-full bg-crimson-alert/40 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-              <ArrowUpRight className="w-3 h-3 text-red-200" />
+            <span className="font-mono uppercase tracking-wider text-[11px] font-semibold">Emergency Grid</span>
+            <div className="w-5 h-5 rounded-full bg-crimson-alert/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+              <ArrowUpRight className="w-3 h-3 text-crimson-alert" />
             </div>
           </Link>
 
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full bg-white/5 border border-white/10 text-parchment hover:text-lion-gold transition-colors"
+            className="lg:hidden p-2 rounded-full bg-slate-100 border border-border text-obsidian hover:text-lion-gold transition-colors"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -108,9 +108,9 @@ export default function Navbar() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[88px] bg-obsidian/95 backdrop-blur-2xl z-40 p-6 flex flex-col justify-between border-t border-parchment/10 animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="flex flex-col space-y-4 pt-4">
-            <div className="px-2 text-xs uppercase tracking-widest text-parchment-dim font-mono">
+        <div className="lg:hidden fixed inset-0 top-[88px] bg-porcelain/95 backdrop-blur-2xl z-40 p-6 flex flex-col justify-between border-t border-border animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="flex flex-col space-y-3 pt-2">
+            <div className="px-2 text-xs uppercase tracking-widest text-slate font-mono font-medium">
               Institutional Navigation
             </div>
             {navLinks.map((link) => (
@@ -118,28 +118,28 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-2xl bg-white/5 border border-white/5 text-parchment hover:border-lion-gold/40 hover:text-lion-gold text-base font-medium flex items-center justify-between"
+                className="px-4 py-3 rounded-2xl bg-white border border-border text-obsidian hover:border-lion-gold/50 hover:text-lion-gold text-base font-medium flex items-center justify-between shadow-sm transition-all"
               >
                 <span>{link.label}</span>
-                <ArrowUpRight className="w-4 h-4 text-parchment-dim" />
+                <ArrowUpRight className="w-4 h-4 text-slate" />
               </Link>
             ))}
             <Link
               href="/emergency"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-3 rounded-2xl bg-crimson-alert/20 border border-crimson-alert/40 text-red-200 text-base font-medium flex items-center justify-between"
+              className="px-4 py-3 rounded-2xl bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-base font-semibold flex items-center justify-between shadow-sm"
             >
               <div className="flex items-center space-x-2">
-                <HeartPulse className="w-5 h-5 text-red-400" />
+                <HeartPulse className="w-5 h-5 text-crimson-alert" />
                 <span>24/7 Emergency Crisis Desk</span>
               </div>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-charcoal border border-parchment/10 text-center">
-            <p className="font-serif text-sm text-parchment italic">"Working towards Change"</p>
-            <p className="text-[11px] text-parchment-dim mt-1 font-mono">
+          <div className="p-4 rounded-2xl bg-white border border-border text-center shadow-sm">
+            <p className="font-serif text-sm text-obsidian italic font-medium">"Working towards Change"</p>
+            <p className="text-[11px] text-slate mt-1 font-mono">
               Late Kiran Singh ji Memorial Foundation
             </p>
           </div>

@@ -10,50 +10,90 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          DEFAULT: "#0A0B0D",
-          deep: "#050607",
-          muted: "#121418",
+        // Light-themed design tokens (Primary)
+        porcelain: {
+          DEFAULT: "#FBFBFB", // Canvas / Foundation: Pure Porcelain Soft Off-White
+          canvas: "#FBFBFB",
+          subtle: "#F5F5F7",
+          card: "#FFFFFF",
         },
-        parchment: {
-          DEFAULT: "#F4EFEA",
-          muted: "#D6CFC7",
-          dim: "#A39E96",
+        obsidian: {
+          DEFAULT: "#111827", // Typography Primary: Deep Obsidian Charcoal
+          deep: "#0B0F17",
+          muted: "#4B5563",
+          subtle: "#9CA3AF",
+          legacy: "#0A0B0D", // Retained for test compatibility
+        },
+        slate: {
+          DEFAULT: "#6B7280", // Typography Muted: Neutral Slate
+          light: "#9CA3AF",
+          border: "#E5E7EB", // Hairline Architectural Border
+          muted: "#6B7280",
+        },
+        border: {
+          DEFAULT: "#E5E7EB", // Architectural Border (#E5E7EB)
+          hairline: "#E5E7EB",
+          subtle: "#F3F4F6",
+          strong: "#D1D5DB",
         },
         "lion-gold": {
-          DEFAULT: "#C89D54",
-          light: "#E0B774",
-          dark: "#967234",
-          subtle: "rgba(200, 157, 84, 0.15)",
+          DEFAULT: "#C89D54", // Primary Accent / CTA: Lion Gold (#C89D54)
+          light: "#D8AF6B",
+          dark: "#9E7633",
+          subtle: "rgba(200, 157, 84, 0.12)",
+          surface: "#FAF6EF",
+          border: "rgba(200, 157, 84, 0.25)",
+        },
+        "botanical-emerald": {
+          DEFAULT: "#1E3A2F", // Veterinary & Impact Accents: Botanical Emerald (#1E3A2F)
+          light: "#2B5243",
+          dark: "#142720",
+          subtle: "rgba(30, 58, 47, 0.08)",
+          surface: "#F2F7F4",
+          border: "rgba(30, 58, 47, 0.2)",
+        },
+        "crimson-alert": {
+          DEFAULT: "#DC2626", // Emergency Alerts: Crimson Alert (#DC2626)
+          light: "#EF4444",
+          dark: "#B91C1C",
+          subtle: "rgba(220, 38, 38, 0.08)",
+          surface: "#FEF2F2",
+          border: "rgba(220, 38, 38, 0.25)",
+          legacy: "#A82020", // Retained for test compatibility
+        },
+        // Legacy compatibility mappings
+        "emerald-sanctuary": {
+          DEFAULT: "#1E3A2F",
+          legacy: "#1D3A2F",
+          light: "#285243",
+          subtle: "rgba(30, 58, 47, 0.08)",
         },
         "slate-charcoal": {
           DEFAULT: "#1A1C20",
           light: "#24282F",
-          border: "#2E333C",
-          surface: "rgba(26, 28, 32, 0.8)",
+          border: "#E5E7EB",
+          surface: "#FFFFFF",
         },
-        "emerald-sanctuary": {
-          DEFAULT: "#1D3A2F",
-          light: "#285243",
-          border: "#346855",
-          subtle: "rgba(29, 58, 47, 0.25)",
-        },
-        "crimson-alert": {
-          DEFAULT: "#A82020",
-          light: "#C82C2C",
-          border: "#821616",
-          subtle: "rgba(168, 32, 32, 0.2)",
+        parchment: {
+          DEFAULT: "#FBFBFB",
+          legacy: "#F4EFEA",
+          muted: "#6B7280",
+          dim: "#9CA3AF",
         },
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "var(--font-jakarta)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       boxShadow: {
-        "double-bezel": "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.7)",
-        "gold-glow": "0 0 35px -5px rgba(200, 157, 84, 0.35)",
-        "emergency-glow": "0 0 35px -5px rgba(168, 32, 32, 0.45)",
+        "elevation-1": "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
+        "elevation-2": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)",
+        "elevation-3": "0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04)",
+        "elevation-card": "0 12px 32px -4px rgba(17, 24, 39, 0.05), 0 4px 12px -2px rgba(17, 24, 39, 0.02)",
+        "gold-glow": "0 4px 20px -2px rgba(200, 157, 84, 0.25)",
+        "emergency-glow": "0 4px 20px -2px rgba(220, 38, 38, 0.2)",
+        "double-bezel": "0 1px 3px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.04)",
       },
       borderRadius: {
         "2xl": "1.25rem",
@@ -67,7 +107,7 @@ const config: Config = {
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
     },
