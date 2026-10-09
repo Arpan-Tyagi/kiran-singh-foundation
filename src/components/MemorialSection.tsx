@@ -19,7 +19,7 @@ export default function MemorialSection() {
               Late Kiran Singh <span className="italic text-lion-gold font-light">ji</span>
             </h2>
             <p className="mt-4 text-slate text-base sm:text-lg leading-relaxed font-sans">
-              Ethologist, zoological analyst, and lifelong champion of the voiceless. His pioneering doctoral
+              Ethologist, zoological analyst, and lifelong champion of the voiceless. Her pioneering doctoral
               research into apex felids laid the scientific foundation for our contemporary student incubation and canine welfare wings.
             </p>
           </div>

@@ -31,9 +31,9 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-slate leading-relaxed font-sans">
-              Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>,
-              who earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids
-              (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
+              Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>,
+              who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids
+              (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
               Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with then Chief Minister Late
               Jayaram Jayalalithaa ("Amma").
             </p>

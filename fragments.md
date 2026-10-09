@@ -20,7 +20,7 @@ Sub: In sacred memory of Late Kiran Singh ji. 40 scholars incubated. 34 rescued 
 
 Header option for Hero:
 "Vigilance & Continuity"
-Sub: Behavioral science taught him how apex predators endure. Today, that same discipline protects forty students and thirty-four dogs across Chennai.
+Sub: Behavioral science taught her how apex predators endure. Today, that same discipline protects forty students and thirty-four dogs across Chennai.
 
 ---
 

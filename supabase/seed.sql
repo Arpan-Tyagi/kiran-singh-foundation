@@ -10,7 +10,7 @@ VALUES
     '1988 – 1994',
     'Department of Wildlife Biology & Animal Behavior',
     'Apex Felid Ethology (Panthera leo, Panthera tigris, Panthera pardus)',
-    'The foundational research of Late Kiran Singh ji formulated unprecedented humane conditioning and operant stimulus paradigms for large carnivores in zoological preserves. Focusing on lion prides and solitary leopards, his doctoral research proved that apex predators retain psychological equilibrium in managed habitats through environmental enrichment, predictable acoustic conditioning, and positive reinforcement rather than punitive restraints.',
+    'The foundational research of Late Kiran Singh ji formulated unprecedented humane conditioning and operant stimulus paradigms for large carnivores in zoological preserves. Focusing on lion prides and solitary leopards, her doctoral research proved that apex predators retain psychological equilibrium in managed habitats through environmental enrichment, predictable acoustic conditioning, and positive reinforcement rather than punitive restraints.',
     'Formed the theoretical groundwork that would later be adopted by state wildlife reserves and zoological authorities across South India.',
     ARRAY[
         'Singh, K. (1993). Operant Conditioning Paradigms in Managed Panthera leo Cohorts. Journal of Applied Felid Ethology, 14(2), 112-128.',
@@ -24,7 +24,7 @@ VALUES
     '1995 – 2004',
     'Arignar Anna Zoological Park (AAZP Vandalur, Chennai)',
     'Zoological Habitat Design, Animal Welfare & Pride Management',
-    'Appointed as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (Vandalur, Chennai)—one of the largest modern zoological parks in Asia. Late Kiran Singh ji supervised predator enclosures, pioneered safari enrichment corridors, and established safety-conscious veterinary handling procedures for the park’s lion safari and tiger preserves. His analytical diagnostics reduced territorial pacing distress by over 60% across resident felids.',
+    'Appointed as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (Vandalur, Chennai)—one of the largest modern zoological parks in Asia. Late Kiran Singh ji supervised predator enclosures, pioneered safari enrichment corridors, and established safety-conscious veterinary handling procedures for the park’s lion safari and tiger preserves. Her analytical diagnostics reduced territorial pacing distress by over 60% across resident felids.',
     'Worked in close consultation with state forestry conservators to position AAZP Vandalur as an international benchmark for humane zoological keeping.',
     ARRAY[
         'AAZP Annual Directorate Reports (1998, 2001, 2003)',
@@ -38,7 +38,7 @@ VALUES
     '2001 – 2006',
     'Government of Tamil Nadu - Office of the Chief Minister',
     'State Wildlife Policy & Urban Stray Animal Humane Governance',
-    'Late Kiran Singh ji worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"), advising the state administration on wildlife conservation standards, modernized veterinary infrastructure at AAZP Vandalur, and humane urban community animal welfare models. Late Jayalalithaa ji lauded his disciplined methodology, profound empathy for non-human animals, and commitment to public welfare, inspiring the core philosophy: "Working towards Change".',
+    'Late Kiran Singh ji worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"), advising the state administration on wildlife conservation standards, modernized veterinary infrastructure at AAZP Vandalur, and humane urban community animal welfare models. Late Jayalalithaa ji lauded her disciplined methodology, profound empathy for non-human animals, and commitment to public welfare, inspiring the core philosophy: "Working towards Change".',
     'Directly shaped progressive state initiatives for zoo veterinary modernization, wild cat rescue rehabilitation units, and compassionate community animal governance.',
     ARRAY[
         'Government of Tamil Nadu G.O. (Ms) No. 142/Forest & Wildlife Dept (2002)',
@@ -190,13 +190,13 @@ VALUES
     'How doctoral behavioral research on lions and leopards at AAZP Vandalur informed modern humane sheltering for thirty-four rescued street canines.',
     '# From Apex Felids to Compassionate Canines: The Ethological Science of Late Kiran Singh ji
 
-When Late Kiran Singh ji embarked on his doctoral research into the behavioral science of apex felids—lions (*Panthera leo*), tigers (*Panthera tigris*), and leopards (*Panthera pardus*)—he challenged prevailing notions of punitive animal control. Working within rigorous experimental boundaries, his thesis proved that even the most formidable carnivores respond with psychological equilibrium when provided structured acoustic environments, reliable territorial enrichment, and stress-mitigating social routines.
+When Late Kiran Singh ji embarked on her doctoral research into the behavioral science of apex felids—lions (*Panthera leo*), tigers (*Panthera tigris*), and leopards (*Panthera pardus*)—she challenged prevailing notions of punitive animal control. Working within rigorous experimental boundaries, her thesis proved that even the most formidable carnivores respond with psychological equilibrium when provided structured acoustic environments, reliable territorial enrichment, and stress-mitigating social routines.
 
 ### The AAZP Vandalur Analytics
-Later, as an Analyst within the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai), Late Kiran Singh ji applied these ethological principles at scale. His analyses directly guided the spatial architecture of carnivore night houses and safari corridors, significantly curbing stereotypic pacing distress.
+Later, as an Analyst within the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai), Late Kiran Singh ji applied these ethological principles at scale. Her analyses directly guided the spatial architecture of carnivore night houses and safari corridors, significantly curbing stereotypic pacing distress.
 
 ### The Jayalalithaa Advisory Alignment
-This technical acumen brought him into close alignment with then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Recognizing his rare combination of biological precision and moral conviction, the administration sought his counsel on zoo modernization and urban animal welfare policies.
+This technical acumen brought her into close alignment with then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Recognizing her rare combination of biological precision and moral conviction, the administration sought her counsel on zoo modernization and urban animal welfare policies.
 
 ### The Contemporary Living Sanctuary
 Today, the Kiran Singh Foundation Dog Care Centre shelters exactly 34 rescued street dogs according to those identical behavioral tenets:

@@ -10,10 +10,11 @@ Under no circumstances should you alter, abstract, or invent core institutional 
 
 AUTHORITATIVE INSTITUTIONAL MANDATES:
 1. FOUNDATION FOUNDER:
-   - Established in sacred memory of Late Kiran Singh ji.
-   - Credentials: He earned a Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
-   - Public Service: He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
-   - High Governance: He worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
+   - Established in sacred memory of Late Kiran Singh ji (Amma).
+   - Identity: Female leader, ethologist, and institutional pillar. Always refer to Late Kiran Singh ji with female pronouns (she, her, hers).
+   - Credentials: She earned a Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
+   - Public Service: She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
+   - High Governance: She worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
 2. MOTTO: "Working towards Change".
 3. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
 4. OPERATIONAL WING A - STUDENT WELFARE WING:
@@ -261,7 +262,7 @@ export async function executeFoundationChatTurn(
 
   if (userQueryLower.includes("who was kiran singh") || userQueryLower.includes("founder") || userQueryLower.includes("history")) {
     return {
-      reply: `Late Kiran Singh ji was a distinguished ethologist who earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). His vision powers our motto: "Working towards Change".`,
+      reply: `Late Kiran Singh ji (Amma) was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Her vision powers our motto: "Working towards Change".`,
       suggestedAction: {
         type: "intake_form",
         label: "Read Institutional Archive",

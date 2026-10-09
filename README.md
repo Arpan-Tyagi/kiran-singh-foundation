@@ -13,8 +13,8 @@
 
 Under no circumstances should core institutional facts be altered, abstracted, or omitted:
 
-- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji**.
-  - **Academic Credentials:** Earned his Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
+- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji (Amma)**.
+  - **Academic Credentials:** Earned her Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
   - **Public Service:** Served as an Analyst in the **Tamil Nadu Zoo Authority** at **Arignar Anna Zoological Park (AAZP Vandalur, Chennai)**.
   - **Governance Alignment:** Worked in close advisory alignment with the then Chief Minister of Tamil Nadu, **Late Jayaram Jayalalithaa ("Amma")**, advising on zoo veterinary modernization and humane community animal governance.
 - **Motto:** *"Working towards Change"*.

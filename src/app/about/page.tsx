@@ -363,7 +363,7 @@ export default function AboutPage() {
             Lions, Tigers, and Leopards
           </h3>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
-            Late Kiran Singh ji’s doctoral research proved that apex carnivores possess sophisticated cognitive associative structures. By studying their social hierarchies, territorial scent marking, and stress triggers, he designed training paradigms that eliminated stress-induced stereotypic pacing in large zoo enclosures.
+            Late Kiran Singh ji’s doctoral research proved that apex carnivores possess sophisticated cognitive associative structures. By studying their social hierarchies, territorial scent marking, and stress triggers, she designed training paradigms that eliminated stress-induced stereotypic pacing in large zoo enclosures.
           </p>
           <div className="text-xs font-mono text-lion-gold-dark font-medium pt-1">
             "Compassion without scientific rigor is sentimentality; scientific rigor informed by compassion changes ecosystems."
