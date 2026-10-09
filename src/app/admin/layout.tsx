@@ -50,13 +50,13 @@ export default function AdminLayout({
       {/* Admin Masthead */}
       <div className="p-6 rounded-3xl bg-white border border-border shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center space-x-4">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border border-lion-gold/50 p-0.5 bg-white shadow-sm shrink-0">
+          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-lion-gold/50 p-1 bg-white shadow-sm shrink-0">
             <Image
               src="/images/logo.png"
               alt="Seal"
               fill
               sizes="48px"
-              className="object-cover object-[center_20%] scale-110 rounded-full"
+              className="object-contain p-0.5"
             />
           </div>
           <div>

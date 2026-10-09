@@ -118,20 +118,20 @@ export default function AboutPage() {
 
       {/* Heraldic Emblem Showcase Card */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-10 shadow-elevation-1 flex flex-col md:flex-row items-center gap-8">
-        <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card shrink-0">
-          <div className="relative w-full h-full rounded-full overflow-hidden bg-white border border-border flex items-center justify-center">
+        <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card shrink-0">
+          <div className="relative w-full h-full rounded-xl overflow-hidden bg-white border border-border flex items-center justify-center p-2 shadow-inner">
             <Image
               src="/images/logo.png"
               alt="Heraldic Emblem Seal - Detailed Roaring Male Lion"
               fill
               sizes="176px"
-              className="object-cover object-[center_20%] scale-110"
+              className="object-contain p-1"
             />
           </div>
         </div>
         <div className="space-y-3 text-left">
           <div className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
-            The Classical Circular Seal
+            Archival Emblem Registry
           </div>
           <h3 className="font-serif text-2xl font-bold text-obsidian uppercase">
             The Roaring Lion Heraldic Emblem

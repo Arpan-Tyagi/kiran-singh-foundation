@@ -43,13 +43,13 @@ function AdminLoginForm() {
       <div className="w-full max-w-md">
         <div className="bg-white border border-border shadow-card rounded-3xl p-8 sm:p-10 text-center space-y-6">
           {/* Heraldic Emblem */}
-          <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-lion-gold/50 mx-auto p-0.5 bg-white shadow-md">
+          <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-lion-gold/50 mx-auto p-1.5 bg-white shadow-sm">
             <Image
               src="/images/logo.png"
               alt="Heraldic Emblem"
               fill
               sizes="80px"
-              className="object-cover object-[center_20%] scale-110 rounded-full"
+              className="object-contain p-0.5"
               priority
             />
           </div>

@@ -18,16 +18,16 @@ export default function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
-        {/* Heraldic Emblem Circular Seal */}
+        {/* Heraldic Emblem Box */}
         <div className="relative group mb-8">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1.5 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-card">
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-white border border-border flex items-center justify-center shadow-inner">
+          <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card">
+            <div className="relative w-full h-full rounded-xl overflow-hidden bg-white border border-border flex items-center justify-center p-2 shadow-inner">
               <Image
                 src="/images/logo.png"
                 alt="Kiran Singh Foundation Heraldic Seal - Roaring Male Lion"
                 fill
-                sizes="(max-width: 768px) 128px, 160px"
-                className="object-cover object-[center_20%] scale-110 group-hover:scale-115 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 144px, 176px"
+                className="object-contain p-1 group-hover:scale-105 transition-transform duration-500 ease-out"
                 priority
               />
             </div>

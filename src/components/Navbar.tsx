@@ -39,13 +39,13 @@ export default function Navbar() {
       >
         {/* Emblem & Brand Identity */}
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden border border-border p-0.5 bg-white group-hover:border-lion-gold transition-colors duration-300 shadow-sm">
+          <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl overflow-hidden border border-border p-1 bg-white group-hover:border-lion-gold transition-colors duration-300 shadow-sm">
             <Image
               src="/images/logo.png"
               alt="Kiran Singh Foundation Emblem - Roaring Lion Seal"
               fill
               sizes="44px"
-              className="object-cover object-[center_20%] scale-110 rounded-full group-hover:scale-115 transition-transform duration-500"
+              className="object-contain p-0.5 group-hover:scale-105 transition-transform duration-300"
               priority
             />
           </div>

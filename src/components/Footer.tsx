@@ -11,13 +11,13 @@ export default function Footer() {
           {/* Institutional Anchor & Founder Tribute */}
           <div className="lg:col-span-5 flex flex-col space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-lion-gold/50 p-0.5 bg-white shadow-sm">
+              <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-lion-gold/50 p-1 bg-white shadow-sm shrink-0">
                 <Image
                   src="/images/logo.png"
                   alt="Kiran Singh Foundation Heraldic Lion Emblem"
                   fill
                   sizes="56px"
-                  className="object-cover object-[center_20%] scale-110 rounded-full"
+                  className="object-contain p-0.5"
                 />
               </div>
               <div>

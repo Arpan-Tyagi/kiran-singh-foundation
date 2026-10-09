@@ -91,13 +91,13 @@ export default function AICopilotDrawer() {
           className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 active:scale-95 transition-all duration-200"
           aria-label="Open Institutional Concierge"
         >
-          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border p-0.5 bg-white shadow-sm">
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-border p-0.5 bg-white shadow-sm">
             <Image
               src="/images/logo.png"
               alt="Lion Emblem"
               fill
               sizes="32px"
-              className="object-cover object-[center_20%] scale-110 rounded-full"
+              className="object-contain p-0.5"
             />
           </div>
           <div className="flex flex-col text-left">
@@ -119,13 +119,13 @@ export default function AICopilotDrawer() {
             {/* Header */}
             <div className="p-4 border-b border-border bg-slate-50/90 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden border border-border shadow-sm">
+                <div className="relative w-9 h-9 rounded-lg overflow-hidden border border-border p-0.5 bg-white shadow-sm">
                   <Image
                     src="/images/logo.png"
                     alt="Emblem"
                     fill
                     sizes="36px"
-                    className="object-cover object-[center_20%] scale-110"
+                    className="object-contain p-0.5"
                   />
                 </div>
                 <div>
