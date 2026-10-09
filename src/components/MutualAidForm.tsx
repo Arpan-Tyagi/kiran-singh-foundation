@@ -31,9 +31,10 @@ export default function MutualAidForm() {
     setErrorMessage(null);
 
     try {
-      const payload = {
+      const trimmedEmail = formData.contactEmail?.trim();
+      const payload: SubmitIntakeInput = {
         ...formData,
-        contactEmail: formData.contactEmail.trim() ? formData.contactEmail.trim() : null,
+        contactEmail: trimmedEmail || null,
       };
       const res = await submitIntakeAction(payload);
       if (res.success && res.referenceId) {
@@ -239,7 +240,7 @@ export default function MutualAidForm() {
                   </label>
                   <input
                     type="email"
-                    value={formData.contactEmail}
+                    value={formData.contactEmail ?? ""}
                     onChange={(e) => setFormData({ ...formData, contactEmail: e.target.value })}
                     placeholder="name@example.com"
                     className="w-full bg-slate-50/70 border border-border rounded-xl px-4 py-3 text-sm text-obsidian placeholder-slate-400 focus:bg-white focus:outline-none focus:border-lion-gold focus:ring-2 focus:ring-lion-gold/15 transition-all"
