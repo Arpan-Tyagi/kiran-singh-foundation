@@ -107,6 +107,13 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     photoUrl: "/images/leadership/anil-kumar-singh.jpg",
     bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji (Amma).",
   },
+  {
+    id: "lead-02",
+    name: "Shri Anuj Kumar Singh",
+    role: "Secretary, Kiran Singh Foundation",
+    photoUrl: "/images/leadership/anuj-kumar-singh.jpg",
+    bio: "Directing administrative execution, mutual-aid dispatch grids, student incubation logistics, and day-to-day sanctuary governance.",
+  },
 ];
 
 export const MEMORIAL_RECORDS: MemorialRecord[] = [
