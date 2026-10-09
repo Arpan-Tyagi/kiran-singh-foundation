@@ -28,6 +28,29 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Featured Archival Documentary Banner */}
+      <div className="relative w-full h-80 sm:h-96 md:h-[400px] rounded-3xl overflow-hidden border border-border shadow-elevation-card group">
+        <Image
+          src="/images/memorial-founder.jpg"
+          alt="Late Kiran Singh ji - AAZP Vandalur Archive"
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-700"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/30 to-transparent flex flex-col justify-end p-6 sm:p-10">
+          <span className="px-3 py-1 rounded-full bg-lion-gold/85 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest self-start mb-2 font-semibold">
+            Tamil Nadu Zoo Authority Historical Dossier
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl leading-snug">
+            Late Kiran Singh ji & The Ethology of Apex Felids
+          </h2>
+          <p className="text-xs sm:text-sm text-white/90 max-w-2xl mt-1 font-sans leading-relaxed">
+            Arignar Anna Zoological Park (AAZP Vandalur, Chennai) &bull; Advisory alignment with Late Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma").
+          </p>
+        </div>
+      </div>
+
       {/* Founder Bio Card */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-12 shadow-elevation-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -41,7 +64,6 @@ export default function AboutPage() {
                   fill
                   sizes="224px"
                   className="object-cover object-[center_20%] scale-110"
-                  priority
                 />
               </div>
             </div>
@@ -79,6 +101,36 @@ export default function AboutPage() {
               safety protocols. His analytical rigor earned him the trust and close advisory partnership of then
               Chief Minister Late Jayaram Jayalalithaa ("Amma"), shaping progressive wildlife policies across the state.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Apex Felids Research Visual Accent */}
+      <div className="bg-white border border-border rounded-3xl p-8 md:p-10 shadow-elevation-1 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="md:col-span-5 relative h-64 md:h-72 rounded-2xl overflow-hidden border border-border shadow-sm">
+          <Image
+            src="/images/hero-lion.jpg"
+            alt="Apex Lion - Panthera leo Research Subject"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="object-cover"
+          />
+          <div className="absolute bottom-2 left-2 px-2.5 py-1 rounded-md bg-obsidian/75 backdrop-blur-xs text-[10px] font-mono text-white">
+            Ethological Study: Panthera leo
+          </div>
+        </div>
+        <div className="md:col-span-7 space-y-3">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
+            Behavioral Science of Apex Felids
+          </span>
+          <h3 className="font-serif text-2xl font-bold text-obsidian">
+            Lions, Tigers, and Leopards
+          </h3>
+          <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
+            Late Kiran Singh ji’s doctoral research proved that apex carnivores possess sophisticated cognitive associative structures. By studying their social hierarchies, territorial scent marking, and stress triggers, he designed training paradigms that eliminated stress-induced stereotypic pacing in large zoo enclosures.
+          </p>
+          <div className="text-xs font-mono text-lion-gold-dark font-medium pt-1">
+            "Compassion without scientific rigor is sentimentality; scientific rigor informed by compassion changes ecosystems."
           </div>
         </div>
       </div>
@@ -145,14 +197,23 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Operational Wings Summary */}
+      {/* Operational Wings Summary with Real Visuals */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-border">
-        <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
-          <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold">
+        <div className="bg-white border border-border rounded-2xl p-6 space-y-4 shadow-elevation-1">
+          <div className="relative w-full h-44 rounded-xl overflow-hidden border border-border shadow-sm">
+            <Image
+              src="/images/students-wing.jpg"
+              alt="40 Scholars Welfare Wing"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold block">
             Operational Wing A
           </span>
           <h4 className="font-serif text-2xl font-bold text-obsidian">
-            Student Welfare Wing
+            Student Welfare Wing (40 Scholars)
           </h4>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
             Directly sponsors exactly 40 active students with 100% covered expenses for soft skills incubation,
@@ -160,12 +221,21 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
-          <span className="font-mono text-xs text-botanical-emerald uppercase tracking-widest font-semibold">
+        <div className="bg-white border border-border rounded-2xl p-6 space-y-4 shadow-elevation-1">
+          <div className="relative w-full h-44 rounded-xl overflow-hidden border border-border shadow-sm">
+            <Image
+              src="/images/dogs-wing.jpg"
+              alt="34 Rescued Dogs Care Centre"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <span className="font-mono text-xs text-botanical-emerald uppercase tracking-widest font-semibold block">
             Operational Wing B
           </span>
           <h4 className="font-serif text-2xl font-bold text-obsidian">
-            Dog Care Centre
+            Dog Care Centre (34 Canines)
           </h4>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
             Protects and shelters exactly 34 rescued street dogs with 100% funded housing, nutritious meal prep,

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { GraduationCap, Heart, ArrowUpRight, Syringe, CheckCircle2 } from "lucide-react";
 import { SCHOLARS_COHORT, RESCUED_DOGS_ROSTER } from "@/lib/data/foundation-data";
@@ -54,6 +55,22 @@ export default function SplitWings() {
                   <span className="font-serif text-3xl font-bold text-obsidian">40</span>
                   <span className="text-[10px] font-mono text-slate block uppercase font-medium">
                     Sponsored Scholars
+                  </span>
+                </div>
+              </div>
+
+              {/* Real Photography Preview Card */}
+              <div className="relative w-full h-48 sm:h-56 rounded-xl overflow-hidden mb-6 border border-border shadow-sm group">
+                <Image
+                  src="/images/students-wing.jpg"
+                  alt="40 Scholars Welfare Wing Incubation"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent flex items-end p-3.5">
+                  <span className="text-[11px] font-mono text-white/95">
+                    Active Cohort &bull; Soft Skills Incubation Lab
                   </span>
                 </div>
               </div>
@@ -159,6 +176,22 @@ export default function SplitWings() {
                   <span className="font-serif text-3xl font-bold text-obsidian">34</span>
                   <span className="text-[10px] font-mono text-slate block uppercase font-medium">
                     Resident Dogs
+                  </span>
+                </div>
+              </div>
+
+              {/* Real Photography Preview Card */}
+              <div className="relative w-full h-48 sm:h-56 rounded-xl overflow-hidden mb-6 border border-border shadow-sm group">
+                <Image
+                  src="/images/dogs-wing.jpg"
+                  alt="34 Rescued Canines Dog Care Centre Sanctuary"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent flex items-end p-3.5">
+                  <span className="text-[11px] font-mono text-white/95">
+                    Sanctuary Compound &bull; Full Veterinary Care & Housing
                   </span>
                 </div>
               </div>

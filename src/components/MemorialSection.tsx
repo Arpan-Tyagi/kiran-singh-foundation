@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Award, Landmark, ArrowUpRight, FileText, CheckCircle2 } from "lucide-react";
 import { MEMORIAL_RECORDS } from "@/lib/data/foundation-data";
@@ -8,7 +9,7 @@ export default function MemorialSection() {
     <section id="memorial" className="py-20 md:py-28 px-4 md:px-8 bg-porcelain relative border-t border-border">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-8 border-b border-border">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-border">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase mb-4 font-semibold">
               <Landmark className="w-3.5 h-3.5" />
@@ -33,6 +34,34 @@ export default function MemorialSection() {
             <span className="text-xs font-mono text-slate mt-1">
               AAZP Vandalur &bull; Govt of Tamil Nadu Alignment
             </span>
+          </div>
+        </div>
+
+        {/* Archival Photography Feature Banner */}
+        <div className="relative w-full h-80 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden border border-border shadow-elevation-card mb-12 group">
+          <Image
+            src="/images/memorial-founder.jpg"
+            alt="Late Kiran Singh ji - Arignar Anna Zoological Park Vandalur Archive"
+            fill
+            sizes="100vw"
+            className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-700"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/30 to-transparent flex flex-col justify-end p-6 sm:p-10">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest border border-white/30 font-semibold">
+                Tamil Nadu Zoo Authority Record
+              </span>
+              <span className="px-3 py-1 rounded-full bg-lion-gold/80 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest font-semibold">
+                AAZP Vandalur &bull; Chennai
+              </span>
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl leading-snug">
+              Doctoral Ethology & State Advisory Alignment
+            </h3>
+            <p className="text-xs sm:text-sm text-white/90 max-w-2xl mt-2 font-sans leading-relaxed">
+              Late Kiran Singh ji conducting field behavioral observations of apex felids at Arignar Anna Zoological Park (AAZP Vandalur). His methodologies were formulated in close advisory alignment with Late Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma").
+            </p>
           </div>
         </div>
 

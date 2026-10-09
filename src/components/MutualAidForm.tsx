@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Send, CheckCircle, AlertTriangle, ArrowUpRight, HeartHandshake, Phone } from "lucide-react";
 import { submitIntakeAction, SubmitIntakeInput } from "@/actions/intake";
 
@@ -51,7 +52,7 @@ export default function MutualAidForm() {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white border border-border rounded-3xl shadow-elevation-1 p-8 md:p-12">
           {/* Header */}
-          <div className="text-center max-w-xl mx-auto mb-10">
+          <div className="text-center max-w-xl mx-auto mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase mb-4 font-semibold">
               <HeartHandshake className="w-3.5 h-3.5" />
               <span>Mutual-Aid Dispatch & Intake Grid</span>
@@ -63,6 +64,22 @@ export default function MutualAidForm() {
               Core Purpose: Deep community interconnectedness—ensuring participants and supporters
               are immediately available for one another during emergencies. All entries trigger automated WhatsApp and email dispatch.
             </p>
+          </div>
+
+          {/* Community Relief Photo Banner */}
+          <div className="relative w-full h-44 sm:h-56 rounded-2xl overflow-hidden mb-8 border border-border shadow-sm group">
+            <Image
+              src="/images/mutual-aid.jpg"
+              alt="Chennai Community Mutual-Aid & Relief Grid"
+              fill
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 via-transparent to-transparent flex items-end p-4">
+              <span className="text-[11px] font-mono text-white/95">
+                Rapid Field Response &bull; Direct Mutual Aid for Community and Animal Emergencies
+              </span>
+            </div>
           </div>
 
           {successResult ? (
