@@ -51,38 +51,44 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Founder Bio Card */}
+      {/* Founder Dignified Bio Card with Authentic Portrait */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-12 shadow-elevation-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Heraldic Emblem Showcase */}
+          {/* Authentic Portrait of Late Kiran Singh ji (Amma) */}
           <div className="lg:col-span-5 flex flex-col items-center text-center">
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card mb-6">
-              <div className="relative w-full h-full rounded-full overflow-hidden bg-white border border-border flex items-center justify-center">
+            <div className="relative w-full max-w-[320px] aspect-[9/14] rounded-2xl overflow-hidden border-2 border-lion-gold/40 shadow-elevation-card p-1.5 bg-gradient-to-b from-lion-gold/30 via-white to-border group mb-4">
+              <div className="relative w-full h-full rounded-xl overflow-hidden bg-porcelain">
                 <Image
-                  src="/images/logo.png"
-                  alt="Heraldic Emblem Seal - Detailed Roaring Male Lion"
+                  src="/images/memorial-founder.jpg"
+                  alt="Late Kiran Singh ji (Amma) - Sacred Memory & Founder"
                   fill
-                  sizes="224px"
-                  className="object-cover object-[center_20%] scale-110"
+                  sizes="(max-width: 1024px) 320px, 380px"
+                  className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
+                  priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 inset-x-3 text-center">
+                  <span className="inline-block px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono tracking-widest uppercase text-obsidian font-semibold shadow-sm">
+                    Founder in Sacred Memory
+                  </span>
+                </div>
               </div>
             </div>
             <h3 className="font-serif text-xl font-bold uppercase tracking-wider text-obsidian">
-              The Heraldic Emblem
+              Late Kiran Singh ji <span className="italic font-light text-lion-gold text-lg">(Amma)</span>
             </h3>
-            <p className="text-xs text-slate mt-2 max-w-xs font-sans leading-relaxed">
-              A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription
-              <strong className="text-lion-gold-dark"> "KIRAN SINGH FOUNDATION"</strong>. Symbolizing vigilance, noble strength, and stewardship.
+            <p className="text-xs text-slate mt-1 font-mono">
+              Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; 1994
             </p>
           </div>
 
           {/* Founder Historical Narrative */}
           <div className="lg:col-span-7 space-y-5 text-left">
             <div className="text-xs font-mono text-lion-gold-dark uppercase tracking-widest font-semibold">
-              Founder in Sacred Memory
+              Institutional Heritage & Sacred Memory
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold">
-              Late Kiran Singh ji
+              Late Kiran Singh ji <span className="font-serif italic font-normal text-lion-gold text-2xl">(Amma)</span>
             </h2>
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2 text-xs font-mono text-slate">
               <div>&bull; <strong className="text-obsidian">Credentials:</strong> Ph.D. in Apex Felid Ethology & Conditioning</div>
@@ -91,17 +97,45 @@ export default function AboutPage() {
             </div>
 
             <p className="text-sm text-slate leading-relaxed font-sans">
-              Late Kiran Singh ji dedicated his academic life to understanding the behavioral science, training,
-              and conditioning of apex felids—specifically lions, tigers, and leopards. His doctoral work
+              Late Kiran Singh ji dedicated her academic life to understanding the behavioral science, training,
+              and conditioning of apex felids—specifically lions, tigers, and leopards. Her doctoral work
               reframed large predator management from coercive domination to predictable ethological reinforcement.
             </p>
             <p className="text-sm text-slate leading-relaxed font-sans">
               As an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai),
-              he instituted world-class nocturnal enclosure enrichment, reduced captivity distress, and modernized animal
-              safety protocols. His analytical rigor earned him the trust and close advisory partnership of then
+              she instituted world-class nocturnal enclosure enrichment, reduced captivity distress, and modernized animal
+              safety protocols. Her analytical rigor earned her the trust and close advisory partnership of then
               Chief Minister Late Jayaram Jayalalithaa ("Amma"), shaping progressive wildlife policies across the state.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Heraldic Emblem Showcase Card */}
+      <div className="bg-white border border-border rounded-3xl p-8 md:p-10 shadow-elevation-1 flex flex-col md:flex-row items-center gap-8">
+        <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card shrink-0">
+          <div className="relative w-full h-full rounded-full overflow-hidden bg-white border border-border flex items-center justify-center">
+            <Image
+              src="/images/logo.png"
+              alt="Heraldic Emblem Seal - Detailed Roaring Male Lion"
+              fill
+              sizes="176px"
+              className="object-cover object-[center_20%] scale-110"
+            />
+          </div>
+        </div>
+        <div className="space-y-3 text-left">
+          <div className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
+            The Classical Circular Seal
+          </div>
+          <h3 className="font-serif text-2xl font-bold text-obsidian uppercase">
+            The Roaring Lion Heraldic Emblem
+          </h3>
+          <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
+            A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription
+            <strong className="text-lion-gold-dark font-semibold"> "KIRAN SINGH FOUNDATION"</strong>. Symbolizing vigilance,
+            unshakable moral strength, and protective stewardship over the vulnerable.
+          </p>
         </div>
       </div>
 

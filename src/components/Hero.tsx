@@ -56,7 +56,7 @@ export default function Hero() {
         </p>
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-slate font-sans font-normal leading-relaxed">
-          Founded in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>—doctoral
+          Founded in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>—doctoral
           specialist in apex felid ethology and Analyst at Tamil Nadu Zoo Authority (AAZP Vandalur).
           Directly sponsoring <span className="text-obsidian font-semibold">40 scholars</span> and sheltering{" "}
           <span className="text-obsidian font-semibold">34 rescued street dogs</span> through an interconnected mutual-aid community.

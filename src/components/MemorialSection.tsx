@@ -37,31 +37,86 @@ export default function MemorialSection() {
           </div>
         </div>
 
-        {/* Archival Photography Feature Banner */}
-        <div className="relative w-full h-80 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden border border-border shadow-elevation-card mb-12 group">
-          <Image
-            src="/images/memorial-founder.jpg"
-            alt="Late Kiran Singh ji - Arignar Anna Zoological Park Vandalur Archive"
-            fill
-            sizes="100vw"
-            className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-700"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/30 to-transparent flex flex-col justify-end p-6 sm:p-10">
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest border border-white/30 font-semibold">
-                Tamil Nadu Zoo Authority Record
-              </span>
-              <span className="px-3 py-1 rounded-full bg-lion-gold/80 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest font-semibold">
-                AAZP Vandalur &bull; Chennai
-              </span>
+        {/* Archival Memorial Tribute: Authentic Portrait & Historical Mandate */}
+        <div className="bg-white border border-border rounded-3xl p-6 sm:p-8 md:p-12 shadow-elevation-card mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Authentic Portrait of Late Kiran Singh ji (Amma) */}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="relative w-full max-w-[340px] aspect-[9/14] rounded-2xl overflow-hidden border-2 border-lion-gold/40 shadow-elevation-card p-1.5 bg-gradient-to-b from-lion-gold/30 via-white to-border group">
+                <div className="relative w-full h-full rounded-xl overflow-hidden bg-porcelain">
+                  <Image
+                    src="/images/memorial-founder.jpg"
+                    alt="Late Kiran Singh ji (Amma) - Sacred Memory & Founder"
+                    fill
+                    sizes="(max-width: 1024px) 340px, 420px"
+                    className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 inset-x-3 text-center">
+                    <span className="inline-block px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono tracking-widest uppercase text-obsidian font-semibold shadow-sm">
+                      Founder in Sacred Memory
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
+                  Late Kiran Singh ji <span className="font-serif italic font-normal text-lion-gold text-lg">(Amma)</span>
+                </h3>
+                <p className="text-[11px] font-mono text-slate tracking-wider uppercase mt-1">
+                  Ethologist &bull; AAZP Vandalur Analyst &bull; Foundation Pillar
+                </p>
+              </div>
             </div>
-            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl leading-snug">
-              Doctoral Ethology & State Advisory Alignment
-            </h3>
-            <p className="text-xs sm:text-sm text-white/90 max-w-2xl mt-2 font-sans leading-relaxed">
-              Late Kiran Singh ji conducting field behavioral observations of apex felids at Arignar Anna Zoological Park (AAZP Vandalur). His methodologies were formulated in close advisory alignment with Late Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma").
-            </p>
+
+            {/* Historical Mandate & State Advisory Narrative */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-lion-gold/15 text-lion-gold-dark text-[10px] font-mono uppercase tracking-widest font-semibold border border-lion-gold/30">
+                  Doctoral Ethology Record
+                </span>
+                <span className="px-3 py-1 rounded-full bg-slate-100 text-slate text-[10px] font-mono uppercase tracking-widest font-medium border border-border">
+                  AAZP Vandalur &bull; Chennai
+                </span>
+                <span className="px-3 py-1 rounded-full bg-botanical-emerald/10 text-botanical-emerald text-[10px] font-mono uppercase tracking-widest font-semibold border border-botanical-emerald/25">
+                  Govt of Tamil Nadu Alignment
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-obsidian leading-tight">
+                  A Legacy of Dignity, Science, and <span className="italic text-lion-gold font-light">Compassionate Protection</span>
+                </h3>
+                <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed font-sans">
+                  Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>.
+                  Earning a Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards),
+                  her analytical tenure at the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) transformed
+                  zoological care into humane behavioral science.
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed font-sans">
+                  Working in close advisory alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"),
+                  this scientific rigor and maternal compassion now animate our two operational wings: providing 40 sponsored scholars with
+                  soft-skill leadership and sheltering 34 rescued street dogs in Chennai.
+                </p>
+              </div>
+
+              {/* Architectural Milestone Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-3 rounded-xl bg-porcelain border border-border">
+                  <div className="text-[10px] font-mono uppercase text-slate font-medium">Academic Credentials</div>
+                  <div className="font-serif text-sm font-bold text-obsidian mt-0.5">Ph.D. Apex Felids</div>
+                </div>
+                <div className="p-3 rounded-xl bg-porcelain border border-border">
+                  <div className="text-[10px] font-mono uppercase text-slate font-medium">Zoological Role</div>
+                  <div className="font-serif text-sm font-bold text-obsidian mt-0.5">Analyst, AAZP Vandalur</div>
+                </div>
+                <div className="p-3 rounded-xl bg-porcelain border border-border col-span-2 sm:col-span-1">
+                  <div className="text-[10px] font-mono uppercase text-slate font-medium">State Alignment</div>
+                  <div className="font-serif text-sm font-bold text-obsidian mt-0.5">Late J. Jayalalithaa</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
