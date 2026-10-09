@@ -90,6 +90,25 @@ export const FOUNDATION_META = {
   },
 };
 
+export interface LeadershipMember {
+  id: string;
+  name: string;
+  role: string;
+  photoUrl: string;
+  bio?: string;
+  quote?: string;
+}
+
+export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
+  {
+    id: "lead-01",
+    name: "Shri Anil Kumar Singh",
+    role: "President, Kiran Singh Foundation",
+    photoUrl: "/images/leadership/anil-kumar-singh.jpg",
+    bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji (Amma).",
+  },
+];
+
 export const MEMORIAL_RECORDS: MemorialRecord[] = [
   {
     id: "mem-01",

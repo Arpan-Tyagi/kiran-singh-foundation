@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { MEMORIAL_RECORDS, FOUNDATION_META } from "@/lib/data/foundation-data";
+import { MEMORIAL_RECORDS, FOUNDATION_META, FOUNDATION_LEADERSHIP } from "@/lib/data/foundation-data";
 
 export const metadata = {
   title: "Institutional Archive | Kiran Singh Foundation",
@@ -136,6 +136,59 @@ export default function AboutPage() {
             <strong className="text-lion-gold-dark font-semibold"> "KIRAN SINGH FOUNDATION"</strong>. Symbolizing vigilance,
             unshakable moral strength, and protective stewardship over the vulnerable.
           </p>
+        </div>
+      </div>
+
+      {/* Board of Trustees & Directorate Leadership */}
+      <div className="space-y-8">
+        <div className="text-center max-w-xl mx-auto space-y-2">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+            <span>Governance & Executive Directorate</span>
+          </div>
+          <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
+            Board of Trustees & <span className="italic text-lion-gold font-light">Leadership</span>
+          </h3>
+          <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
+            Stewards of the foundation's institutional mandate, educational endowments, and animal sanctuary operations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FOUNDATION_LEADERSHIP.map((leader) => (
+            <div
+              key={leader.id}
+              className="bg-white border border-border rounded-3xl overflow-hidden shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col group"
+            >
+              <div className="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden border-b border-border">
+                <Image
+                  src={leader.photoUrl}
+                  alt={`${leader.name} - ${leader.role}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
+                    {leader.role}
+                  </div>
+                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian mt-1">
+                    {leader.name}
+                  </h4>
+                  {leader.bio && (
+                    <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans mt-2.5">
+                      {leader.bio}
+                    </p>
+                  )}
+                </div>
+                <div className="pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-slate">
+                  <span>Kiran Singh Foundation</span>
+                  <span className="text-lion-gold-dark font-semibold">Directorate Board</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
