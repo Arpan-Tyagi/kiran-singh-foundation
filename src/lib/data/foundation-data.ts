@@ -127,6 +127,107 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
   },
 ];
 
+export interface OfficeBearer {
+  id: string;
+  name: string;
+  role: string;
+  category: "Head Superintendent Manager" | "Dy. Head Superintendent Manager" | "Team Leader";
+  wing: "Student Welfare Wing";
+  photoUrl?: string;
+  photoPosition?: string;
+}
+
+export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
+  {
+    id: "ob-01",
+    name: "Unnaati Roy",
+    role: "Head Superintendent Manager",
+    category: "Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/unnaati-roy.jpg",
+    photoPosition: "object-[55%_15%]",
+  },
+  {
+    id: "ob-02",
+    name: "Vaishnavi",
+    role: "Head Superintendent Manager",
+    category: "Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/vaishnavi.jpg",
+    photoPosition: "object-[68%_25%]",
+  },
+  {
+    id: "ob-03",
+    name: "Prateeksha Pandey",
+    role: "Head Superintendent Manager",
+    category: "Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/prateeksha-pandey.jpg",
+    photoPosition: "object-[68%_20%]",
+  },
+  {
+    id: "ob-04",
+    name: "Shiksha Jaiswal",
+    role: "Dy. Head Superintendent Manager",
+    category: "Dy. Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
+    photoPosition: "object-[68%_20%]",
+  },
+  {
+    id: "ob-05",
+    name: "Navyanshi Dwivedi",
+    role: "Dy. Head Superintendent Manager",
+    category: "Dy. Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/navyanshi-dwivedi.jpg",
+    photoPosition: "object-[55%_15%]",
+  },
+  {
+    id: "ob-06",
+    name: "Rohini Agrawal",
+    role: "Dy. Head Superintendent Manager",
+    category: "Dy. Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/rohini-agrawal.jpg",
+    photoPosition: "object-[68%_25%]",
+  },
+  {
+    id: "ob-07",
+    name: "Shubhangi Singh",
+    role: "Dy. Head Superintendent Manager",
+    category: "Dy. Head Superintendent Manager",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/shubhangi-singh.jpg",
+    photoPosition: "object-[75%_25%]",
+  },
+  {
+    id: "ob-08",
+    name: "Stuti Dwivedi",
+    role: "Team Leader",
+    category: "Team Leader",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/stuti-dwivedi.jpg",
+    photoPosition: "object-[55%_15%]",
+  },
+  {
+    id: "ob-09",
+    name: "Anwesha Sinha",
+    role: "Team Leader",
+    category: "Team Leader",
+    wing: "Student Welfare Wing",
+    photoUrl: "/images/office-bearers/anwesha-sinha.jpg",
+    photoPosition: "object-[75%_25%]",
+  },
+  {
+    id: "ob-10",
+    name: "Varnika Mishra",
+    role: "Team Leader",
+    category: "Team Leader",
+    wing: "Student Welfare Wing",
+  },
+];
+
 export const MEMORIAL_RECORDS: MemorialRecord[] = [
   {
     id: "mem-01",
