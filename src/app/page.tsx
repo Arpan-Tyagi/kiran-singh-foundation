@@ -168,10 +168,11 @@ export default async function HomePage() {
             <HeartPulse className="w-6 h-6 text-crimson-alert shrink-0 animate-pulse" />
             <div>
               <h4 className="font-serif text-base font-bold text-obsidian">
-                Are you witnessing an animal trauma or family distress emergency?
+                Witnessing Street Canine Trauma or Acute Community Crisis?
               </h4>
               <p className="text-xs text-slate leading-relaxed">
-                Our 24/7 mutual-aid emergency dispatch grid operates with zero triage delay.
+                Directly mobilize our Chennai mutual-aid dispatch network via instant WhatsApp telemetry.
+                Our field coordinators and student response volunteers deploy with zero triage latency.
               </p>
             </div>
           </div>
@@ -179,7 +180,7 @@ export default async function HomePage() {
             href="/emergency"
             className="whitespace-nowrap px-6 py-2.5 rounded-full bg-crimson-alert text-white text-xs font-mono uppercase tracking-wider font-semibold hover:bg-crimson-alert-light transition-all shadow-sm"
           >
-            Access Emergency Desk
+            Trigger Emergency Dispatch
           </Link>
         </div>
       </section>

@@ -12,7 +12,7 @@ function AdminLoginForm() {
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/admin";
 
-  const [email, setEmail] = useState("directorate@kiransinghfoundation.org");
+  const [email, setEmail] = useState("kiransinghfoundation@gmail.com");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -87,7 +87,7 @@ function AdminLoginForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-porcelain border border-border rounded-xl pl-10 pr-4 py-2.5 text-xs text-obsidian placeholder:text-slate-muted focus:outline-none focus:border-lion-gold focus:bg-white transition-colors"
-                  placeholder="trustee@kiransinghfoundation.org"
+                  placeholder="kiransinghfoundation@gmail.com"
                 />
               </div>
             </div>

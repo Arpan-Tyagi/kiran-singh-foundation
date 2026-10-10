@@ -41,7 +41,7 @@ export default function Hero() {
         {/* Eyebrow tag */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-xs font-mono tracking-widest uppercase mb-6 shadow-sm">
           <span className="text-lion-gold font-bold">§</span>
-          <span>Institutional Ethology &bull; Human-Animal Welfare Grid</span>
+          <span>Trust registered under Indian Trust Act of 1882 &bull; Prayagraj</span>
         </div>
 
         {/* Display Title */}
@@ -50,16 +50,22 @@ export default function Hero() {
           <span className="italic font-light text-lion-gold">Foundation</span>
         </h1>
 
-        {/* Motto & Mandate Excerpt */}
-        <p className="mt-4 font-mono text-sm sm:text-base md:text-lg text-lion-gold-dark tracking-widest uppercase font-semibold">
-          "Working towards Change"
-        </p>
+        {/* Motto & Tagline */}
+        <div className="mt-4 flex flex-col items-center gap-1">
+          <p className="font-serif text-lg sm:text-xl md:text-2xl text-lion-gold italic font-semibold">
+            &ldquo;A Journey from struggle to Enlightenment&rdquo;
+          </p>
+          <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
+            &ldquo;Working Towards Change&rdquo;
+          </p>
+        </div>
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-slate font-sans font-normal leading-relaxed">
-          Founded in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>—doctoral
-          specialist in apex felid ethology and Analyst at Tamil Nadu Zoo Authority (AAZP Vandalur).
-          Directly sponsoring <span className="text-obsidian font-semibold">40 scholars</span> and sheltering{" "}
-          <span className="text-obsidian font-semibold">34 rescued street dogs</span> through an interconnected mutual-aid community.
+          Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>—honoring
+          his doctoral scholarship in apex felid ethology and analytical service at Tamil Nadu Zoo Authority (AAZP Vandalur).
+          Operating under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006), the foundation directly finances <span className="text-obsidian font-semibold">40 sponsored scholars</span> through
+          executive leadership labs and shelters <span className="text-obsidian font-semibold">34 rescued street dogs</span> in
+          dedicated facilities, linked by an active 24/7 mutual-aid emergency grid.
         </p>
 
         {/* CTA Buttons */}
@@ -97,10 +103,10 @@ export default function Hero() {
         </div>
 
         {/* Monolithic Masthead Ledger Bar */}
-        <div className="mt-16 sm:mt-20 w-full bg-white border border-border rounded-2xl shadow-card grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border overflow-hidden text-left">
+        <div className="mt-16 sm:mt-20 w-full bg-white border border-border rounded-2xl shadow-card grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border overflow-hidden text-left font-mono">
           {/* Cell 1: Scholars */}
           <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
               <span className="text-lion-gold font-bold">§</span>
               <span>Wing A &bull; Scholars</span>
             </div>
@@ -108,16 +114,16 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 40
               </span>
-              <span className="text-lion-gold-dark text-base sm:text-lg font-serif ml-1.5 font-medium">Active</span>
+              <span className="text-lion-gold-dark text-xs sm:text-sm uppercase ml-1.5 font-semibold">Enrolled</span>
             </div>
-            <p className="text-xs text-slate leading-relaxed">
-              100% funded soft skills incubation &amp; pro bono internships
+            <p className="text-[11px] text-slate font-sans leading-relaxed">
+              100% funded executive presence labs &amp; pro bono corporate/legal internships
             </p>
           </div>
 
           {/* Cell 2: Dogs */}
           <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
               <span className="text-botanical-emerald font-bold">§</span>
               <span>Wing B &bull; Resident Dogs</span>
             </div>
@@ -125,16 +131,16 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 34
               </span>
-              <span className="text-botanical-emerald text-base sm:text-lg font-serif ml-1.5 font-medium">Sheltered</span>
+              <span className="text-botanical-emerald text-xs sm:text-sm uppercase ml-1.5 font-semibold">Sheltered</span>
             </div>
-            <p className="text-xs text-slate leading-relaxed">
-              100% vaccinated (Rabies + Boosters), medical housing
+            <p className="text-[11px] text-slate font-sans leading-relaxed">
+              Sanctuary housing, clinical nutrition, surgical sterilizations &amp; annual boosters
             </p>
           </div>
 
           {/* Cell 3: Direct Care Endowment */}
           <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
               <span className="text-lion-gold font-bold">§</span>
               <span>Care Endowment</span>
             </div>
@@ -142,16 +148,16 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 100%
               </span>
-              <span className="text-lion-gold-dark text-base sm:text-lg font-serif ml-1.5 font-medium">Direct</span>
+              <span className="text-lion-gold-dark text-xs sm:text-sm uppercase ml-1.5 font-semibold">Direct</span>
             </div>
-            <p className="text-xs text-slate leading-relaxed">
-              Zero administrative cuts taken from scholar or canine care
+            <p className="text-[11px] text-slate font-sans leading-relaxed">
+              Complete foundation underwriting of educational stipends &amp; veterinary care
             </p>
           </div>
 
           {/* Cell 4: Mutual-Aid Grid */}
           <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
               <span className="text-crimson-alert font-bold">§</span>
               <span>Mutual-Aid Grid</span>
             </div>
@@ -159,10 +165,10 @@ export default function Hero() {
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
                 24/7
               </span>
-              <span className="text-crimson-alert text-base sm:text-lg font-serif ml-1.5 font-medium">Live</span>
+              <span className="text-crimson-alert text-xs sm:text-sm uppercase ml-1.5 font-semibold">Live</span>
             </div>
-            <p className="text-xs text-slate leading-relaxed">
-              Immediate WhatsApp &amp; email dispatch during emergencies
+            <p className="text-[11px] text-slate font-sans leading-relaxed">
+              Zero-delay WhatsApp dispatch &amp; email triage linking volunteers during crisis
             </p>
           </div>
         </div>

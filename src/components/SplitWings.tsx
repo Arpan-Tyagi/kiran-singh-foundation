@@ -76,27 +76,27 @@ export default function SplitWings() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans mb-6">
-                Supports exactly 40 active students directly under foundation sponsorship. All expenses and resources
-                for soft skills incubation, personality development (executive communication, rhetorical debate, systems thinking),
-                and Summer and Winter pro bono internships are 100% funded.
+                Underwrites exactly 40 active scholars through complete foundation endowment. Eliminating all socioeconomic
+                friction, the wing finances rigorous soft-skills incubation—focusing on executive presence, rhetorical debate,
+                and systems thinking—paired with mandatory pro bono Summer and Winter corporate and legal internships.
               </p>
 
               {/* Key Pillars */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="p-3.5 rounded-xl bg-white border border-border shadow-sm">
                   <span className="text-[10px] font-mono uppercase text-lion-gold-dark font-semibold block mb-1">
-                    Incubation Curriculum
+                    Executive Presence Labs
                   </span>
                   <p className="text-xs text-obsidian font-medium">
-                    Executive Communication & Public Discourse
+                    Rhetorical Oratory, Public Discourse & Systems Analysis
                   </p>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white border border-border shadow-sm">
                   <span className="text-[10px] font-mono uppercase text-lion-gold-dark font-semibold block mb-1">
-                    Internship Model
+                    Workplace Acclimation
                   </span>
                   <p className="text-xs text-obsidian font-medium">
-                    Pro Bono Summer & Winter Placements
+                    Fully Funded Summer & Winter Corporate/Legal Placements
                   </p>
                 </div>
               </div>
@@ -197,26 +197,28 @@ export default function SplitWings() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans mb-6">
-                Protects and shelters exactly 34 rescued street dogs. All food, housing, medical care, sterilizations,
-                and vaccinations (rabies and annual boosters) are 100% funded by the foundation across three monitored sanctuary zones.
+                Provides permanent medical sanctuary and shelter for exactly 34 rescued municipal street dogs. Rejecting
+                unsupervised roadside feeding in favor of structured ethological housing, the foundation fully underwrites
+                daily balanced veterinary nutrition, routine surgical sterilizations, multi-strain core boosters, and systematic
+                anti-rabies schedules across three biosecure zones.
               </p>
 
               {/* Key Pillars */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="p-3.5 rounded-xl bg-white border border-border shadow-sm">
                   <span className="text-[10px] font-mono uppercase text-botanical-emerald font-semibold block mb-1">
-                    Veterinary Standard
+                    Clinical Protocol
                   </span>
                   <p className="text-xs text-obsidian font-medium">
-                    100% Anti-Rabies & Booster Compliance
+                    100% Surgical Sterilization & Systematic Rabies Boosters
                   </p>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white border border-border shadow-sm">
                   <span className="text-[10px] font-mono uppercase text-botanical-emerald font-semibold block mb-1">
-                    Ethological Zoning
+                    Ethological Sanctuary
                   </span>
                   <p className="text-xs text-obsidian font-medium">
-                    Quarantine, Main Pack, & Geriatric Run
+                    Controlled Quarantine, Socialized Pack Run & Geriatric Suite
                   </p>
                 </div>
               </div>

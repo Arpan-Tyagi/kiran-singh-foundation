@@ -25,27 +25,34 @@ export default function Footer() {
                   Kiran Singh Foundation
                 </h3>
                 <p className="font-mono text-xs text-lion-gold tracking-widest uppercase font-semibold">
-                  "Working towards Change"
+                  &ldquo;A Journey from struggle to Enlightenment&rdquo;
+                </p>
+                <p className="font-mono text-[10px] text-slate font-medium uppercase tracking-wider">
+                  Trust registered under Indian Trust Act of 1882 &bull; &ldquo;Working Towards Change&rdquo;
                 </p>
               </div>
             </div>
 
             <p className="text-sm text-slate leading-relaxed font-sans">
-              Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>,
-              who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids
-              (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
-              Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with then Chief Minister Late
-              Jayaram Jayalalithaa ("Amma").
+              Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>.
+              He earned his Ph.D. specializing in the behavioral science, psychology, and conditioning of large apex felids
+              (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
+              Zoological Park (AAZP Vandalur, Chennai) and worked in close consultative alignment with the then Chief Minister
+              of Tamil Nadu, Late J. Jayalalithaa ("Amma").
             </p>
 
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2">
               <div className="flex items-center space-x-2 text-xs font-mono text-slate font-medium">
-                <ShieldCheck className="w-4 h-4 text-botanical-emerald" />
-                <span>Non-Profit Institutional Registry &bull; Mutual-Aid Grid</span>
+                <ShieldCheck className="w-4 h-4 text-botanical-emerald shrink-0" />
+                <span>Trust registered under Indian Trust Act of 1882</span>
               </div>
-              <p className="text-xs text-slate">
-                100% of resources are endowed directly to our 40 scholars and 34 resident canines.
+              <p className="text-xs text-slate leading-relaxed">
+                100% of operational resources are directly deployed to our 40 scholars and 34 resident canines.
               </p>
+              <div className="text-[11px] font-mono text-slate border-t border-border/60 pt-2 space-y-1">
+                <div><strong className="text-obsidian">Registered Office:</strong> 191/C, Tilak Nagar Allahpur Prayagraj 211006</div>
+                <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
+              </div>
             </div>
           </div>
 
@@ -86,9 +93,9 @@ export default function Footer() {
           {/* Emergency Lifeline & Links */}
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h4 className="font-mono text-xs uppercase tracking-widest text-lion-gold-dark font-semibold">
-              Crisis & Communications
+              Secretariat &amp; Communications
             </h4>
-            <ul className="space-y-3 text-xs text-slate font-sans">
+            <ul className="space-y-2.5 text-xs text-slate font-sans">
               <li>
                 <Link
                   href="/emergency"
@@ -100,27 +107,35 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/919840012345"
+                  href="https://wa.me/919670970750"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 hover:text-obsidian"
+                  className="flex items-center space-x-2 hover:text-obsidian font-medium"
                 >
-                  <Phone className="w-3.5 h-3.5 text-botanical-emerald" />
-                  <span>WhatsApp: +91 98400 12345</span>
+                  <Phone className="w-3.5 h-3.5 text-botanical-emerald shrink-0" />
+                  <span>Mob: +91 96709 70750 (Primary/WhatsApp)</span>
+                </a>
+              </li>
+              <li className="pl-5 text-slate flex flex-col space-y-0.5">
+                <a href="tel:+918115141378" className="hover:text-obsidian font-mono text-[11px]">
+                  &bull; +91 81151 41378
+                </a>
+                <a href="tel:+919450630310" className="hover:text-obsidian font-mono text-[11px]">
+                  &bull; +91 94506 30310
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:concierge@kiransinghfoundation.org"
+                  href="mailto:kiransinghfoundation@gmail.com"
                   className="flex items-center space-x-2 hover:text-obsidian"
                 >
-                  <Mail className="w-3.5 h-3.5 text-slate" />
-                  <span>concierge@kiransinghfoundation.org</span>
+                  <Mail className="w-3.5 h-3.5 text-slate shrink-0" />
+                  <span className="break-all font-mono text-[11px]">kiransinghfoundation@gmail.com</span>
                 </a>
               </li>
-              <li className="flex items-start space-x-2 text-slate pt-2 leading-relaxed">
+              <li className="flex items-start space-x-2 text-slate pt-1 leading-relaxed">
                 <MapPin className="w-4 h-4 text-slate shrink-0 mt-0.5" />
-                <span>Arignar Anna Zoological Park Corridor & Adyar Lowland Base, Chennai, Tamil Nadu</span>
+                <span>191/C, Tilak Nagar Allahpur Prayagraj 211006</span>
               </li>
             </ul>
 

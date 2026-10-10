@@ -54,7 +54,7 @@ export default function Navbar() {
               Kiran Singh Foundation
             </span>
             <span className="text-[10px] text-slate font-mono tracking-widest uppercase">
-              Working towards Change
+              A Journey from struggle to Enlightenment
             </span>
           </div>
         </Link>
@@ -149,9 +149,9 @@ export default function Navbar() {
           </div>
 
           <div className="p-4 rounded-2xl bg-white border border-border text-center shadow-sm">
-            <p className="font-serif text-sm text-obsidian italic font-medium">"Working towards Change"</p>
-            <p className="text-[11px] text-slate mt-1 font-mono">
-              Late Kiran Singh ji Memorial Foundation
+            <p className="font-serif text-sm text-obsidian italic font-medium">"A Journey from struggle to Enlightenment"</p>
+            <p className="text-[10px] text-slate mt-1 font-mono">
+              Trust registered under Indian Trust Act of 1882 &bull; "Working Towards Change"
             </p>
           </div>
         </div>

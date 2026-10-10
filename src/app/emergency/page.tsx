@@ -29,7 +29,7 @@ export default function EmergencyPage() {
     try {
       const res = await submitIntakeAction({
         applicantName: callerName,
-        contactEmail: "emergency-desk@kiransinghfoundation.org",
+        contactEmail: "kiransinghfoundation@gmail.com",
         contactPhone,
         category: "emergency_distress",
         priority: "critical_emergency",
@@ -55,34 +55,51 @@ export default function EmergencyPage() {
       <div className="p-8 sm:p-10 rounded-3xl bg-white border border-crimson-alert/30 text-center space-y-4 shadow-elevation-card">
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-crimson-alert/10 border border-crimson-alert/25 text-crimson-alert text-xs font-mono tracking-widest uppercase font-semibold">
           <HeartPulse className="w-4 h-4 animate-pulse text-crimson-alert" />
-          <span>High-Priority Distress Protocol Active</span>
+          <span>24/7 Rapid Mutual-Aid Dispatch Grid &bull; Active Protocol</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-obsidian font-bold uppercase leading-tight">
-          Emergency Distress <span className="italic text-crimson-alert font-light">Response</span>
+          Emergency Mutual-Aid <span className="italic text-crimson-alert font-light">Response</span>
         </h1>
         <p className="text-sm sm:text-base text-slate max-w-2xl mx-auto leading-relaxed font-sans">
-          The Kiran Singh Foundation operates a synchronized 24/7 mutual-aid lifeline for street canine trauma,
-          severe animal injuries, and urgent community crisis in the Chennai and suburban corridors.
+          The foundational lifeline of the Kiran Singh Foundation: operating an interconnected mutual-aid network that
+          mobilizes immediate medical intervention for street animal trauma, acute canine distress, and urgent community
+          crises. Trust registered under Indian Trust Act of 1882 &bull; &ldquo;A Journey from struggle to Enlightenment&rdquo;.
         </p>
 
         {/* Quick-Dial Buttons */}
-        <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="tel:+919840012345"
-            className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-crimson-alert hover:bg-crimson-alert-light text-white font-sans font-bold text-base shadow-md transition-all hover:scale-105"
+            href="tel:+919670970750"
+            className="inline-flex items-center space-x-3 px-7 py-3.5 rounded-full bg-crimson-alert hover:bg-crimson-alert-light text-white font-sans font-bold text-sm shadow-md transition-all hover:scale-105"
           >
-            <PhoneCall className="w-5 h-5 text-white animate-bounce" />
-            <span>Call 24/7 Hotline: +91 98400 12345</span>
+            <PhoneCall className="w-4 h-4 text-white animate-bounce" />
+            <span>Primary Hotline: +91 96709 70750</span>
+          </a>
+
+          <a
+            href="tel:+918115141378"
+            className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-full bg-slate-900 hover:bg-black text-white font-mono text-xs font-semibold shadow-sm transition-all hover:scale-105"
+          >
+            <Phone className="w-3.5 h-3.5 text-lion-gold" />
+            <span>Line 2: +91 81151 41378</span>
+          </a>
+
+          <a
+            href="tel:+919450630310"
+            className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-full bg-slate-900 hover:bg-black text-white font-mono text-xs font-semibold shadow-sm transition-all hover:scale-105"
+          >
+            <Phone className="w-3.5 h-3.5 text-lion-gold" />
+            <span>Line 3: +91 94506 30310</span>
           </a>
 
           <a
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light text-white font-sans font-bold text-base shadow-md transition-all hover:scale-105"
+            className="inline-flex items-center space-x-3 px-7 py-3.5 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light text-white font-sans font-bold text-sm shadow-md transition-all hover:scale-105"
           >
-            <Phone className="w-5 h-5" />
-            <span>Instant Emergency WhatsApp Alert</span>
+            <Phone className="w-4 h-4" />
+            <span>WhatsApp Dispatch</span>
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
@@ -151,7 +168,7 @@ export default function EmergencyPage() {
                   required
                   value={contactPhone}
                   onChange={(e) => setContactPhone(e.target.value)}
-                  placeholder="+91 98400 12345"
+                  placeholder="+91 96709 70750"
                   className="w-full bg-slate-50 border border-border rounded-xl px-4 py-3 text-sm text-obsidian focus:outline-none focus:border-crimson-alert focus:ring-2 focus:ring-crimson-alert/15 transition-all"
                 />
               </div>
@@ -243,10 +260,17 @@ export default function EmergencyPage() {
             </ul>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-border space-y-2 text-xs font-mono text-slate shadow-sm">
-            <div className="text-lion-gold-dark uppercase font-semibold">Sanctuary Base Station:</div>
-            <div className="text-obsidian font-medium">Dog Care Centre &bull; Vandalur South Corridor, Chennai</div>
-            <div>Equipped with surgical recovery bay, oxygen concentrators, and rabies anti-serum.</div>
+          <div className="p-6 rounded-2xl bg-white border border-border space-y-2.5 text-xs font-mono text-slate shadow-sm">
+            <div className="text-lion-gold-dark uppercase font-semibold">Registered Trust &bull; Secretariat Desk:</div>
+            <div className="text-obsidian font-semibold text-sm">191/C, Tilak Nagar Allahpur Prayagraj 211006</div>
+            <div className="text-slate">Trust registered under Indian Trust Act of 1882 &bull; &ldquo;A Journey from struggle to Enlightenment&rdquo;</div>
+            <div className="pt-2 border-t border-border space-y-1">
+              <div><strong className="text-obsidian">Helplines:</strong> +91 96709 70750, +91 81151 41378, +91 94506 30310</div>
+              <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
+            </div>
+            <div className="text-[11px] text-slate/80 pt-1">
+              Sanctuary Base: Dog Care Centre &bull; Surgical recovery bay &amp; emergency triage.
+            </div>
           </div>
         </div>
       </div>

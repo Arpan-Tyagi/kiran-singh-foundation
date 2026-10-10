@@ -27,22 +27,71 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kiran Singh Foundation | Working towards Change",
+  title: 'Kiran Singh Foundation | "A Journey from struggle to Enlightenment"',
   description:
-    "Institutional memorial foundation established in sacred memory of Late Kiran Singh ji (Ph.D. Apex Felid Ethology, AAZP Vandalur Analyst). Dedicated to Student Welfare (40 Scholars), Dog Care Centre (34 Rescued Canines), and active Mutual-Aid Crisis Response.",
+    'Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji (Ph.D. in Apex Felid Ethology; AAZP Vandalur Analyst). Sponsoring 40 scholars, sheltering 34 rescued street dogs, and operating a 24/7 emergency mutual-aid grid.',
   keywords: [
     "Kiran Singh Foundation",
+    "Trust registered under Indian Trust Act of 1882",
+    "A Journey from struggle to Enlightenment",
+    "Working Towards Change",
+    "191/C Tilak Nagar Allahpur Prayagraj 211006",
     "Late Kiran Singh ji",
     "Apex Felid Ethology",
-    "AAZP Vandalur",
-    "Student Welfare Wing",
-    "Dog Care Centre",
-    "Animal Welfare Chennai",
-    "Working towards Change",
+    "AAZP Vandalur Analyst",
+    "Tamil Nadu Zoo Authority",
+    "Chief Minister J Jayalalithaa alignment",
+    "Student Welfare Wing 40 Scholars",
+    "Dog Care Centre 34 Rescued Dogs",
+    "kiransinghfoundation@gmail.com",
+    "Emergency Mutual Aid Grid",
   ],
   icons: {
     icon: "/images/logo.png",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Kiran Singh Foundation",
+  legalName: "Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882)",
+  slogan: "A Journey from struggle to Enlightenment",
+  alternateName: "Working Towards Change",
+  description:
+    "Registered trust under the Indian Trust Act of 1882 established in sacred memory of Late Kiran Singh ji. Operates Student Welfare Wing (40 scholars), Dog Care Centre (34 rescued dogs), and 24/7 emergency mutual-aid grid.",
+  url: "https://kiransinghfoundation.org",
+  logo: "https://kiransinghfoundation.org/images/logo.png",
+  email: "kiransinghfoundation@gmail.com",
+  telephone: "+91-9670970750",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "191/C, Tilak Nagar Allahpur",
+    addressLocality: "Prayagraj",
+    postalCode: "211006",
+    addressRegion: "Uttar Pradesh",
+    addressCountry: "IN",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+91-9670970750",
+      contactType: "emergency dispatch and primary helpline",
+      availableLanguage: ["English", "Hindi", "Tamil"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+91-8115141378",
+      contactType: "coordinator line",
+      availableLanguage: ["English", "Hindi"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+91-9450630310",
+      contactType: "coordinator line",
+      availableLanguage: ["English", "Hindi"],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -52,6 +101,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable} ${jetbrains.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-porcelain text-obsidian antialiased selection:bg-lion-gold/20 selection:text-obsidian flex flex-col justify-between">
         <div className="archival-grain" />
         <Navbar />

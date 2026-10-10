@@ -17,7 +17,7 @@ const chatActionContent = fs.readFileSync(path.resolve("src/actions/chat.ts"), "
 test("Institutional Data Integrity Mandates", async (t) => {
   await t.test("Founder credentials and facts must be inviolable in source data", () => {
     assert.ok(dataContent.includes('founder: "Late Kiran Singh ji"'));
-    assert.ok(dataContent.includes('motto: "Working towards Change"'));
+    assert.ok(/motto:\s*"Working [Tt]owards Change"/.test(dataContent));
     assert.ok(dataContent.includes("scholarsCount: 40"));
     assert.ok(dataContent.includes("dogsCount: 34"));
     assert.ok(dataContent.includes("roaring male lion"));

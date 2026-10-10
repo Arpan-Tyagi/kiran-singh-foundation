@@ -66,8 +66,9 @@ export default function MutualAidForm() {
               Community <span className="italic text-lion-gold font-light">Interconnectedness</span>
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-slate leading-relaxed font-sans">
-              Core Purpose: Deep community interconnectedness—ensuring participants and supporters
-              are immediately available for one another during emergencies. All entries trigger automated WhatsApp and email dispatch.
+              Core Institutional Mandate: Absolute community solidarity. We ensure our sponsored scholars, sanctuary caretakers,
+              and civic volunteers are directly organized to protect and support one another during acute emergencies.
+              Every submission immediately alerts our triage queue and field dispatch teams.
             </p>
           </div>
 
@@ -96,19 +97,20 @@ export default function MutualAidForm() {
               <div>
                 <div className="flex items-center space-x-2">
                   <span className="font-sans font-bold text-sm text-crimson-alert uppercase tracking-wide">
-                    Urgent Distress Lifeline
+                    Critical Incident Telemetry
                   </span>
                   <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-crimson-alert text-white uppercase tracking-wider">
                     24/7 Live
                   </span>
                 </div>
                 <p className="text-xs text-obsidian mt-0.5 leading-snug">
-                  Active trauma, canine injury, or critical community crisis? Bypass form latency to alert field dispatch instantly.
+                  Reporting vehicular canine trauma or critical community distress? Bypass form latency to transmit live GPS
+                  and photos directly to our on-duty coordinator.
                 </p>
               </div>
             </div>
             <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "919840012345"}?text=%F0%9F%9A%A8%20*%5BCRITICAL%20EMERGENCY%20DISPATCH%20LIFELINE%5D*%20Immediate%20field%20coordinator%20dispatch%20requested.`}
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "919670970750"}?text=%F0%9F%9A%A8%20*%5BCRITICAL%20EMERGENCY%20DISPATCH%20LIFELINE%5D*%20Immediate%20field%20coordinator%20dispatch%20requested.`}
               target="_blank"
               rel="noopener noreferrer"
               className="whitespace-nowrap w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-6 py-3 rounded-full bg-crimson-alert hover:bg-crimson-alert-light active:scale-[0.98] text-white font-sans font-bold text-xs uppercase tracking-wider shadow-emergency-glow transition-all"
@@ -257,7 +259,7 @@ export default function MutualAidForm() {
                     required
                     value={formData.contactPhone}
                     onChange={(e) => setFormData({ ...formData, contactPhone: e.target.value })}
-                    placeholder="+91 98400 12345"
+                    placeholder="+91 96709 70750"
                     className="w-full bg-slate-50/70 border border-border rounded-xl px-4 py-3 text-sm text-obsidian placeholder-slate-400 focus:bg-white focus:outline-none focus:border-lion-gold focus:ring-2 focus:ring-lion-gold/15 transition-all"
                   />
                 </div>

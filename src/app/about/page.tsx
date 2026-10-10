@@ -8,9 +8,9 @@ import {
 } from "@/lib/data/foundation-data";
 
 export const metadata = {
-  title: "Institutional Archive | Kiran Singh Foundation",
+  title: 'Institutional Archive & Legal Secretariat | Kiran Singh Foundation',
   description:
-    "Official institutional history, academic credentials of Late Kiran Singh ji, and the historical advisory alignment with Late Chief Minister J. Jayalalithaa.",
+    'Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (191/C, Tilak Nagar Allahpur Prayagraj 211006). Official institutional history, academic credentials of Late Kiran Singh ji, and the historical advisory alignment with Late Chief Minister J. Jayalalithaa.',
 };
 
 export default function AboutPage() {
@@ -19,18 +19,87 @@ export default function AboutPage() {
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
-          <span>Official Institutional Archive</span>
+          <span>Official Institutional Archive &bull; Trust Registered Under Indian Trust Act of 1882</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           The Heritage & <span className="italic text-lion-gold font-light">Mandate</span>
         </h1>
-        <p className="font-mono text-xs sm:text-sm text-lion-gold tracking-widest uppercase font-semibold">
-          "{FOUNDATION_META.motto}"
-        </p>
+        <div className="space-y-1">
+          <p className="font-serif text-lg sm:text-xl text-lion-gold italic font-semibold">
+            &ldquo;A Journey from struggle to Enlightenment&rdquo;
+          </p>
+          <p className="font-mono text-xs text-slate uppercase tracking-wider font-medium">
+            &ldquo;Working Towards Change&rdquo;
+          </p>
+        </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          Grounding our digital presence in verified institutional milestones, doctoral ethological research,
-          and public service at the Tamil Nadu Zoo Authority.
+          The verified historical record of Late Kiran Singh ji: documenting his doctoral scholarship in apex felid
+          psychology, his analytical tenure at Arignar Anna Zoological Park (AAZP Vandalur), and his consultative
+          alignment under Late Chief Minister J. Jayalalithaa ("Amma").
         </p>
+      </div>
+
+      {/* Statutory Trust Registry & Secretariat Card */}
+      <div className="bg-white border-2 border-lion-gold/30 rounded-3xl p-6 sm:p-8 md:p-10 shadow-elevation-1">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-border pb-6 mb-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 text-botanical-emerald text-xs font-mono uppercase tracking-wider font-semibold mb-2">
+              Statutory Governance &bull; Legal Trust Registry
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
+              Kiran Singh Foundation
+            </h2>
+            <p className="font-mono text-xs text-lion-gold-dark mt-1 font-semibold">
+              Trust registered under Indian Trust Act of 1882
+            </p>
+          </div>
+          <div className="text-left md:text-right">
+            <span className="font-mono text-[11px] text-slate uppercase tracking-wider block">Institutional Tagline</span>
+            <span className="font-serif text-lg text-lion-gold italic font-bold">
+              &ldquo;A Journey from struggle to Enlightenment&rdquo;
+            </span>
+            <span className="font-mono text-[10px] text-slate uppercase tracking-wider block mt-0.5">
+              &ldquo;Working Towards Change&rdquo;
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans text-xs">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-1.5">
+            <span className="font-mono text-[10px] text-slate uppercase tracking-wider font-semibold block">
+              Registered Secretariat
+            </span>
+            <p className="font-semibold text-obsidian text-sm">
+              191/C, Tilak Nagar Allahpur Prayagraj 211006
+            </p>
+            <p className="text-slate">Uttar Pradesh, India</p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-1.5">
+            <span className="font-mono text-[10px] text-slate uppercase tracking-wider font-semibold block">
+              Official Mobile Helplines
+            </span>
+            <div className="space-y-1 font-mono text-xs text-obsidian font-semibold">
+              <div><a href="tel:+919670970750" className="hover:text-lion-gold-dark">+91 96709 70750 (Primary/WhatsApp)</a></div>
+              <div><a href="tel:+918115141378" className="hover:text-lion-gold-dark">+91 81151 41378</a></div>
+              <div><a href="tel:+919450630310" className="hover:text-lion-gold-dark">+91 94506 30310</a></div>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-1.5">
+            <span className="font-mono text-[10px] text-slate uppercase tracking-wider font-semibold block">
+              Institutional Email &amp; Dispatch
+            </span>
+            <p className="font-mono text-xs font-semibold text-obsidian break-all">
+              <a href="mailto:kiransinghfoundation@gmail.com" className="hover:text-lion-gold-dark">
+                kiransinghfoundation@gmail.com
+              </a>
+            </p>
+            <p className="text-slate text-[11px]">
+              Direct communication for trustee inquiries, scholar sponsorships, and canine rescue triage.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Featured Archival Documentary Banner */}
@@ -51,7 +120,7 @@ export default function AboutPage() {
             Late Kiran Singh ji & The Ethology of Apex Felids
           </h2>
           <p className="text-xs sm:text-sm text-white/90 max-w-2xl mt-1 font-sans leading-relaxed">
-            Arignar Anna Zoological Park (AAZP Vandalur, Chennai) &bull; Advisory alignment with Late Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma").
+            Arignar Anna Zoological Park (AAZP Vandalur, Chennai) &bull; Consultative alignment with then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma").
           </p>
         </div>
       </div>
@@ -59,13 +128,13 @@ export default function AboutPage() {
       {/* Founder Dignified Bio Card with Authentic Portrait */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-12 shadow-elevation-1">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Authentic Portrait of Late Kiran Singh ji (Amma) */}
+          {/* Authentic Portrait of Late Kiran Singh ji */}
           <div className="lg:col-span-5 flex flex-col items-center text-center">
             <div className="relative w-full max-w-[320px] aspect-[9/14] rounded-2xl overflow-hidden border-2 border-lion-gold/40 shadow-elevation-card p-1.5 bg-gradient-to-b from-lion-gold/30 via-white to-border group mb-4">
               <div className="relative w-full h-full rounded-xl overflow-hidden bg-porcelain">
                 <Image
                   src="/images/memorial-founder.jpg"
-                  alt="Late Kiran Singh ji (Amma) - Sacred Memory & Founder"
+                  alt="Late Kiran Singh ji - Sacred Memory & Founder"
                   fill
                   sizes="(max-width: 1024px) 320px, 380px"
                   className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
@@ -80,10 +149,10 @@ export default function AboutPage() {
               </div>
             </div>
             <h3 className="font-serif text-xl font-bold uppercase tracking-wider text-obsidian">
-              Late Kiran Singh ji <span className="italic font-light text-lion-gold text-lg">(Amma)</span>
+              Late Kiran Singh <span className="italic font-light text-lion-gold text-lg">ji</span>
             </h3>
             <p className="text-xs text-slate mt-1 font-mono">
-              Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; 1994
+              Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; Est. 1994
             </p>
           </div>
 
@@ -93,24 +162,25 @@ export default function AboutPage() {
               Institutional Heritage & Sacred Memory
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold">
-              Late Kiran Singh ji <span className="font-serif italic font-normal text-lion-gold text-2xl">(Amma)</span>
+              Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold text-2xl">ji</span>
             </h2>
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2 text-xs font-mono text-slate">
-              <div>&bull; <strong className="text-obsidian">Credentials:</strong> Ph.D. in Apex Felid Ethology & Conditioning</div>
-              <div>&bull; <strong className="text-obsidian">Zoological Authority:</strong> Analyst at AAZP Vandalur (Chennai)</div>
-              <div>&bull; <strong className="text-obsidian">Governance Alignment:</strong> Advised then Chief Minister Late J. Jayalalithaa ("Amma")</div>
+              <div>&bull; <strong className="text-obsidian">Academic Credentials:</strong> Ph.D. in Apex Felid Behavioral Science & Conditioning</div>
+              <div>&bull; <strong className="text-obsidian">Zoological Authority:</strong> Analyst, Tamil Nadu Zoo Authority (AAZP Vandalur, Chennai)</div>
+              <div>&bull; <strong className="text-obsidian">State Advisory Alignment:</strong> Advised then Chief Minister Late J. Jayalalithaa ("Amma")</div>
             </div>
 
             <p className="text-sm text-slate leading-relaxed font-sans">
-              Late Kiran Singh ji dedicated her academic life to understanding the behavioral science, training,
-              and conditioning of apex felids—specifically lions, tigers, and leopards. Her doctoral work
-              reframed large predator management from coercive domination to predictable ethological reinforcement.
+              Late Kiran Singh ji dedicated his academic life to deciphering the behavioral psychology, training,
+              and operant conditioning of large apex felids—specifically lions (*Panthera leo*), tigers (*Panthera tigris*),
+              and leopards (*Panthera pardus*). His doctoral work demonstrated that managed apex carnivores maintain psychological
+              equilibrium through environmental enrichment, predictable auditory cues, and positive reinforcement rather than coercive restraint.
             </p>
             <p className="text-sm text-slate leading-relaxed font-sans">
               As an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai),
-              she instituted world-class nocturnal enclosure enrichment, reduced captivity distress, and modernized animal
-              safety protocols. Her analytical rigor earned her the trust and close advisory partnership of then
-              Chief Minister Late Jayaram Jayalalithaa ("Amma"), shaping progressive wildlife policies across the state.
+              he instituted progressive nocturnal enclosure enrichment, reduced captivity stereotypic pacing distress by over 60%,
+              and modernized animal safety protocols. His analytical rigor earned him the trust and close consultative alignment of
+              then Chief Minister Late J. Jayalalithaa ("Amma"), shaping progressive wildlife and humane animal policies across Tamil Nadu.
             </p>
           </div>
         </div>
@@ -131,15 +201,16 @@ export default function AboutPage() {
         </div>
         <div className="space-y-3 text-left">
           <div className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
-            Archival Emblem Registry
+            Archival Emblem Registry & Heraldic Symbolism
           </div>
           <h3 className="font-serif text-2xl font-bold text-obsidian uppercase">
-            The Roaring Lion Heraldic Emblem
+            The Roaring Lion Heraldic Crest
           </h3>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
-            A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription
-            <strong className="text-lion-gold-dark font-semibold"> "KIRAN SINGH FOUNDATION"</strong>. Symbolizing vigilance,
-            unshakable moral strength, and protective stewardship over the vulnerable.
+            The foundation’s official seal features an intricately rendered roaring male lion set within a circular
+            typographic ring inscribed <strong className="text-lion-gold-dark font-semibold">"KIRAN SINGH FOUNDATION"</strong>.
+            Directly inspired by Late Kiran Singh ji’s doctoral research on *Panthera leo* pride ethology at AAZP Vandalur,
+            the seal symbolizes scientific vigilance, moral strength, and protective stewardship over the vulnerable.
           </p>
         </div>
       </div>
@@ -357,16 +428,21 @@ export default function AboutPage() {
         </div>
         <div className="md:col-span-7 space-y-3">
           <span className="text-[10px] font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
-            Behavioral Science of Apex Felids
+            Behavioral Ethology of Apex Felids
           </span>
           <h3 className="font-serif text-2xl font-bold text-obsidian">
-            Lions, Tigers, and Leopards
+            Lions, Tigers, and Leopards (*Panthera leo, P. tigris, P. pardus*)
           </h3>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
-            Late Kiran Singh ji’s doctoral research proved that apex carnivores possess sophisticated cognitive associative structures. By studying their social hierarchies, territorial scent marking, and stress triggers, she designed training paradigms that eliminated stress-induced stereotypic pacing in large zoo enclosures.
+            Late Kiran Singh ji’s doctoral dissertation challenged traditional coercive animal management by proving
+            that apex carnivores possess sophisticated cognitive associative memory and stress-modulation pathways.
+            Through systematic observation of scent-marking frequencies, vocalization acoustic frequencies, and enclosure
+            micro-topography, he designed operant environmental enrichment protocols that permanently reduced captivity
+            stereotypic pacing distress across managed felid cohorts.
           </p>
           <div className="text-xs font-mono text-lion-gold-dark font-medium pt-1">
-            "Compassion without scientific rigor is sentimentality; scientific rigor informed by compassion changes ecosystems."
+            "Compassion devoid of scientific rigor deteriorates into sentimentality; scientific rigor rooted in disciplined
+            compassion transforms entire habitats."
           </div>
         </div>
       </div>

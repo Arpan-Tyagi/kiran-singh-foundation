@@ -10,23 +10,32 @@ Under no circumstances should you alter, abstract, or invent core institutional 
 
 AUTHORITATIVE INSTITUTIONAL MANDATES:
 1. FOUNDATION FOUNDER:
-   - Established in sacred memory of Late Kiran Singh ji (Amma).
-   - Identity: Female leader, ethologist, and institutional pillar. Always refer to Late Kiran Singh ji with female pronouns (she, her, hers).
-   - Credentials: She earned a Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
-   - Public Service: She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
-   - High Governance: She worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
-2. MOTTO: "Working towards Change".
-3. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
-4. OPERATIONAL WING A - STUDENT WELFARE WING:
+   - Established in sacred memory of Late Kiran Singh ji.
+   - Identity: Male scholar, ethologist, and institutional pillar. Always refer to Late Kiran Singh ji with masculine pronouns (he, him, his). Note: "Amma" refers exclusively to Late CM J. Jayalalithaa, not to Late Kiran Singh ji.
+   - Credentials: He earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
+   - Public Service: He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
+   - High Governance: He worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
+2. MOTTO & TAGLINE:
+   - Official Tagline: "A Journey from struggle to Enlightenment"
+   - Foundation Motto: "Working Towards Change"
+3. STATUTORY REGISTRATION & LEGAL STATUS:
+   - Trust registered under Indian Trust Act of 1882.
+4. REGISTERED OFFICE & ADDRESS:
+   - 191/C, Tilak Nagar Allahpur Prayagraj 211006.
+5. OFFICIAL COMMUNICATIONS:
+   - Mobile Numbers: 9670970750, 8115141378, 9450630310 (Primary Dispatch / WhatsApp: +91 96709 70750)
+   - Official Email: kiransinghfoundation@gmail.com
+6. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
+7. OPERATIONAL WING A - STUDENT WELFARE WING:
    - Supports exactly 40 active students directly under comprehensive foundation sponsorship.
    - All expenses and educational resources for soft skills incubation and personality development (executive communication, public discourse, systems thinking) are fully provided.
    - Offers Summer and Winter Internships on a pro bono basis to build professional competence and civic discipline.
-5. OPERATIONAL WING B - DOG CARE CENTRE:
+8. OPERATIONAL WING B - DOG CARE CENTRE:
    - Protects and shelters exactly 34 rescued street dogs.
    - All food, housing, medical care, sterilizations, and vaccinations (rabies and boosters) are 100% funded by the foundation.
    - Organized across three protective zones: Zone Alpha (Critical Care & Quarantine), Zone Beta (Main Pack Sanctuary), and Zone Gamma (Senior & Palliative Run).
-6. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
-7. MULTI-CHANNEL COMMUNICATIONS: Primary engagement through WhatsApp (wa.me) and transactional emails.
+9. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
+10. MULTI-CHANNEL COMMUNICATIONS: Primary engagement through WhatsApp (+91 96709 70750) and email (kiransinghfoundation@gmail.com).
 
 STRICT CAPACITY NEGATIVE CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (Wing A) and exactly 34 rescued street dogs (Wing B).
@@ -308,7 +317,7 @@ export async function executeFoundationChatTurn(
     userQueryLower.includes("ethology")
   ) {
     return {
-      reply: `Late Kiran Singh ji (Amma) was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Her vision powers our motto: "Working towards Change".`,
+      reply: `Late Kiran Singh ji was a distinguished ethologist who earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"). Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006). His vision powers our guiding ethos: "A Journey from struggle to Enlightenment" ("Working Towards Change").`,
       suggestedAction: {
         type: "intake_form",
         label: "Read Institutional Archive",
@@ -319,7 +328,7 @@ export async function executeFoundationChatTurn(
 
   if (userQueryLower.includes("dog") || userQueryLower.includes("canine") || userQueryLower.includes("rabies")) {
     return {
-      reply: `Our Dog Care Centre shelters and protects exactly 34 rescued street dogs. All food, housing, medical care, sterilizations, and vaccinations (rabies and annual boosters) are 100% funded by the foundation across three monitored zones (Zone Alpha, Beta, and Gamma).`,
+      reply: `Our Dog Care Centre shelters and protects exactly 34 rescued street dogs. All food, housing, medical care, sterilizations, and vaccinations (rabies and annual boosters) are 100% funded by the foundation across three monitored zones (Zone Alpha, Beta, and Gamma). For emergency canine rescue dispatch, call +91 96709 70750.`,
       suggestedAction: {
         type: "view_dogs",
         label: "Inspect 34 Resident Dogs",
@@ -340,7 +349,7 @@ export async function executeFoundationChatTurn(
   }
 
   return {
-    reply: `Welcome to the Kiran Singh Foundation. Established in sacred memory of Late Kiran Singh ji, our mission operates under the motto "Working towards Change". We oversee the Student Welfare Wing (40 sponsored scholars), the Dog Care Centre (34 rescued street dogs), and an active community emergency grid. How may we assist you today?`,
+    reply: `Welcome to the Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji, our mission operates under the tagline "A Journey from struggle to Enlightenment" and motto "Working Towards Change". We oversee the Student Welfare Wing (40 sponsored scholars), the Dog Care Centre (34 rescued street dogs), and an active community emergency grid. Contact: +91 96709 70750 / kiransinghfoundation@gmail.com. How may we assist you today?`,
     suggestedAction: {
       type: "intake_form",
       label: "Mutual-Aid & Community Intake",

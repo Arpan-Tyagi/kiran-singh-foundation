@@ -78,8 +78,16 @@ export interface BlogPost {
 
 export const FOUNDATION_META = {
   name: "Kiran Singh Foundation",
-  motto: "Working towards Change",
+  trustRegistration: "Trust registered under Indian Trust Act of 1882",
+  tagline: "A Journey from struggle to Enlightenment",
+  motto: "Working Towards Change",
   founder: "Late Kiran Singh ji",
+  mobileNumbers: ["9670970750", "8115141378", "9450630310"],
+  primaryMobile: "9670970750",
+  formattedMobiles: ["+91 96709 70750", "+91 81151 41378", "+91 94506 30310"],
+  email: "kiransinghfoundation@gmail.com",
+  address: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
+  registeredOffice: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
   emblemDescription: "A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription 'KIRAN SINGH FOUNDATION'",
   scholarsCount: 40,
   dogsCount: 34,
@@ -107,7 +115,7 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     role: "President, Kiran Singh Foundation",
     photoUrl: "/images/leadership/anil-kumar-singh.jpg",
     photoPosition: "object-[center_20%]",
-    bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji (Amma).",
+    bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji.",
   },
   {
     id: "lead-02",
@@ -235,7 +243,7 @@ export const MEMORIAL_RECORDS: MemorialRecord[] = [
     period: "1988 – 1994",
     institution: "Department of Wildlife Biology & Animal Behavior",
     researchDiscipline: "Apex Felid Ethology (Panthera leo, Panthera tigris, Panthera pardus)",
-    detailedNarrative: "The foundational research of Late Kiran Singh ji formulated unprecedented humane conditioning and operant stimulus paradigms for large carnivores in zoological preserves. Focusing on lion prides and solitary leopards, her doctoral research proved that apex predators retain psychological equilibrium in managed habitats through environmental enrichment, predictable acoustic conditioning, and positive reinforcement rather than punitive restraints.",
+    detailedNarrative: "The foundational research of Late Kiran Singh ji formulated unprecedented humane conditioning and operant stimulus paradigms for large carnivores in zoological preserves. Focusing on lion prides and solitary leopards, his doctoral research proved that apex predators retain psychological equilibrium in managed habitats through environmental enrichment, predictable acoustic conditioning, and positive reinforcement rather than punitive restraints.",
     advisoryAlignment: "Formed the theoretical groundwork that would later be adopted by state wildlife reserves and zoological authorities across South India.",
     citations: [
       "Singh, K. (1993). Operant Conditioning Paradigms in Managed Panthera leo Cohorts. Journal of Applied Felid Ethology, 14(2), 112-128.",
@@ -250,7 +258,7 @@ export const MEMORIAL_RECORDS: MemorialRecord[] = [
     period: "1995 – 2004",
     institution: "Arignar Anna Zoological Park (AAZP Vandalur, Chennai)",
     researchDiscipline: "Zoological Habitat Design, Animal Welfare & Pride Management",
-    detailedNarrative: "Appointed as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (Vandalur, Chennai)—one of the largest modern zoological parks in Asia. Late Kiran Singh ji supervised predator enclosures, pioneered safari enrichment corridors, and established safety-conscious veterinary handling procedures for the park's lion safari and tiger preserves. Her analytical diagnostics reduced territorial pacing distress by over 60% across resident felids.",
+    detailedNarrative: "Appointed as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (Vandalur, Chennai)—one of the largest modern zoological parks in Asia. Late Kiran Singh ji supervised predator enclosures, pioneered safari enrichment corridors, and established safety-conscious veterinary handling procedures for the park's lion safari and tiger preserves. His analytical diagnostics reduced territorial pacing distress by over 60% across resident felids.",
     advisoryAlignment: "Worked in close consultation with state forestry conservators to position AAZP Vandalur as an international benchmark for humane zoological keeping.",
     citations: [
       "AAZP Annual Directorate Reports (1998, 2001, 2003)",
@@ -265,7 +273,7 @@ export const MEMORIAL_RECORDS: MemorialRecord[] = [
     period: "2001 – 2006",
     institution: "Government of Tamil Nadu - Office of the Chief Minister",
     researchDiscipline: "State Wildlife Policy & Urban Stray Animal Humane Governance",
-    detailedNarrative: "Late Kiran Singh ji worked in close alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ('Amma'), advising the state administration on wildlife conservation standards, modernized veterinary infrastructure at AAZP Vandalur, and humane urban community animal welfare models. Late Jayalalithaa ji lauded her disciplined methodology, profound empathy for non-human animals, and commitment to public welfare, inspiring the core philosophy: 'Working towards Change'.",
+    detailedNarrative: "Late Kiran Singh ji worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ('Amma'), advising the state administration on wildlife conservation standards, modernized veterinary infrastructure at AAZP Vandalur, and humane urban community animal welfare models. Late J. Jayalalithaa ji commended his disciplined methodology, his scientific contributions to felid ethology, and his commitment to public welfare, inspiring the core philosophy: 'Working Towards Change'.",
     advisoryAlignment: "Directly shaped progressive state initiatives for zoo veterinary modernization, wild cat rescue rehabilitation units, and compassionate community animal governance.",
     citations: [
       "Government of Tamil Nadu G.O. (Ms) No. 142/Forest & Wildlife Dept (2002)",
@@ -1545,7 +1553,7 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     scheduledAt: "2025-04-15T08:30:00+05:30",
     capacity: 150,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919840012345?text=RSVP%20for%20Anti-Rabies%20Vaccination%20Camp",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Anti-Rabies%20Vaccination%20Camp",
   },
   {
     id: "evt-02",
@@ -1557,7 +1565,7 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     scheduledAt: "2025-05-10T10:00:00+05:30",
     capacity: 80,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919840012345?text=RSVP%20for%20Scholar%20Symposium",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Scholar%20Symposium",
   },
   {
     id: "evt-03",
@@ -1569,7 +1577,7 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     scheduledAt: "2025-06-20T07:00:00+05:30",
     capacity: 100,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919840012345?text=RSVP%20for%20Mutual%20Aid%20Drill",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Mutual%20Aid%20Drill",
   },
   {
     id: "evt-04",
@@ -1581,7 +1589,7 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     scheduledAt: "2025-09-18T17:30:00+05:30",
     capacity: 200,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919840012345?text=RSVP%20for%20Annual%20Memorial%20Remembrance",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Annual%20Memorial%20Remembrance",
   },
 ];
 

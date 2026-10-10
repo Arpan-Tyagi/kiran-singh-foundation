@@ -31,17 +31,19 @@ export default function DogsRosterClient({
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 text-botanical-emerald text-[10px] font-mono tracking-widest uppercase font-semibold">
           <Heart className="w-3.5 h-3.5" />
-          <span>Operational Wing B &bull; 100% Endowed Shelter</span>
+          <span>Operational Wing B &bull; 100% Endowed Medical Sanctuary</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           Dog Care <span className="italic text-botanical-emerald font-light">Centre</span>
         </h1>
         <p className="font-mono text-xs sm:text-sm text-botanical-emerald tracking-widest uppercase font-semibold">
-          34 Rescued Street Dogs &bull; 100% Rabies Vaccinated & Sterilized
+          34 Rescued Municipal Street Dogs &bull; 100% Sterilized & Booster Verified
         </p>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          Protects and shelters exactly 34 rescued street dogs. All food, housing, medical care, sterilizations,
-          and vaccinations (rabies and annual boosters) are 100% funded by the foundation across three monitored zones.
+          The foundation provides permanent clinical shelter and daily nutrition for exactly 34 rescued municipal street dogs.
+          Rooted in Late Kiran Singh ji’s ethological principles, our sanctuary replaces ad-hoc roadside feeding with
+          structured biosafety: comprehensive surgical sterilizations, multi-strain core vaccinations, and clinical care
+          across three dedicated behavioral zones.
         </p>
       </div>
 
@@ -53,15 +55,15 @@ export default function DogsRosterClient({
               Zone Alpha
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-slate border border-border">
-              Triage & Quarantine
+              Intake & Quarantine
             </span>
           </div>
           <h3 className="font-serif text-xl font-bold text-obsidian">
-            Critical Care & Intake
+            Critical Care & Isolation
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Dedicated veterinary isolation runs for fresh intakes, post-surgical sterilization recovery,
-            and trauma wound debridement with 24/7 telemetry monitoring.
+            Biosecure isolation kennels for newly rescued canines, post-operative sterilization recovery,
+            parvovirus/distemper quarantine screening, and complex trauma wound debridement under continuous telemetry.
           </p>
         </div>
 
@@ -71,15 +73,15 @@ export default function DogsRosterClient({
               Zone Beta
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-slate border border-border">
-              Main Community
+              Main Pack Sanctuary
             </span>
           </div>
           <h3 className="font-serif text-xl font-bold text-obsidian">
-            Main Pack Sanctuary
+            Socialized Cohort Grounds
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Open-air shaded socialization paddocks with thermal resting stones and agility runs,
-            allowing healthy resident dogs to exercise in stable, low-stress pack hierarchies.
+            Spacious, shaded socialization paddocks equipped with bioclimatic thermal stones and natural turf runs,
+            fostering low-stress pack hierarchy dynamics calibrated using Late Kiran Singh ji’s behavioral models.
           </p>
         </div>
 
@@ -89,15 +91,15 @@ export default function DogsRosterClient({
               Zone Gamma
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-slate border border-border">
-              Palliative Haven
+              Senior & Palliative Care
             </span>
           </div>
           <h3 className="font-serif text-xl font-bold text-obsidian">
-            Senior & Palliative Run
+            Geriatric Comfort Suites
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Geriatric comfort suites equipped with orthopedic memory foam bedding, low-impact infrared lamps,
-            and customized renal/hepatic pureed diets for senior companions.
+            Specialized climate-controlled quarters featuring orthopedic memory foam resting pads, therapeutic infrared
+            lamps for osteoarthritis relief, and tailored renal/hepatic pureed diets formulated for our senior canines.
           </p>
         </div>
       </div>
@@ -182,7 +184,7 @@ export default function DogsRosterClient({
                 <div className="mt-4 pt-3 border-t border-border space-y-2 text-xs">
                   <div>
                     <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Sanctuary Zone:
+                      Sanctuary Zone & Cohort Placement:
                     </span>
                     <p className="text-botanical-emerald font-sans text-xs mt-0.5 font-semibold">
                       {dog.zoneIdentifier}
@@ -191,16 +193,16 @@ export default function DogsRosterClient({
 
                   <div>
                     <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Rescue Origin:
+                      Rescue Provenance & Ingestion Date:
                     </span>
                     <p className="text-obsidian text-xs mt-0.5 font-sans">
-                      {dog.rescueLocation} ({dog.rescueDate})
+                      {dog.rescueLocation} &bull; <span className="font-mono text-slate">{dog.rescueDate}</span>
                     </p>
                   </div>
 
                   <div>
                     <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Dietary Management:
+                      Clinical Nutrition Specification:
                     </span>
                     <p className="text-slate text-xs mt-0.5 font-sans">
                       {dog.dietaryNeeds}
@@ -209,7 +211,7 @@ export default function DogsRosterClient({
 
                   <div>
                     <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Clinical & Behavioral Notes:
+                      Veterinary Case Summary:
                     </span>
                     <p className="text-slate text-xs mt-0.5 font-sans italic">
                       "{dog.medicalNotes}"
@@ -222,10 +224,10 @@ export default function DogsRosterClient({
               <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[11px] font-mono">
                 <span className="text-botanical-emerald flex items-center space-x-1 font-semibold">
                   <Syringe className="w-3 h-3" />
-                  <span>Rabies: {dog.rabiesVaccinationDate}</span>
+                  <span>Rabies Record: {dog.rabiesVaccinationDate}</span>
                 </span>
-                <span className="text-slate">
-                  Booster: {dog.boosterDueDate}
+                <span className="text-slate font-medium">
+                  Annual Booster Due: {dog.boosterDueDate}
                 </span>
               </div>
             </div>

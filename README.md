@@ -1,6 +1,9 @@
 # Kiran Singh Foundation | Institutional Digital Repository & Mutual-Aid Grid
 
-> **"Working towards Change"**
+> **"A Journey from struggle to Enlightenment"** &bull; *"Working Towards Change"*  
+> **Trust registered under Indian Trust Act of 1882**  
+> **Registered Secretariat:** 191/C, Tilak Nagar Allahpur Prayagraj 211006  
+> **Mobile Helplines:** 9670970750, 8115141378, 9450630310 &bull; **Email:** kiransinghfoundation@gmail.com
 
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.1.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Google Gemini 2.5 Flash](https://img.shields.io/badge/Google_Gemini-2.5_Flash-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev/)
@@ -13,11 +16,18 @@
 
 Under no circumstances should core institutional facts be altered, abstracted, or omitted:
 
-- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji (Amma)**.
-  - **Academic Credentials:** Earned her Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
+- **Foundation Legal Status:** **Trust registered under Indian Trust Act of 1882**.
+- **Registered Secretariat:** `191/C, Tilak Nagar Allahpur Prayagraj 211006` (Uttar Pradesh, India).
+- **Official Contacts:**
+  - **Mobile Numbers:** `9670970750` (Primary/WhatsApp), `8115141378`, `9450630310`
+  - **Email:** `kiransinghfoundation@gmail.com`
+- **Official Tagline & Motto:**
+  - Tagline: *"A Journey from struggle to Enlightenment"*
+  - Motto: *"Working Towards Change"*
+- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji**.
+  - **Academic Credentials:** Earned his Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
   - **Public Service:** Served as an Analyst in the **Tamil Nadu Zoo Authority** at **Arignar Anna Zoological Park (AAZP Vandalur, Chennai)**.
-  - **Governance Alignment:** Worked in close advisory alignment with the then Chief Minister of Tamil Nadu, **Late Jayaram Jayalalithaa ("Amma")**, advising on zoo veterinary modernization and humane community animal governance.
-- **Motto:** *"Working towards Change"*.
+  - **Governance Alignment:** Worked in close advisory alignment with the then Chief Minister of Tamil Nadu, **Late J. Jayalalithaa ("Amma")**, advising on zoo veterinary modernization and humane community animal governance.
 - **Heraldic Emblem:** A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription `"KIRAN SINGH FOUNDATION"`.
 - **Operational Wing A – Student Welfare Wing:**
   - Directly supports **exactly 40 active students** under foundation sponsorship.
@@ -30,7 +40,7 @@ Under no circumstances should core institutional facts be altered, abstracted, o
     2. *Zone Beta:* Main Pack Sanctuary
     3. *Zone Gamma:* Senior & Palliative Run
 - **Core Purpose:** Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
-- **Multi-Channel Communications:** Primary engagement through deep-linked WhatsApp (`wa.me`) and transactional Resend emails.
+- **Multi-Channel Communications:** Primary engagement through deep-linked WhatsApp (`wa.me/919670970750`) and transactional emails (`kiransinghfoundation@gmail.com`).
 
 ---
 

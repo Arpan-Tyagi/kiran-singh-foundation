@@ -67,7 +67,7 @@ export async function createEventAction(formData: {
       .replace(/^-+|-+$/g, "") || "event";
   const slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
 
-  const whatsappRsvpLink = `https://wa.me/919840012345?text=${encodeURIComponent(`RSVP for ${formData.title}`)}`;
+  const whatsappRsvpLink = `https://wa.me/919670970750?text=${encodeURIComponent(`RSVP for ${formData.title}`)}`;
 
   const created = await createEventRecord({
     slug,

@@ -1,7 +1,13 @@
 // Kiran Singh Foundation - WhatsApp Deep-Link Generator Utility
 // Interacts with wa.me click-to-chat API for emergency dispatch, RSVPs, and mutual aid.
 
-const DEFAULT_WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "919840012345";
+const DEFAULT_WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "919670970750";
+
+export const FOUNDATION_CONTACT_NUMBERS = [
+  { label: "Primary / WhatsApp", display: "+91 96709 70750", raw: "9670970750", wa: "919670970750" },
+  { label: "Coordinator Line 2", display: "+91 81151 41378", raw: "8115141378", wa: "918115141378" },
+  { label: "Coordinator Line 3", display: "+91 94506 30310", raw: "9450630310", wa: "919450630310" },
+];
 
 export interface EmergencyDistressPayload {
   callerName: string;

@@ -19,8 +19,10 @@ export default function MemorialSection() {
               Late Kiran Singh <span className="italic text-lion-gold font-light">ji</span>
             </h2>
             <p className="mt-4 text-slate text-base sm:text-lg leading-relaxed font-sans">
-              Ethologist, zoological analyst, and lifelong champion of the voiceless. Her pioneering doctoral
-              research into apex felids laid the scientific foundation for our contemporary student incubation and canine welfare wings.
+              Doctoral ethologist, zoological analyst, and institutional architect of modern predator care.
+              His pioneering research into the psychology and conditioning of apex felids at Arignar Anna
+              Zoological Park (AAZP Vandalur) established the scientific principles of discipline and humane
+              stewardship that anchor our foundation today.
             </p>
           </div>
 
@@ -29,10 +31,10 @@ export default function MemorialSection() {
               Institutional Motto
             </span>
             <span className="font-serif text-xl sm:text-2xl text-lion-gold italic font-semibold mt-1">
-              "Working towards Change"
+              &ldquo;A Journey from struggle to Enlightenment&rdquo;
             </span>
             <span className="text-xs font-mono text-slate mt-1">
-              AAZP Vandalur &bull; Govt of Tamil Nadu Alignment
+              Trust registered under Indian Trust Act of 1882 &bull; &ldquo;Working Towards Change&rdquo;
             </span>
           </div>
         </div>
@@ -40,13 +42,13 @@ export default function MemorialSection() {
         {/* Archival Memorial Tribute: Authentic Portrait & Historical Mandate */}
         <div className="bg-white border border-border rounded-3xl p-6 sm:p-8 md:p-12 shadow-elevation-card mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Authentic Portrait of Late Kiran Singh ji (Amma) */}
+            {/* Authentic Portrait of Late Kiran Singh ji */}
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative w-full max-w-[340px] aspect-[9/14] rounded-2xl overflow-hidden border-2 border-lion-gold/40 shadow-elevation-card p-1.5 bg-gradient-to-b from-lion-gold/30 via-white to-border group">
                 <div className="relative w-full h-full rounded-xl overflow-hidden bg-porcelain">
                   <Image
                     src="/images/memorial-founder.jpg"
-                    alt="Late Kiran Singh ji (Amma) - Sacred Memory & Founder"
+                    alt="Late Kiran Singh ji - Sacred Memory & Founder"
                     fill
                     sizes="(max-width: 1024px) 340px, 420px"
                     className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
@@ -62,10 +64,10 @@ export default function MemorialSection() {
               </div>
               <div className="mt-4 text-center">
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
-                  Late Kiran Singh ji <span className="font-serif italic font-normal text-lion-gold text-lg">(Amma)</span>
+                  Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold text-lg">ji</span>
                 </h3>
                 <p className="text-[11px] font-mono text-slate tracking-wider uppercase mt-1">
-                  Ethologist &bull; AAZP Vandalur Analyst &bull; Foundation Pillar
+                  Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; Foundational Pillar
                 </p>
               </div>
             </div>
@@ -89,15 +91,15 @@ export default function MemorialSection() {
                   A Legacy of Dignity, Science, and <span className="italic text-lion-gold font-light">Compassionate Protection</span>
                 </h3>
                 <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed font-sans">
-                  Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji (Amma)</strong>.
-                  Earning a Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards),
-                  her analytical tenure at the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) transformed
+                  Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>.
+                  Earning his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards),
+                  his analytical tenure at the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) transformed
                   zoological care into humane behavioral science.
                 </p>
                 <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed font-sans">
-                  Working in close advisory alignment with the then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"),
-                  this scientific rigor and maternal compassion now animate our two operational wings: providing 40 sponsored scholars with
-                  soft-skill leadership and sheltering 34 rescued street dogs in Chennai.
+                  Working in close advisory alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"),
+                  his scientific rigor and protective discipline now animate our two operational wings: providing 40 sponsored scholars with
+                  executive leadership coaching and sheltering 34 rescued street dogs in Chennai.
                 </p>
               </div>
 
@@ -213,7 +215,7 @@ export default function MemorialSection() {
               {/* Quote Block */}
               <div className="p-4 rounded-2xl bg-porcelain border border-border relative">
                 <p className="font-serif italic text-sm sm:text-base text-obsidian leading-relaxed">
-                  "Late Jayalalithaa ji lauded her disciplined methodology, profound empathy for apex felids, and commitment to public welfare, inspiring the core philosophy: &lsquo;Working towards Change&rsquo;."
+                  "Late J. Jayalalithaa ji commended his disciplined methodology, his pioneering scientific contributions to large felid psychology at AAZP Vandalur, and his commitment to public welfare, inspiring the core philosophy: &lsquo;Working Towards Change&rsquo;."
                 </p>
                 <div className="mt-3 text-[11px] font-mono text-lion-gold-dark font-semibold uppercase tracking-wider">
                   — State Governance Commendation (2004)
@@ -233,7 +235,7 @@ export default function MemorialSection() {
 
                 <div className="p-3.5 rounded-xl bg-slate-50 border border-border">
                   <div className="font-sans font-semibold text-xs text-obsidian">
-                    2. State Wildlife Advisory to CM "Amma"
+                    2. Consultative Alignment with Late CM J. Jayalalithaa ("Amma")
                   </div>
                   <p className="text-[11px] text-slate font-sans mt-0.5 leading-relaxed">
                     Shaped humane urban stray animal policies, modern zoo enclosures, and the veterinary modernization roadmap.

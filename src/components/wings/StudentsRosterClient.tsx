@@ -29,31 +29,31 @@ export default function StudentsRosterClient({
   const syllabusModules = [
     {
       num: "01",
-      title: "Executive Communication & Rhetorical Oratory",
-      duration: "12 Weeks Intensive",
-      desc: "Comprehensive speech craft, debate protocol, clarity in written executive briefing, and vocal projection under scrutiny.",
-      skills: ["Spoken Eloquence", "Executive Brief Writing", "Media Defense"],
+      title: "Executive Presence & Rhetorical Oratory",
+      duration: "12 Weeks Intensive Lab",
+      desc: "Structured training in parliamentary debate protocols, high-pressure vocal modulation, executive summary drafting, and media defense under cross-examination.",
+      skills: ["Executive Briefings", "Parliamentary Debate", "Crisis Cross-Examination"],
     },
     {
       num: "02",
-      title: "Systems Thinking & Ethical Civic Governance",
-      duration: "8 Weeks Applied",
-      desc: "Deconstructing municipal welfare frameworks, animal protection law, public policy analysis, and state budget transparency.",
-      skills: ["Policy Modeling", "Statutory Interpretation", "Audit Rigor"],
+      title: "Systems Thinking & Statutory Civic Governance",
+      duration: "8 Weeks Applied Seminar",
+      desc: "Rigorous statutory analysis of municipal administration, environmental protection jurisprudence, public expenditure audits, and institutional transparency frameworks.",
+      skills: ["Statutory Redlining", "Municipal Policy Analysis", "Fiscal Audit Rigor"],
     },
     {
       num: "03",
-      title: "Crisis Conflict De-escalation & Empathetic Dialogue",
-      duration: "6 Weeks Workshop",
-      desc: "Handling high-stakes community friction, urban mutual-aid coordination, stakeholder mediation, and trauma response.",
-      skills: ["Active Listening", "Negotiation", "Crisis Mediation"],
+      title: "Interpersonal Conflict De-escalation & Mediation",
+      duration: "6 Weeks Field Workshop",
+      desc: "Trauma-informed mediation protocols for resolving neighborhood community friction, coordinating rapid mutual-aid deployments, and de-escalating urban crisis flashpoints.",
+      skills: ["Active Listening Labs", "Bilateral Mediation", "Emergency Crisis Triage"],
     },
     {
       num: "04",
-      title: "Scientific Documentation & Public Presentation",
-      duration: "8 Weeks Lab",
-      desc: "Synthesizing complex technical and ecological data into accessible civic narratives, following Late Kiran Singh ji’s research standard.",
-      skills: ["Technical Synthesis", "Data Journalism", "Public Presentation"],
+      title: "Scientific Synthesis & Archival Presentation",
+      duration: "8 Weeks Practicum",
+      desc: "Translating intricate epidemiological, ecological, and legal data into clear policy briefs and civic monographs, continuing Late Kiran Singh ji’s standard of rigorous documentation.",
+      skills: ["Quantitative Synthesis", "Policy Monograph Drafting", "Public Defense"],
     },
   ];
 
@@ -69,11 +69,12 @@ export default function StudentsRosterClient({
           Student Welfare <span className="italic text-lion-gold font-light">Wing</span>
         </h1>
         <p className="font-mono text-xs sm:text-sm text-lion-gold tracking-widest uppercase font-semibold">
-          40 Active Sponsored Scholars &bull; Pro Bono Summer & Winter Internships
+          Cohort of 40 Sponsored Scholars &bull; Pro Bono Summer & Winter Residencies
         </p>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          Supports exactly 40 active students directly under foundation sponsorship. All expenses and resources
-          for soft skills incubation, executive personality development, and pro bono internships are 100% provided.
+          The foundation finances comprehensive leadership development for exactly 40 scholars under direct institutional
+          sponsorship. We underwrite 100% of executive communication coaching, public discourse laboratories, personality
+          cultivation, and mandatory pro bono corporate and legal internships—forging resilient civic leaders.
         </p>
       </div>
 
@@ -170,13 +171,14 @@ export default function StudentsRosterClient({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-6">
           <div>
             <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold">
-              Active Institutional Roster
+              Active Institutional Cohort &bull; Monospace Registry
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">
               The 40 Sponsored Scholars
             </h2>
             <p className="text-xs sm:text-sm text-slate mt-1 font-sans">
-              100% sponsored cohort undergoing continuous soft skills assessment and pro bono placement.
+              Authoritative roster of exactly 40 scholars under active institutional sponsorship, undergoing continuous
+              pedagogical evaluation and participating in foundation-financed pro bono Summer and Winter corporate/legal residencies.
             </p>
           </div>
 
