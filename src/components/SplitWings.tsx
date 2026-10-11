@@ -26,8 +26,8 @@ export default function SplitWings() {
             Synchronized <span className="italic text-lion-gold font-light">Impact</span>
           </h2>
           <p className="mt-4 text-slate text-sm sm:text-base leading-relaxed font-sans">
-            In accordance with Late Kiran Singh ji’s ethological and humanitarian principles, the foundation
-            simultaneously incubates exactly 40 youth scholars and shelters 34 rescued street dogs.
+            In accordance with Late Kiran Singh ji’s ethological and humanitarian principles, and guided by our motto
+            &ldquo;A Journey from struggle to Enlightenment&rdquo;, the foundation simultaneously incubates exactly 40 youth scholars and shelters 34 rescued street dogs.
           </p>
         </div>
 

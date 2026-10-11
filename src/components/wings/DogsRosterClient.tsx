@@ -36,9 +36,14 @@ export default function DogsRosterClient({
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           Dog Care <span className="italic text-botanical-emerald font-light">Centre</span>
         </h1>
-        <p className="font-mono text-xs sm:text-sm text-botanical-emerald tracking-widest uppercase font-semibold">
-          34 Rescued Municipal Street Dogs &bull; 100% Sterilized & Booster Verified
-        </p>
+        <div className="space-y-1">
+          <p className="font-serif text-lg text-botanical-emerald italic font-semibold">
+            &ldquo;A Journey from struggle to Enlightenment&rdquo;
+          </p>
+          <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
+            Trust registered under Indian Trust Act of 1882 &bull; 34 Rescued Canines Sanctuary
+          </p>
+        </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
           The foundation provides permanent clinical shelter and daily nutrition for exactly 34 rescued municipal street dogs.
           Rooted in Late Kiran Singh ji’s ethological principles, our sanctuary replaces ad-hoc roadside feeding with

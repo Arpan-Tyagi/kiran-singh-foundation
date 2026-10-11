@@ -19,7 +19,7 @@ export default function AICopilotDrawer() {
     {
       role: "assistant",
       content:
-        "Welcome to the Kiran Singh Foundation Institutional Concierge. Grounded in the sacred memory of Late Kiran Singh ji (Ph.D. Apex Felid Ethology, AAZP Vandalur Analyst), I can assist you with details regarding our 40 sponsored scholars, our 34 rescued canines, or connect you with our 24/7 mutual-aid emergency grid.",
+        "Welcome to the Kiran Singh Foundation Institutional Concierge. Trust registered under Indian Trust Act of 1882 (191/C, Tilak Nagar Allahpur Prayagraj 211006). Guided by our motto \"A Journey from struggle to Enlightenment\" and honoring Late Kiran Singh ji (Ph.D. Apex Felid Ethology, AAZP Vandalur Analyst), I can assist you with our 40 sponsored scholars, 34 sheltered dogs, or direct you to our 24/7 mutual-aid emergency grid (Helpline: +91 96709 70750).",
     },
   ]);
   const [input, setInput] = useState("");
@@ -133,7 +133,7 @@ export default function AICopilotDrawer() {
                     Foundation Archive Intelligence
                   </h3>
                   <p className="text-[10px] font-mono text-lion-gold-dark font-medium">
-                    Institutional Record System &bull; Directorate Archive
+                    Trust registered under Indian Trust Act of 1882 &bull; Prayagraj
                   </p>
                 </div>
               </div>

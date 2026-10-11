@@ -45,7 +45,7 @@ export default function NotFound() {
         </div>
 
         <div className="pt-4 border-t border-border text-[11px] font-mono text-slate">
-          Kiran Singh Foundation &bull; Working towards Change
+          Kiran Singh Foundation &bull; &ldquo;A Journey from struggle to Enlightenment&rdquo; &bull; Trust registered under Indian Trust Act of 1882
         </div>
       </div>
     </div>

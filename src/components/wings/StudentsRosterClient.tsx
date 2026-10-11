@@ -68,9 +68,14 @@ export default function StudentsRosterClient({
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           Student Welfare <span className="italic text-lion-gold font-light">Wing</span>
         </h1>
-        <p className="font-mono text-xs sm:text-sm text-lion-gold tracking-widest uppercase font-semibold">
-          Cohort of 40 Sponsored Scholars &bull; Pro Bono Summer & Winter Residencies
-        </p>
+        <div className="space-y-1">
+          <p className="font-serif text-lg text-lion-gold italic font-semibold">
+            &ldquo;A Journey from struggle to Enlightenment&rdquo;
+          </p>
+          <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
+            Trust registered under Indian Trust Act of 1882 &bull; 40 Sponsored Scholars Cohort
+          </p>
+        </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
           The foundation finances comprehensive leadership development for exactly 40 scholars under direct institutional
           sponsorship. We underwrite 100% of executive communication coaching, public discourse laboratories, personality
