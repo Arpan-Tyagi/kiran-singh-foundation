@@ -35,8 +35,8 @@ export default function Footer() {
 
             <p className="text-sm text-slate leading-relaxed font-sans">
               Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>.
-              He earned his Ph.D. specializing in the behavioral science, psychology, and conditioning of large apex felids
-              (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
+              She earned her Ph.D. specializing in the behavioral science, psychology, and conditioning of large apex felids
+              (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna
               Zoological Park (AAZP Vandalur, Chennai) and worked in close consultative alignment with the then Chief Minister
               of Tamil Nadu, Late J. Jayalalithaa ("Amma").
             </p>

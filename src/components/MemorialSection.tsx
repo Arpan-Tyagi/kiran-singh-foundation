@@ -20,7 +20,7 @@ export default function MemorialSection() {
             </h2>
             <p className="mt-4 text-slate text-base sm:text-lg leading-relaxed font-sans">
               Doctoral ethologist, zoological analyst, and institutional architect of modern predator care.
-              His pioneering research into the psychology and conditioning of apex felids at Arignar Anna
+              Her pioneering research into the psychology and conditioning of apex felids at Arignar Anna
               Zoological Park (AAZP Vandalur) established the scientific principles of discipline and humane
               stewardship that anchor our foundation today.
             </p>
@@ -92,13 +92,13 @@ export default function MemorialSection() {
                 </h3>
                 <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed font-sans">
                   Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>.
-                  Earning his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards),
-                  his analytical tenure at the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) transformed
+                  Earning her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards),
+                  her analytical tenure at the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) transformed
                   zoological care into humane behavioral science.
                 </p>
                 <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed font-sans">
                   Working in close advisory alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"),
-                  his scientific rigor and protective discipline now animate our two operational wings: providing 40 sponsored scholars with
+                  her scientific rigor and protective discipline now animate our two operational wings: providing 40 sponsored scholars with
                   executive leadership coaching and sheltering 34 rescued street dogs in Chennai.
                 </p>
               </div>
@@ -215,7 +215,7 @@ export default function MemorialSection() {
               {/* Quote Block */}
               <div className="p-4 rounded-2xl bg-porcelain border border-border relative">
                 <p className="font-serif italic text-sm sm:text-base text-obsidian leading-relaxed">
-                  "Late J. Jayalalithaa ji commended his disciplined methodology, his pioneering scientific contributions to large felid psychology at AAZP Vandalur, and his commitment to public welfare, inspiring the core philosophy: &lsquo;Working Towards Change&rsquo;."
+                  "Late J. Jayalalithaa ji commended her disciplined methodology, her pioneering scientific contributions to large felid psychology at AAZP Vandalur, and her commitment to public welfare, inspiring the core philosophy: &lsquo;Working Towards Change&rsquo;."
                 </p>
                 <div className="mt-3 text-[11px] font-mono text-lion-gold-dark font-semibold uppercase tracking-wider">
                   — State Governance Commendation (2004)

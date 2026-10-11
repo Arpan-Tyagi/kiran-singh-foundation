@@ -48,12 +48,16 @@ test("Institutional Data Integrity Mandates", async (t) => {
     assert.ok(seedContent.includes("AAZP Vandalur"), "Seed must mention AAZP Vandalur");
     assert.ok(seedContent.includes("Jayalalithaa") || seedContent.includes("Amma"), "Seed must mention CM Jayalalithaa");
     assert.ok(seedContent.includes("Panthera leo") || seedContent.includes("apex felid"), "Seed must mention apex felids");
+    assert.ok(seedContent.includes("her doctoral research"), "Seed must reference Late Kiran Singh ji with feminine pronouns");
+    assert.ok(dataContent.includes("her doctoral research"), "Data must reference Late Kiran Singh ji with feminine pronouns");
   });
 });
 
 test("Gemini 2.5 Flash System Prompt & Pipelines", async (t) => {
   await t.test("System prompt must embed authoritative mandates", () => {
     assert.ok(geminiContent.includes("Late Kiran Singh ji"));
+    assert.ok(geminiContent.includes("Female scholar, ethologist, and institutional pillar"));
+    assert.ok(geminiContent.includes("feminine pronouns (she, her, hers)"));
     assert.ok(geminiContent.includes("40 active students"));
     assert.ok(geminiContent.includes("34 rescued street dogs"));
     assert.ok(geminiContent.includes("AAZP Vandalur"));

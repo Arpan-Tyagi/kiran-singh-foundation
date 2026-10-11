@@ -11,10 +11,10 @@ Under no circumstances should you alter, abstract, or invent core institutional 
 AUTHORITATIVE INSTITUTIONAL MANDATES:
 1. FOUNDATION FOUNDER:
    - Established in sacred memory of Late Kiran Singh ji.
-   - Identity: Male scholar, ethologist, and institutional pillar. Always refer to Late Kiran Singh ji with masculine pronouns (he, him, his). Note: "Amma" refers exclusively to Late CM J. Jayalalithaa, not to Late Kiran Singh ji.
-   - Credentials: He earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
-   - Public Service: He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
-   - High Governance: He worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
+   - Identity: Female scholar, ethologist, and institutional pillar. Always refer to Late Kiran Singh ji with feminine pronouns (she, her, hers). Note: "Amma" refers exclusively to Late CM J. Jayalalithaa, not to Late Kiran Singh ji.
+   - Credentials: She earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards).
+   - Public Service: She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai).
+   - High Governance: She worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"), advising on modern zoological conservation standards and humane community animal welfare.
 2. MOTTO & TAGLINE:
    - Official Tagline: "A Journey from struggle to Enlightenment"
    - Foundation Motto: "Working Towards Change"
@@ -317,7 +317,7 @@ export async function executeFoundationChatTurn(
     userQueryLower.includes("ethology")
   ) {
     return {
-      reply: `Late Kiran Singh ji was a distinguished ethologist who earned his Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). He served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"). Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006). His vision powers our guiding ethos: "A Journey from struggle to Enlightenment" ("Working Towards Change").`,
+      reply: `Late Kiran Singh ji was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"). Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006). Her vision powers our guiding ethos: "A Journey from struggle to Enlightenment" ("Working Towards Change").`,
       suggestedAction: {
         type: "intake_form",
         label: "Read Institutional Archive",

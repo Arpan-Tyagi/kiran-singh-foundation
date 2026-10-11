@@ -62,7 +62,7 @@ export default function Hero() {
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-slate font-sans font-normal leading-relaxed">
           Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>—honoring
-          his doctoral scholarship in apex felid ethology and analytical service at Tamil Nadu Zoo Authority (AAZP Vandalur).
+          her doctoral scholarship in apex felid ethology and analytical service at Tamil Nadu Zoo Authority (AAZP Vandalur).
           Operating under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006), the foundation directly finances <span className="text-obsidian font-semibold">40 sponsored scholars</span> through
           executive leadership labs and shelters <span className="text-obsidian font-semibold">34 rescued street dogs</span> in
           dedicated facilities, linked by an active 24/7 mutual-aid emergency grid.

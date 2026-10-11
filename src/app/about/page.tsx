@@ -33,8 +33,8 @@ export default function AboutPage() {
           </p>
         </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          The verified historical record of Late Kiran Singh ji: documenting his doctoral scholarship in apex felid
-          psychology, his analytical tenure at Arignar Anna Zoological Park (AAZP Vandalur), and his consultative
+          The verified historical record of Late Kiran Singh ji: documenting her doctoral scholarship in apex felid
+          psychology, her analytical tenure at Arignar Anna Zoological Park (AAZP Vandalur), and her consultative
           alignment under Late Chief Minister J. Jayalalithaa ("Amma").
         </p>
       </div>
@@ -171,15 +171,15 @@ export default function AboutPage() {
             </div>
 
             <p className="text-sm text-slate leading-relaxed font-sans">
-              Late Kiran Singh ji dedicated his academic life to deciphering the behavioral psychology, training,
+              Late Kiran Singh ji dedicated her academic life to deciphering the behavioral psychology, training,
               and operant conditioning of large apex felids—specifically lions (*Panthera leo*), tigers (*Panthera tigris*),
-              and leopards (*Panthera pardus*). His doctoral work demonstrated that managed apex carnivores maintain psychological
+              and leopards (*Panthera pardus*). Her doctoral work demonstrated that managed apex carnivores maintain psychological
               equilibrium through environmental enrichment, predictable auditory cues, and positive reinforcement rather than coercive restraint.
             </p>
             <p className="text-sm text-slate leading-relaxed font-sans">
               As an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai),
-              he instituted progressive nocturnal enclosure enrichment, reduced captivity stereotypic pacing distress by over 60%,
-              and modernized animal safety protocols. His analytical rigor earned him the trust and close consultative alignment of
+              she instituted progressive nocturnal enclosure enrichment, reduced captivity stereotypic pacing distress by over 60%,
+              and modernized animal safety protocols. Her analytical rigor earned her the trust and close consultative alignment of
               then Chief Minister Late J. Jayalalithaa ("Amma"), shaping progressive wildlife and humane animal policies across Tamil Nadu.
             </p>
           </div>
@@ -437,7 +437,7 @@ export default function AboutPage() {
             Late Kiran Singh ji’s doctoral dissertation challenged traditional coercive animal management by proving
             that apex carnivores possess sophisticated cognitive associative memory and stress-modulation pathways.
             Through systematic observation of scent-marking frequencies, vocalization acoustic frequencies, and enclosure
-            micro-topography, he designed operant environmental enrichment protocols that permanently reduced captivity
+            micro-topography, she designed operant environmental enrichment protocols that permanently reduced captivity
             stereotypic pacing distress across managed felid cohorts.
           </p>
           <div className="text-xs font-mono text-lion-gold-dark font-medium pt-1">

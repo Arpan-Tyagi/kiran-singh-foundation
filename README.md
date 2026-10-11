@@ -24,8 +24,8 @@ Under no circumstances should core institutional facts be altered, abstracted, o
 - **Official Tagline & Motto:**
   - Tagline: *"A Journey from struggle to Enlightenment"*
   - Motto: *"Working Towards Change"*
-- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji**.
-  - **Academic Credentials:** Earned his Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
+- **Foundation Founder:** Established in sacred memory of **Late Kiran Singh ji** (distinguished female ethologist & scholar).
+  - **Academic Credentials:** Earned her Ph.D. specializing in the behavioral science, training, and conditioning of **apex felids** (lions, tigers, and leopards).
   - **Public Service:** Served as an Analyst in the **Tamil Nadu Zoo Authority** at **Arignar Anna Zoological Park (AAZP Vandalur, Chennai)**.
   - **Governance Alignment:** Worked in close advisory alignment with the then Chief Minister of Tamil Nadu, **Late J. Jayalalithaa ("Amma")**, advising on zoo veterinary modernization and humane community animal governance.
 - **Heraldic Emblem:** A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription `"KIRAN SINGH FOUNDATION"`.
