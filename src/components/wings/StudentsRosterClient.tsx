@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { GraduationCap, BookOpen, Briefcase, Award, CheckCircle, Search } from "lucide-react";
-import { StudentScholar, STUDENT_WELFARE_OFFICE_BEARERS } from "@/lib/data/foundation-data";
+import { StudentScholar } from "@/lib/data/foundation-data";
+import OperationalHierarchy from "@/components/OperationalHierarchy";
 
 export default function StudentsRosterClient({
   scholars,
@@ -284,148 +285,9 @@ export default function StudentsRosterClient({
         )}
       </div>
 
-      {/* Office Bearers of Kiran Singh Foundation (Student Welfare Wing) */}
-      <div className="space-y-8 pt-8 border-t border-border">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[11px] font-mono tracking-widest uppercase font-semibold">
-            <span>Cohort Administration & Operations</span>
-          </div>
-          <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
-            Office Bearers & <span className="italic text-lion-gold-dark font-light">Superintendents</span>
-          </h3>
-          <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
-            The operational supervisory corps directing soft-skill development modules, academic discipline, and pro bono corporate internship placements for our 40 sponsored scholars.
-          </p>
-        </div>
-
-        {/* 3 Hierarchical Tiers */}
-        <div className="space-y-6">
-          {/* Tier 1: Head Superintendent Managers */}
-          <div className="bg-white border border-border rounded-3xl p-6 sm:p-8 shadow-elevation-1 space-y-5">
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-lion-gold" />
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-obsidian uppercase tracking-wide">
-                  Head Superintendent Managers
-                </h4>
-              </div>
-              <span className="text-[10px] font-mono text-slate uppercase tracking-wider font-semibold">
-                Tier 1 &bull; Executive Operations
-              </span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {STUDENT_WELFARE_OFFICE_BEARERS.filter(b => b.category === "Head Superintendent Manager").map((bearer) => (
-                <div key={bearer.id} className="p-4 rounded-2xl bg-porcelain border border-border flex items-center space-x-3.5 hover:border-lion-gold/50 transition-colors">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-lion-gold/15 border border-lion-gold/30 flex items-center justify-center text-lion-gold-dark font-serif font-bold text-base shrink-0 shadow-sm">
-                    {bearer.photoUrl ? (
-                      <Image
-                        src={bearer.photoUrl}
-                        alt={bearer.name}
-                        fill
-                        sizes="48px"
-                        className={`object-cover ${bearer.photoPosition || "object-top"}`}
-                      />
-                    ) : (
-                      <span>{bearer.name.charAt(0)}</span>
-                    )}
-                  </div>
-                  <div>
-                    <h5 className="font-serif text-base font-semibold text-obsidian">
-                      {bearer.name}
-                    </h5>
-                    <p className="text-[10px] font-mono text-slate uppercase tracking-wider mt-0.5">
-                      {bearer.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Tier 2: Deputy Head Superintendent Managers */}
-          <div className="bg-white border border-border rounded-3xl p-6 sm:p-8 shadow-elevation-1 space-y-5">
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-botanical-emerald" />
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-obsidian uppercase tracking-wide">
-                  Dy. Head Superintendent Managers
-                </h4>
-              </div>
-              <span className="text-[10px] font-mono text-slate uppercase tracking-wider font-semibold">
-                Tier 2 &bull; Field Operations
-              </span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {STUDENT_WELFARE_OFFICE_BEARERS.filter(b => b.category === "Dy. Head Superintendent Manager").map((bearer) => (
-                <div key={bearer.id} className="p-4 rounded-2xl bg-porcelain border border-border flex items-center space-x-3 hover:border-botanical-emerald/50 transition-colors">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden bg-botanical-emerald/10 border border-botanical-emerald/25 flex items-center justify-center text-botanical-emerald font-serif font-bold text-sm shrink-0 shadow-sm">
-                    {bearer.photoUrl ? (
-                      <Image
-                        src={bearer.photoUrl}
-                        alt={bearer.name}
-                        fill
-                        sizes="44px"
-                        className={`object-cover ${bearer.photoPosition || "object-top"}`}
-                      />
-                    ) : (
-                      <span>{bearer.name.charAt(0)}</span>
-                    )}
-                  </div>
-                  <div>
-                    <h5 className="font-serif text-sm font-semibold text-obsidian">
-                      {bearer.name}
-                    </h5>
-                    <p className="text-[10px] font-mono text-slate uppercase tracking-wider mt-0.5">
-                      Dy. Head Superintendent
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Tier 3: Team Leaders */}
-          <div className="bg-white border border-border rounded-3xl p-6 sm:p-8 shadow-elevation-1 space-y-5">
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-obsidian" />
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-obsidian uppercase tracking-wide">
-                  Team Leaders
-                </h4>
-              </div>
-              <span className="text-[10px] font-mono text-slate uppercase tracking-wider font-semibold">
-                Tier 3 &bull; Cohort Leadership
-              </span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {STUDENT_WELFARE_OFFICE_BEARERS.filter(b => b.category === "Team Leader").map((bearer) => (
-                <div key={bearer.id} className="p-4 rounded-2xl bg-porcelain border border-border flex items-center space-x-3.5 hover:border-obsidian transition-colors">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden bg-obsidian/10 border border-obsidian/20 flex items-center justify-center text-obsidian font-serif font-bold text-sm shrink-0 shadow-sm">
-                    {bearer.photoUrl ? (
-                      <Image
-                        src={bearer.photoUrl}
-                        alt={bearer.name}
-                        fill
-                        sizes="44px"
-                        className={`object-cover ${bearer.photoPosition || "object-top"}`}
-                      />
-                    ) : (
-                      <span>{bearer.name.charAt(0)}</span>
-                    )}
-                  </div>
-                  <div>
-                    <h5 className="font-serif text-sm font-semibold text-obsidian">
-                      {bearer.name}
-                    </h5>
-                    <p className="text-[10px] font-mono text-slate uppercase tracking-wider mt-0.5">
-                      Team Leader &bull; Student Welfare
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Operational Hierarchy & Supervisory Corps (Student Welfare Wing) */}
+      <div className="pt-10 border-t border-border">
+        <OperationalHierarchy />
       </div>
     </div>
   );

@@ -238,3 +238,63 @@ test("Deep Investigator Architectural & Security Fixes (D1-D10)", async (t) => {
   });
 });
 
+test("Operational Hierarchy & Action Photographs Integrity (3 Tiers & 10 Officers)", async (t) => {
+  await t.test("Must define exactly 10 officers across 3 hierarchical tiers with verified ceremonial moments", () => {
+    // Check Tier 1
+    assert.ok(dataContent.includes('name: "Unnaati Roy"'));
+    assert.ok(dataContent.includes('moment: "Speaking at the podium in blue"'));
+    assert.ok(dataContent.includes('name: "Vaishnavi"'));
+    assert.ok(dataContent.includes('moment: "Receiving foundation envelope"'));
+    assert.ok(dataContent.includes('name: "Prateeksha Pandey"'));
+    assert.ok(dataContent.includes('moment: "Speaking at the foundation podium"'));
+
+    // Check Tier 2
+    assert.ok(dataContent.includes('name: "Shiksha Jaiswal"'));
+    assert.ok(dataContent.includes('name: "Navyanshi Dwivedi"'));
+    assert.ok(dataContent.includes('moment: "Constitution Day presentation"'));
+    assert.ok(dataContent.includes('name: "Rohini Agrawal"'));
+    assert.ok(dataContent.includes('moment: "2nd Summer Internship Certificate presentation"'));
+    assert.ok(dataContent.includes('name: "Shubhangi Singh"'));
+    assert.ok(dataContent.includes('moment: "Receiving foundation memento"'));
+
+    // Check Tier 3
+    assert.ok(dataContent.includes('name: "Stuti Dwivedi"'));
+    assert.ok(dataContent.includes('moment: "Performing on the Casio keyboard at the ceremony"'));
+    assert.ok(dataContent.includes('name: "Anwesha Sinha"'));
+    assert.ok(dataContent.includes('moment: "Receiving Certificate of Internship & trophy"'));
+    assert.ok(dataContent.includes('name: "Varnika Mishra"'));
+    assert.ok(dataContent.includes('moment: "Configured with editorial monogram, ready for photo upload"'));
+  });
+
+  await t.test("All 9 ceremonial action photograph assets must exist on disk with valid file size", () => {
+    const photoFiles = [
+      "public/images/office-bearers/unnaati-roy.jpg",
+      "public/images/office-bearers/vaishnavi.jpg",
+      "public/images/office-bearers/prateeksha-pandey.jpg",
+      "public/images/office-bearers/shiksha-jaiswal.jpg",
+      "public/images/office-bearers/navyanshi-dwivedi.jpg",
+      "public/images/office-bearers/rohini-agrawal.jpg",
+      "public/images/office-bearers/shubhangi-singh.jpg",
+      "public/images/office-bearers/stuti-dwivedi.jpg",
+      "public/images/office-bearers/anwesha-sinha.jpg",
+    ];
+
+    for (const photo of photoFiles) {
+      const fullPath = path.resolve(photo);
+      assert.ok(fs.existsSync(fullPath), `Photo file ${photo} must exist`);
+      const stat = fs.statSync(fullPath);
+      assert.ok(stat.size > 50000, `Photo file ${photo} must be a substantial image`);
+    }
+  });
+
+  await t.test("OperationalHierarchy component must be integrated in About and Students Roster views", () => {
+    const aboutContent = fs.readFileSync(path.resolve("src/app/about/page.tsx"), "utf-8");
+    const rosterContent = fs.readFileSync(path.resolve("src/components/wings/StudentsRosterClient.tsx"), "utf-8");
+    const hierarchyFile = path.resolve("src/components/OperationalHierarchy.tsx");
+
+    assert.ok(fs.existsSync(hierarchyFile), "OperationalHierarchy.tsx component must exist");
+    assert.ok(aboutContent.includes("<OperationalHierarchy"), "About page must mount OperationalHierarchy");
+    assert.ok(rosterContent.includes("<OperationalHierarchy"), "Students roster client must mount OperationalHierarchy");
+  });
+});
+

@@ -318,6 +318,22 @@ export default function SplitWings() {
                 </div>
               </div>
 
+              {/* Supervisory Hierarchy Link */}
+              <div className="p-3.5 rounded-2xl bg-white border border-border flex items-center justify-between text-xs">
+                <div className="flex items-center space-x-2">
+                  <span className="w-2 h-2 rounded-full bg-lion-gold-dark" />
+                  <span className="font-semibold text-obsidian">Supervisory Corps &bull; 3 Tiers</span>
+                  <span className="text-[10px] font-mono text-slate hidden sm:inline">(10 Officers)</span>
+                </div>
+                <Link
+                  href="/wings/students#operational-hierarchy"
+                  className="font-mono text-[11px] text-lion-gold-dark font-semibold hover:underline flex items-center space-x-1"
+                >
+                  <span>View Photos &amp; Hierarchy</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
               {/* Action Button */}
               <div className="pt-4 border-t border-border">
                 <Link
@@ -590,6 +606,21 @@ export default function SplitWings() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Supervisory Hierarchy Link */}
+              <div className="p-3 rounded-xl bg-white border border-border flex items-center justify-between text-xs">
+                <div className="flex items-center space-x-1.5">
+                  <span className="w-2 h-2 rounded-full bg-lion-gold-dark" />
+                  <span className="font-semibold text-obsidian text-[11px]">Supervisory Corps &bull; 3 Tiers</span>
+                </div>
+                <Link
+                  href="/wings/students#operational-hierarchy"
+                  className="font-mono text-[10px] text-lion-gold-dark font-semibold hover:underline flex items-center space-x-0.5"
+                >
+                  <span>Photos &amp; Roster</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </Link>
               </div>
 
               <Link
