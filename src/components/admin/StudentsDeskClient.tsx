@@ -58,7 +58,7 @@ export default function StudentsDeskClient({
             <tbody className="divide-y divide-border text-slate-muted">
               {filtered.map((s) => (
                 <tr key={s.id} className="hover:bg-porcelain/50 transition-colors">
-                  <td className="py-3 px-3 font-mono text-lion-gold font-semibold">
+                  <td className="py-3 px-3 font-mono text-lion-gold-dark font-semibold">
                     {s.scholarId}
                   </td>
                   <td className="py-3 px-3 font-medium text-obsidian">
@@ -66,13 +66,13 @@ export default function StudentsDeskClient({
                   </td>
                   <td className="py-3 px-3">
                     <div className="text-obsidian font-medium">{s.academicDiscipline}</div>
-                    <div className="text-[10px] text-slate-muted">{s.institution}</div>
+                    <div className="text-[11px] text-slate-muted font-medium">{s.institution}</div>
                   </td>
                   <td className="py-3 px-3 max-w-xs truncate text-[11px] text-obsidian/80">
                     {s.internshipPlacement}
                   </td>
                   <td className="py-3 px-3">
-                    <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded-full bg-gray-100 text-slate-muted border border-border">
+                    <span className="font-mono text-[11px] uppercase px-2 py-0.5 rounded-full bg-gray-100 text-slate-muted border border-border font-medium">
                       {s.internshipStatus.replace("_", " ")}
                     </span>
                   </td>

@@ -17,7 +17,7 @@ export default function EventsListClient({
   });
 
   return (
-    <div className="py-16 px-4 md:px-8 max-w-6xl mx-auto space-y-16 bg-porcelain">
+    <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
@@ -25,9 +25,9 @@ export default function EventsListClient({
           <span>Foundation Convenings & Field Drives</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
-          Events <span className="italic text-lion-gold font-light">Calendar</span>
+          Events <span className="italic text-lion-gold-dark font-light">Calendar</span>
         </h1>
-        <p className="font-mono text-xs sm:text-sm text-lion-gold tracking-widest uppercase font-semibold">
+        <p className="font-mono text-xs sm:text-sm text-lion-gold-dark tracking-widest uppercase font-semibold">
           Medical Camps &bull; Scholar Symposia &bull; Community Drives
         </p>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
@@ -79,7 +79,7 @@ export default function EventsListClient({
                     <span className="font-serif text-2xl font-bold text-obsidian">
                       {eventDate.getDate()}
                     </span>
-                    <span className="font-mono text-[9px] text-slate">
+                    <span className="font-mono text-[11px] text-slate/80 font-medium">
                       {eventDate.getFullYear()}
                     </span>
                   </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AICopilotDrawer from "@/components/AICopilotDrawer";
+import MobileEmergencyBar from "@/components/MobileEmergencyBar";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -110,9 +111,10 @@ export default function RootLayout({
       <body className="min-h-screen bg-porcelain text-obsidian antialiased selection:bg-lion-gold/20 selection:text-obsidian flex flex-col justify-between">
         <div className="archival-grain" />
         <Navbar />
-        <main className="flex-grow pt-24">{children}</main>
+        <main className="flex-grow pt-24 pb-16 md:pb-0">{children}</main>
         <Footer />
         <AICopilotDrawer />
+        <MobileEmergencyBar />
       </body>
     </html>
   );

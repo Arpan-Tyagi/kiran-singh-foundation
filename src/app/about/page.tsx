@@ -15,17 +15,17 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="py-16 px-4 md:px-8 max-w-6xl mx-auto space-y-16 bg-porcelain">
+    <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
           <span>Official Institutional Archive &bull; Trust Registered Under Indian Trust Act of 1882</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
-          The Heritage & <span className="italic text-lion-gold font-light">Mandate</span>
+          The Heritage & <span className="italic text-lion-gold-dark font-light">Mandate</span>
         </h1>
         <div className="space-y-1">
-          <p className="font-serif text-lg sm:text-xl text-lion-gold italic font-semibold">
+          <p className="font-serif text-lg sm:text-xl text-lion-gold-dark italic font-semibold">
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs text-slate uppercase tracking-wider font-medium">
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </div>
           <div className="text-left md:text-right">
             <span className="font-mono text-[11px] text-slate uppercase tracking-wider block">Institutional Tagline</span>
-            <span className="font-serif text-lg text-lion-gold italic font-bold">
+            <span className="font-serif text-lg text-lion-gold-dark italic font-bold">
               &ldquo;A Journey from struggle to Enlightenment&rdquo;
             </span>
             <span className="font-mono text-[10px] text-slate uppercase tracking-wider block mt-0.5">
@@ -149,7 +149,7 @@ export default function AboutPage() {
               </div>
             </div>
             <h3 className="font-serif text-xl font-bold uppercase tracking-wider text-obsidian">
-              Late Kiran Singh <span className="italic font-light text-lion-gold text-lg">ji</span>
+              Late Kiran Singh <span className="italic font-light text-lion-gold-dark text-lg">ji</span>
             </h3>
             <p className="text-xs text-slate mt-1 font-mono">
               Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; Est. 1994
@@ -162,7 +162,7 @@ export default function AboutPage() {
               Institutional Heritage & Sacred Memory
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold">
-              Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold text-2xl">ji</span>
+              Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold-dark text-2xl">ji</span>
             </h2>
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2 text-xs font-mono text-slate">
               <div>&bull; <strong className="text-obsidian">Academic Credentials:</strong> Ph.D. in Apex Felid Behavioral Science & Conditioning</div>
@@ -222,7 +222,7 @@ export default function AboutPage() {
             <span>Governance & Executive Directorate</span>
           </div>
           <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
-            Board of Trustees & <span className="italic text-lion-gold font-light">Leadership</span>
+            Board of Trustees & <span className="italic text-lion-gold-dark font-light">Leadership</span>
           </h3>
           <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
             Stewards of the foundation's institutional mandate, educational endowments, and animal sanctuary operations.
@@ -275,7 +275,7 @@ export default function AboutPage() {
             <span>Operational Wing A &bull; Student Welfare Administration</span>
           </div>
           <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
-            Office Bearers & <span className="italic text-lion-gold font-light">Superintendents</span>
+            Office Bearers & <span className="italic text-lion-gold-dark font-light">Superintendents</span>
           </h3>
           <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
             The operational supervisory corps directing soft-skill development modules, academic discipline, and pro bono corporate internship placements for our 40 sponsored scholars.
@@ -498,7 +498,7 @@ export default function AboutPage() {
                 <ul className="space-y-1">
                   {rec.citations.map((cite, i) => (
                     <li key={i} className="text-xs text-slate italic flex items-start space-x-2">
-                      <span className="text-lion-gold">&bull;</span>
+                      <span className="text-lion-gold-dark font-bold">&bull;</span>
                       <span>{cite}</span>
                     </li>
                   ))}
@@ -551,7 +551,7 @@ export default function AboutPage() {
           </h4>
           <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
             Protects and shelters exactly 34 rescued street dogs with 100% funded housing, nutritious meal prep,
-            sterilizations, and comprehensive rabies and booster vaccinations.
+            sterilizations, and comprehensive rabies and booster vaccinations at our dedicated sanctuary facility in Prayagraj.
           </p>
         </div>
       </div>

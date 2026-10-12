@@ -5,7 +5,7 @@ import { ShieldCheck, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-white border-t border-border pt-20 pb-12 overflow-hidden">
+    <footer className="relative bg-white border-t border-border pt-20 pb-24 md:pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-border">
           {/* Institutional Anchor & Founder Tribute */}
@@ -24,10 +24,10 @@ export default function Footer() {
                 <h3 className="font-serif text-lg font-bold uppercase tracking-wider text-obsidian">
                   Kiran Singh Foundation
                 </h3>
-                <p className="font-mono text-xs text-lion-gold tracking-widest uppercase font-semibold">
+                <p className="font-mono text-xs text-lion-gold-dark tracking-widest uppercase font-semibold">
                   &ldquo;A Journey from struggle to Enlightenment&rdquo;
                 </p>
-                <p className="font-mono text-[10px] text-slate font-medium uppercase tracking-wider">
+                <p className="font-mono text-[11px] text-slate font-medium uppercase tracking-wider">
                   Trust registered under Indian Trust Act of 1882 &bull; &ldquo;Working Towards Change&rdquo;
                 </p>
               </div>

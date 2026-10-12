@@ -171,7 +171,7 @@ export default async function HomePage() {
                 Witnessing Street Canine Trauma or Acute Community Crisis?
               </h4>
               <p className="text-xs text-slate leading-relaxed">
-                Directly mobilize our Chennai mutual-aid dispatch network via instant WhatsApp telemetry.
+                Directly mobilize our Prayagraj mutual-aid dispatch network via instant WhatsApp telemetry.
                 Our field coordinators and student response volunteers deploy with zero triage latency.
               </p>
             </div>

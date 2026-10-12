@@ -85,7 +85,7 @@ export default function AICopilotDrawer() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] right-6 z-40">
+      <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] md:bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-40">
         <button
           onClick={() => setIsOpen(true)}
           className="group relative flex items-center space-x-3 px-4 py-2.5 rounded-full bg-white/95 border border-border shadow-elevation-card backdrop-blur-xl hover:border-lion-gold hover:scale-105 active:scale-95 transition-all duration-200"
@@ -101,10 +101,10 @@ export default function AICopilotDrawer() {
             />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-xs font-serif font-bold text-obsidian group-hover:text-lion-gold transition-colors">
+            <span className="text-xs font-serif font-bold text-obsidian group-hover:text-lion-gold-dark transition-colors">
               Institutional Concierge
             </span>
-            <span className="text-[10px] font-mono text-slate">
+            <span className="text-[11px] font-mono text-slate font-medium">
               Archive &amp; Welfare Desk
             </span>
           </div>

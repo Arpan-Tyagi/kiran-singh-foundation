@@ -50,10 +50,10 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-sm md:text-base font-bold tracking-wider text-obsidian uppercase leading-tight group-hover:text-lion-gold transition-colors">
+            <span className="font-serif text-sm md:text-base font-bold tracking-wider text-obsidian uppercase leading-tight group-hover:text-lion-gold-dark transition-colors">
               Kiran Singh Foundation
             </span>
-            <span className="text-[10px] text-slate font-mono tracking-widest uppercase">
+            <span className="text-[11px] text-slate font-mono tracking-widest uppercase font-medium">
               A Journey from struggle to Enlightenment
             </span>
           </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-2 md:space-x-3">
           <Link
             href="/emergency"
-            className="group relative inline-flex items-center space-x-2 px-3.5 md:px-4 py-1.5 rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs font-medium hover:bg-crimson-alert/15 hover:border-crimson-alert active:scale-[0.97] transition-all duration-200"
+            className="group relative inline-flex items-center space-x-2 px-3.5 md:px-4 py-2 min-h-[48px] rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs font-medium hover:bg-crimson-alert/15 hover:border-crimson-alert active:scale-[0.97] transition-all duration-200"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" aria-hidden="true"></span>
@@ -95,10 +95,10 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile Menu Trigger with >= 48px Touch Target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full bg-slate-100 border border-border text-obsidian hover:text-lion-gold active:scale-95 transition-all"
+            className="lg:hidden w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full bg-slate-100 border border-border text-obsidian hover:text-lion-gold-dark active:scale-95 transition-all"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? (
@@ -110,9 +110,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer Overlay with overflow-y-auto */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[88px] bg-porcelain/95 backdrop-blur-2xl z-40 p-6 flex flex-col justify-between border-t border-border animate-in fade-in slide-in-from-top-4 duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]">
+        <div className="lg:hidden fixed inset-0 top-[88px] bg-porcelain/95 backdrop-blur-2xl z-40 p-6 flex flex-col justify-between border-t border-border overflow-y-auto max-h-[calc(100vh-88px)] animate-in fade-in slide-in-from-top-4 duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]">
           <div className="flex flex-col space-y-3 pt-2">
             <div className="px-2 text-xs uppercase tracking-widest text-slate font-mono font-medium">
               Institutional Navigation
@@ -127,7 +127,7 @@ export default function Navbar() {
                   className={`group px-4 py-3 rounded-2xl border text-base font-medium flex items-center justify-between shadow-sm transition-all duration-200 active:scale-[0.98] ${
                     isActive
                       ? "bg-lion-gold/10 border-lion-gold/50 text-lion-gold-dark font-semibold"
-                      : "bg-white border-border text-obsidian hover:border-lion-gold/50 hover:text-lion-gold"
+                      : "bg-white border-border text-obsidian hover:border-lion-gold/50 hover:text-lion-gold-dark"
                   }`}
                 >
                   <span>{link.label}</span>
@@ -150,7 +150,7 @@ export default function Navbar() {
 
           <div className="p-4 rounded-2xl bg-white border border-border text-center shadow-sm">
             <p className="font-serif text-sm text-obsidian italic font-medium">"A Journey from struggle to Enlightenment"</p>
-            <p className="text-[10px] text-slate mt-1 font-mono">
+            <p className="text-[11px] text-slate mt-1 font-mono font-medium">
               Trust registered under Indian Trust Act of 1882 &bull; "Working Towards Change"
             </p>
           </div>

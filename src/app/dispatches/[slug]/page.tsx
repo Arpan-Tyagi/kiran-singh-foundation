@@ -36,6 +36,59 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function renderFormattedText(text: string): React.ReactNode {
+  const tokenRegex = /(\[.*?\]\(.*?\)|\*\*\*.*?\*\*\*|\*\*.*?\*\*|\*.*?\*|`.*?`)/g;
+  const parts = text.split(tokenRegex);
+  return parts.map((part, i) => {
+    if (!part) return null;
+    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+    if (linkMatch) {
+      const [, label, url] = linkMatch;
+      const isExternal = url.startsWith("http://") || url.startsWith("https://");
+      return (
+        <a
+          key={i}
+          href={url}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+          className="text-lion-gold-dark hover:underline font-medium inline-flex items-center gap-0.5"
+        >
+          {label}
+        </a>
+      );
+    }
+    if (part.startsWith("***") && part.endsWith("***") && part.length >= 6) {
+      return (
+        <strong key={i} className="font-semibold text-obsidian">
+          <em className="italic">{part.slice(3, -3)}</em>
+        </strong>
+      );
+    }
+    if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+      return (
+        <strong key={i} className="font-semibold text-obsidian">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("*") && part.endsWith("*") && part.length >= 2) {
+      return (
+        <em key={i} className="italic">
+          {part.slice(1, -1)}
+        </em>
+      );
+    }
+    if (part.startsWith("`") && part.endsWith("`") && part.length >= 2) {
+      return (
+        <code key={i} className="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-xs text-obsidian border border-border">
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return part;
+  });
+}
+
 export default async function DispatchDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = await fetchBlogPostBySlug(slug);
@@ -66,7 +119,7 @@ export default async function DispatchDetailPage({ params }: Props) {
       <div className="space-y-6">
         <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate">
           <span className="flex items-center space-x-1.5">
-            <User className="w-3.5 h-3.5 text-lion-gold" />
+            <User className="w-3.5 h-3.5 text-lion-gold-dark" />
             <span>{post.authorName}</span>
           </span>
           <span>&bull;</span>
@@ -82,7 +135,7 @@ export default async function DispatchDetailPage({ params }: Props) {
           </span>
           {post.isAiDrafted && (
             <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 flex items-center space-x-1.5 font-semibold">
-              <span className="text-lion-gold font-bold">§</span>
+              <span className="text-lion-gold-dark font-bold">§</span>
               <span>Directorate Archival Monograph</span>
             </span>
           )}
@@ -92,7 +145,7 @@ export default async function DispatchDetailPage({ params }: Props) {
           {post.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-slate leading-relaxed font-sans italic border-l-2 border-lion-gold pl-4 py-1">
+        <p className="text-base sm:text-lg text-slate leading-relaxed font-sans italic border-l-2 border-lion-gold-dark pl-4 py-1">
           {post.summary}
         </p>
       </div>
@@ -122,7 +175,7 @@ export default async function DispatchDetailPage({ params }: Props) {
                 key={idx}
                 className="font-serif text-xl sm:text-2xl font-bold text-obsidian pt-4 text-left"
               >
-                {chunk.replace("### ", "")}
+                {renderFormattedText(chunk.replace("### ", ""))}
               </h3>
             );
           }
@@ -132,7 +185,7 @@ export default async function DispatchDetailPage({ params }: Props) {
                 key={idx}
                 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian pt-6 text-left"
               >
-                {chunk.replace("## ", "")}
+                {renderFormattedText(chunk.replace("## ", ""))}
               </h2>
             );
           }
@@ -142,7 +195,7 @@ export default async function DispatchDetailPage({ params }: Props) {
               <ul key={idx} className="space-y-2 pl-4">
                 {items.map((item, itemIdx) => (
                   <li key={itemIdx} className="list-disc list-inside text-slate">
-                    {item.replace(/^- /, "")}
+                    {renderFormattedText(item.replace(/^- /, ""))}
                   </li>
                 ))}
               </ul>
@@ -153,14 +206,14 @@ export default async function DispatchDetailPage({ params }: Props) {
             return (
               <ol key={idx} className="space-y-2 pl-4 list-decimal list-inside text-slate">
                 {items.map((item, itemIdx) => (
-                  <li key={itemIdx}>{item.replace(/^\d+\.\s/, "")}</li>
+                  <li key={itemIdx}>{renderFormattedText(item.replace(/^\d+\.\s/, ""))}</li>
                 ))}
               </ol>
             );
           }
           return (
             <p key={idx} className="leading-relaxed text-slate">
-              {chunk}
+              {renderFormattedText(chunk)}
             </p>
           );
         })}

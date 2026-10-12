@@ -50,7 +50,7 @@ export default function EmergencyPage() {
   };
 
   return (
-    <div className="py-16 px-4 md:px-8 max-w-5xl mx-auto space-y-16 bg-porcelain">
+    <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
       {/* Header with High-Priority Crimson Alert */}
       <div className="p-8 sm:p-10 rounded-3xl bg-white border border-crimson-alert/30 text-center space-y-4 shadow-elevation-card">
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-crimson-alert/10 border border-crimson-alert/25 text-crimson-alert text-xs font-mono tracking-widest uppercase font-semibold">
@@ -184,7 +184,7 @@ export default function EmergencyPage() {
                     required
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    placeholder="e.g. GST Road opposite Vandalur Zoo Main Gate"
+                    placeholder="e.g. Tilak Nagar Allahpur or Civil Lines, Prayagraj"
                     className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-border rounded-xl text-sm text-obsidian focus:outline-none focus:border-crimson-alert focus:ring-2 focus:ring-crimson-alert/15 transition-all"
                   />
                 </div>
@@ -232,7 +232,7 @@ export default function EmergencyPage() {
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white border border-border rounded-2xl p-6 space-y-4 shadow-elevation-1">
             <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold flex items-center space-x-1.5">
-              <ShieldAlert className="w-4 h-4 text-lion-gold" />
+              <ShieldAlert className="w-4 h-4 text-lion-gold-dark" />
               <span>On-Scene Canine First-Aid</span>
             </span>
 
@@ -269,7 +269,7 @@ export default function EmergencyPage() {
               <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
             </div>
             <div className="text-[11px] text-slate/80 pt-1">
-              Sanctuary Base: Dog Care Centre &bull; Surgical recovery bay &amp; emergency triage.
+              Sanctuary Base: Dog Care Centre, Prayagraj &bull; Surgical recovery bay &amp; emergency triage.
             </div>
           </div>
         </div>

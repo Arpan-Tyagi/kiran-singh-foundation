@@ -56,9 +56,9 @@ Her foundational principles of rigorous empathy and disciplined protection direc
 
 The Student Welfare Wing sponsors exactly 40 scholars, providing fully funded leadership incubation, soft-skills coaching, and pro bono internships.
 
-The Dog Care Centre provides permanent clinical shelter, daily nutrition, vaccinations, and surgical care for exactly 34 rescued street dogs.
+The Dog Care Centre in Prayagraj provides permanent clinical shelter, daily nutrition, vaccinations, and surgical care for exactly 34 rescued street dogs.
 
-Her lifetime of protective discipline anchors our 24/7 mutual-aid emergency grid, mobilizing rapid veterinary and community crisis relief across Tamil Nadu.
+Her lifetime of protective discipline anchors our 24/7 mutual-aid emergency grid, mobilizing rapid veterinary and community crisis relief from our Prayagraj secretariat and sanctuary facility.
 
 ---
 

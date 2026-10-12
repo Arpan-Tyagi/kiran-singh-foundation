@@ -10,10 +10,10 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
-      <div className="absolute top-6 left-8 hidden lg:block font-mono text-[9px] text-slate/50 uppercase tracking-widest select-none pointer-events-none">
-        GRID REF // 12.8797° N, 80.0811° E (AAZP)
+      <div className="absolute top-6 left-8 hidden lg:block font-mono text-[11px] text-slate/80 font-medium uppercase tracking-widest select-none pointer-events-none">
+        GRID REF // 25.4358° N, 81.8463° E (PRAYAGRAJ)
       </div>
-      <div className="absolute top-6 right-8 hidden lg:block font-mono text-[9px] text-slate/50 uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-6 right-8 hidden lg:block font-mono text-[11px] text-slate/80 font-medium uppercase tracking-widest select-none pointer-events-none">
         INSTITUTIONAL ARCHIVE &bull; EST. 1994
       </div>
 
@@ -40,19 +40,19 @@ export default function Hero() {
 
         {/* Eyebrow tag */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-xs font-mono tracking-widest uppercase mb-6 shadow-sm">
-          <span className="text-lion-gold font-bold">§</span>
+          <span className="text-lion-gold-dark font-bold">§</span>
           <span>Trust registered under Indian Trust Act of 1882 &bull; Prayagraj</span>
         </div>
 
         {/* Display Title */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-obsidian uppercase leading-[1.05] max-w-5xl">
+        <h1 className="font-serif text-[clamp(2.25rem,8.5vw,5.5rem)] font-normal tracking-tight text-obsidian uppercase leading-[1.05] max-w-5xl">
           Kiran Singh <br />
-          <span className="italic font-light text-lion-gold">Foundation</span>
+          <span className="italic font-light text-lion-gold-dark">Foundation</span>
         </h1>
 
         {/* Motto & Tagline */}
         <div className="mt-4 flex flex-col items-center gap-1">
-          <p className="font-serif text-lg sm:text-xl md:text-2xl text-lion-gold italic font-semibold">
+          <p className="font-serif text-lg sm:text-xl md:text-2xl text-lion-gold-dark italic font-semibold">
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
@@ -76,8 +76,8 @@ export default function Hero() {
             className="group relative inline-flex items-center space-x-3 pl-6 pr-2 py-2 rounded-full bg-lion-gold text-white font-sans font-semibold text-sm hover:bg-lion-gold-dark active:scale-[0.97] transition-all duration-160 ease-out shadow-gold-glow"
           >
             <span>Explore Dual Operational Wings</span>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold transition-all duration-160 ease-out">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-lion-gold" aria-hidden="true" strokeWidth={1.5} />
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-lion-gold-dark transition-all duration-160 ease-out">
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-lion-gold-dark" aria-hidden="true" strokeWidth={1.5} />
             </div>
           </Link>
 
@@ -103,11 +103,11 @@ export default function Hero() {
         </div>
 
         {/* Monolithic Masthead Ledger Bar */}
-        <div className="mt-16 sm:mt-20 w-full bg-white border border-border rounded-2xl shadow-card grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border overflow-hidden text-left font-mono">
+        <div className="mt-16 sm:mt-20 w-full bg-white border border-border rounded-2xl shadow-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden text-left font-mono">
           {/* Cell 1: Scholars */}
-          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out border-b lg:border-b-0 sm:border-r border-border">
             <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
-              <span className="text-lion-gold font-bold">§</span>
+              <span className="text-lion-gold-dark font-bold">§</span>
               <span>Wing A &bull; Scholars</span>
             </div>
             <div className="my-3">
@@ -122,7 +122,7 @@ export default function Hero() {
           </div>
 
           {/* Cell 2: Dogs */}
-          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out border-b lg:border-b-0 lg:border-r border-border">
             <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
               <span className="text-botanical-emerald font-bold">§</span>
               <span>Wing B &bull; Resident Dogs</span>
@@ -139,9 +139,9 @@ export default function Hero() {
           </div>
 
           {/* Cell 3: Direct Care Endowment */}
-          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out">
+          <div className="p-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-160 ease-out border-b sm:border-b-0 sm:border-r border-border">
             <div className="text-[10px] uppercase tracking-widest text-slate font-semibold flex items-center space-x-1.5">
-              <span className="text-lion-gold font-bold">§</span>
+              <span className="text-lion-gold-dark font-bold">§</span>
               <span>Care Endowment</span>
             </div>
             <div className="my-3">

@@ -8,7 +8,7 @@ A lion does not need charity; it needs dignity and room to breathe. Neither do f
 
 ---
 
-Leading word: *The Sanctuary Grid*. Not an NGO, not a holding trust. A grid. Where an injured dog in Tambaram and a first-generation engineer in Guindy exist inside the same living safety net.
+Leading word: *The Sanctuary Grid*. Not an NGO, not a holding trust. A grid. Where an injured dog in Allahpur and a first-generation engineer in Prayagraj exist inside the same living safety net.
 
 ---
 
@@ -20,7 +20,7 @@ Sub: In sacred memory of Late Kiran Singh ji. 40 scholars incubated. 34 rescued 
 
 Header option for Hero:
 "Vigilance & Continuity"
-Sub: Behavioral science taught her how apex predators endure. Today, that same discipline protects forty students and thirty-four dogs across Chennai.
+Sub: Behavioral science taught her how apex predators endure. Today, that same discipline protects forty students and thirty-four dogs at our sanctuary facility in Prayagraj.
 
 ---
 
@@ -56,7 +56,7 @@ Sub: Every resident has a collar, an immunization schedule, and a territory. A s
 
 Header option for 34 Dogs Care Centre:
 "The Sanctuary at Peace"
-Sub: Three monitored zones, 100% rabies coverage, lifelong veterinary nutrition. How an ethologist's legacy shelters Chennai’s pariah dogs.
+Sub: Three monitored zones, 100% rabies coverage, lifelong veterinary nutrition. How an ethologist's legacy shelters Prayagraj’s pariah dogs.
 
 ---
 

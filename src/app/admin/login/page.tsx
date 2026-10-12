@@ -55,7 +55,7 @@ function AdminLoginForm() {
           </div>
 
           <div>
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-lion-gold/15 border border-lion-gold/30 text-lion-gold text-[10px] font-mono tracking-widest uppercase mb-2 font-medium">
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-lion-gold/15 border border-lion-gold/30 text-lion-gold-dark text-[11px] font-mono tracking-widest uppercase mb-2 font-medium">
               <ShieldCheck className="w-3 h-3" aria-hidden="true" strokeWidth={1.5} />
               <span>Restricted Directorate Portal</span>
             </div>

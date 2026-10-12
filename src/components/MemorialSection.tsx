@@ -16,7 +16,7 @@ export default function MemorialSection() {
               <span>Sacred Memorial & Archival Record</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-obsidian font-normal uppercase leading-tight">
-              Late Kiran Singh <span className="italic text-lion-gold font-light">ji</span>
+              Late Kiran Singh <span className="italic text-lion-gold-dark font-light">ji</span>
             </h2>
             <p className="mt-4 text-slate text-base sm:text-lg leading-relaxed font-sans">
               Doctoral ethologist, zoological analyst, and institutional architect of modern predator care.
@@ -30,7 +30,7 @@ export default function MemorialSection() {
             <span className="font-mono text-xs uppercase tracking-widest text-slate font-medium">
               Institutional Motto
             </span>
-            <span className="font-serif text-xl sm:text-2xl text-lion-gold italic font-semibold mt-1">
+            <span className="font-serif text-xl sm:text-2xl text-lion-gold-dark italic font-semibold mt-1">
               &ldquo;A Journey from struggle to Enlightenment&rdquo;
             </span>
             <span className="text-xs font-mono text-slate mt-1">
@@ -64,7 +64,7 @@ export default function MemorialSection() {
               </div>
               <div className="mt-4 text-center">
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
-                  Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold text-lg">ji</span>
+                  Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold-dark text-lg">ji</span>
                 </h3>
                 <p className="text-[11px] font-mono text-slate tracking-wider uppercase mt-1">
                   Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; Foundational Pillar
@@ -88,7 +88,7 @@ export default function MemorialSection() {
 
               <div>
                 <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-obsidian leading-tight">
-                  A Legacy of Dignity, Science, and <span className="italic text-lion-gold font-light">Compassionate Protection</span>
+                  A Legacy of Dignity, Science, and <span className="italic text-lion-gold-dark font-light">Compassionate Protection</span>
                 </h3>
                 <p className="mt-4 text-sm sm:text-base text-slate leading-relaxed font-sans">
                   Established in sacred memory of <strong className="text-obsidian font-semibold">Late Kiran Singh ji</strong>.
@@ -99,7 +99,7 @@ export default function MemorialSection() {
                 <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed font-sans">
                   Working in close advisory alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"),
                   her scientific rigor and protective discipline now animate our two operational wings: providing 40 sponsored scholars with
-                  executive leadership coaching and sheltering 34 rescued street dogs in Chennai.
+                  executive leadership coaching and sheltering 34 rescued street dogs at our sanctuary facility in Prayagraj.
                 </p>
               </div>
 
@@ -126,15 +126,15 @@ export default function MemorialSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Main Column: Monograph Timeline */}
           <div className="lg:col-span-7 xl:col-span-8">
-            <div className="relative border-l-2 border-lion-gold/30 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-12">
+            <div className="relative border-l-2 border-lion-gold/30 ml-4 sm:ml-6 space-y-12">
               {MEMORIAL_RECORDS.map((record, index) => {
                 const icons = [BookOpen, Award, Landmark];
                 const IconComponent = icons[index] || BookOpen;
 
                 return (
-                  <div key={record.id} className="relative group">
+                  <div key={record.id} className="relative group pl-6 sm:pl-8">
                     {/* Accession Reference Timeline Node */}
-                    <div className="absolute -left-[37px] sm:-left-[45px] top-0 w-8 h-8 rounded-full bg-white border-2 border-lion-gold flex items-center justify-center text-lion-gold-dark shadow-sm group-hover:bg-lion-gold group-hover:text-white transition-colors duration-160">
+                    <div className="absolute -left-4 top-0 w-8 h-8 rounded-full bg-white border-2 border-lion-gold flex items-center justify-center text-lion-gold-dark shadow-sm group-hover:bg-lion-gold group-hover:text-white transition-colors duration-160">
                       <span className="font-mono text-[10px] font-bold">0{index + 1}</span>
                     </div>
 
@@ -183,7 +183,7 @@ export default function MemorialSection() {
                           <IconComponent className="w-3.5 h-3.5" />
                           <span>{record.citations.length} Primary Archival Citations</span>
                         </span>
-                        <span className="text-slate/60 text-[10px] uppercase tracking-wider">
+                        <span className="text-slate text-[11px] uppercase tracking-wider font-medium">
                           Verified Monograph
                         </span>
                       </div>

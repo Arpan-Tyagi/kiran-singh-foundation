@@ -35,17 +35,17 @@ export default async function AdminOverviewPage() {
         {/* Scholars */}
         <div className="bg-white border border-border rounded-2xl p-5 shadow-card flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-mono uppercase text-slate-muted tracking-wider">
+            <span className="text-[11px] font-mono uppercase text-slate-muted tracking-wider">
               Wing A &bull; Scholars
             </span>
             <div className="font-serif text-3xl font-bold text-obsidian mt-1">
               {students.length}
             </div>
-            <p className="text-[11px] text-lion-gold font-medium mt-1">
+            <p className="text-[11px] text-lion-gold-dark font-medium mt-1">
               100% Endowed Sponsorship
             </p>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-lion-gold/15 flex items-center justify-center text-lion-gold">
+          <div className="w-12 h-12 rounded-2xl bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark">
             <GraduationCap className="w-6 h-6" />
           </div>
         </div>
@@ -108,7 +108,7 @@ export default async function AdminOverviewPage() {
       {/* Quick Ops Callout */}
       <div className="p-6 rounded-3xl bg-white border border-border shadow-card flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold shrink-0">
+          <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shrink-0">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
@@ -123,7 +123,7 @@ export default async function AdminOverviewPage() {
 
         <Link
           href="/admin/blogs"
-          className="whitespace-nowrap px-6 py-2.5 rounded-full bg-lion-gold text-white font-sans font-semibold text-xs hover:bg-lion-gold-light transition-all shadow-md"
+          className="whitespace-nowrap px-6 py-2.5 rounded-full bg-lion-gold-dark text-white font-sans font-semibold text-xs hover:bg-lion-gold transition-all shadow-md"
         >
           Launch AI Drafting Modal &rarr;
         </Link>
@@ -142,7 +142,7 @@ export default async function AdminOverviewPage() {
           </div>
           <Link
             href="/admin/applications"
-            className="text-xs font-mono text-lion-gold hover:underline flex items-center space-x-1 font-medium"
+            className="text-xs font-mono text-lion-gold-dark hover:underline flex items-center space-x-1 font-medium"
           >
             <span>Full Desk</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

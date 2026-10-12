@@ -37,9 +37,10 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
 9. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
 10. MULTI-CHANNEL COMMUNICATIONS: Primary engagement through WhatsApp (+91 96709 70750) and email (kiransinghfoundation@gmail.com).
 
-STRICT CAPACITY NEGATIVE CONSTRAINTS:
+STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (Wing A) and exactly 34 rescued street dogs (Wing B).
 - Do not cite, claim, extrapolate, or invent counts other than 40 scholars and 34 dogs under any circumstances. Prohibiting claiming counts other than 40 scholars and 34 dogs is an inviolable mandate.
+- All current facilities, sanctuary operations, Dog Care Centre, and clinics are located SOLELY in Prayagraj (191/C, Tilak Nagar Allahpur Prayagraj 211006). The foundation does NOT operate any clinic, shelter, or triage station in Chennai. Late Kiran Singh ji's historical research took place at AAZP Vandalur (Chennai), but current operations are in Prayagraj.
 
 VOICE & TONE:
 - Institutional, dignified, scholarly, compassionate, and precise.
@@ -300,7 +301,7 @@ export async function executeFoundationChatTurn(
   // Graceful deterministic responder adhering strictly to institutional facts
   if (isEmergency) {
     return {
-      reply: `CRITICAL TRIAGE PROTOCOL: If you are reporting an injured animal or community member in immediate distress, please alert our emergency dispatch grid directly. Our field coordinators respond rapidly across the Chennai and suburban corridor.`,
+      reply: `CRITICAL TRIAGE PROTOCOL: If you are reporting an injured animal or community member in immediate distress, please alert our emergency dispatch grid directly. Our field coordinators respond rapidly across the Prayagraj and suburban municipal corridor.`,
       suggestedAction: {
         type: "whatsapp_emergency",
         label: "Open 24/7 Emergency Dispatch",

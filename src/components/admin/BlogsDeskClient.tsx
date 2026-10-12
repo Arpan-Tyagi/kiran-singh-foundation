@@ -130,7 +130,7 @@ export default function BlogsDeskClient({
               <div className="flex items-center justify-between text-[10px] font-mono mb-3">
                 <span className="text-slate-muted font-medium">{blog.authorName}</span>
                 {blog.isAiDrafted && (
-                  <span className="px-2 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold border border-lion-gold/30 flex items-center space-x-1 font-medium">
+                  <span className="px-2 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 flex items-center space-x-1 font-medium">
                     <Sparkles className="w-2.5 h-2.5" />
                     <span>Gemini 2.5</span>
                   </span>
@@ -151,7 +151,7 @@ export default function BlogsDeskClient({
               <a
                 href={`/dispatches/${blog.slug}`}
                 target="_blank"
-                className="text-lion-gold hover:underline flex items-center space-x-1 font-medium"
+                className="text-lion-gold-dark hover:underline flex items-center space-x-1 font-medium"
               >
                 <span>View</span>
                 <ArrowUpRight className="w-3 h-3" />
@@ -167,14 +167,14 @@ export default function BlogsDeskClient({
           <div className="bg-white border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold">
+                <div className="w-8 h-8 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-obsidian">
                     Gemini 2.5 Flash Editorial Assistant
                   </h3>
-                  <p className="text-[10px] font-mono text-lion-gold font-medium">
+                  <p className="text-[11px] font-mono text-lion-gold-dark font-medium">
                     Institutional Fact Grounded &bull; @google/genai SDK
                   </p>
                 </div>
@@ -202,7 +202,7 @@ export default function BlogsDeskClient({
                         onClick={() => setTargetTone(tone)}
                         className={`py-2 px-3 rounded-xl text-xs font-mono border transition-all ${
                           targetTone === tone
-                            ? "bg-lion-gold/15 border-lion-gold text-lion-gold font-semibold shadow-sm"
+                            ? "bg-lion-gold/15 border-lion-gold-dark text-lion-gold-dark font-semibold shadow-sm"
                             : "bg-porcelain border-border text-slate-muted hover:text-obsidian"
                         }`}
                       >

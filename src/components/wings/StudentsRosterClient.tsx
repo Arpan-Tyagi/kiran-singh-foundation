@@ -61,15 +61,15 @@ export default function StudentsRosterClient({
     <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[11px] font-mono tracking-widest uppercase font-semibold">
           <GraduationCap className="w-3.5 h-3.5" />
           <span>Operational Wing A &bull; 100% Endowed Sponsorship</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
-          Student Welfare <span className="italic text-lion-gold font-light">Wing</span>
+          Student Welfare <span className="italic text-lion-gold-dark font-light">Wing</span>
         </h1>
         <div className="space-y-1">
-          <p className="font-serif text-lg text-lion-gold italic font-semibold">
+          <p className="font-serif text-lg text-lion-gold-dark italic font-semibold">
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
@@ -287,11 +287,11 @@ export default function StudentsRosterClient({
       {/* Office Bearers of Kiran Singh Foundation (Student Welfare Wing) */}
       <div className="space-y-8 pt-8 border-t border-border">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[11px] font-mono tracking-widest uppercase font-semibold">
             <span>Cohort Administration & Operations</span>
           </div>
           <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
-            Office Bearers & <span className="italic text-lion-gold font-light">Superintendents</span>
+            Office Bearers & <span className="italic text-lion-gold-dark font-light">Superintendents</span>
           </h3>
           <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
             The operational supervisory corps directing soft-skill development modules, academic discipline, and pro bono corporate internship placements for our 40 sponsored scholars.

@@ -131,7 +131,7 @@ export default function ApplicationsDeskClient({
                     Reporter: {app.applicant_name}
                   </span>
                   {app.location_data && (
-                    <span className="flex items-center space-x-1 text-lion-gold font-medium">
+                    <span className="flex items-center space-x-1 text-lion-gold-dark font-medium">
                       <MapPin className="w-3.5 h-3.5" />
                       <span>{app.location_data}</span>
                     </span>

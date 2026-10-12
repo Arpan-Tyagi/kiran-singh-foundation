@@ -64,7 +64,7 @@ export default function AdminLayout({
               <h1 className="font-serif text-xl sm:text-2xl font-bold text-obsidian uppercase tracking-wide">
                 Directorate Workspace
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold text-[10px] font-mono border border-lion-gold/30 font-medium">
+              <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark text-[11px] font-mono border border-lion-gold/30 font-medium">
                 RBAC: Admin Authorized
               </span>
             </div>
@@ -77,7 +77,7 @@ export default function AdminLayout({
         <div className="flex items-center space-x-3 text-xs font-mono">
           <Link
             href="/"
-            className="px-4 py-2 rounded-full bg-porcelain border border-border text-obsidian hover:text-lion-gold hover:border-lion-gold/40 active:scale-95 transition-all flex items-center space-x-1 font-medium"
+            className="px-4 py-2 rounded-full bg-porcelain border border-border text-obsidian hover:text-lion-gold-dark hover:border-lion-gold/40 active:scale-95 transition-all flex items-center space-x-1 font-medium"
           >
             <span>Public Site</span>
             <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" strokeWidth={1.5} />
@@ -110,7 +110,7 @@ export default function AdminLayout({
               href={item.href}
               className={`whitespace-nowrap px-4 py-2.5 rounded-2xl border transition-all text-xs font-mono flex items-center space-x-2 active:scale-95 ${
                 isActive
-                  ? "bg-white border-lion-gold text-lion-gold font-semibold shadow-sm"
+                  ? "bg-white border-lion-gold-dark text-lion-gold-dark font-semibold shadow-sm"
                   : "bg-white/80 border-border text-slate-muted hover:text-obsidian hover:border-lion-gold/30 hover:bg-white"
               }`}
             >

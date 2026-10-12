@@ -127,7 +127,7 @@ export default function EventsDeskClient({
               setShowAiDraftSection(true);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-lion-gold/15 border border-lion-gold/40 hover:bg-lion-gold/25 text-lion-gold font-mono text-xs transition-all shadow-sm font-medium"
+            className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-lion-gold/15 border border-lion-gold/40 hover:bg-lion-gold/25 text-lion-gold-dark font-mono text-xs transition-all shadow-sm font-medium"
           >
             <Sparkles className="w-4 h-4" />
             <span>Draft with Gemini 2.5 Flash</span>
@@ -138,7 +138,7 @@ export default function EventsDeskClient({
               setShowAiDraftSection(false);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold hover:bg-lion-gold-light text-white font-sans font-semibold text-xs transition-all shadow-md"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-lion-gold-dark hover:bg-lion-gold text-white font-sans font-semibold text-xs transition-all shadow-md"
           >
             <Plus className="w-4 h-4" />
             <span>Schedule New Event</span>
@@ -151,8 +151,8 @@ export default function EventsDeskClient({
         {events.map((evt) => (
           <div key={evt.id} className="bg-white border border-border rounded-2xl shadow-card p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between text-[10px] font-mono mb-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-porcelain border border-border text-lion-gold font-semibold uppercase">
+              <div className="flex items-center justify-between text-[11px] font-mono mb-2">
+                <span className="px-2.5 py-0.5 rounded-full bg-porcelain border border-border text-lion-gold-dark font-semibold uppercase">
                   {evt.category.replace("_", " ")}
                 </span>
                 <span className="text-slate-muted">
@@ -211,7 +211,7 @@ export default function EventsDeskClient({
                   <h3 className="font-serif text-xl font-bold text-obsidian">
                     Schedule Gathering & AI Announcement
                   </h3>
-                  <p className="text-[10px] font-mono text-lion-gold font-medium">
+                  <p className="text-[11px] font-mono text-lion-gold-dark font-medium">
                     Grounded in Institutional Mandates &bull; @google/genai SDK
                   </p>
                 </div>
@@ -228,7 +228,7 @@ export default function EventsDeskClient({
             <div className="p-4 rounded-2xl bg-porcelain border border-lion-gold/30 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <Sparkles className="w-4 h-4 text-lion-gold" />
+                  <Sparkles className="w-4 h-4 text-lion-gold-dark" />
                   <span className="font-serif text-sm font-bold text-obsidian">
                     Gemini 2.5 Flash Drafting Assistant
                   </span>
@@ -236,7 +236,7 @@ export default function EventsDeskClient({
                 <button
                   type="button"
                   onClick={() => setShowAiDraftSection(!showAiDraftSection)}
-                  className="text-[11px] font-mono text-lion-gold hover:underline font-medium"
+                  className="text-[11px] font-mono text-lion-gold-dark hover:underline font-medium"
                 >
                   {showAiDraftSection ? "Hide Assistant" : "Expand Assistant"}
                 </button>
@@ -256,7 +256,7 @@ export default function EventsDeskClient({
                         onClick={() => setTargetTone(tone)}
                         className={`py-1.5 px-2 rounded-lg text-[10px] font-mono border transition-all ${
                           targetTone === tone
-                            ? "bg-lion-gold/15 border-lion-gold text-lion-gold font-semibold shadow-sm"
+                            ? "bg-lion-gold/15 border-lion-gold-dark text-lion-gold-dark font-semibold shadow-sm"
                             : "bg-white border-border text-slate-muted hover:text-obsidian"
                         }`}
                       >
@@ -269,7 +269,7 @@ export default function EventsDeskClient({
                     rows={3}
                     value={rawNotes}
                     onChange={(e) => setRawNotes(e.target.value)}
-                    placeholder="e.g. Mass anti-rabies drive in Tambaram for street dogs, need student volunteer marshals from the 40 scholars cohort..."
+                    placeholder="e.g. Mass anti-rabies drive in Prayagraj for street dogs, need student volunteer marshals from the 40 scholars cohort..."
                     className="w-full bg-white border border-border rounded-xl p-3 text-xs text-obsidian placeholder:text-slate-muted focus:outline-none focus:border-lion-gold"
                   />
 
@@ -318,7 +318,7 @@ export default function EventsDeskClient({
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. Adyar Suburban Anti-Rabies Field Camp"
+                  placeholder="e.g. Prayagraj Municipal Anti-Rabies Field Camp"
                   className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                 />
               </div>
@@ -362,7 +362,7 @@ export default function EventsDeskClient({
                   required
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  placeholder="e.g. Vandalur Base Clinic or IIT Madras Corridor"
+                  placeholder="e.g. Dog Care Centre Base Station or Civil Lines, Prayagraj"
                   className="w-full bg-porcelain border border-border rounded-xl px-4 py-2.5 text-xs text-obsidian focus:bg-white focus:border-lion-gold"
                 />
               </div>

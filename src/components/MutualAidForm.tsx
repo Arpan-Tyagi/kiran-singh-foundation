@@ -55,7 +55,7 @@ export default function MutualAidForm() {
   return (
     <section id="mutual-aid" className="py-20 md:py-28 px-4 md:px-8 bg-porcelain relative border-t border-border">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white border border-border rounded-3xl shadow-elevation-1 p-8 md:p-12">
+        <div className="bg-white border border-border rounded-3xl shadow-elevation-1 p-5 sm:p-8 md:p-12">
           {/* Header */}
           <div className="text-center max-w-xl mx-auto mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase mb-4 font-semibold">
@@ -63,7 +63,7 @@ export default function MutualAidForm() {
               <span>Mutual-Aid Dispatch & Intake Grid</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-obsidian uppercase">
-              Community <span className="italic text-lion-gold font-light">Interconnectedness</span>
+              Community <span className="italic text-lion-gold-dark font-light">Interconnectedness</span>
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-slate leading-relaxed font-sans">
               Core Institutional Mandate: Absolute community solidarity. We ensure our sponsored scholars, sanctuary caretakers,
@@ -76,7 +76,7 @@ export default function MutualAidForm() {
           <div className="relative w-full h-44 sm:h-56 rounded-2xl overflow-hidden mb-8 border border-border shadow-sm group">
             <Image
               src="/images/mutual-aid.jpg"
-              alt="Chennai Community Mutual-Aid & Relief Grid"
+              alt="Prayagraj Community Mutual-Aid & Relief Grid"
               fill
               sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -288,7 +288,7 @@ export default function MutualAidForm() {
                     type="text"
                     value={formData.locationData}
                     onChange={(e) => setFormData({ ...formData, locationData: e.target.value })}
-                    placeholder="e.g. Vandalur Overbridge or Tambaram Station"
+                    placeholder="e.g. Tilak Nagar Allahpur or Civil Lines, Prayagraj"
                     className="w-full bg-slate-50/70 border border-border rounded-xl px-4 py-3 text-sm text-obsidian placeholder-slate-400 focus:bg-white focus:outline-none focus:border-lion-gold focus:ring-2 focus:ring-lion-gold/15 transition-all"
                   />
                 </div>

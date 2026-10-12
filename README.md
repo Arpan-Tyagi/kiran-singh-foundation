@@ -39,6 +39,9 @@ Under no circumstances should core institutional facts be altered, abstracted, o
     1. *Zone Alpha:* Critical Care & Quarantine
     2. *Zone Beta:* Main Pack Sanctuary
     3. *Zone Gamma:* Senior & Palliative Run
+- **Geographic Ground Truth & Operational Base:**
+  - The foundation operates its Dog Care Centre (sheltering 34 rescued dogs), Student Welfare Wing (40 scholars), animal clinic, and registered secretariat **exclusively in Prayagraj** (`191/C, Tilak Nagar Allahpur Prayagraj 211006`, Uttar Pradesh).
+  - The foundation does **NOT** operate a clinic, shelter, or triage base in Chennai. Late Kiran Singh ji's historical research and Analyst tenure took place at AAZP Vandalur (Chennai), but all modern operational facilities are based in Prayagraj.
 - **Core Purpose:** Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
 - **Multi-Channel Communications:** Primary engagement through deep-linked WhatsApp (`wa.me/919670970750`) and transactional emails (`kiransinghfoundation@gmail.com`).
 

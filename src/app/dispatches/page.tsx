@@ -10,7 +10,7 @@ export default async function DispatchesPage() {
   const posts = await fetchBlogPosts();
 
   return (
-    <div className="py-16 px-4 md:px-8 max-w-6xl mx-auto space-y-16 bg-porcelain">
+    <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
@@ -18,9 +18,9 @@ export default async function DispatchesPage() {
           <span>Institutional Press & Archives</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
-          Editorial <span className="italic text-lion-gold font-light">Dispatches</span>
+          Editorial <span className="italic text-lion-gold-dark font-light">Dispatches</span>
         </h1>
-        <p className="font-mono text-xs sm:text-sm text-lion-gold tracking-widest uppercase font-semibold">
+        <p className="font-mono text-xs sm:text-sm text-lion-gold-dark tracking-widest uppercase font-semibold">
           Ethological Research &bull; Scholar Field Reports &bull; Community Chronicles
         </p>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
@@ -50,7 +50,7 @@ export default async function DispatchesPage() {
                   />
                   {post.isAiDrafted && (
                     <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-lion-gold/40 text-lion-gold-dark text-[10px] font-mono flex items-center space-x-1.5 shadow-sm font-semibold">
-                      <span className="text-lion-gold font-bold">§</span>
+                      <span className="text-lion-gold-dark font-bold">§</span>
                       <span>Directorate Archival Monograph</span>
                     </div>
                   )}
