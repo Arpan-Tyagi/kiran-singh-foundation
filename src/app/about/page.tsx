@@ -1,5 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Landmark,
+  Award,
+  BookOpen,
+  ShieldCheck,
+  GraduationCap,
+  ArrowUpRight,
+} from "lucide-react";
 import {
   MEMORIAL_RECORDS,
   FOUNDATION_META,
@@ -137,134 +146,287 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Official Banking & CSR Endowment Account Details */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-lion-gold/30 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-botanical-emerald font-semibold block">
-                Official Endowment &amp; CSR Banking Coordinates
-              </span>
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-obsidian">
-                {FOUNDATION_META.bankDetails.bankName} &mdash; {FOUNDATION_META.bankDetails.branchName}
-              </h3>
+        {/* Official Banking & CSR Endowment Coordinates - Elevated Treasury Vault Desk */}
+        <div className="rounded-2xl sm:rounded-3xl bg-stone-50/80 border border-lion-gold/25 p-1.5 sm:p-2 shadow-elevation-1">
+          <div className="rounded-xl sm:rounded-2xl bg-white border border-stone-200/80 p-5 sm:p-7 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-4">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-botanical-emerald font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-botanical-emerald shrink-0" />
+                  <span>Verified Statutory Treasury &amp; CSR Endowment Coordinates</span>
+                </div>
+                <h3 className="font-serif text-lg sm:text-2xl font-bold text-obsidian tracking-tight">
+                  {FOUNDATION_META.bankDetails.bankName} &mdash; {FOUNDATION_META.bankDetails.branchName}
+                </h3>
+              </div>
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <span className="px-3 py-1 rounded-full bg-stone-50 border border-border font-mono text-[10px] text-obsidian font-semibold">
+                  CKYC: {FOUNDATION_META.bankDetails.ckycNumber}
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 font-mono text-[10px] text-botanical-emerald font-semibold">
+                  100% Tax Exempt
+                </span>
+              </div>
             </div>
-            <span className="px-3 py-1 rounded-full bg-white border border-border font-mono text-[10px] text-obsidian font-semibold self-start sm:self-auto">
-              CKYC: {FOUNDATION_META.bankDetails.ckycNumber}
-            </span>
-          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs">
-            <div>
-              <span className="text-[10px] text-slate uppercase block">Account Number</span>
-              <span className="font-bold text-obsidian text-sm">{FOUNDATION_META.bankDetails.accountNumber}</span>
-            </div>
-            <div>
-              <span className="text-[10px] text-slate uppercase block">IFSC Code</span>
-              <span className="font-bold text-lion-gold-dark text-sm">{FOUNDATION_META.bankDetails.ifscCode}</span>
-            </div>
-            <div>
-              <span className="text-[10px] text-slate uppercase block">Bank &amp; Branch</span>
-              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.branchName}</span>
-            </div>
-            <div>
-              <span className="text-[10px] text-slate uppercase block">Customer ID</span>
-              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.customerId}</span>
-            </div>
-            <div>
-              <span className="text-[10px] text-slate uppercase block">MMID</span>
-              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.mmid}</span>
-            </div>
-            <div>
-              <span className="text-[10px] text-slate uppercase block">SmartHub Vyapar TID</span>
-              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.smartHubVyaparTid}</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 font-mono text-xs">
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">Account Number</span>
+                <span className="font-bold text-obsidian text-sm sm:text-base mt-0.5 block tracking-wide tabular-nums">
+                  {FOUNDATION_META.bankDetails.accountNumber}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">IFSC Code</span>
+                <span className="font-bold text-lion-gold-dark text-sm sm:text-base mt-0.5 block tracking-wide">
+                  {FOUNDATION_META.bankDetails.ifscCode}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">Bank &amp; Branch</span>
+                <span className="font-semibold text-obsidian text-xs sm:text-sm mt-0.5 block truncate">
+                  {FOUNDATION_META.bankDetails.branchName}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">Customer ID</span>
+                <span className="font-semibold text-obsidian text-xs sm:text-sm mt-0.5 block tabular-nums">
+                  {FOUNDATION_META.bankDetails.customerId}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">MMID</span>
+                <span className="font-semibold text-obsidian text-xs sm:text-sm mt-0.5 block tabular-nums">
+                  {FOUNDATION_META.bankDetails.mmid}
+                </span>
+              </div>
+              <div className="p-3 rounded-xl bg-stone-50/80 border border-border/60">
+                <span className="text-[10px] text-slate uppercase tracking-wider block font-medium">SmartHub TID</span>
+                <span className="font-semibold text-obsidian text-xs sm:text-sm mt-0.5 block tabular-nums">
+                  {FOUNDATION_META.bankDetails.smartHubVyaparTid}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Featured Archival Documentary Banner */}
-      <div className="relative w-full h-80 sm:h-96 md:h-[400px] rounded-3xl overflow-hidden border border-border shadow-elevation-card group">
-        <Image
-          src="/images/memorial-founder.jpg"
-          alt="Late Kiran Singh ji - AAZP Vandalur Archive"
-          fill
-          sizes="100vw"
-          className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-700"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/30 to-transparent flex flex-col justify-end p-6 sm:p-10">
-          <span className="px-3 py-1 rounded-full bg-lion-gold/85 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest self-start mb-2 font-semibold">
-            Tamil Nadu Zoo Authority Historical Dossier
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl leading-snug">
-            Late Kiran Singh ji & The Ethology of Apex Felids
-          </h2>
-          <p className="text-xs sm:text-sm text-white/90 max-w-2xl mt-1 font-sans leading-relaxed">
-            Arignar Anna Zoological Park (AAZP Vandalur, Chennai) &bull; Consultative alignment with then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma").
-          </p>
-        </div>
-      </div>
+      {/* =========================================================================
+          MUSEUM-GRADE MASTERWORK: Memorial Archival Monograph & Ethology Dossier
+          Replaces the stretched horizontal banner and redundant card with an
+          Awwwards-tier Double-Bezel archival centerpiece.
+         ========================================================================= */}
+      <section className="rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-b from-[#FBF9F5] via-stone-50 to-[#F5F2EB] p-2.5 sm:p-4 border border-lion-gold/30 shadow-elevation-card relative overflow-hidden">
+        {/* Subtle decorative radial atmosphere */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-lion-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Founder Dignified Bio Card with Authentic Portrait */}
-      <div className="bg-white border border-border rounded-3xl p-8 md:p-12 shadow-elevation-1">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Authentic Portrait of Late Kiran Singh ji */}
-          <div className="lg:col-span-5 flex flex-col items-center text-center">
-            <div className="relative w-full max-w-[320px] aspect-[9/14] rounded-2xl overflow-hidden border-2 border-lion-gold/40 shadow-elevation-card p-1.5 bg-gradient-to-b from-lion-gold/30 via-white to-border group mb-4">
-              <div className="relative w-full h-full rounded-xl overflow-hidden bg-porcelain">
-                <Image
-                  src="/images/memorial-founder.jpg"
-                  alt="Late Kiran Singh ji - Sacred Memory & Founder"
-                  fill
-                  sizes="(max-width: 1024px) 320px, 380px"
-                  className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 inset-x-3 text-center">
-                  <span className="inline-block px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono tracking-widest uppercase text-obsidian font-semibold shadow-sm">
-                    Founder in Sacred Memory
+        <div className="rounded-2xl sm:rounded-[calc(2.5rem-0.625rem)] bg-white p-6 sm:p-10 md:p-12 lg:p-14 border border-stone-200/70 shadow-[inset_0_1px_2px_rgba(255,255,255,0.9)] relative space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            
+            {/* LEFT COLUMN: Museum Archival Portrait & Provenance Gallery (lg:col-span-5) */}
+            <div className="lg:col-span-5 flex flex-col items-center space-y-5">
+              {/* Museum Portrait Frame with Brushed Bezel & Paper Matting */}
+              <div className="relative w-full max-w-[340px] rounded-2xl p-2 sm:p-2.5 bg-gradient-to-b from-lion-gold/30 via-stone-100 to-stone-200 border-2 border-lion-gold/40 shadow-elevation-card">
+                <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-stone-900 border border-lion-gold/30 shadow-inner group">
+                  <Image
+                    src="/images/memorial-founder.jpg"
+                    alt="Late Kiran Singh ji - Ph.D. Ethologist & Founder in Sacred Memory"
+                    fill
+                    sizes="(max-width: 1024px) 340px, 420px"
+                    className="object-cover object-[center_18%] group-hover:scale-102 transition-transform duration-700"
+                    priority
+                  />
+                  {/* Dignified museum tonal vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/20 to-transparent pointer-events-none" />
+                  
+                  {/* Accession Seal Tag */}
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 rounded-full bg-obsidian/75 backdrop-blur-md border border-white/20 text-[9px] font-mono tracking-widest text-lion-gold uppercase font-semibold">
+                      ARCHIVE &bull; REF: AAZP-1994
+                    </span>
+                  </div>
+
+                  {/* Sacred Memory Overlay Badge */}
+                  <div className="absolute bottom-3 inset-x-3 text-center">
+                    <div className="px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-lion-gold/30 shadow-md">
+                      <span className="text-[10px] font-mono tracking-widest uppercase text-obsidian font-bold block">
+                        Founder in Sacred Memory
+                      </span>
+                      <span className="text-[9px] font-mono text-lion-gold-dark tracking-wider block">
+                        1964 &ndash; 2024 &bull; Prayagraj Secretariat
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Engraved Brass-Finish Plaque */}
+                <div className="mt-3 p-3.5 rounded-xl bg-gradient-to-r from-stone-50 via-stone-100/80 to-stone-50 border border-lion-gold/30 text-center space-y-1 shadow-xs">
+                  <div className="inline-flex items-center justify-center space-x-1.5 text-lion-gold-dark">
+                    <Landmark className="w-3.5 h-3.5" />
+                    <span className="font-serif text-sm font-bold uppercase tracking-wider text-obsidian">
+                      Late Kiran Singh <span className="italic font-light text-lion-gold-dark">ji</span>
+                    </span>
+                  </div>
+                  <p className="text-[10px] font-mono text-slate leading-tight uppercase tracking-wider">
+                    Ph.D. Ethologist &bull; Wildlife Analyst
+                  </p>
+                  <p className="text-[10px] font-mono text-lion-gold-dark font-medium">
+                    Tamil Nadu Zoo Authority &bull; AAZP Vandalur, Chennai
+                  </p>
+                </div>
+              </div>
+
+              {/* Archival Evidence Twin Vignettes */}
+              <div className="w-full max-w-[340px] grid grid-cols-2 gap-3 pt-1">
+                {/* 1. Deepa Prajwalan Homage */}
+                <div className="p-2 rounded-xl bg-stone-50 border border-border hover:border-lion-gold/40 transition-colors space-y-1.5 group">
+                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-200">
+                    <Image
+                      src="/images/events/summer-2026/deepa-prajwalan-lamp-lighting-01.jpg"
+                      alt="Ceremonial Deepa Prajwalan before Late Kiran Singh ji's portrait"
+                      fill
+                      sizes="160px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <span className="text-[9px] font-mono text-slate block leading-tight uppercase font-medium">
+                    Deepa Prajwalan Homage at Convocation
+                  </span>
+                </div>
+
+                {/* 2. Felid Pride Ethology Subject */}
+                <div className="p-2 rounded-xl bg-stone-50 border border-border hover:border-lion-gold/40 transition-colors space-y-1.5 group">
+                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-200">
+                    <Image
+                      src="/images/hero-lion.jpg"
+                      alt="Panthera leo - Apex Felid Ethology Research"
+                      fill
+                      sizes="160px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <span className="text-[9px] font-mono text-slate block leading-tight uppercase font-medium">
+                    Panthera leo Behavioral Study
                   </span>
                 </div>
               </div>
             </div>
-            <h3 className="font-serif text-xl font-bold uppercase tracking-wider text-obsidian">
-              Late Kiran Singh <span className="italic font-light text-lion-gold-dark text-lg">ji</span>
-            </h3>
-            <p className="text-xs text-slate mt-1 font-mono">
-              Ph.D. Ethologist &bull; AAZP Vandalur Analyst &bull; Est. 1994
-            </p>
-          </div>
 
-          {/* Founder Historical Narrative */}
-          <div className="lg:col-span-7 space-y-5 text-left">
-            <div className="text-xs font-mono text-lion-gold-dark uppercase tracking-widest font-semibold">
-              Institutional Heritage & Sacred Memory
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold">
-              Late Kiran Singh <span className="font-serif italic font-normal text-lion-gold-dark text-2xl">ji</span>
-            </h2>
-            <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2 text-xs font-mono text-slate">
-              <div>&bull; <strong className="text-obsidian">Academic Credentials:</strong> Ph.D. in Apex Felid Behavioral Science & Conditioning</div>
-              <div>&bull; <strong className="text-obsidian">Zoological Authority:</strong> Analyst, Tamil Nadu Zoo Authority (AAZP Vandalur, Chennai)</div>
-              <div>&bull; <strong className="text-obsidian">State Advisory Alignment:</strong> Advised then Chief Minister Late J. Jayalalithaa ("Amma")</div>
-            </div>
+            {/* RIGHT COLUMN: Institutional Ethology Monograph & State Gazette Credentials (lg:col-span-7) */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              {/* Eyebrow strip */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-lion-gold/15 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono uppercase tracking-widest font-bold">
+                  Tamil Nadu Zoo Authority Historical Dossier
+                </span>
+                <span className="px-3 py-1 rounded-full bg-stone-100 border border-border text-slate text-[10px] font-mono uppercase tracking-widest font-medium">
+                  AAZP Vandalur &bull; Chennai
+                </span>
+                <span className="px-3 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 text-botanical-emerald text-[10px] font-mono uppercase tracking-widest font-semibold">
+                  State Policy Alignment
+                </span>
+              </div>
 
-            <p className="text-sm text-slate leading-relaxed font-sans">
-              Late Kiran Singh ji dedicated her academic life to deciphering the behavioral psychology, training,
-              and operant conditioning of large apex felids—specifically lions (*Panthera leo*), tigers (*Panthera tigris*),
-              and leopards (*Panthera pardus*). Her doctoral work demonstrated that managed apex carnivores maintain psychological
-              equilibrium through environmental enrichment, predictable auditory cues, and positive reinforcement rather than coercive restraint.
-            </p>
-            <p className="text-sm text-slate leading-relaxed font-sans">
-              As an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai),
-              she instituted progressive nocturnal enclosure enrichment, reduced captivity stereotypic pacing distress by over 60%,
-              and modernized animal safety protocols. Her analytical rigor earned her the trust and close consultative alignment of
-              then Chief Minister Late J. Jayalalithaa ("Amma"), shaping progressive wildlife and humane animal policies across Tamil Nadu.
-            </p>
+              {/* Monumental Headline */}
+              <div className="space-y-2">
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-obsidian font-normal leading-[1.14]">
+                  Late Kiran Singh <span className="italic font-light text-lion-gold-dark">ji</span> &amp; The Ethology of <span className="italic text-lion-gold-dark font-light">Apex Felids</span>
+                </h2>
+                <p className="font-mono text-xs text-slate uppercase tracking-wider">
+                  Arignar Anna Zoological Park (AAZP Vandalur) &bull; Consultative Alignment with then Chief Minister Late J. Jayalalithaa (&ldquo;Amma&rdquo;)
+                </p>
+              </div>
+
+              {/* 4 Gazette Credentials Matrix */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div className="p-3.5 rounded-2xl bg-stone-50/80 border border-border/80 space-y-1">
+                  <div className="flex items-center space-x-1.5 text-lion-gold-dark text-xs font-mono font-bold uppercase">
+                    <GraduationCap className="w-4 h-4 text-lion-gold-dark shrink-0" />
+                    <span>Doctoral Dissertation</span>
+                  </div>
+                  <p className="text-xs text-obsidian font-sans leading-relaxed">
+                    Ph.D. specializing in the behavioral training, conditioning, and sensory neurobiology of large apex felids (lions, tigers, and leopards).
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-stone-50/80 border border-border/80 space-y-1">
+                  <div className="flex items-center space-x-1.5 text-botanical-emerald text-xs font-mono font-bold uppercase">
+                    <Award className="w-4 h-4 text-botanical-emerald shrink-0" />
+                    <span>Tamil Nadu Zoo Authority</span>
+                  </div>
+                  <p className="text-xs text-obsidian font-sans leading-relaxed">
+                    Tenured Wildlife Analyst at AAZP Vandalur; designed sensory enrichment protocols reducing stereotypic pacing distress by &gt;60%.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-stone-50/80 border border-border/80 space-y-1">
+                  <div className="flex items-center space-x-1.5 text-lion-gold-dark text-xs font-mono font-bold uppercase">
+                    <BookOpen className="w-4 h-4 text-lion-gold-dark shrink-0" />
+                    <span>State Conservation Advisory</span>
+                  </div>
+                  <p className="text-xs text-obsidian font-sans leading-relaxed">
+                    Direct consultative advisory to then Chief Minister Late J. Jayalalithaa (&ldquo;Amma&rdquo;), shaping humane wildlife and conservation directives.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-stone-50/80 border border-border/80 space-y-1">
+                  <div className="flex items-center space-x-1.5 text-botanical-emerald text-xs font-mono font-bold uppercase">
+                    <ShieldCheck className="w-4 h-4 text-botanical-emerald shrink-0" />
+                    <span>Prayagraj Living Sanctuaries</span>
+                  </div>
+                  <p className="text-xs text-obsidian font-sans leading-relaxed">
+                    Living institutional genesis underwriting 40 Sponsored Scholars and 34 Rescued Canines at 191/C Tilak Nagar, Prayagraj.
+                  </p>
+                </div>
+              </div>
+
+              {/* Visceral Biographical Narrative */}
+              <div className="space-y-3.5 text-sm sm:text-base text-slate font-sans leading-relaxed">
+                <p>
+                  Late Kiran Singh ji dedicated her life to deciphering the behavioral psychology, operant conditioning,
+                  and sensory modulation of large apex felids—specifically lions (<em>Panthera leo</em>), tigers (<em>Panthera tigris</em>),
+                  and leopards (<em>Panthera pardus</em>). Her doctoral research conclusively proved that managed apex predators
+                  maintain psychological equilibrium through predictable auditory cues, spatial complexity, and positive operant reinforcement
+                  rather than physical coercion or pharmaceutical sedation.
+                </p>
+                <p>
+                  Serving as an Analyst with the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai),
+                  she instituted landmark nocturnal habitat enrichment and revolutionized veterinary safety procedures. Her empirical rigor
+                  earned the personal confidence of then Chief Minister Late J. Jayalalithaa (&ldquo;Amma&rdquo;), guiding statewide policies
+                  in ethical captive management and modern zoological governance.
+                </p>
+              </div>
+
+              {/* Philosophical Pull Quote with Archival Styling */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-stone-50 via-lion-gold/10 to-stone-50 border-l-4 border-lion-gold shadow-xs space-y-1">
+                <p className="font-serif italic text-sm sm:text-base text-obsidian font-semibold leading-relaxed">
+                  &ldquo;Compassion devoid of scientific rigor deteriorates into sentimentality; scientific rigor rooted in disciplined compassion transforms entire habitats.&rdquo;
+                </p>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-lion-gold-dark font-semibold block">
+                  &mdash; Core Institutional Thesis of Late Kiran Singh ji
+                </span>
+              </div>
+
+              {/* Link CTA with Nested Button-in-Button */}
+              <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <Link
+                  href="/dispatches/from-apex-felids-to-compassionate-canines"
+                  className="inline-flex items-center space-x-3 px-6 py-3.5 rounded-full bg-lion-gold hover:bg-lion-gold-dark text-white font-sans font-semibold text-xs transition-all shadow-gold-glow group"
+                >
+                  <span>Read Complete Ethology Monograph &amp; Field Records</span>
+                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+                  </span>
+                </Link>
+
+                <span className="text-xs font-mono text-slate">
+                  Archival Dispatch Ref: &ldquo;From Apex Felids to Compassionate Canines&rdquo;
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Heraldic Emblem Showcase Card */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-10 shadow-elevation-1 flex flex-col md:flex-row items-center gap-8">
