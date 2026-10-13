@@ -18,29 +18,57 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
 2. MOTTO & TAGLINE:
    - Official Tagline: "A Journey from struggle to Enlightenment"
    - Foundation Motto: "Working Towards Change"
-3. STATUTORY REGISTRATION & LEGAL STATUS:
-   - Trust registered under Indian Trust Act of 1882.
-4. REGISTERED OFFICE & ADDRESS:
-   - 191/C, Tilak Nagar Allahpur Prayagraj 211006.
-5. OFFICIAL COMMUNICATIONS:
+3. STATUTORY REGISTRATION, TAX & CSR CREDENTIALS:
+   - Legal Status: Trust registered under Indian Trust Act of 1882.
+   - Date of Incorporation: 31/12/2025 (Student welfare activities initiated 3 years prior, in 2022).
+   - Permanent Account Number (PAN): AAGTK3961N
+   - Unique Registration Number (URN) under Section 332(8) and 354(4) of Income Tax Act: AAGTK3961NE20261
+   - Corporate Social Responsibility (CSR) Registration Number: CSR00110895
+   - Application Number: SRN AC3352827
+4. OFFICIAL BANKING & ENDOWMENT ACCOUNT DETAILS:
+   - Bank Name: HDFC Bank
+   - Branch Name: Naya Katra, Prayagraj
+   - Account Number: 50200119758811
+   - IFSC Code: HDFC0004664
+   - Customer ID: 353372799
+   - Central KYC (CKYC) Registration Number: 80001700802453
+   - MMID: 9240594
+   - HDFC Bank SmartHub Vyapar TID: 82215825
+5. 3 CORE MEMBERS (BOARD OF TRUSTEES):
+   - Shri Anuj Kumar Singh (Secretary, Kiran Singh Foundation)
+   - Shri Anil Kumar Singh (President, Kiran Singh Foundation)
+   - Ms. Akansha Singh (Treasurer, Kiran Singh Foundation)
+6. REGISTERED OFFICE & ADDRESS:
+   - 191/C, Tilak Nagar Allahpur Prayagraj 211006 (Allahabad / Prayagraj, U.P., India - 211006).
+7. OFFICIAL COMMUNICATIONS:
    - Mobile Numbers: 9670970750, 8115141378, 9450630310 (Primary Dispatch / WhatsApp: +91 96709 70750)
    - Official Email: kiransinghfoundation@gmail.com
-6. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
-7. OPERATIONAL WING A - STUDENT WELFARE WING:
-   - Supports exactly 40 active students directly under comprehensive foundation sponsorship.
-   - All expenses and educational resources for soft skills incubation and personality development (executive communication, public discourse, systems thinking) are fully provided.
-   - Offers Summer and Winter Internships on a pro bono basis to build professional competence and civic discipline.
-8. OPERATIONAL WING B - DOG CARE CENTRE:
-   - Protects and shelters exactly 34 rescued street dogs.
-   - All food, housing, medical care, sterilizations, and vaccinations (rabies and boosters) are 100% funded by the foundation.
-   - Organized across three protective zones: Zone Alpha (Critical Care & Quarantine), Zone Beta (Main Pack Sanctuary), and Zone Gamma (Senior & Palliative Run).
-9. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
-10. MULTI-CHANNEL COMMUNICATIONS: Primary engagement through WhatsApp (+91 96709 70750) and email (kiransinghfoundation@gmail.com).
+8. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
+9. FOUR OPERATIONAL WINGS UNDER KIRAN SINGH FOUNDATION:
+   - Wing A: KSF (Student Welfare) Wing:
+     * Supports exactly 40 active students directly under comprehensive foundation sponsorship.
+     * Selection: 40 students are chosen through a psychometric test and interview organized by the 3 core members and conducted by accomplished professionals in their respective fields.
+     * 2 Internships Offered: Summer Internship Program & Winter Internship Program to develop a solid personality and incorporate soft skills.
+     * 4 Teams & Supervisory Hierarchy: Students are divided into 4 teams, each headed by a Head Superintendent Manager, Dy. Head Superintendent Manager, and Team Leader.
+     * Research & Plagiarism Audit: Diverse research topics are assigned to each team; each team prepares a formatted Research Report and PowerPoint Presentation presented before a panel of top professionals, verified by a Plagiarism Report to test copying percentage, credibility, and authenticity.
+     * Internship Closing Ceremony & Stipend: Students are awarded Certificates, Trophies, and Mementos along with a Stipend amount at the Closing Ceremony, supported by regular expert sessions.
+   - Wing B: KSF (Dog Welfare) Wing (Dog Care Centre):
+     * Protects and shelters exactly 34 rescued street dogs across 4 built shelter homes in Prayagraj.
+     * Street dogs are rescued and vaccinated alongside medical facilities to save them from diseases and accidents and provide a decent standard of living.
+     * Complete food, shelter, and clean water facilities are 100% funded by the foundation.
+   - Wing C: KSF (Village Development) Wing:
+     * Aim: "Empowering village through education."
+     * Students residing in villages are given adequate resources and opportunities to express themselves effectively and compete with real-life challenges.
+     * Educational fees, food cost, and shelter facility are fully taken care of by the Kiran Singh Foundation.
+   - Wing D: KSF (Women Empowerment) Wing:
+     * Female students and women with great skills are given opportunities to develop a solid career across education, business, and entrepreneurship.
+     * Organizes awareness programs and investment summits to motivate young women to pursue their career despite family pressures.
+10. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies via WhatsApp (+91 96709 70750) and email (kiransinghfoundation@gmail.com).
 
 STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
-- Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (Wing A) and exactly 34 rescued street dogs (Wing B).
+- Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (divided into 4 teams in Wing A) and exactly 34 rescued street dogs (housed across 4 built shelter homes in Wing B).
 - Do not cite, claim, extrapolate, or invent counts other than 40 scholars and 34 dogs under any circumstances. Prohibiting claiming counts other than 40 scholars and 34 dogs is an inviolable mandate.
-- All current facilities, sanctuary operations, Dog Care Centre, and clinics are located SOLELY in Prayagraj (191/C, Tilak Nagar Allahpur Prayagraj 211006). The foundation does NOT operate any clinic, shelter, or triage station in Chennai. Late Kiran Singh ji's historical research took place at AAZP Vandalur (Chennai), but current operations are in Prayagraj.
+- All current facilities, sanctuary operations, 4 shelter homes, and clinics are located SOLELY in Prayagraj (191/C, Tilak Nagar Allahpur Prayagraj 211006). The foundation does NOT operate any clinic, shelter, or triage station in Chennai. Late Kiran Singh ji's historical research took place at AAZP Vandalur (Chennai), but current operations are in Prayagraj.
 
 VOICE & TONE:
 - Institutional, dignified, scholarly, compassionate, and precise.
@@ -327,12 +355,12 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("dog") || userQueryLower.includes("canine") || userQueryLower.includes("rabies")) {
+  if (userQueryLower.includes("dog") || userQueryLower.includes("canine") || userQueryLower.includes("rabies") || userQueryLower.includes("shelter")) {
     return {
-      reply: `Our Dog Care Centre shelters and protects exactly 34 rescued street dogs. All food, housing, medical care, sterilizations, and vaccinations (rabies and annual boosters) are 100% funded by the foundation across three monitored zones (Zone Alpha, Beta, and Gamma). For emergency canine rescue dispatch, call +91 96709 70750.`,
+      reply: `Our KSF (Dog Welfare) Wing shelters and protects exactly 34 rescued street dogs across 4 built shelter homes in Prayagraj. All food, clean water, housing, medical care, sterilizations, and vaccinations (rabies and annual boosters) are 100% funded by the foundation. For emergency canine rescue dispatch, call +91 96709 70750.`,
       suggestedAction: {
         type: "view_dogs",
-        label: "Inspect 34 Resident Dogs",
+        label: "Inspect 34 Resident Dogs (4 Shelters)",
         href: "/wings/dogs",
       },
     };
@@ -340,17 +368,28 @@ export async function executeFoundationChatTurn(
 
   if (userQueryLower.includes("student") || userQueryLower.includes("intern") || userQueryLower.includes("scholar")) {
     return {
-      reply: `Our Student Welfare Wing directly supports exactly 40 active students under comprehensive foundation sponsorship. We provide 100% funding for soft skills incubation (executive communication, public discourse, systems thinking) alongside pro bono Summer and Winter Internships.`,
+      reply: `Our KSF (Student Welfare) Wing directly supports exactly 40 active students chosen via a psychometric test and interview organized by our 3 Core Trustees (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh). Divided into 4 teams across Summer and Winter Internships, scholars prepare plagiarism-audited Research Reports and PowerPoint presentations, concluding with an Internship Closing Ceremony awarding Certificates, Trophies, Mementos, and Stipends.`,
       suggestedAction: {
         type: "view_students",
-        label: "View 40 Scholars Cohort",
+        label: "View 40 Scholars Cohort (4 Teams)",
         href: "/wings/students",
       },
     };
   }
 
+  if (userQueryLower.includes("village") || userQueryLower.includes("women") || userQueryLower.includes("bank") || userQueryLower.includes("csr") || userQueryLower.includes("pan")) {
+    return {
+      reply: `Kiran Singh Foundation (PAN: AAGTK3961N, CSR: CSR00110895, URN: AAGTK3961NE20261, SRN: AC3352827) operates 4 Operational Wings: (a) Student Welfare Wing (40 scholars across 4 teams), (b) Dog Welfare Wing (34 dogs across 4 built shelter homes), (c) Village Development Wing ("Empowering village through education" — 100% educational fees, food, and shelter), and (d) Women Empowerment Wing (career development in education, business & entrepreneurship via awareness programs and investment summits). Official Bank: HDFC Bank, Naya Katra, Prayagraj (A/C: 50200119758811, IFSC: HDFC0004664).`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "View Statutory Charter & 4 Wings",
+        href: "/about#four-wings-charter",
+      },
+    };
+  }
+
   return {
-    reply: `Welcome to the Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji, our mission operates under the tagline "A Journey from struggle to Enlightenment" and motto "Working Towards Change". We oversee the Student Welfare Wing (40 sponsored scholars), the Dog Care Centre (34 rescued street dogs), and an active community emergency grid. Contact: +91 96709 70750 / kiransinghfoundation@gmail.com. How may we assist you today?`,
+    reply: `Welcome to the Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882, PAN: AAGTK3961N, CSR: CSR00110895, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji, our mission operates under the tagline "A Journey from struggle to Enlightenment" and motto "Working Towards Change". We execute 4 Operational Wings: Student Welfare (40 scholars across 4 teams), Dog Welfare (34 rescued street dogs across 4 built shelter homes), Village Development, and Women Empowerment. Contact: +91 96709 70750 / kiransinghfoundation@gmail.com. How may we assist you today?`,
     suggestedAction: {
       type: "intake_form",
       label: "Mutual-Aid & Community Intake",
@@ -358,3 +397,4 @@ export async function executeFoundationChatTurn(
     },
   };
 }
+

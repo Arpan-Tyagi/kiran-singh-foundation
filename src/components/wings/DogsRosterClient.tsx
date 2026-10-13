@@ -31,7 +31,7 @@ export default function DogsRosterClient({
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 text-botanical-emerald text-[10px] font-mono tracking-widest uppercase font-semibold">
           <Heart className="w-3.5 h-3.5" />
-          <span>Operational Wing B &bull; 100% Endowed Medical Sanctuary</span>
+          <span>Operational Wing B &bull; 4 Built Shelter Homes &bull; 34 Street Dogs</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           Dog Care <span className="italic text-botanical-emerald font-light">Centre</span>
@@ -41,14 +41,11 @@ export default function DogsRosterClient({
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
-            Trust registered under Indian Trust Act of 1882 &bull; 34 Rescued Canines Sanctuary
+            Trust registered under Indian Trust Act of 1882 &bull; 4 Built Shelter Homes &bull; 34 Rescued Canines
           </p>
         </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          The foundation provides permanent clinical shelter and daily nutrition for exactly 34 rescued municipal street dogs.
-          Rooted in Late Kiran Singh ji’s ethological principles, our sanctuary replaces ad-hoc roadside feeding with
-          structured biosafety: comprehensive surgical sterilizations, multi-strain core vaccinations, and clinical care
-          across three dedicated behavioral zones.
+          The Kiran Singh Foundation has built <strong className="text-obsidian font-semibold">4 dedicated shelter homes</strong> housing <strong className="text-obsidian font-semibold">34 rescued street dogs in total</strong> in Prayagraj. Street dogs are rescued, vaccinated, and provided with complete <strong className="text-obsidian font-semibold">food, clean water, shelter, and medical facilities</strong> to save them from diseases and accidents and ensure a decent standard of living.
         </p>
       </div>
 

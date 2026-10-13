@@ -44,47 +44,75 @@ export default function Footer() {
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2">
               <div className="flex items-center space-x-2 text-xs font-mono text-slate font-medium">
                 <ShieldCheck className="w-4 h-4 text-botanical-emerald shrink-0" />
-                <span>Trust registered under Indian Trust Act of 1882</span>
+                <span>Trust registered under Indian Trust Act of 1882 &bull; Inc: 31/12/2025</span>
               </div>
               <p className="text-xs text-slate leading-relaxed">
-                100% of operational resources are directly deployed to our 40 scholars and 34 resident canines.
+                100% of operational resources are directly deployed across our 4 Operational Wings: 40 scholars (4 teams), 34 resident canines (4 shelter homes), Village Development, and Women Empowerment.
               </p>
               <div className="text-[11px] font-mono text-slate border-t border-border/60 pt-2 space-y-1">
                 <div><strong className="text-obsidian">Registered Office:</strong> 191/C, Tilak Nagar Allahpur Prayagraj 211006</div>
+                <div><strong className="text-obsidian">Statutory IDs:</strong> PAN: AAGTK3961N &bull; CSR: CSR00110895 &bull; URN: AAGTK3961NE20261 &bull; SRN: AC3352827</div>
+                <div><strong className="text-obsidian">Endowment Bank:</strong> HDFC Bank (Naya Katra, Prayagraj) &bull; A/C: 50200119758811 &bull; IFSC: HDFC0004664</div>
                 <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
               </div>
             </div>
           </div>
 
-          {/* Operational Wings */}
-          <div className="lg:col-span-4 flex flex-col space-y-4">
+          {/* 4 Operational Wings */}
+          <div className="lg:col-span-4 flex flex-col space-y-3">
             <h4 className="font-mono text-xs uppercase tracking-widest text-lion-gold-dark font-semibold">
-              Operational Wings
+              4 Operational Wings
             </h4>
-            <div className="space-y-3.5">
+            <div className="space-y-2.5">
               <Link
                 href="/wings/students"
-                className="group block p-4 rounded-2xl bg-slate-50 border border-border hover:border-lion-gold/40 hover:bg-white transition-all shadow-sm"
+                className="group block p-3.5 rounded-2xl bg-slate-50 border border-border hover:border-lion-gold/40 hover:bg-white transition-all shadow-sm"
               >
-                <div className="flex items-center justify-between text-sm font-semibold text-obsidian group-hover:text-lion-gold-dark">
-                  <span>Wing A: Student Welfare Wing</span>
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-obsidian group-hover:text-lion-gold-dark">
+                  <span>Wing A: KSF (Student Welfare) Wing</span>
                   <ArrowUpRight className="w-4 h-4 text-slate group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-xs text-slate mt-1 leading-relaxed">
-                  Supports exactly 40 active students directly under foundation sponsorship with fully funded soft skills incubation and pro bono internships.
+                <p className="text-[11px] text-slate mt-1 leading-relaxed">
+                  40 students selected via psychometric test &amp; interview across 4 teams; Summer &amp; Winter internships, plagiarism-audited research &amp; closing stipends.
                 </p>
               </Link>
 
               <Link
                 href="/wings/dogs"
-                className="group block p-4 rounded-2xl bg-slate-50 border border-border hover:border-botanical-emerald/40 hover:bg-white transition-all shadow-sm"
+                className="group block p-3.5 rounded-2xl bg-slate-50 border border-border hover:border-botanical-emerald/40 hover:bg-white transition-all shadow-sm"
               >
-                <div className="flex items-center justify-between text-sm font-semibold text-obsidian group-hover:text-botanical-emerald">
-                  <span>Wing B: Dog Care Centre</span>
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-obsidian group-hover:text-botanical-emerald">
+                  <span>Wing B: KSF (Dog Welfare) Wing</span>
                   <ArrowUpRight className="w-4 h-4 text-slate group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-xs text-slate mt-1 leading-relaxed">
-                  Protects and shelters exactly 34 rescued street dogs with 100% funded veterinary healthcare, rabies vaccinations, and sanctuary.
+                <p className="text-[11px] text-slate mt-1 leading-relaxed">
+                  Built 4 shelter homes housing 34 rescued street dogs in Prayagraj with complete food, clean water, vaccination &amp; clinical trauma facilities.
+                </p>
+              </Link>
+
+              <Link
+                href="/about#four-wings-charter"
+                className="group block p-3.5 rounded-2xl bg-slate-50 border border-border hover:border-lion-gold/40 hover:bg-white transition-all shadow-sm"
+              >
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-obsidian group-hover:text-lion-gold-dark">
+                  <span>Wing C: KSF (Village Development) Wing</span>
+                  <ArrowUpRight className="w-4 h-4 text-slate group-hover:translate-x-0.5 transition-transform" />
+                </div>
+                <p className="text-[11px] text-slate mt-1 leading-relaxed">
+                  &ldquo;Empowering village through education&rdquo; &mdash; 100% educational fees, food cost, and shelter facility underwritten for rural students.
+                </p>
+              </Link>
+
+              <Link
+                href="/about#four-wings-charter"
+                className="group block p-3.5 rounded-2xl bg-slate-50 border border-border hover:border-botanical-emerald/40 hover:bg-white transition-all shadow-sm"
+              >
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-obsidian group-hover:text-botanical-emerald">
+                  <span>Wing D: KSF (Women Empowerment) Wing</span>
+                  <ArrowUpRight className="w-4 h-4 text-slate group-hover:translate-x-0.5 transition-transform" />
+                </div>
+                <p className="text-[11px] text-slate mt-1 leading-relaxed">
+                  Career advancement across education, business &amp; entrepreneurship via awareness programs and investment summits.
                 </p>
               </Link>
             </div>
@@ -139,7 +167,14 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="pt-2">
+            <div className="p-3 rounded-xl bg-slate-50 border border-border font-mono text-[10px] text-slate space-y-0.5">
+              <div className="text-obsidian font-semibold">Core Members (Trustees):</div>
+              <div>&bull; Shri Anuj Kumar Singh (Secretary)</div>
+              <div>&bull; Shri Anil Kumar Singh (President)</div>
+              <div>&bull; Ms. Akansha Singh (Treasurer)</div>
+            </div>
+
+            <div className="pt-1">
               <Link
                 href="/admin"
                 className="text-[11px] font-mono text-slate hover:text-lion-gold-dark transition-colors inline-block font-medium"

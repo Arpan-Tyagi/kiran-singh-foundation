@@ -78,37 +78,21 @@ export default function StudentsRosterClient({
           </p>
         </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          The foundation finances comprehensive leadership development for exactly 40 scholars under direct institutional
-          sponsorship. We underwrite 100% of executive communication coaching, public discourse laboratories, personality
-          cultivation, and mandatory pro bono corporate and legal internships—forging resilient civic leaders.
+          40 students are selected through a rigorous <strong className="text-obsidian font-semibold">psychometric test and interview</strong> organized by the 3 core members (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh) and conducted by accomplished professionals. Divided into <strong className="text-obsidian font-semibold">4 teams</strong> across our Summer &amp; Winter Internship Programs, scholars prepare plagiarism-audited <strong className="text-obsidian font-semibold">Research Reports and PowerPoint defenses</strong>, culminating in an <strong className="text-obsidian font-semibold">Internship Closing Ceremony</strong> with Certificates, Trophies, Mementos, and Stipends.
         </p>
       </div>
 
-      {/* Institutional Mandate Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Institutional Mandate Cards (PDF Charter) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
           <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shadow-sm">
             <Award className="w-5 h-5" />
           </div>
           <h3 className="font-serif text-xl font-bold text-obsidian">
-            100% Expense Coverage
+            Psychometric &amp; Interview Selection
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Every scholar receives tuition relief, research stipends, digital devices, and wardrobe allowances—removing
-            all socioeconomic barriers to high achievement.
-          </p>
-        </div>
-
-        <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
-          <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shadow-sm">
-            <BookOpen className="w-5 h-5" />
-          </div>
-          <h3 className="font-serif text-xl font-bold text-obsidian">
-            Soft Skills Incubation
-          </h3>
-          <p className="text-xs text-slate leading-relaxed font-sans">
-            Rigorous personality development labs focusing on public speaking, diplomatic negotiation,
-            and cross-cultural executive etiquette.
+            Exactly 40 students are chosen through a structured psychometric test and panel interview organized by our 3 Core Trustees and conducted by accomplished industry professionals.
           </p>
         </div>
 
@@ -117,11 +101,34 @@ export default function StudentsRosterClient({
             <Briefcase className="w-5 h-5" />
           </div>
           <h3 className="font-serif text-xl font-bold text-obsidian">
-            Pro Bono Internships
+            4 Teams &amp; Dual Internships
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Scholars undertake mandatory Summer and Winter internships on a pro bono basis in public welfare labs,
-            civic organizations, and veterinary stations to instill professional competence.
+            Scholars participate in the Summer Internship Program and Winter Internship Program, organized into 4 teams—each headed by a Head Superintendent Manager, Dy. Head Superintendent Manager, and Team Leader.
+          </p>
+        </div>
+
+        <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
+          <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shadow-sm">
+            <BookOpen className="w-5 h-5" />
+          </div>
+          <h3 className="font-serif text-xl font-bold text-obsidian">
+            Plagiarism-Audited Research &amp; PPT
+          </h3>
+          <p className="text-xs text-slate leading-relaxed font-sans">
+            Each team receives diverse research topics, prepares a formatted Research Report and PowerPoint Presentation before top professionals, and undergoes a strict Plagiarism Report audit to verify copying percentage and authenticity.
+          </p>
+        </div>
+
+        <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
+          <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shadow-sm">
+            <CheckCircle className="w-5 h-5" />
+          </div>
+          <h3 className="font-serif text-xl font-bold text-obsidian">
+            Closing Ceremony &amp; Stipends
+          </h3>
+          <p className="text-xs text-slate leading-relaxed font-sans">
+            Alongside regular expert sessions that instill confidence and technical knowledge, each cohort concludes with an Internship Closing Ceremony awarding Certificates, Trophies, Mementos, and a Stipend amount.
           </p>
         </div>
       </div>

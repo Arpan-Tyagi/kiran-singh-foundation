@@ -4,13 +4,14 @@ import {
   MEMORIAL_RECORDS,
   FOUNDATION_META,
   FOUNDATION_LEADERSHIP,
+  FOUR_OPERATIONAL_WINGS,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
 export const metadata = {
   title: 'Institutional Archive & Legal Secretariat | Kiran Singh Foundation',
   description:
-    'Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (191/C, Tilak Nagar Allahpur Prayagraj 211006). Official institutional history, academic credentials of Late Kiran Singh ji, and the historical advisory alignment with Late Chief Minister J. Jayalalithaa.',
+    'Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (PAN: AAGTK3961N, CSR: CSR00110895, URN: AAGTK3961NE20261, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Official charter covering 4 Operational Wings: Student Welfare, Dog Welfare, Village Development, and Women Empowerment.',
 };
 
 export default function AboutPage() {
@@ -33,37 +34,38 @@ export default function AboutPage() {
           </p>
         </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          The verified historical record of Late Kiran Singh ji: documenting her doctoral scholarship in apex felid
-          psychology, her analytical tenure at Arignar Anna Zoological Park (AAZP Vandalur), and her consultative
-          alignment under Late Chief Minister J. Jayalalithaa ("Amma").
+          The verified historical record and statutory charter of the Kiran Singh Foundation: honoring Late Kiran Singh ji’s
+          doctoral scholarship in apex felid psychology and analytical tenure at Arignar Anna Zoological Park (AAZP Vandalur),
+          while executing our 4 Operational Wings across Prayagraj.
         </p>
       </div>
 
-      {/* Statutory Trust Registry & Secretariat Card */}
-      <div className="bg-white border-2 border-lion-gold/30 rounded-3xl p-6 sm:p-8 md:p-10 shadow-elevation-1">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-border pb-6 mb-6">
+      {/* Statutory Trust Registry, Tax/CSR Credentials & Official Banking Ledger */}
+      <div className="bg-white border-2 border-lion-gold/30 rounded-3xl p-6 sm:p-8 md:p-10 shadow-elevation-1 space-y-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-border pb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/25 text-botanical-emerald text-xs font-mono uppercase tracking-wider font-semibold mb-2">
-              Statutory Governance &bull; Legal Trust Registry
+              Statutory Governance &bull; Legal Trust &amp; CSR Registry
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
               Kiran Singh Foundation
             </h2>
             <p className="font-mono text-xs text-lion-gold-dark mt-1 font-semibold">
-              Trust registered under Indian Trust Act of 1882
+              {FOUNDATION_META.trustRegistration} &bull; Incorporated: {FOUNDATION_META.incorporationDate} (Student Welfare Active Since 2022)
             </p>
           </div>
           <div className="text-left md:text-right">
             <span className="font-mono text-[11px] text-slate uppercase tracking-wider block">Institutional Tagline</span>
             <span className="font-serif text-lg text-lion-gold-dark italic font-bold">
-              &ldquo;A Journey from struggle to Enlightenment&rdquo;
+              &ldquo;{FOUNDATION_META.tagline}&rdquo;
             </span>
             <span className="font-mono text-[10px] text-slate uppercase tracking-wider block mt-0.5">
-              &ldquo;Working Towards Change&rdquo;
+              &ldquo;{FOUNDATION_META.motto}&rdquo;
             </span>
           </div>
         </div>
 
+        {/* Contact & Secretariat Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans text-xs">
           <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-1.5">
             <span className="font-mono text-[10px] text-slate uppercase tracking-wider font-semibold block">
@@ -72,7 +74,7 @@ export default function AboutPage() {
             <p className="font-semibold text-obsidian text-sm">
               191/C, Tilak Nagar Allahpur Prayagraj 211006
             </p>
-            <p className="text-slate">Uttar Pradesh, India</p>
+            <p className="text-slate">Allahabad (Prayagraj), U.P., India &ndash; 211006</p>
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-1.5">
@@ -96,8 +98,86 @@ export default function AboutPage() {
               </a>
             </p>
             <p className="text-slate text-[11px]">
-              Direct communication for trustee inquiries, scholar sponsorships, and canine rescue triage.
+              Direct communication for trustee inquiries, CSR endowments, scholar sponsorships, and canine rescue triage.
             </p>
+          </div>
+        </div>
+
+        {/* Statutory Tax, Income Tax URN & CSR Credentials Grid */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-lion-gold-dark font-semibold">
+              § Statutory Tax, CSR &amp; Regulatory Registrations
+            </span>
+            <span className="font-mono text-[10px] text-slate uppercase">
+              Verified Dossier Credentials
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono text-xs">
+            <div className="p-3.5 rounded-xl bg-porcelain border border-border">
+              <span className="text-[10px] text-slate uppercase block">Permanent Account No. (PAN)</span>
+              <span className="text-sm font-bold text-obsidian mt-0.5 block">{FOUNDATION_META.pan}</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-porcelain border border-border">
+              <span className="text-[10px] text-slate uppercase block">Income Tax URN (Sec. 332(8) &amp; 354(4))</span>
+              <span className="text-sm font-bold text-obsidian mt-0.5 block">{FOUNDATION_META.incomeTaxUrn}</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-porcelain border border-border">
+              <span className="text-[10px] text-slate uppercase block">CSR Registration No.</span>
+              <span className="text-sm font-bold text-botanical-emerald mt-0.5 block">{FOUNDATION_META.csrRegistrationNumber}</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-porcelain border border-border">
+              <span className="text-[10px] text-slate uppercase block">Application Number</span>
+              <span className="text-sm font-bold text-obsidian mt-0.5 block">{FOUNDATION_META.applicationSrn}</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-porcelain border border-border">
+              <span className="text-[10px] text-slate uppercase block">Date of Incorporation</span>
+              <span className="text-sm font-bold text-lion-gold-dark mt-0.5 block">{FOUNDATION_META.incorporationDate}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Official Banking & CSR Endowment Account Details */}
+        <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-lion-gold/30 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-botanical-emerald font-semibold block">
+                Official Endowment &amp; CSR Banking Coordinates
+              </span>
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-obsidian">
+                {FOUNDATION_META.bankDetails.bankName} &mdash; {FOUNDATION_META.bankDetails.branchName}
+              </h3>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-white border border-border font-mono text-[10px] text-obsidian font-semibold self-start sm:self-auto">
+              CKYC: {FOUNDATION_META.bankDetails.ckycNumber}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs">
+            <div>
+              <span className="text-[10px] text-slate uppercase block">Account Number</span>
+              <span className="font-bold text-obsidian text-sm">{FOUNDATION_META.bankDetails.accountNumber}</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-slate uppercase block">IFSC Code</span>
+              <span className="font-bold text-lion-gold-dark text-sm">{FOUNDATION_META.bankDetails.ifscCode}</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-slate uppercase block">Bank &amp; Branch</span>
+              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.branchName}</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-slate uppercase block">Customer ID</span>
+              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.customerId}</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-slate uppercase block">MMID</span>
+              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.mmid}</span>
+            </div>
+            <div>
+              <span className="text-[10px] text-slate uppercase block">SmartHub Vyapar TID</span>
+              <span className="font-semibold text-obsidian">{FOUNDATION_META.bankDetails.smartHubVyaparTid}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -368,52 +448,86 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Operational Wings Summary with Real Visuals */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-border">
-        <div className="bg-white border border-border rounded-2xl p-6 space-y-4 shadow-elevation-1">
-          <div className="relative w-full h-44 rounded-xl overflow-hidden border border-border shadow-sm">
-            <Image
-              src="/images/students-wing.jpg"
-              alt="40 Scholars Welfare Wing"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+      {/* 4 Operational Wings Charter Summary */}
+      <div id="four-wings-charter" className="space-y-8 pt-8 border-t border-border">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+            <span>Official Institutional Mandate &bull; 4 Operational Wings</span>
           </div>
-          <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold block">
-            Operational Wing A
-          </span>
-          <h4 className="font-serif text-2xl font-bold text-obsidian">
-            Student Welfare Wing (40 Scholars)
-          </h4>
-          <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
-            Directly sponsors exactly 40 active students with 100% covered expenses for soft skills incubation,
-            public discourse labs, and pro bono Summer and Winter internships.
+          <h3 className="font-serif text-3xl sm:text-4xl text-obsidian uppercase">
+            Four Operational <span className="italic text-lion-gold-dark font-light">Wings</span>
+          </h3>
+          <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
+            Pursuant to our statutory charter under the Indian Trust Act of 1882, the Kiran Singh Foundation executes four
+            integrated operational mandates across Prayagraj.
           </p>
         </div>
 
-        <div className="bg-white border border-border rounded-2xl p-6 space-y-4 shadow-elevation-1">
-          <div className="relative w-full h-44 rounded-xl overflow-hidden border border-border shadow-sm">
-            <Image
-              src="/images/dogs-wing.jpg"
-              alt="34 Rescued Dogs Care Centre"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <span className="font-mono text-xs text-botanical-emerald uppercase tracking-widest font-semibold block">
-            Operational Wing B
-          </span>
-          <h4 className="font-serif text-2xl font-bold text-obsidian">
-            Dog Care Centre (34 Canines)
-          </h4>
-          <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
-            Protects and shelters exactly 34 rescued street dogs with 100% funded housing, nutritious meal prep,
-            sterilizations, and comprehensive rabies and booster vaccinations at our dedicated sanctuary facility in Prayagraj.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {FOUR_OPERATIONAL_WINGS.map((wing) => {
+            const isEmerald = wing.code === "Wing B" || wing.code === "Wing D";
+            const wingImage =
+              wing.code === "Wing A"
+                ? "/images/students-wing.jpg"
+                : wing.code === "Wing B"
+                ? "/images/dogs-wing.jpg"
+                : wing.code === "Wing C"
+                ? "/images/office-bearers/navyanshi-dwivedi.jpg"
+                : "/images/office-bearers/unnaati-roy.jpg";
+
+            return (
+              <div
+                key={wing.id}
+                className="bg-white border border-border rounded-3xl p-6 sm:p-8 space-y-4 shadow-elevation-1 flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-border shadow-sm">
+                    <Image
+                      src={wingImage}
+                      alt={wing.officialName}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono uppercase tracking-widest font-semibold text-obsidian shadow-sm">
+                      {wing.code} &bull; {wing.keyMetric} ({wing.secondaryMetric})
+                    </div>
+                  </div>
+
+                  <div>
+                    <span
+                      className={`font-mono text-xs uppercase tracking-widest font-semibold block ${
+                        isEmerald ? "text-botanical-emerald" : "text-lion-gold-dark"
+                      }`}
+                    >
+                      {wing.tagline}
+                    </span>
+                    <h4 className="font-serif text-2xl font-bold text-obsidian mt-1">
+                      {wing.officialName}
+                    </h4>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate leading-relaxed font-sans">
+                    {wing.summary}
+                  </p>
+
+                  <ul className="space-y-1.5 pt-2 border-t border-border/60">
+                    {wing.pillars.map((pillar, idx) => (
+                      <li key={idx} className="text-xs text-slate font-sans flex items-start gap-2">
+                        <span className={`font-bold ${isEmerald ? "text-botanical-emerald" : "text-lion-gold-dark"}`}>
+                          &bull;
+                        </span>
+                        <span>{pillar}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 }
+

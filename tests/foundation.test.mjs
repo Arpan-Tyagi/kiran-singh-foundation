@@ -298,3 +298,41 @@ test("Operational Hierarchy & Action Photographs Integrity (3 Tiers & 10 Officer
   });
 });
 
+test("Official PDF Dossier Alignment: Statutory, Banking, 3 Core Members & 4 Operational Wings", async (t) => {
+  await t.test("Statutory PAN, Income Tax URN, CSR Registration, SRN, and Incorporation Date must be present", () => {
+    assert.ok(dataContent.includes('pan: "AAGTK3961N"'), "PAN AAGTK3961N must be present");
+    assert.ok(dataContent.includes('incomeTaxUrn: "AAGTK3961NE20261"'), "Income Tax URN AAGTK3961NE20261 must be present");
+    assert.ok(dataContent.includes('csrRegistrationNumber: "CSR00110895"'), "CSR Registration CSR00110895 must be present");
+    assert.ok(dataContent.includes('applicationSrn: "SRN AC3352827"'), "Application SRN AC3352827 must be present");
+    assert.ok(dataContent.includes('incorporationDate: "31/12/2025"'), "Incorporation date 31/12/2025 must be present");
+  });
+
+  await t.test("Official HDFC Bank Naya Katra Prayagraj Endowment Account details must be present", () => {
+    assert.ok(dataContent.includes('bankName: "HDFC Bank"'));
+    assert.ok(dataContent.includes('branchName: "Naya Katra, Prayagraj"'));
+    assert.ok(dataContent.includes('accountNumber: "50200119758811"'));
+    assert.ok(dataContent.includes('ifscCode: "HDFC0004664"'));
+    assert.ok(dataContent.includes('customerId: "353372799"'));
+    assert.ok(dataContent.includes('ckycNumber: "80001700802453"'));
+    assert.ok(dataContent.includes('mmid: "9240594"'));
+    assert.ok(dataContent.includes('smartHubVyaparTid: "82215825"'));
+  });
+
+  await t.test("All 4 Operational Wings (Student Welfare, Dog Welfare, Village Development, Women Empowerment) must be defined and rendered", () => {
+    const splitWingsContent = fs.readFileSync(path.resolve("src/components/SplitWings.tsx"), "utf-8");
+    const aboutContent = fs.readFileSync(path.resolve("src/app/about/page.tsx"), "utf-8");
+    const footerContent = fs.readFileSync(path.resolve("src/components/Footer.tsx"), "utf-8");
+
+    assert.ok(dataContent.includes("FOUR_OPERATIONAL_WINGS"), "Must export FOUR_OPERATIONAL_WINGS");
+    assert.ok(dataContent.includes("KSF (Student Welfare) Wing"));
+    assert.ok(dataContent.includes("KSF (Dog Welfare) Wing"));
+    assert.ok(dataContent.includes("KSF (Village Development) Wing"));
+    assert.ok(dataContent.includes("Empowering village through education"));
+    assert.ok(dataContent.includes("KSF (Women Empowerment) Wing"));
+    assert.ok(splitWingsContent.includes("Village Development") && splitWingsContent.includes("Women Empowerment"));
+    assert.ok(aboutContent.includes("FOUR_OPERATIONAL_WINGS"));
+    assert.ok(footerContent.includes("KSF (Village Development) Wing") && footerContent.includes("KSF (Women Empowerment) Wing"));
+  });
+});
+
+

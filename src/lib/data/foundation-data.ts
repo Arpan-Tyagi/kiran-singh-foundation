@@ -79,24 +79,137 @@ export interface BlogPost {
 export const FOUNDATION_META = {
   name: "Kiran Singh Foundation",
   trustRegistration: "Trust registered under Indian Trust Act of 1882",
+  incorporationDate: "31/12/2025",
+  operationsCommencedNote: "Incorporated on 31/12/2025; student welfare activities commenced 3 years prior (2022)",
   tagline: "A Journey from struggle to Enlightenment",
   motto: "Working Towards Change",
   founder: "Late Kiran Singh ji",
+  pan: "AAGTK3961N",
+  incomeTaxUrn: "AAGTK3961NE20261",
+  incomeTaxSection: "Section 332(8) and 354(4) of Income Tax Act",
+  csrRegistrationNumber: "CSR00110895",
+  applicationSrn: "SRN AC3352827",
   mobileNumbers: ["9670970750", "8115141378", "9450630310"],
   primaryMobile: "9670970750",
   formattedMobiles: ["+91 96709 70750", "+91 81151 41378", "+91 94506 30310"],
   email: "kiransinghfoundation@gmail.com",
   address: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
+  officialAddressFull: "191/C, Tilak Nagar, Allahpur, Allahabad (Prayagraj), U.P, India – 211006",
   registeredOffice: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
   emblemDescription: "A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription 'KIRAN SINGH FOUNDATION'",
   scholarsCount: 40,
+  studentTeamsCount: 4,
   dogsCount: 34,
+  dogSheltersCount: 4,
+  wingsCount: 4,
   corePurpose: "Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.",
   operationalWings: {
-    wingA: "Student Welfare Wing",
-    wingB: "Dog Care Centre",
+    wingA: "KSF (Student Welfare) Wing",
+    wingB: "KSF (Dog Welfare) Wing",
+    wingC: "KSF (Village Development) Wing",
+    wingD: "KSF (Women Empowerment) Wing",
+  },
+  bankDetails: {
+    accountName: "KIRAN SINGH FOUNDATION",
+    bankName: "HDFC Bank",
+    branchName: "Naya Katra, Prayagraj",
+    accountNumber: "50200119758811",
+    ifscCode: "HDFC0004664",
+    customerId: "353372799",
+    ckycNumber: "80001700802453",
+    mmid: "9240594",
+    smartHubVyaparTid: "82215825",
   },
 };
+
+export interface OperationalWingCharter {
+  id: string;
+  code: "Wing A" | "Wing B" | "Wing C" | "Wing D";
+  title: string;
+  officialName: string;
+  tagline: string;
+  keyMetric: string;
+  secondaryMetric: string;
+  summary: string;
+  pillars: string[];
+  href: string;
+}
+
+export const FOUR_OPERATIONAL_WINGS: OperationalWingCharter[] = [
+  {
+    id: "wing-student-welfare",
+    code: "Wing A",
+    title: "Student Welfare Wing",
+    officialName: "KSF (Student Welfare) Wing",
+    tagline: "Psychometric Merit Selection, 4-Team Research & Dual Internships",
+    keyMetric: "40 Scholars",
+    secondaryMetric: "4 Teams • 2 Internships",
+    summary:
+      "40 students selected via psychometric test and professional interview conducted by accomplished industry leaders. Divided into 4 teams—each headed by a Head Superintendent Manager, Dy. Head Superintendent Manager, and Team Leader—undergoing Summer & Winter Internship Programs, plagiarism-audited research reports, PowerPoint defenses before top professionals, expert technical sessions, and an Internship Closing Ceremony awarding Certificates, Trophies, Mementos, and Stipends.",
+    pillars: [
+      "Psychometric test & expert panel interview selection",
+      "Summer & Winter Internship Programs for soft-skills & personality development",
+      "4 Teams led by Head Superintendent, Dy. Head Superintendent & Team Leader",
+      "Formatted Research Reports with Plagiarism Audit & PowerPoint Panel Defense",
+      "Closing Ceremony honoring scholars with Certificates, Trophies, Mementos & Stipend",
+    ],
+    href: "/wings/students",
+  },
+  {
+    id: "wing-dog-welfare",
+    code: "Wing B",
+    title: "Dog Welfare Wing",
+    officialName: "KSF (Dog Welfare) Wing",
+    tagline: "4 Built Shelter Homes, Medical Triage & Vaccination Sanctuary",
+    keyMetric: "34 Street Dogs",
+    secondaryMetric: "4 Shelter Homes",
+    summary:
+      "Rescuing, treating, and vaccinating street dogs alongside dedicated medical facilities in Prayagraj to protect them from diseases and road accidents. Currently operating 4 built shelter homes housing 34 street dogs with 100% foundation-funded daily food, clean water, safe shelter, and veterinary care for a dignified standard of living.",
+    pillars: [
+      "4 dedicated shelter homes constructed for 34 rescued street dogs",
+      "Emergency rescue & medical facility protection from diseases and accidents",
+      "Systematic anti-rabies & multi-strain core vaccination drives",
+      "Complete daily nutrition, clean water facility, and safe sanctuary housing",
+    ],
+    href: "/wings/dogs",
+  },
+  {
+    id: "wing-village-development",
+    code: "Wing C",
+    title: "Village Development Wing",
+    officialName: "KSF (Village Development) Wing",
+    tagline: "Empowering Villages Through Complete Educational & Residential Endowment",
+    keyMetric: "100% Endowed",
+    secondaryMetric: "Fees • Food • Shelter",
+    summary:
+      "Dedicated to empowering rural villages through education. Students residing in villages are provided comprehensive academic resources, communication coaching, and opportunities so they can express themselves effectively and compete with real-life challenges. Their educational fees, food costs, and shelter facilities are fully underwritten by the Kiran Singh Foundation.",
+    pillars: [
+      "Aim: Empowering rural villages through structured education",
+      "100% coverage of educational tuition fees for rural scholars",
+      "Full underwriting of daily food costs and residential shelter facilities",
+      "Effective self-expression and real-world competitive readiness training",
+    ],
+    href: "/about#four-wings-charter",
+  },
+  {
+    id: "wing-women-empowerment",
+    code: "Wing D",
+    title: "Women Empowerment Wing",
+    officialName: "KSF (Women Empowerment) Wing",
+    tagline: "Career Acceleration, Entrepreneurship & Women's Investment Summits",
+    keyMetric: "Career & Summits",
+    secondaryMetric: "Education • Business",
+    summary:
+      "Creating high-impact opportunities for skilled female students and women to build resilient careers across education, business, and entrepreneurship. Organizes targeted awareness programs and investment summits to mentor and motivate young women to pursue their professional ambitions despite familial or societal pressures.",
+    pillars: [
+      "Career pathways in education, business, and entrepreneurship",
+      " Dedicated Women's Investment Summits & leadership conclave events",
+      "Community awareness programs countering familial and social barriers",
+      "Mentorship and skill-monetization incubation for young women",
+    ],
+    href: "/about#four-wings-charter",
+  },
+];
 
 export interface LeadershipMember {
   id: string;
@@ -115,7 +228,7 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     role: "President, Kiran Singh Foundation",
     photoUrl: "/images/leadership/anil-kumar-singh.jpg",
     photoPosition: "object-[center_20%]",
-    bio: "Guiding the foundation's strategic direction, institutional welfare operations, and community outreach under the sacred legacy of Late Kiran Singh ji.",
+    bio: "Core member and President guiding the foundation's 4 operational wings, psychometric scholar selection panels, rural village education endowments, and institutional governance under the sacred legacy of Late Kiran Singh ji.",
   },
   {
     id: "lead-02",
@@ -123,15 +236,15 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     role: "Secretary, Kiran Singh Foundation",
     photoUrl: "/images/leadership/anuj-kumar-singh.jpg",
     photoPosition: "object-[center_15%]",
-    bio: "Directing administrative execution, mutual-aid dispatch grids, student incubation logistics, and day-to-day sanctuary governance.",
+    bio: "Core member and Secretary directing statutory execution, the 4 student research teams, plagiarism-verified panel defenses, the 4 dog shelter homes in Prayagraj, and emergency mutual-aid dispatch.",
   },
   {
     id: "lead-03",
     name: "Ms. Akansha Singh",
-    role: "Treasurer & Internship Controller",
+    role: "Treasurer, Kiran Singh Foundation",
     photoUrl: "/images/leadership/akansha-singh.jpg",
     photoPosition: "object-[65%_20%]",
-    bio: "Supervising foundation treasury accounts, endowment governance, and directing the pro bono Summer and Winter internship cohorts for student scholars.",
+    bio: "Core member and Treasurer supervising foundation treasury and CSR accounts (HDFC Bank, Naya Katra), stipend disbursements, Women Empowerment investment summits, and the Summer & Winter Internship Programs.",
   },
 ];
 
@@ -1601,10 +1714,10 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
   {
     id: "evt-01",
     slug: "prayagraj-anti-rabies-drive-2025",
-    title: "Mass Anti-Rabies & Booster Vaccination Camp (Prayagraj Municipal Belt)",
+    title: "Mass Anti-Rabies & Booster Vaccination Camp (4 Shelter Homes & Prayagraj Belt)",
     category: "medical_camp",
-    description: "Foundation veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations for community street canines across the municipal corridor.",
-    location: "Dog Care Centre Base Station, Prayagraj",
+    description: "KSF (Dog Welfare) Wing veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations across our 4 built shelter homes (34 resident street dogs) and the Prayagraj municipal corridor.",
+    location: "Dog Care Centre Base Station, 191/C Tilak Nagar, Prayagraj",
     scheduledAt: "2025-04-15T08:30:00+05:30",
     capacity: 150,
     isPublished: true,
@@ -1613,9 +1726,9 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
   {
     id: "evt-02",
     slug: "student-oratory-diplomacy-symposium",
-    title: "Scholar Public Discourse & Executive Oratory Symposium",
+    title: "4-Team Research Report, Plagiarism Audit & PowerPoint Defense",
     category: "personality_workshop",
-    description: "The 40 sponsored scholars present their mid-term public policy theses and civic advocacy arguments before a distinguished panel of institutional jurists and social welfare trustees.",
+    description: "The 40 sponsored scholars (selected via psychometric test and interview, divided into 4 teams led by Head Superintendent Managers, Dy. Head Superintendent Managers, and Team Leaders) present their plagiarism-verified research reports and PowerPoint presentations before a panel of top industry professionals.",
     location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
     scheduledAt: "2025-05-10T10:00:00+05:30",
     capacity: 80,
@@ -1625,26 +1738,26 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
   {
     id: "evt-03",
     slug: "monsoon-mutual-aid-rapid-response-drill",
-    title: "Prayagraj Mutual-Aid Flood & Canine Rescue Readiness Drill",
+    title: "Village Development & Mutual-Aid Rural Education Outreach Drive",
     category: "community_drive",
-    description: "Coordinated simulation exercise testing the rapid emergency grid between our student logistics corps and local community caretakers for canine evacuation during monsoon inundations.",
-    location: "Sangam & Yamuna Lowland Riverbed Basins, Prayagraj",
+    description: "KSF (Village Development) Wing mobilization ('Empowering village through education') delivering full educational fees, food cost coverage, and shelter facility onboarding for rural village students alongside emergency mutual-aid readiness.",
+    location: "Rural Village Outreach Corridors & Prayagraj Secretariat",
     scheduledAt: "2025-06-20T07:00:00+05:30",
     capacity: 100,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Mutual%20Aid%20Drill",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Village%20Development%20Drive",
   },
   {
     id: "evt-04",
     slug: "annual-memorial-remembrance-kiran-singh",
-    title: "Annual Memorial Remembrance & Wildlife Conservation Oration",
+    title: "Internship Closing Ceremony & Women Empowerment Investment Summit",
     category: "memorial_gathering",
-    description: "Commemorating the life, ethological contributions, and public service legacy of Late Kiran Singh ji. Keynote address on apex felid behavioral conditioning and humane state governance.",
-    location: "Institutional Archives Hall, Kiran Singh Foundation HQ",
+    description: "Commemorating Late Kiran Singh ji alongside the flagship Internship Closing Ceremony (honoring the 40 scholars with Certificates, Trophies, Mementos, and Stipend awards) and the KSF (Women Empowerment) Wing Investment Summit motivating young women to pursue careers in education, business, and entrepreneurship despite family pressures.",
+    location: "Institutional Archives Hall, Kiran Singh Foundation HQ, Prayagraj",
     scheduledAt: "2025-09-18T17:30:00+05:30",
     capacity: 200,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Annual%20Memorial%20Remembrance",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Closing%20Ceremony%20and%20Summit",
   },
 ];
 
@@ -1652,23 +1765,19 @@ export const FOUNDATION_BLOGS: BlogPost[] = [
   {
     id: "blog-01",
     slug: "from-apex-felids-to-compassionate-canines",
-    title: "From Apex Felids to Compassionate Canines: The Ethological Science of Late Kiran Singh ji",
-    summary: "How doctoral behavioral research on lions and leopards at AAZP Vandalur informed modern humane sheltering for thirty-four rescued street canines.",
+    title: "From Apex Felids to 4 Shelter Homes: The Ethological Science Behind Our Dog Welfare Wing",
+    summary: "How doctoral behavioral research on lions and leopards at AAZP Vandalur informed our 4 built shelter homes caring for 34 rescued street dogs in Prayagraj.",
     contentMarkdown: `When Late Kiran Singh ji embarked on her doctoral research into the behavioral science of apex felids—lions (*Panthera leo*), tigers (*Panthera tigris*), and leopards (*Panthera pardus*)—she challenged prevailing notions of punitive animal control. Working within rigorous experimental boundaries, her thesis proved that even the most formidable carnivores respond with psychological equilibrium when provided structured acoustic environments, reliable territorial enrichment, and stress-mitigating social routines.
 
-### The AAZP Vandalur Analytics
-Later, as an Analyst within the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai), Late Kiran Singh ji applied these ethological principles at scale. Her analyses directly guided the spatial architecture of carnivore night houses and safari corridors, significantly curbing stereotypic pacing distress.
+### The AAZP Vandalur Analytics & State Alignment
+Later, as an Analyst within the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai), Late Kiran Singh ji applied these ethological principles at scale. Her analyses directly guided the spatial architecture of carnivore night houses and safari corridors, significantly curbing stereotypic pacing distress, and earned close consultative alignment with then Chief Minister Late J. Jayalalithaa ("Amma").
 
-### The Jayalalithaa Advisory Alignment
-This technical acumen brought her into close alignment with then Chief Minister of Tamil Nadu, Late Jayaram Jayalalithaa ("Amma"). Recognizing her rare combination of biological precision and moral conviction, the administration sought her counsel on zoo modernization and urban animal welfare policies.
+### KSF (Dog Welfare) Wing: 4 Built Shelter Homes for 34 Street Dogs
+Today, the **KSF (Dog Welfare) Wing** in Prayagraj rescues and vaccinates street dogs alongside dedicated medical facilities to save them from diseases and road accidents, providing a dignified and decent standard of living:
+- **4 Dedicated Shelter Homes:** We have built **4 shelter homes** currently housing **34 rescued street dogs** in total across Zone Alpha (Critical Care & Quarantine), Zone Beta (Main Pack Sanctuary), and Zone Gamma (Senior & Palliative Run).
+- **100% Provisioning of Food, Shelter & Water:** Every dog receives daily nutritious food, clean water facilities, safe shelter, surgical sterilization, and systematic anti-rabies and booster vaccinations funded entirely by the foundation.
 
-### The Contemporary Living Sanctuary
-Today, the Kiran Singh Foundation Dog Care Centre shelters exactly 34 rescued street dogs according to those identical behavioral tenets:
-- **Low-Arousal Habitats:** Zoning divided into Quarantine (Zone Alpha), Pack Sanctuary (Zone Beta), and Geriatric Palliative care (Zone Gamma).
-- **Uncompromised Preventive Immunology:** 100% adherence to annual rabies vaccinations and booster regimens.
-- **Empathetic Nutrition:** Tailored whole-food diets replacing industrial scrap feeding.
-
-In every calm gaze from our resident canines, the foundational discipline of Late Kiran Singh ji lives on.`,
+In every calm gaze from our 34 resident canines across our 4 shelter homes, the foundational discipline of Late Kiran Singh ji lives on.`,
     authorName: "Foundation Directorate",
     coverImageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80",
     isAiDrafted: false,
@@ -1678,23 +1787,24 @@ In every calm gaze from our resident canines, the foundational discipline of Lat
   {
     id: "blog-02",
     slug: "the-forty-scholars-manifesto",
-    title: "The 40 Scholars: Rebuilding the Social Fabric Through Soft Skills and Pro Bono Internships",
-    summary: "A deep dive into Operational Wing A: Why 40 sponsored students receive fully endowed training in executive communication, public discourse, and ethical discipline.",
-    contentMarkdown: `Financial support alone rarely produces institutional transformation; true empowerment requires intellectual poise, communicative precision, and moral courage. Operational Wing A of the Kiran Singh Foundation supports exactly 40 active students directly under comprehensive foundation sponsorship.
+    title: "The 40 Scholars Charter: Psychometric Selection, 4-Team Research & Plagiarism-Verified Defense",
+    summary: "Inside KSF (Student Welfare) Wing: How 40 students are selected via psychometric testing and professional interviews, divided into 4 teams, and honored with stipends and trophies.",
+    contentMarkdown: `Under the **KSF (Student Welfare) Wing**, exactly **40 students** have been chosen by the foundation through a rigorous **psychometric test and formal interview** organized by the 3 core members of the Kiran Singh Foundation (**Shri Anil Kumar Singh**, President; **Shri Anuj Kumar Singh**, Secretary; and **Ms. Akansha Singh**, Treasurer). The interviews are conducted by accomplished professionals achieving great heights in their respective fields.
 
-### 100% Endowed Living and Educational Resources
-Every expense—tuition relief, learning technology, research stipends, and professional wardrobe allowances—is fully absorbed by the Foundation. This guarantees that scholars from economically constrained backgrounds engage in our intensive soft skills incubation with total mental clarity.
+### Summer & Winter Internship Programs
+Under this wing, two flagship internships are offered—the **Summer Internship Program** and the **Winter Internship Program**. The primary aim is to develop a solid personality in the students by helping them discover their true potential and incorporating soft skills into their personality, reinforced by regular sessions from expert members of the foundation to instill confidence and enhance technical knowledge.
 
-### The Soft Skills Incubation Tracks
-Scholars progress through rigorous modules:
-1. **Executive Communication & Public Discourse:** Mastering rhetorical clarity, debate, and empathetic listening.
-2. **Analytical Systems Thinking:** Dissecting municipal governance, environmental policy, and legal frameworks.
-3. **Cross-Cultural Protocol & Leadership:** Developing the quiet confidence required for high-level civil service and research careers.
+### 4 Teams & Three-Tier Supervisory Hierarchy
+The 40 students are divided into **4 teams**, and each team is headed by:
+1. **Head Superintendent Manager** (Tier 1)
+2. **Dy. Head Superintendent Manager** (Tier 2)
+3. **Team Leader** (Tier 3)
 
-### Summer and Winter Pro Bono Internships
-To prevent academic insularity, every scholar participates in Winter and Summer Pro Bono Internships placed with public interest legal desks, civic tech laboratories, state archives, and animal health clinics. 
+### Research Reports, Plagiarism Audits & Panel Presentations
+Diverse research topics are assigned to each of the 4 teams. Each team prepares a formal **Research Report** alongside a **PowerPoint Presentation**, which is defended in front of an evaluative panel consisting of top professionals. Every research report must adhere to strict academic format, and a **plagiarism report** is generated to verify the copying percentage in order to test the credibility and authenticity of the research.
 
-Through discipline and devotion, these forty young women and men carry forward the motto: **"Working towards Change"**.`,
+### Internship Closing Ceremony & Stipend Conferral
+At the conclusion of each term, an **Internship Closing Ceremony** is conducted where students are awarded **Certificates, Trophies, and Mementos along with a Stipend amount** to honor their hard work and dedication throughout the journey.`,
     authorName: "Trustee Academic Board",
     coverImageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
     isAiDrafted: false,
@@ -1704,17 +1814,18 @@ Through discipline and devotion, these forty young women and men carry forward t
   {
     id: "blog-03",
     slug: "the-mutual-aid-grid-in-action",
-    title: "The Mutual-Aid Grid: Ensuring No Community Member Stands Alone in Crisis",
-    summary: "How synchronized WhatsApp alerts, rapid-intake forms, and our scholar network form an active emergency lifeline.",
-    contentMarkdown: `A foundation must never be an insulated citadel; it must operate as a vigilant community nervous system. At the Kiran Singh Foundation, our core purpose is deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
+    title: "Village Development, Women Empowerment & The 4-Wing Institutional Agenda",
+    summary: "How KSF (Village Development) Wing and KSF (Women Empowerment) Wing expand our mission through rural educational endowment and women's investment summits.",
+    contentMarkdown: `Incorporated on **31/12/2025** under the Indian Trust Act (after initiating student welfare operations 3 years prior), the **Kiran Singh Foundation** (` + "`PAN: AAGTK3961N`" + ` | ` + "`CSR: CSR00110895`" + `) operates **4 comprehensive wings** dedicated to bringing structural, positive change to society.
 
-### The Triaged Response Protocol
-Whether a family faces severe illness, a sudden crisis in street canine trauma, or seasonal riverbed flooding in Prayagraj, our mutual-aid engine triggers within minutes:
-1. **Multi-Channel Dispatch:** Incoming reports trigger immediate pre-formatted WhatsApp routing directly to field coordinators.
-2. **Transactional Dispatch Logging:** Secure email notifications alert trustees and veterinary staff with exact geolocations.
-3. **Triage Severity:** Categorized into Standard, Urgent, and Critical Emergency protocols.
+### Wing C: KSF (Village Development) Wing — "Empowering Village Through Education"
+The core aim of our Village Development Wing is **empowering villages through education**. Students residing in rural villages are given adequate resources and opportunities so that they can express themselves effectively and compete with real-life challenges. Crucially, **their educational fees are taken care of by the Kiran Singh Foundation, including their daily food cost and shelter facility**.
 
-When emergencies strike, we do not deliberate; we respond.`,
+### Wing D: KSF (Women Empowerment) Wing — Careers & Investment Summits
+Under the Women Empowerment Wing, female students and women who possess strong skills are given concrete opportunities to develop a solid career across diverse fields including **education, business, and entrepreneurship**. Various awareness programs are organized by the Kiran Singh Foundation—including **dedicated investment summits**—to motivate young women to pursue their careers in spite of family pressures.
+
+### Emergency Mutual-Aid Interconnectedness
+Across all 4 operational wings, our members, scholars, and caretakers remain linked via synchronized WhatsApp and email dispatch channels at **191/C, Tilak Nagar, Allahpur, Prayagraj – 211006**, ensuring no student, rural scholar, woman entrepreneur, or street animal ever stands alone in crisis.`,
     authorName: "Field Coordination Cell",
     coverImageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
     isAiDrafted: false,
