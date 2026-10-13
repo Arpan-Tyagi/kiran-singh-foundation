@@ -145,54 +145,87 @@ VALUES
 ('KSF-CAN-034', 'Kamala', 'Desi Pariah Dog', '1 Year', 'Female', 'Tilak Nagar Allahpur Sanctuary Outpost, Prayagraj', '2024-01-15', 'Zone Alpha - Critical Care & Quarantine', TRUE, '2024-02-01', '2025-02-01', TRUE, 'Junior nutrient formula, boiled chicken livers, whole milk curd', 'Recent rescue intake. Fully vaccinated, completing final post-sterilization monitoring.', 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80')
 ON CONFLICT (tag_number) DO UPDATE SET name = EXCLUDED.name;
 
--- 4. EVENTS: COMMUNITY DRIVES, CAMPS & SYMPOSIA
+-- 4. EVENTS: CONCLUDED LANDMARK INTERNSHIPS & COMMUNITY GATHERINGS
 INSERT INTO events (slug, title, category, description, location, scheduled_at, capacity, is_published, whatsapp_rsvp_link)
 VALUES
 (
-    'prayagraj-anti-rabies-drive-2025',
-    'Mass Anti-Rabies & Booster Vaccination Camp (Prayagraj Municipal Belt)',
+    '1st-summer-internship-program-july-2025',
+    '1st Summer Internship Program (July 2025)',
+    'personality_workshop',
+    'The historic inaugural Summer Internship Program launched under the KSF (Student Welfare) Wing at the Prayagraj headquarters. Scholars chosen through rigorous psychometric testing and structured panel interviews embarked on foundational personality incubation, executive speech formulation, leadership ethics, and collaborative field research, culminating in the first formal trophy, certificate, and stipend awards.',
+    'Institutional Auditorium, Kiran Singh Foundation HQ, Prayagraj',
+    '2025-07-15 10:00:00+05:30',
+    80,
+    TRUE,
+    'https://wa.me/919670970750?text=Inquiry%20regarding%201st%20Summer%20Internship%20Program'
+),
+(
+    'winter-internship-program-january-2026',
+    'Winter Internship Program (January 2026)',
+    'personality_workshop',
+    'The landmark Winter Internship Program spanning an exhaustive five-month cycle from 16th August 2025 to 10th January 2026. Scholars defended analytical papers and slide decks before a distinguished panel led by Chief Guest Dr. D. C. Shukla (ADJ. Ghaziabad), Secretary Shri Anuj Kumar Singh, and Commanding Officer Col. Prasoon Singh, SM. Culminated in the conferral of framed Letters of Appreciation, distinction certificates, mementos, and stipends.',
+    'Late Kiran Singh Memorial Auditorium, Prayagraj',
+    '2026-01-10 10:00:00+05:30',
+    90,
+    TRUE,
+    'https://wa.me/919670970750?text=Inquiry%20regarding%20Winter%20Internship%20Program'
+),
+(
+    '2nd-summer-internship-program-june-2026',
+    '2nd Summer Internship Program (June 2026)',
+    'personality_workshop',
+    'The pinnacle 2nd Summer Internship Program conducted from 01st April 2026 to 25th June 2026 at Prayagraj. Inaugurated with traditional Deepa Prajwalan before the portrait of Late Kiran Singh ji and Goddess Saraswati. Featured the ''Collage of Colours'' artistic exhibition, Casio musical performance, plagiarism-verified research defenses before Col. Prasoon Singh, SM, and the conferral of the 1st Position Championship Cup inscribed ''युद्ध शब्दों से नहीं, कर्मों से लड़ा जाता है''.',
+    'Main Convocation Hall, Kiran Singh Foundation Directorate, Prayagraj',
+    '2026-06-25 10:00:00+05:30',
+    120,
+    TRUE,
+    'https://wa.me/919670970750?text=Inquiry%20regarding%202nd%20Summer%20Internship%20Program'
+),
+(
+    'upcoming-winter-internship-program-2026-27',
+    'Winter Internship Program (2026–27 Session)',
+    'personality_workshop',
+    'Upcoming winter internship convening for our 37 active scholars across Teams 1 to 4 and incoming vacancy inductees. Curriculum covers executive communications, public policy synthesis, and winter research defense before the trustee board.',
+    'Late Kiran Singh Memorial Auditorium, Prayagraj',
+    '2026-12-20 10:00:00+05:30',
+    100,
+    TRUE,
+    'https://wa.me/919670970750?text=RSVP%20for%20Upcoming%20Winter%20Internship%202026-27'
+),
+(
+    'prayagraj-anti-rabies-drive-2026',
+    'Mass Anti-Rabies & Booster Vaccination Camp (4 Shelter Homes & Prayagraj Belt)',
     'medical_camp',
-    'Foundation veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations for community street canines across the municipal corridor.',
-    'Dog Care Centre Base Station, Prayagraj',
-    '2025-04-15 08:30:00+05:30',
+    'KSF (Dog Welfare) Wing veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations across our 4 built shelter homes (34 resident street dogs) and the Prayagraj municipal corridor.',
+    'Dog Care Centre Base Station, 191/C Tilak Nagar, Prayagraj',
+    '2026-11-20 08:30:00+05:30',
     150,
     TRUE,
     'https://wa.me/919670970750?text=RSVP%20for%20Anti-Rabies%20Vaccination%20Camp'
 ),
 (
-    'student-oratory-diplomacy-symposium',
-    'Scholar Public Discourse & Executive Oratory Symposium',
-    'personality_workshop',
-    'The 40 sponsored scholars present their mid-term public policy theses and civic advocacy arguments before a distinguished panel of institutional jurists and social welfare trustees.',
-    'Late Kiran Singh Memorial Auditorium, Prayagraj',
-    '2025-05-10 10:00:00+05:30',
-    80,
-    TRUE,
-    'https://wa.me/919670970750?text=RSVP%20for%20Scholar%20Symposium'
-),
-(
-    'monsoon-mutual-aid-rapid-response-drill',
-    'Prayagraj Mutual-Aid Flood & Canine Rescue Readiness Drill',
+    'village-development-rural-education-drive-2026',
+    'Village Development & Rural Educational Equity Conclave',
     'community_drive',
-    'Coordinated simulation exercise testing the rapid emergency grid between our student logistics corps and local community caretakers for canine evacuation during monsoon inundations.',
-    'Sangam & Yamuna Lowland Riverbed Basins, Prayagraj',
-    '2025-06-20 07:00:00+05:30',
+    'KSF (Village Development) Wing mobilization (''Empowering village through education'') delivering full educational fees, food cost coverage, and shelter facility onboarding for rural village students alongside emergency mutual-aid readiness.',
+    'Rural Village Outreach Corridors & Prayagraj Secretariat',
+    '2026-11-05 09:30:00+05:30',
     100,
     TRUE,
-    'https://wa.me/919670970750?text=RSVP%20for%20Mutual%20Aid%20Drill'
+    'https://wa.me/919670970750?text=RSVP%20for%20Village%20Development%20Drive'
 ),
 (
-    'annual-memorial-remembrance-kiran-singh',
-    'Annual Memorial Remembrance & Wildlife Conservation Oration',
+    'annual-memorial-remembrance-kiran-singh-2026',
+    'Annual Memorial Remembrance & Women Investment Summit',
     'memorial_gathering',
-    'Commemorating the life, ethological contributions, and public service legacy of Late Kiran Singh ji. Keynote address on apex felid behavioral conditioning and humane state governance.',
-    'Institutional Archives Hall, Kiran Singh Foundation HQ',
-    '2025-09-18 17:30:00+05:30',
+    'Commemorating Late Kiran Singh ji alongside the KSF (Women Empowerment) Wing Investment Summit motivating young women to pursue careers in education, business, and entrepreneurship despite family pressures.',
+    'Institutional Archives Hall, Kiran Singh Foundation HQ, Prayagraj',
+    '2026-12-28 17:30:00+05:30',
     200,
     TRUE,
     'https://wa.me/919670970750?text=RSVP%20for%20Annual%20Memorial%20Remembrance'
 )
-ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title;
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, description = EXCLUDED.description, location = EXCLUDED.location;
 
 -- 5. EDITORIAL DISPATCHES / BLOG POSTS
 INSERT INTO blog_posts (slug, title, summary, content_markdown, author_name, cover_image_url, is_ai_drafted, published_at, is_published)

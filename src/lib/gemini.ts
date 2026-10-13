@@ -57,6 +57,10 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
        - Team 4 (Team Shubhangi - 04 Students + 03 Vacancies): Shubhangi Singh (Dy. HSM), Yashi Singh, Shrejal Singh, Vaibhavi Kushwaha.
      * Research & Plagiarism Audit: Diverse research topics are assigned to each team; each team prepares a formatted Research Report and PowerPoint Presentation presented before a panel of top professionals, verified by a Plagiarism Report to test copying percentage, credibility, and authenticity.
      * Internship Closing Ceremony & Stipend: Students are awarded Certificates, Trophies, and Mementos along with a Stipend amount at the Closing Ceremony, supported by regular expert sessions.
+     * 3 Flagship Internship Programs Conducted by Kiran Singh Foundation:
+       1. 1st Summer Internship Program (July 2025): Inaugural soft-skills incubation, personality development labs, executive speech formulation, and first certificate and stipend awards.
+       2. Winter Internship Program (January 2026): Constitutional governance, Constitution Day address by Dy. HSM Navyanshi Dwivedi, slide presentation defenses, and plagiarism auditing.
+       3. 2nd Summer Internship Program (June 2026): Mature 4-team research model with formal plagiarism audits, Casio keyboard musical performance by Team Leader Stuti Dwivedi, certificate presentation to Rohini Agrawal, trophy presentation to Anwesha Sinha, and closing ceremony stipends and mementos.
    - Wing B: KSF (Dog Welfare) Wing (Dog Care Centre):
      * Protects and shelters exactly 34 rescued street dogs across 4 built shelter homes in Prayagraj.
      * Street dogs are rescued and vaccinated alongside medical facilities to save them from diseases and accidents and provide a decent standard of living.
@@ -389,6 +393,17 @@ export async function executeFoundationChatTurn(
         type: "intake_form",
         label: "View Statutory Charter & 4 Wings",
         href: "/about#four-wings-charter",
+      },
+    };
+  }
+
+  if (userQueryLower.includes("event") || userQueryLower.includes("internship program") || userQueryLower.includes("gathering") || userQueryLower.includes("convocation") || userQueryLower.includes("symposium")) {
+    return {
+      reply: `Kiran Singh Foundation has conducted 3 landmark Flagship Internship Programs under the KSF (Student Welfare) Wing in Prayagraj: (1) 1st Summer Internship Program (July 2025) — inaugural personality development and speech labs; (2) Winter Internship Program (January 2026) — Constitution Day symposium and slide presentation defenses; and (3) 2nd Summer Internship Program (June 2026) — 4-team plagiarism-audited research defense and grand convocation closing ceremony honoring scholars with certificates, trophies, mementos, and stipends.`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "View Convocations & Events Calendar",
+        href: "/events",
       },
     };
   }

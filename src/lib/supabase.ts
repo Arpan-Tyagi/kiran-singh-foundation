@@ -183,17 +183,28 @@ function mapDbMemorialToMemorial(row: any): MemorialRecord {
 }
 
 function mapDbEventToEvent(row: any): FoundationEvent {
+  const canonical = FOUNDATION_EVENTS.find((e) => e.slug === row.slug || e.id === row.id);
   return {
-    id: row.id,
-    slug: row.slug,
-    title: row.title,
-    category: row.category,
-    description: row.description,
-    location: row.location,
-    scheduledAt: row.scheduled_at || row.scheduledAt,
-    capacity: row.capacity || 100,
-    isPublished: row.is_published ?? row.isPublished ?? true,
-    whatsappRsvpLink: row.whatsapp_rsvp_link || row.whatsappRsvpLink || "",
+    id: row.id || canonical?.id,
+    slug: row.slug || canonical?.slug,
+    title: row.title || canonical?.title,
+    category: row.category || canonical?.category || "personality_workshop",
+    description: row.description || canonical?.description,
+    location: row.location || canonical?.location,
+    scheduledAt: row.scheduled_at || row.scheduledAt || canonical?.scheduledAt,
+    capacity: row.capacity || canonical?.capacity || 100,
+    isPublished: row.is_published ?? row.isPublished ?? canonical?.isPublished ?? true,
+    whatsappRsvpLink: row.whatsapp_rsvp_link || row.whatsappRsvpLink || canonical?.whatsappRsvpLink || "",
+    status: row.status || canonical?.status || (new Date(row.scheduled_at || row.scheduledAt || canonical?.scheduledAt) < new Date() ? "concluded" : "upcoming"),
+    edition: row.edition || canonical?.edition,
+    monthYear: row.month_year || canonical?.monthYear,
+    syllabusCovered: row.syllabus_covered || canonical?.syllabusCovered || [],
+    highlights: row.highlights || canonical?.highlights || [],
+    keyAttendees: row.key_attendees || canonical?.keyAttendees || [],
+    galleryImages: row.gallery_images || canonical?.galleryImages || [],
+    certificateType: row.certificate_type || canonical?.certificateType,
+    researchThemes: row.research_themes || canonical?.researchThemes || [],
+    stipendDistributed: row.stipend_distributed ?? canonical?.stipendDistributed ?? true,
   };
 }
 
@@ -305,6 +316,27 @@ export async function fetchEvents(): Promise<FoundationEvent[]> {
     }
   }
   return memoryEvents;
+}
+
+export async function fetchEventBySlug(slug: string): Promise<FoundationEvent | null> {
+  const client = getSupabaseClient();
+  if (client) {
+    try {
+      const { data, error } = await client
+        .from("events")
+        .select("*")
+        .eq("slug", slug)
+        .eq("is_published", true)
+        .single();
+      if (!error && data) {
+        return mapDbEventToEvent(data);
+      }
+    } catch (e) {
+      console.warn("fetchEventBySlug db error:", e);
+    }
+  }
+  const matched = FOUNDATION_EVENTS.find((e) => e.slug === slug && e.isPublished);
+  return matched || null;
 }
 
 export async function fetchAllEventsAdmin(): Promise<FoundationEvent[]> {

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   Calendar,
   Plus,
@@ -152,11 +153,22 @@ export default function EventsDeskClient({
           <div key={evt.id} className="bg-white border border-border rounded-2xl shadow-card p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between text-[11px] font-mono mb-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-porcelain border border-border text-lion-gold-dark font-semibold uppercase">
-                  {evt.category.replace("_", " ")}
-                </span>
+                <div className="flex items-center space-x-1.5">
+                  <span className="px-2.5 py-0.5 rounded-full bg-porcelain border border-border text-lion-gold-dark font-semibold uppercase">
+                    {evt.category.replace("_", " ")}
+                  </span>
+                  {evt.status === "concluded" ? (
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-botanical-emerald font-semibold uppercase text-[10px]">
+                      Concluded
+                    </span>
+                  ) : (
+                    <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-semibold uppercase text-[10px]">
+                      Upcoming
+                    </span>
+                  )}
+                </div>
                 <span className="text-slate-muted">
-                  {new Date(evt.scheduledAt).toLocaleDateString()}
+                  {evt.monthYear || new Date(evt.scheduledAt).toLocaleDateString()}
                 </span>
               </div>
 
@@ -181,15 +193,24 @@ export default function EventsDeskClient({
             </div>
 
             <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
-              <a
-                href={evt.whatsappRsvpLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-mono text-botanical-emerald hover:underline flex items-center space-x-1 font-medium"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>RSVP Deep Link</span>
-              </a>
+              <div className="flex items-center space-x-3">
+                <a
+                  href={evt.whatsappRsvpLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-botanical-emerald hover:underline flex items-center space-x-1 font-medium"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>RSVP Deep Link</span>
+                </a>
+                <Link
+                  href={`/events/${evt.slug}`}
+                  className="text-xs font-mono text-lion-gold-dark hover:underline flex items-center space-x-0.5 font-medium"
+                >
+                  <span>Public View</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
               <span className="text-[10px] font-mono text-botanical-emerald font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                 Published Live
               </span>

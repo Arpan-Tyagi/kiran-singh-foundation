@@ -409,4 +409,45 @@ test("Official 2026-27 KSF (Student Welfare) Wing Roster: 4 Teams, 37 Current, 4
   });
 });
 
+test("3 Landmark Internship Events & Dynamic Event Detail Architecture", async (t) => {
+  const eventsClientContent = fs.readFileSync(path.resolve("src/components/events/EventsListClient.tsx"), "utf-8");
+  const eventDetailPagePath = path.resolve("src/app/events/[slug]/page.tsx");
+
+  await t.test("Must include exactly the 3 completed flagship internship programs in dataset and seed", () => {
+    // 1st Summer Internship Program (July 2025)
+    assert.ok(dataContent.includes("1st Summer Internship Program (July 2025)"), "Must include 1st Summer Internship Program (July 2025)");
+    assert.ok(seedContent.includes("1st Summer Internship Program (July 2025)"), "Seed must include 1st Summer Internship Program (July 2025)");
+    assert.ok(dataContent.includes("1st-summer-internship-program-july-2025"), "Must define slug 1st-summer-internship-program-july-2025");
+
+    // Winter Internship Program (January 2026)
+    assert.ok(dataContent.includes("Winter Internship Program (January 2026)"), "Must include Winter Internship Program (January 2026)");
+    assert.ok(seedContent.includes("Winter Internship Program (January 2026)"), "Seed must include Winter Internship Program (January 2026)");
+    assert.ok(dataContent.includes("winter-internship-program-january-2026"), "Must define slug winter-internship-program-january-2026");
+
+    // 2nd Summer Internship Program (June 2026)
+    assert.ok(dataContent.includes("2nd Summer Internship Program (June 2026)"), "Must include 2nd Summer Internship Program (June 2026)");
+    assert.ok(seedContent.includes("2nd Summer Internship Program (June 2026)"), "Seed must include 2nd Summer Internship Program (June 2026)");
+    assert.ok(dataContent.includes("2nd-summer-internship-program-june-2026"), "Must define slug 2nd-summer-internship-program-june-2026");
+  });
+
+  await t.test("Must export LANDMARK_INTERNSHIP_EVENTS and define concluded status", () => {
+    assert.ok(dataContent.includes("export const LANDMARK_INTERNSHIP_EVENTS"), "Must export LANDMARK_INTERNSHIP_EVENTS");
+    assert.ok(dataContent.includes('status: "concluded"'), "Must mark landmark events as concluded");
+  });
+
+  await t.test("EventsListClient must feature 3 Concluded Landmark Programs and action photographs", () => {
+    assert.ok(eventsClientContent.includes("3 Concluded Landmark Programs (2025–2026)"));
+    assert.ok(eventsClientContent.includes("activeLandmark"));
+    assert.ok(eventsClientContent.includes("galleryImages"));
+    assert.ok(eventsClientContent.includes("Curricular Syllabi"));
+  });
+
+  await t.test("Dynamic event detail route src/app/events/[slug]/page.tsx must exist with generateStaticParams", () => {
+    assert.ok(fs.existsSync(eventDetailPagePath), "src/app/events/[slug]/page.tsx must exist");
+    const detailContent = fs.readFileSync(eventDetailPagePath, "utf-8");
+    assert.ok(detailContent.includes("generateStaticParams"), "Event detail page must export generateStaticParams");
+    assert.ok(detailContent.includes("fetchEventBySlug"), "Event detail page must call fetchEventBySlug");
+  });
+});
+
 

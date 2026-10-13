@@ -66,6 +66,13 @@ export interface RescuedDog {
   photoUrl: string;
 }
 
+export interface EventGalleryImage {
+  url: string;
+  caption: string;
+  officerName?: string;
+  roleBadge?: string;
+}
+
 export interface FoundationEvent {
   id: string;
   slug: string;
@@ -77,6 +84,17 @@ export interface FoundationEvent {
   capacity: number;
   isPublished: boolean;
   whatsappRsvpLink: string;
+  // Concluded Landmark Program Fields
+  status?: "concluded" | "upcoming";
+  edition?: string;
+  monthYear?: string;
+  syllabusCovered?: string[];
+  highlights?: string[];
+  keyAttendees?: string[];
+  galleryImages?: EventGalleryImage[];
+  certificateType?: string;
+  researchThemes?: string[];
+  stipendDistributed?: boolean;
 }
 
 export interface BlogPost {
@@ -1967,55 +1985,369 @@ export const RESCUED_DOGS_ROSTER: RescuedDog[] = [
 ];
 
 export const FOUNDATION_EVENTS: FoundationEvent[] = [
+  // 1. LANDMARK CONCLUDED EVENT 1: 1st Summer Internship Program (July 2025)
   {
-    id: "evt-01",
-    slug: "prayagraj-anti-rabies-drive-2025",
+    id: "evt-sip-01",
+    slug: "1st-summer-internship-program-july-2025",
+    title: "1st Summer Internship Program (July 2025)",
+    category: "personality_workshop",
+    status: "concluded",
+    edition: "1st Summer Edition",
+    monthYear: "July 2025",
+    scheduledAt: "2025-07-15T10:00:00+05:30",
+    location: "Institutional Auditorium, Kiran Singh Foundation HQ, Prayagraj",
+    description:
+      "The historic inaugural Summer Internship Program launched under the KSF (Student Welfare) Wing at the Prayagraj headquarters. Scholars chosen through rigorous psychometric testing and structured panel interviews embarked on foundational personality incubation, executive speech formulation, leadership ethics, and collaborative field research, culminating in the first formal trophy, certificate, and stipend awards.",
+    capacity: 80,
+    isPublished: true,
+    whatsappRsvpLink: "https://wa.me/919670970750?text=Inquiry%20regarding%201st%20Summer%20Internship%20Program",
+    certificateType: "Official Certificate of Participation & Academic Merit",
+    stipendDistributed: true,
+    syllabusCovered: [
+      "Psychometric profiling & personalized personality development roadmap",
+      "Executive speech formulation, vocal projection, and podium delivery",
+      "Team dynamics, collaborative research structuring, and peer review",
+      "Foundations of ethical community welfare & social governance",
+    ],
+    highlights: [
+      "Inaugural psychometric screening and expert panel interviews organized by the 3 core trustees.",
+      "Formation of multi-disciplinary student research cohorts for soft-skills development.",
+      "Scholars addressed the foundation podium in structured public debate exercises.",
+      "First closing ceremony awarding official Certificates of Merit, Trophies, and Stipends to scholars.",
+    ],
+    keyAttendees: [
+      "Colonel Prasoon Singh, SM (Commanding Officer & Guest Evaluator)",
+      "Shri Anil Kumar Singh (President, Kiran Singh Foundation)",
+      "Shri Anuj Kumar Singh (Secretary, Kiran Singh Foundation)",
+      "Shri Nagendra Singh (President, Matra Sneh Foundation)",
+      "Shri Indrasen Singh (Trustee / Evaluator)",
+      "Unnaati Roy (Head Superintendent Manager)",
+      "Shiksha Jaiswal (Dy. Head Superintendent Manager)",
+    ],
+    researchThemes: [
+      "Foundations of Civic Leadership & Public Communication",
+      "Socio-Economic Development Strategies for Uttar Pradesh",
+      "Ethics in Social Welfare and Grassroots Governance",
+    ],
+    galleryImages: [
+      {
+        url: "/images/events/summer-2025/trophy-presentation-unnaati-roy.jpg",
+        caption: "Unnaati Roy (HSM) receiving the inaugural excellence trophy in front of the official foundation banner",
+        officerName: "Unnaati Roy",
+        roleBadge: "Head Superintendent Manager",
+      },
+      {
+        url: "/images/events/summer-2025/certificate-presentation-shiksha-jaiswal.jpg",
+        caption: "Shiksha Jaiswal receiving the Certificate of Internship before the high table with Col. Prasoon Singh & dignitaries",
+        officerName: "Shiksha Jaiswal",
+        roleBadge: "Dy. Head Superintendent Manager",
+      },
+      {
+        url: "/images/events/summer-2025/lounge-mentorship-counseling-01.jpg",
+        caption: "Scholars undergoing intimate soft-skills incubation and public speech coaching with senior mentors in the executive lounge",
+        roleBadge: "Personality Lab",
+      },
+      {
+        url: "/images/events/summer-2025/lounge-mentorship-counseling-02.jpg",
+        caption: "In-depth dialogue on leadership ethics and social impact during the lounge breakout session",
+        roleBadge: "Mentorship Session",
+      },
+    ],
+  },
+
+  // 2. LANDMARK CONCLUDED EVENT 2: Winter Internship Program (January 2026)
+  {
+    id: "evt-wip-01",
+    slug: "winter-internship-program-january-2026",
+    title: "Winter Internship Program (January 2026)",
+    category: "personality_workshop",
+    status: "concluded",
+    edition: "Winter Session (16 Aug 2025 – 10 Jan 2026)",
+    monthYear: "January 2026",
+    scheduledAt: "2026-01-10T10:00:00+05:30",
+    location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
+    description:
+      "The landmark Winter Internship Program spanning an exhaustive five-month cycle from 16th August 2025 to 10th January 2026. Scholars defended analytical papers and slide decks before a distinguished panel led by Chief Guest Dr. D. C. Shukla (ADJ. Ghaziabad), Secretary Shri Anuj Kumar Singh, and Commanding Officer Col. Prasoon Singh, SM. Culminated in the conferral of framed Letters of Appreciation, distinction certificates, mementos, and stipends.",
+    capacity: 90,
+    isPublished: true,
+    whatsappRsvpLink: "https://wa.me/919670970750?text=Inquiry%20regarding%20Winter%20Internship%20Program",
+    certificateType: "Winter Internship Certificate of Distinction (16 Aug 2025 – 10 Jan 2026)",
+    stipendDistributed: true,
+    syllabusCovered: [
+      "Constitutional values, civic responsibility, and fundamental rights synthesis",
+      "Structured slide deck design and executive PowerPoint presentations",
+      "Defending analytical research papers before judicial and administrative scrutiny",
+      "Stress mitigation, professional negotiation, and boardroom etiquette",
+    ],
+    highlights: [
+      "Formal address by Chief Guest Dr. D. C. Shukla (ADJ. Ghaziabad) on judicial ethics and public accountability.",
+      "Presentation of framed Letters of Appreciation authored by Col. Prasoon Singh, SM (Commanding Officer).",
+      "Introduction of mandatory Plagiarism Reports for team research submissions.",
+      "Awarding of the Winter Foundation Trophy, individual memento plaques, and financial stipends.",
+    ],
+    keyAttendees: [
+      "Dr. D. C. Shukla (ADJ. Ghaziabad & Chief Guest)",
+      "Shri Anuj Kumar Singh (Secretary, Kiran Singh Foundation)",
+      "Col. Prasoon Singh, SM (Commanding Officer, Author of Commendations)",
+      "Shri Anil Kumar Singh (President, Kiran Singh Foundation)",
+      "Shri Manoj Singh (MD, JP Enterprises)",
+      "Shri Nagendra Singh (President, Matra Sneh Foundation)",
+      "Shri Indrasen Singh (Trustee / Evaluator)",
+    ],
+    researchThemes: [
+      "Constitutional Principles & Civic Responsibilities (Constitution Day Special)",
+      "Analytical Structuring of Social Welfare Reports & Legal Literacy",
+      "Overcoming Public Speaking Anxiety through Behavioral Framing",
+    ],
+    galleryImages: [
+      {
+        url: "/images/events/winter-2026/group-trophy-presentation.jpg",
+        caption: "5-Scholar cohort jointly holding the Winter Foundation Trophy with Chief Guest Dr. D. C. Shukla and Secretary Shri Anuj Kumar Singh",
+        officerName: "Winter Cohort",
+        roleBadge: "Team Excellence",
+      },
+      {
+        url: "/images/events/winter-2026/podium-address-anuj-singh.jpg",
+        caption: "Shri Anuj Kumar Singh (Foundation Secretary) delivering the keynote address at the convocation podium",
+        officerName: "Shri Anuj Kumar Singh",
+        roleBadge: "Secretary, KSF",
+      },
+      {
+        url: "/images/events/winter-2026/chief-guest-dr-dc-shukla-address.jpg",
+        caption: "Dr. D. C. Shukla (ADJ. Ghaziabad) addressing the gathering on civic jurisprudence and academic diligence",
+        officerName: "Dr. D. C. Shukla",
+        roleBadge: "ADJ. Ghaziabad / Chief Guest",
+      },
+      {
+        url: "/images/events/winter-2026/framed-letter-varnika-singh.jpg",
+        caption: "Secretary Shri Anuj Kumar Singh presenting framed Letter of Appreciation from Col. Prasoon Singh, SM to Varnika Singh",
+        officerName: "Varnika Singh",
+        roleBadge: "Team Leader",
+      },
+      {
+        url: "/images/events/winter-2026/framed-letter-vanya-singh.jpg",
+        caption: "Conferral of framed Letter of Appreciation and Internship Certificate to Vanya Singh",
+        officerName: "Vanya Singh",
+        roleBadge: "Scholar",
+      },
+      {
+        url: "/images/events/winter-2026/certificate-presentation-yashaswa-singh.jpg",
+        caption: "Awarding the Certificate of Internship (16 Aug 2025 - 10 Jan 2026) to Yashaswa Singh before the high table",
+        officerName: "Yashaswa Singh",
+        roleBadge: "Scholar",
+      },
+      {
+        url: "/images/events/winter-2026/memento-presentation-luvleen-kaur.jpg",
+        caption: "Luvleen Kaur receiving the Kiran Singh Foundation wooden memento plaque",
+        officerName: "Luvleen Kaur",
+        roleBadge: "Scholar",
+      },
+      {
+        url: "/images/events/winter-2026/letter-appreciation-utkarsh-yadav.jpg",
+        caption: "Letter of Appreciation in 'Research and Law' presented by Secretary and Senior Trustee to Utkarsh Yadav",
+        officerName: "Utkarsh Yadav",
+        roleBadge: "Research Scholar",
+      },
+      {
+        url: "/images/events/winter-2026/dignitaries-trustees-portrait.jpg",
+        caption: "Official executive portrait of Dr. D. C. Shukla, Secretary Anuj Kumar Singh, and presiding dignitaries",
+        officerName: "Presiding Board",
+        roleBadge: "Valedictory High Table",
+      },
+    ],
+  },
+
+  // 3. LANDMARK CONCLUDED EVENT 3: 2nd Summer Internship Program (June 2026)
+  {
+    id: "evt-sip-02",
+    slug: "2nd-summer-internship-program-june-2026",
+    title: "2nd Summer Internship Program (June 2026)",
+    category: "personality_workshop",
+    status: "concluded",
+    edition: "2nd Summer Edition (01 Apr – 25 Jun 2026)",
+    monthYear: "June 2026",
+    scheduledAt: "2026-06-25T10:00:00+05:30",
+    location: "Main Convocation Hall, Kiran Singh Foundation Directorate, Prayagraj",
+    description:
+      "The pinnacle 2nd Summer Internship Program conducted from 01st April 2026 to 25th June 2026 at Prayagraj. Inaugurated with traditional Deepa Prajwalan before the portrait of Late Kiran Singh ji and Goddess Saraswati. Featured the 'Collage of Colours' artistic exhibition, Casio musical performance, plagiarism-verified research defenses before Col. Prasoon Singh, SM, and the conferral of the 1st Position Championship Cup inscribed 'युद्ध शब्दों से नहीं, कर्मों से लड़ा जाता है'.",
+    capacity: 120,
+    isPublished: true,
+    whatsappRsvpLink: "https://wa.me/919670970750?text=Inquiry%20regarding%202nd%20Summer%20Internship%20Program",
+    certificateType: "2nd Summer Internship Certificate of Completion & Excellence",
+    stipendDistributed: true,
+    syllabusCovered: [
+      "Advanced research methodology with formal academic citation formats",
+      "Plagiarism verification and authenticity defense before military and academic jurists",
+      "Comprehensive 4-Team managerial leadership and team coordination",
+      "Public convocation oratory, art curation, and ceremonial cultural performances",
+    ],
+    highlights: [
+      "Deepa Prajwalan (Sacred Lamp Lighting) before portraits of Late Kiran Singh ji and Goddess Saraswati.",
+      "The 'Collage of Colours' art exhibition curated by the Student Wing of Creative Activities.",
+      "Live musical performance on Casio electronic keyboard by Team Leader Stuti Dwivedi.",
+      "Presentation of military history volume 'THE FIFTH BATTALION: THE RAJPUT WARRIORS 1825–2026' by Col. Prasoon Singh, SM.",
+      "Conferral of 1st Position Championship Cup inscribed 'युद्ध शब्दों से नहीं, कर्मों से लड़ा जाता है' to Team 1 & Team 2 leadership.",
+      "Star Shields awarded to Dy. HSMs Shiksha Jaiswal and Rohini Agrawal, and foundation stipend envelopes conferred.",
+    ],
+    keyAttendees: [
+      "Colonel Prasoon Singh, SM (Commanding Officer, Dhaula Kuan, Delhi)",
+      "Shri Anil Kumar Singh (President, Kiran Singh Foundation)",
+      "Shri Rajeev Pandey (Director, Pioneer Tutorial)",
+      "Shri Nagendra Singh (President, Matra Sneh Foundation)",
+      "Shri Manoj Singh (MD, JP Enterprises)",
+      "Unnaati Roy & Vaishnavi (Head Superintendent Managers)",
+      "Shiksha Jaiswal, Rohini Agrawal, Shubhangi Singh (Dy. HSMs)",
+      "Stuti Dwivedi (Team Leader & Musician)",
+    ],
+    researchThemes: [
+      "Plagiarism-Audited Socio-Economic Field Research in Uttar Pradesh",
+      "Community Animal Welfare & Rural Sanitation in Prayagraj",
+      "Empowering Rural Villages & Women's Career Trajectories",
+    ],
+    galleryImages: [
+      {
+        url: "/images/events/summer-2026/deepa-prajwalan-lamp-lighting-01.jpg",
+        caption: "Ceremonial brass lamp lighting (Deepa Prajwalan) before the portrait of Late Kiran Singh ji in pink silk saree",
+        officerName: "Shri Anil Kumar Singh",
+        roleBadge: "President, KSF",
+      },
+      {
+        url: "/images/events/summer-2026/pranam-kiran-singh-saraswati.jpg",
+        caption: "Reverent floral tribute and pranam before garlanded portraits of Late Kiran Singh ji and Goddess Saraswati",
+        roleBadge: "Ceremonial Homage",
+      },
+      {
+        url: "/images/events/summer-2026/championship-trophy-unnaati-vaishnavi.jpg",
+        caption: "HSMs Unnaati Roy & Vaishnavi holding the 1st Position Championship Cup inscribed 'युद्ध शब्दों से नहीं, कर्मों से लड़ा जाता है'",
+        officerName: "Unnaati Roy & Vaishnavi",
+        roleBadge: "Head Superintendent Managers",
+      },
+      {
+        url: "/images/events/summer-2026/collage-of-colours-art-exhibition.jpg",
+        caption: "The Collage of Colours exhibition showcase: Casio keyboard, paintings, tote bags, and student creative committee",
+        officerName: "Creative Wing",
+        roleBadge: "Art Exhibition",
+      },
+      {
+        url: "/images/events/summer-2026/shield-shiksha-jaiswal-trophy-unnaati.jpg",
+        caption: "Dy. HSM Shiksha Jaiswal receives Star Shield alongside HSM Unnaati Roy holding the grand cup trophy",
+        officerName: "Shiksha Jaiswal & Unnaati Roy",
+        roleBadge: "Leadership Triumvirate",
+      },
+      {
+        url: "/images/events/summer-2026/trophy-cup-vaishnavi-navyanshi.jpg",
+        caption: "Vaishnavi receiving the Team 2 Excellence Trophy Cup (Vaishnavi TM, Navyanshi TL)",
+        officerName: "Vaishnavi",
+        roleBadge: "Head Superintendent Manager",
+      },
+      {
+        url: "/images/events/summer-2026/shield-presentation-rohini-agrawal.jpg",
+        caption: "Shri Rajeev Pandey (Director, Pioneer Tutorial) presenting the Star Shield to Ms. Rohini Agrawal (Dy. HSM)",
+        officerName: "Rohini Agrawal",
+        roleBadge: "Dy. Head Superintendent Manager",
+      },
+      {
+        url: "/images/events/summer-2026/letter-prasoon-singh-shaurya-pratap.jpg",
+        caption: "Colonel Prasoon Singh, SM presenting framed military commendation to Mr. Shaurya Pratap Singh",
+        officerName: "Shaurya Pratap Singh",
+        roleBadge: "Scholar",
+      },
+      {
+        url: "/images/events/summer-2026/military-history-book-rajput-warriors.jpg",
+        caption: "Presentation of the commemorative volume 'THE FIFTH BATTALION: THE RAJPUT WARRIORS 1825-2026' by Col. Prasoon Singh, SM",
+        roleBadge: "Military Commemoration",
+      },
+      {
+        url: "/images/events/summer-2026/mentorship-debrief-col-prasoon.jpg",
+        caption: "Colonel Prasoon Singh conducting the post-defense leadership debrief with student superintendent managers",
+        officerName: "Col. Prasoon Singh",
+        roleBadge: "Commanding Officer",
+      },
+      {
+        url: "/images/events/summer-2026/full-cohort-graduation-portrait.jpg",
+        caption: "Official graduation group portrait of scholars with HSM Unnaati Roy holding the championship trophy",
+        officerName: "Full Scholar Cohort",
+        roleBadge: "2nd Summer Convocants",
+      },
+    ],
+  },
+
+  // 4. UPCOMING GATHERING 1: 2026-27 Winter Session
+  {
+    id: "evt-04",
+    slug: "upcoming-winter-internship-program-2026-27",
+    title: "Winter Internship Program (2026–27 Session)",
+    category: "personality_workshop",
+    status: "upcoming",
+    edition: "2026–27 Winter Session",
+    monthYear: "December 2026 / January 2027",
+    scheduledAt: "2026-12-20T10:00:00+05:30",
+    location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
+    description:
+      "Upcoming winter internship convening for our 37 active scholars across Teams 1 to 4 and incoming vacancy inductees. Curriculum covers executive communications, public policy synthesis, and winter research defense before the trustee board.",
+    capacity: 100,
+    isPublished: true,
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Upcoming%20Winter%20Internship%202026-27",
+  },
+
+  // 5. UPCOMING GATHERING 2: Canine Welfare Health & Booster Camp
+  {
+    id: "evt-05",
+    slug: "prayagraj-anti-rabies-drive-2026",
     title: "Mass Anti-Rabies & Booster Vaccination Camp (4 Shelter Homes & Prayagraj Belt)",
     category: "medical_camp",
-    description: "KSF (Dog Welfare) Wing veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations across our 4 built shelter homes (34 resident street dogs) and the Prayagraj municipal corridor.",
+    status: "upcoming",
+    edition: "Annual Canine Health Drive",
+    monthYear: "November 2026",
+    scheduledAt: "2026-11-20T08:30:00+05:30",
     location: "Dog Care Centre Base Station, 191/C Tilak Nagar, Prayagraj",
-    scheduledAt: "2025-04-15T08:30:00+05:30",
+    description:
+      "KSF (Dog Welfare) Wing veterinary team, paired with student scholar apprentices, provides free multi-antigen booster and anti-rabies immunizations across our 4 built shelter homes (34 resident street dogs) and the Prayagraj municipal corridor.",
     capacity: 150,
     isPublished: true,
     whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Anti-Rabies%20Vaccination%20Camp",
   },
+
+  // 6. UPCOMING GATHERING 3: Village Development Rural Conclave
   {
-    id: "evt-02",
-    slug: "student-oratory-diplomacy-symposium",
-    title: "4-Team Research Report, Plagiarism Audit & PowerPoint Defense",
-    category: "personality_workshop",
-    description: "The 40 sponsored scholars (selected via psychometric test and interview, divided into 4 teams led by Head Superintendent Managers, Dy. Head Superintendent Managers, and Team Leaders) present their plagiarism-verified research reports and PowerPoint presentations before a panel of top industry professionals.",
-    location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
-    scheduledAt: "2025-05-10T10:00:00+05:30",
-    capacity: 80,
-    isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Scholar%20Symposium",
-  },
-  {
-    id: "evt-03",
-    slug: "monsoon-mutual-aid-rapid-response-drill",
-    title: "Village Development & Mutual-Aid Rural Education Outreach Drive",
+    id: "evt-06",
+    slug: "village-development-rural-education-drive-2026",
+    title: "Village Development & Rural Educational Equity Conclave",
     category: "community_drive",
-    description: "KSF (Village Development) Wing mobilization ('Empowering village through education') delivering full educational fees, food cost coverage, and shelter facility onboarding for rural village students alongside emergency mutual-aid readiness.",
+    status: "upcoming",
+    edition: "Rural Empowerment",
+    monthYear: "November 2026",
+    scheduledAt: "2026-11-05T09:30:00+05:30",
     location: "Rural Village Outreach Corridors & Prayagraj Secretariat",
-    scheduledAt: "2025-06-20T07:00:00+05:30",
+    description:
+      "KSF (Village Development) Wing mobilization ('Empowering village through education') delivering full educational fees, food cost coverage, and shelter facility onboarding for rural village students alongside emergency mutual-aid readiness.",
     capacity: 100,
     isPublished: true,
     whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Village%20Development%20Drive",
   },
+
+  // 7. UPCOMING GATHERING 4: Annual Memorial Remembrance & Women Investment Summit
   {
-    id: "evt-04",
-    slug: "annual-memorial-remembrance-kiran-singh",
-    title: "Internship Closing Ceremony & Women Empowerment Investment Summit",
+    id: "evt-07",
+    slug: "annual-memorial-remembrance-kiran-singh-2026",
+    title: "Annual Memorial Remembrance & Women Investment Summit",
     category: "memorial_gathering",
-    description: "Commemorating Late Kiran Singh ji alongside the flagship Internship Closing Ceremony (honoring the 40 scholars with Certificates, Trophies, Mementos, and Stipend awards) and the KSF (Women Empowerment) Wing Investment Summit motivating young women to pursue careers in education, business, and entrepreneurship despite family pressures.",
+    status: "upcoming",
+    edition: "Annual Institutional Memorial",
+    monthYear: "December 2026",
+    scheduledAt: "2026-12-28T17:30:00+05:30",
     location: "Institutional Archives Hall, Kiran Singh Foundation HQ, Prayagraj",
-    scheduledAt: "2025-09-18T17:30:00+05:30",
+    description:
+      "Commemorating Late Kiran Singh ji alongside the KSF (Women Empowerment) Wing Investment Summit motivating young women to pursue careers in education, business, and entrepreneurship despite family pressures.",
     capacity: 200,
     isPublished: true,
-    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Closing%20Ceremony%20and%20Summit",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Annual%20Memorial%20Remembrance",
   },
 ];
+
+export const LANDMARK_INTERNSHIP_EVENTS = FOUNDATION_EVENTS.filter(
+  (evt) => evt.status === "concluded"
+);
 
 export const FOUNDATION_BLOGS: BlogPost[] = [
   {
