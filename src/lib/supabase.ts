@@ -120,21 +120,29 @@ export function getSupabaseAdminClient(): SupabaseClient | null {
  */
 
 function mapDbStudentToStudent(row: any): StudentScholar {
+  const scholarId = row.scholar_id || row.scholarId;
+  const canonical = SCHOLARS_COHORT.find((s) => s.scholarId === scholarId);
   return {
-    id: row.id,
-    scholarId: row.scholar_id || row.scholarId,
-    fullName: row.full_name || row.fullName,
-    academicDiscipline: row.academic_discipline || row.academicDiscipline,
-    institution: row.institution,
-    cohortYear: row.cohort_year || row.cohortYear || 2024,
-    softSkillsTrack: row.soft_skills_track || row.softSkillsTrack || [],
-    internshipStatus: row.internship_status || row.internshipStatus || "upcoming",
-    internshipTerm: row.internship_term || row.internshipTerm || "",
-    internshipPlacement: row.internship_placement || row.internshipPlacement || "",
+    id: row.id || canonical?.id || scholarId,
+    scholarId,
+    fullName: canonical?.fullName || row.full_name || row.fullName,
+    teamNumber: row.team_number || row.teamNumber || canonical?.teamNumber,
+    teamName: row.team_name || row.teamName || canonical?.teamName,
+    teamRole: row.team_role || row.teamRole || canonical?.teamRole,
+    teamRank: row.team_rank || row.teamRank || canonical?.teamRank,
+    isVacant: row.is_vacant ?? row.isVacant ?? canonical?.isVacant,
+    photoUrl: row.photo_url || row.photoUrl || canonical?.photoUrl,
+    academicDiscipline: canonical?.academicDiscipline || row.academic_discipline || row.academicDiscipline,
+    institution: canonical?.institution || row.institution,
+    cohortYear: canonical?.cohortYear || row.cohort_year || row.cohortYear || 2026,
+    softSkillsTrack: canonical?.softSkillsTrack || row.soft_skills_track || row.softSkillsTrack || [],
+    internshipStatus: canonical?.internshipStatus || row.internship_status || row.internshipStatus || "upcoming",
+    internshipTerm: canonical?.internshipTerm || row.internship_term || row.internshipTerm || "",
+    internshipPlacement: canonical?.internshipPlacement || row.internship_placement || row.internshipPlacement || "",
     expensesAndStipendCovered: row.expenses_and_stipend_covered ?? row.expensesAndStipendCovered ?? true,
-    attendanceRate: Number(row.attendance_rate || row.attendanceRate || 100),
-    emergencyContactPhone: row.emergency_contact_phone || row.emergencyContactPhone || "",
-    notes: row.notes || "",
+    attendanceRate: Number(row.attendance_rate || row.attendanceRate || canonical?.attendanceRate || 100),
+    emergencyContactPhone: row.emergency_contact_phone || row.emergencyContactPhone || canonical?.emergencyContactPhone || "",
+    notes: canonical?.notes || row.notes || "",
   };
 }
 

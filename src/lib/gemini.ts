@@ -50,6 +50,11 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
      * Selection: 40 students are chosen through a psychometric test and interview organized by the 3 core members and conducted by accomplished professionals in their respective fields.
      * 2 Internships Offered: Summer Internship Program & Winter Internship Program to develop a solid personality and incorporate soft skills.
      * 4 Teams & Supervisory Hierarchy: Students are divided into 4 teams, each headed by a Head Superintendent Manager, Dy. Head Superintendent Manager, and Team Leader.
+     * Official 2026–27 Student Roster Breakdown (Current Strength = 37, Allotted Strength = 40, Vacancy = 03):
+       - Team 1 (Team Unnaati & Shiksha - 12 Students): Unnaati Roy (HSM), Shiksha Jaiswal (Dy. HSM), Stuti Dwivedi (Team Leader), Bhavya Singh, Luvleen Kaur Puri, Vedant Agarwal, Heramb Mishra, Prakhar Singh, Shaurya Pratap Singh, Vidhu Shekhar Tripathi, Anadi Ratan Srivastava, Agrima Mishra.
+       - Team 2 (Team Vaishnavi & Navyanshi - 11 Students): Vaishnavi (HSM), Navyanshi Dwivedi (Dy. HSM), Anwesha Sinha, Vanya Singh, Shubhi Singh, Swarnima Singh, Karan Pal, Aarya Srivastava, Aditya Agarwal, Vasav Mishra, Annanya Arora.
+       - Team 3 (Team Prateeksha & Rohini - 10 Students): Prateeksha Pandey (HSM), Rohini Agarwal (Dy. HSM), Yashaswa Singh, Saksham Agrawal, Alien Chaurasia, Mansi Raj Purwar, Stuti Singh, Varnika Mishra, Parinita Bhushan, Navleen Kaur Puri.
+       - Team 4 (Team Shubhangi - 04 Students + 03 Vacancies): Shubhangi Singh (Dy. HSM), Yashi Singh, Shrejal Singh, Vaibhavi Kushwaha.
      * Research & Plagiarism Audit: Diverse research topics are assigned to each team; each team prepares a formatted Research Report and PowerPoint Presentation presented before a panel of top professionals, verified by a Plagiarism Report to test copying percentage, credibility, and authenticity.
      * Internship Closing Ceremony & Stipend: Students are awarded Certificates, Trophies, and Mementos along with a Stipend amount at the Closing Ceremony, supported by regular expert sessions.
    - Wing B: KSF (Dog Welfare) Wing (Dog Care Centre):
@@ -366,12 +371,12 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("student") || userQueryLower.includes("intern") || userQueryLower.includes("scholar")) {
+  if (userQueryLower.includes("student") || userQueryLower.includes("intern") || userQueryLower.includes("scholar") || userQueryLower.includes("team") || userQueryLower.includes("roster")) {
     return {
-      reply: `Our KSF (Student Welfare) Wing directly supports exactly 40 active students chosen via a psychometric test and interview organized by our 3 Core Trustees (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh). Divided into 4 teams across Summer and Winter Internships, scholars prepare plagiarism-audited Research Reports and PowerPoint presentations, concluding with an Internship Closing Ceremony awarding Certificates, Trophies, Mementos, and Stipends.`,
+      reply: `Our KSF (Student Welfare) Wing operates an allotted cohort of 40 scholars across 4 dedicated teams (2026–27 Session: Current Strength = 37, Allotted Strength = 40, Vacancy = 03). Teams are: Team 1 (Team Unnaati & Shiksha - 12 scholars), Team 2 (Team Vaishnavi & Navyanshi - 11 scholars), Team 3 (Team Prateeksha & Rohini - 10 scholars), and Team 4 (Team Shubhangi - 4 enrolled scholars + 3 open vacancies). Scholars participate in Summer and Winter Internships, presenting plagiarism-audited research before expert panels with certificates, trophies, and stipends awarded at the closing ceremony.`,
       suggestedAction: {
         type: "view_students",
-        label: "View 40 Scholars Cohort (4 Teams)",
+        label: "View 2026–27 4-Team Student Roster",
         href: "/wings/students",
       },
     };

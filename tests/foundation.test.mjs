@@ -335,4 +335,78 @@ test("Official PDF Dossier Alignment: Statutory, Banking, 3 Core Members & 4 Ope
   });
 });
 
+test("Official 2026-27 KSF (Student Welfare) Wing Roster: 4 Teams, 37 Current, 40 Allotted, 03 Vacancy", async (t) => {
+  await t.test("Must export STUDENT_COHORT_SUMMARY_2026_27 and STUDENT_WELFARE_TEAMS_2026_27 with exact sheet figures", () => {
+    assert.ok(dataContent.includes("STUDENT_COHORT_SUMMARY_2026_27"), "Must export STUDENT_COHORT_SUMMARY_2026_27");
+    assert.ok(dataContent.includes("currentStrength: 37"), "Must specify currentStrength: 37");
+    assert.ok(dataContent.includes("allottedStrength: 40"), "Must specify allottedStrength: 40");
+    assert.ok(dataContent.includes("vacancy: 3"), "Must specify vacancy: 3");
+    assert.ok(dataContent.includes("Team 1: Team Unnaati & Shiksha"), "Must define Team 1");
+    assert.ok(dataContent.includes("Team 2: Team Vaishnavi & Navyanshi"), "Must define Team 2");
+    assert.ok(dataContent.includes("Team 3: Team Prateeksha & Rohini"), "Must define Team 3");
+    assert.ok(dataContent.includes("Team 4: Team Shubhangi"), "Must define Team 4");
+  });
+
+  await t.test("Must include all 37 official 2026-27 student names across Teams 1-4 in dataset and seed", () => {
+    const official37Names = [
+      // Team 1 (12)
+      "Unnaati Roy",
+      "Shiksha Jaiswal",
+      "Stuti Dwivedi",
+      "Bhavya Singh",
+      "Luvleen Kaur Puri",
+      "Vedant Agarwal",
+      "Heramb Mishra",
+      "Prakhar Singh",
+      "Shaurya Pratap Singh",
+      "Vidhu Shekhar Tripathi",
+      "Anadi Ratan Srivastava",
+      "Agrima Mishra",
+      // Team 2 (11)
+      "Vaishnavi",
+      "Navyanshi Dwivedi",
+      "Anwesha Sinha",
+      "Vanya Singh",
+      "Shubhi Singh",
+      "Swarnima Singh",
+      "Karan Pal",
+      "Aarya Srivastava",
+      "Aditya Agarwal",
+      "Vasav Mishra",
+      "Annanya Arora",
+      // Team 3 (10)
+      "Prateeksha Pandey",
+      "Rohini Agarwal",
+      "Yashaswa Singh",
+      "Saksham Agrawal",
+      "Alien Chaurasia",
+      "Mansi Raj Purwar",
+      "Stuti Singh",
+      "Varnika Mishra",
+      "Parinita Bhushan",
+      "Navleen Kaur Puri",
+      // Team 4 (4)
+      "Shubhangi Singh",
+      "Yashi Singh",
+      "Shrejal Singh",
+      "Vaibhavi Kushwaha",
+    ];
+
+    assert.equal(official37Names.length, 37, "Official list must have 37 student names");
+    for (const studentName of official37Names) {
+      assert.ok(dataContent.includes(`fullName: "${studentName}"`), `foundation-data.ts must include ${studentName}`);
+      assert.ok(seedContent.includes(`'${studentName}'`), `supabase/seed.sql must include ${studentName}`);
+    }
+  });
+
+  await t.test("StudentsRosterClient must organize students by 4 teams and display Current Strength = 37, Allotted Strength = 40, Vacancy = 03", () => {
+    const rosterClientContent = fs.readFileSync(path.resolve("src/components/wings/StudentsRosterClient.tsx"), "utf-8");
+    assert.ok(rosterClientContent.includes("STUDENT_COHORT_SUMMARY_2026_27"));
+    assert.ok(rosterClientContent.includes("STUDENT_WELFARE_TEAMS_2026_27"));
+    assert.ok(rosterClientContent.includes("Current Strength"));
+    assert.ok(rosterClientContent.includes("Allotted Strength"));
+    assert.ok(rosterClientContent.includes("Vacancy"));
+  });
+});
+
 

@@ -2,8 +2,24 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { GraduationCap, BookOpen, Briefcase, Award, CheckCircle, Search } from "lucide-react";
-import { StudentScholar } from "@/lib/data/foundation-data";
+import Link from "next/link";
+import {
+  GraduationCap,
+  BookOpen,
+  Briefcase,
+  Award,
+  CheckCircle,
+  Search,
+  Users,
+  ShieldCheck,
+  UserPlus,
+  ArrowUpRight,
+} from "lucide-react";
+import {
+  StudentScholar,
+  STUDENT_WELFARE_TEAMS_2026_27,
+  STUDENT_COHORT_SUMMARY_2026_27,
+} from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
 export default function StudentsRosterClient({
@@ -12,19 +28,26 @@ export default function StudentsRosterClient({
   scholars: StudentScholar[];
 }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [teamFilter, setTeamFilter] = useState<string>("all");
+  const [roleFilter, setRoleFilter] = useState<string>("all");
 
   const filteredScholars = scholars.filter((scholar) => {
+    const q = searchTerm.toLowerCase().trim();
     const matchesSearch =
-      scholar.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      scholar.academicDiscipline.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      scholar.scholarId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      scholar.institution.toLowerCase().includes(searchTerm.toLowerCase());
+      !q ||
+      scholar.fullName.toLowerCase().includes(q) ||
+      scholar.scholarId.toLowerCase().includes(q) ||
+      (scholar.teamName || "").toLowerCase().includes(q) ||
+      (scholar.teamRole || "").toLowerCase().includes(q) ||
+      scholar.academicDiscipline.toLowerCase().includes(q);
 
-    const matchesStatus =
-      statusFilter === "all" || scholar.internshipStatus === statusFilter;
+    const matchesTeam =
+      teamFilter === "all" || String(scholar.teamNumber || "") === teamFilter;
 
-    return matchesSearch && matchesStatus;
+    const matchesRole =
+      roleFilter === "all" || scholar.teamRole === roleFilter;
+
+    return matchesSearch && matchesTeam && matchesRole;
   });
 
   const syllabusModules = [
@@ -51,12 +74,27 @@ export default function StudentsRosterClient({
     },
     {
       num: "04",
-      title: "Scientific Synthesis & Archival Presentation",
+      title: "Formatted Research Report, Plagiarism Audit & PPT Defense",
       duration: "8 Weeks Practicum",
-      desc: "Translating intricate epidemiological, ecological, and legal data into clear policy briefs and civic monographs, continuing Late Kiran Singh ji’s standard of rigorous documentation.",
-      skills: ["Quantitative Synthesis", "Policy Monograph Drafting", "Public Defense"],
+      desc: "Each of the 4 teams prepares a formatted Research Report and PowerPoint Presentation defended before a panel of accomplished professionals, audited via a formal Plagiarism Report for copying percentage and authenticity.",
+      skills: ["Formatted Research Report", "Plagiarism Audit Verification", "PowerPoint Panel Defense"],
     },
   ];
+
+  const getRoleBadgeStyle = (role?: StudentScholar["teamRole"]) => {
+    switch (role) {
+      case "HSM":
+        return "bg-lion-gold/15 text-lion-gold-dark border-lion-gold/40 font-bold";
+      case "Dy. HSM":
+        return "bg-botanical-emerald/12 text-botanical-emerald border-botanical-emerald/35 font-bold";
+      case "Team Leader":
+        return "bg-obsidian text-white border-obsidian font-semibold";
+      case "Vacancy":
+        return "bg-amber-50 text-amber-800 border-amber-300 font-semibold";
+      default:
+        return "bg-slate-100 text-obsidian border-border font-medium";
+    }
+  };
 
   return (
     <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-16 bg-porcelain">
@@ -64,26 +102,421 @@ export default function StudentsRosterClient({
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[11px] font-mono tracking-widest uppercase font-semibold">
           <GraduationCap className="w-3.5 h-3.5" />
-          <span>Operational Wing A &bull; 100% Endowed Sponsorship</span>
+          <span>Operational Wing A &bull; Academic Session {STUDENT_COHORT_SUMMARY_2026_27.session}</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
-          Student Welfare <span className="italic text-lion-gold-dark font-light">Wing</span>
+          KSF (Student Welfare) <span className="italic text-lion-gold-dark font-light">Wing</span>
         </h1>
         <div className="space-y-1">
           <p className="font-serif text-lg text-lion-gold-dark italic font-semibold">
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs sm:text-sm text-slate tracking-widest uppercase font-semibold">
-            Trust registered under Indian Trust Act of 1882 &bull; 40 Sponsored Scholars Cohort
+            Official Roster (2026&ndash;27) &bull; Current Strength: 37 &bull; Allotted Strength: 40 &bull; Vacancy: 03
           </p>
         </div>
         <p className="text-sm sm:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans">
-          40 students are selected through a rigorous <strong className="text-obsidian font-semibold">psychometric test and interview</strong> organized by the 3 core members (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh) and conducted by accomplished professionals. Divided into <strong className="text-obsidian font-semibold">4 teams</strong> across our Summer &amp; Winter Internship Programs, scholars prepare plagiarism-audited <strong className="text-obsidian font-semibold">Research Reports and PowerPoint defenses</strong>, culminating in an <strong className="text-obsidian font-semibold">Internship Closing Ceremony</strong> with Certificates, Trophies, Mementos, and Stipends.
+          Students are chosen through a rigorous <strong className="text-obsidian font-semibold">psychometric test and interview</strong> organized by the 3 core members (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh) and conducted by accomplished professionals. Organized into <strong className="text-obsidian font-semibold">4 teams</strong> across our Summer &amp; Winter Internship Programs, scholars prepare plagiarism-audited <strong className="text-obsidian font-semibold">Research Reports and PowerPoint defenses</strong>, culminating in an <strong className="text-obsidian font-semibold">Internship Closing Ceremony</strong> with Certificates, Trophies, Mementos, and Stipends.
         </p>
       </div>
 
+      {/* Official 2026-27 Sheet Summary Telemetry Bar */}
+      <div className="bg-white border-2 border-lion-gold/30 rounded-3xl p-6 sm:p-8 shadow-elevation-1 space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border pb-5">
+          <div>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-lion-gold-dark font-semibold block">
+              Official Sheet Summary &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian mt-0.5">
+              List of Students Along With the Team of KSF (Student Welfare) Wing
+            </h2>
+          </div>
+          <span className="px-3.5 py-1.5 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 font-mono text-xs text-botanical-emerald font-semibold self-start md:self-auto">
+            4 Active Teams &bull; Verified 2026&ndash;27 Sheet
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+          <div className="p-5 rounded-2xl bg-porcelain border border-border flex flex-col justify-between">
+            <span className="text-[10px] uppercase tracking-widest text-slate font-semibold">
+              Current Strength
+            </span>
+            <div className="my-2 flex items-baseline gap-2">
+              <span className="font-serif text-4xl font-bold text-obsidian">
+                {STUDENT_COHORT_SUMMARY_2026_27.currentStrength}
+              </span>
+              <span className="text-xs text-botanical-emerald font-semibold uppercase">
+                Active Enrolled
+              </span>
+            </div>
+            <p className="text-[11px] text-slate font-sans">
+              Team 1 (12) + Team 2 (11) + Team 3 (10) + Team 4 (04)
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-porcelain border border-border flex flex-col justify-between">
+            <span className="text-[10px] uppercase tracking-widest text-slate font-semibold">
+              Allotted Strength
+            </span>
+            <div className="my-2 flex items-baseline gap-2">
+              <span className="font-serif text-4xl font-bold text-obsidian">
+                {STUDENT_COHORT_SUMMARY_2026_27.allottedStrength}
+              </span>
+              <span className="text-xs text-lion-gold-dark font-semibold uppercase">
+                Sanctioned Seats
+              </span>
+            </div>
+            <p className="text-[11px] text-slate font-sans">
+              100% foundation-endowed scholarship &amp; internship cohort
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-porcelain border border-border flex flex-col justify-between">
+            <span className="text-[10px] uppercase tracking-widest text-slate font-semibold">
+              Vacancy
+            </span>
+            <div className="my-2 flex items-baseline gap-2">
+              <span className="font-serif text-4xl font-bold text-obsidian">
+                0{STUDENT_COHORT_SUMMARY_2026_27.vacancy}
+              </span>
+              <span className="text-xs text-amber-700 font-semibold uppercase">
+                Open Slots
+              </span>
+            </div>
+            <p className="text-[11px] text-slate font-sans">
+              Reserved in Team 4 for Psychometric Test &amp; Interview induction
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-porcelain border border-border flex flex-col justify-between">
+            <span className="text-[10px] uppercase tracking-widest text-slate font-semibold">
+              Team Hierarchy
+            </span>
+            <div className="my-2 flex items-baseline gap-2">
+              <span className="font-serif text-4xl font-bold text-obsidian">
+                0{STUDENT_COHORT_SUMMARY_2026_27.teamsCount}
+              </span>
+              <span className="text-xs text-lion-gold-dark font-semibold uppercase">
+                Research Teams
+              </span>
+            </div>
+            <p className="text-[11px] text-slate font-sans">
+              Headed by HSM, Dy. HSM &amp; Team Leader supervisory corps
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Team-Wise Directory & Interactive Filter */}
+      <div className="space-y-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-6">
+          <div>
+            <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold">
+              Official 2026&ndash;27 Team Roster &bull; Organized by Team (1 to 4)
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">
+              4-Team Student Welfare Registry
+            </h2>
+            <p className="text-xs sm:text-sm text-slate mt-1 font-sans max-w-2xl">
+              Complete 2026&ndash;27 roster organized across Team 1 (Team Unnaati &amp; Shiksha), Team 2 (Team Vaishnavi &amp; Navyanshi), Team 3 (Team Prateeksha &amp; Rohini), and Team 4 (Team Shubhangi).
+            </p>
+          </div>
+
+          {/* Search & Team/Role Filters */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="relative">
+              <Search className="w-4 h-4 text-slate absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search student name or ID..."
+                className="pl-10 pr-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian placeholder-slate-400 focus:outline-none focus:border-lion-gold w-56 sm:w-64 shadow-sm"
+              />
+            </div>
+
+            <select
+              value={teamFilter}
+              onChange={(e) => setTeamFilter(e.target.value)}
+              aria-label="Filter by Team"
+              className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
+            >
+              <option value="all">All 4 Teams (37 + 03 Vacancy)</option>
+              <option value="1">Team 1: Unnaati &amp; Shiksha (12)</option>
+              <option value="2">Team 2: Vaishnavi &amp; Navyanshi (11)</option>
+              <option value="3">Team 3: Prateeksha &amp; Rohini (10)</option>
+              <option value="4">Team 4: Shubhangi (04 + 03 Vacancy)</option>
+            </select>
+
+            <select
+              value={roleFilter}
+              onChange={(e) => setRoleFilter(e.target.value)}
+              aria-label="Filter by Designation"
+              className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
+            >
+              <option value="all">All Designations</option>
+              <option value="HSM">HSM (Head Superintendent)</option>
+              <option value="Dy. HSM">Dy. HSM (Deputy HSM)</option>
+              <option value="Team Leader">Team Leader</option>
+              <option value="Member">Member</option>
+              <option value="Vacancy">Vacancy (03 Open Slots)</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Quick Team Jump Pills */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
+            const isSelected = teamFilter === String(team.teamNumber);
+            return (
+              <button
+                key={team.teamNumber}
+                type="button"
+                onClick={() =>
+                  setTeamFilter(isSelected ? "all" : String(team.teamNumber))
+                }
+                className={`text-left p-4 rounded-2xl border transition-all ${
+                  isSelected
+                    ? "bg-obsidian text-white border-obsidian shadow-card"
+                    : "bg-white text-obsidian border-border hover:border-lion-gold/50 shadow-elevation-1"
+                }`}
+              >
+                <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
+                  <span className={isSelected ? "text-lion-gold" : "text-lion-gold-dark font-semibold"}>
+                    Team 0{team.teamNumber}
+                  </span>
+                  <span className={isSelected ? "text-white/80" : "text-slate"}>
+                    {team.currentCount} Enrolled
+                    {team.vacancyCount > 0 ? ` + 0${team.vacancyCount} Vacancy` : ""}
+                  </span>
+                </div>
+                <div className="font-serif text-base font-bold mt-1">
+                  {team.teamTitle.replace(/^Team \d:\s*/, "")}
+                </div>
+                <p
+                  className={`text-[11px] mt-1 line-clamp-1 font-sans ${
+                    isSelected ? "text-white/80" : "text-slate"
+                  }`}
+                >
+                  {team.commandSummary}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Render Each Team Block */}
+        <div className="space-y-12">
+          {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
+            const teamMembers = filteredScholars
+              .filter((s) => (s.teamNumber || 1) === team.teamNumber)
+              .sort((a, b) => (a.teamRank || 99) - (b.teamRank || 99));
+
+            if (teamMembers.length === 0) return null;
+
+            return (
+              <div
+                key={team.teamNumber}
+                className="bg-white border border-border rounded-3xl overflow-hidden shadow-elevation-1"
+              >
+                {/* Team Architectural Banner */}
+                <div className="p-6 sm:p-8 bg-slate-50 border-b border-border flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div className="space-y-1.5">
+                    <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-lion-gold-dark font-semibold">
+                      <Users className="w-3.5 h-3.5" />
+                      <span>
+                        KSF (Student Welfare) Wing &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
+                      {team.teamTitle}
+                    </h3>
+                    <p className="text-xs text-slate font-mono">
+                      <strong className="text-obsidian">Command Structure:</strong> {team.commandSummary}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+                    <div className="px-3.5 py-2 rounded-xl bg-white border border-border text-obsidian font-semibold shadow-2xs">
+                      Current Strength: <span className="text-botanical-emerald">{team.currentCount}</span>
+                    </div>
+                    {team.vacancyCount > 0 && (
+                      <div className="px-3.5 py-2 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 font-semibold shadow-2xs">
+                        Vacancy: 0{team.vacancyCount} Slots Open
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Team Members Grid */}
+                <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {teamMembers.map((scholar) => {
+                    const isVacant = scholar.isVacant || scholar.teamRole === "Vacancy";
+
+                    if (isVacant) {
+                      return (
+                        <div
+                          key={scholar.id}
+                          className="border-2 border-dashed border-amber-300/80 bg-amber-50/30 rounded-2xl p-5 flex flex-col justify-between space-y-4"
+                        >
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between pb-2.5 border-b border-amber-200/70">
+                              <span className="font-mono text-xs text-amber-900 font-bold">
+                                #{scholar.teamRank} &bull; {scholar.scholarId}
+                              </span>
+                              <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full border uppercase bg-amber-100 text-amber-900 border-amber-300 font-semibold">
+                                Vacancy
+                              </span>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                              <div className="w-11 h-11 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shrink-0">
+                                <UserPlus className="w-5 h-5" />
+                              </div>
+                              <div>
+                                <h4 className="font-serif text-lg font-bold text-obsidian">
+                                  {scholar.fullName}
+                                </h4>
+                                <p className="text-xs text-slate font-mono">
+                                  {scholar.academicDiscipline}
+                                </p>
+                              </div>
+                            </div>
+
+                            <p className="text-xs text-slate leading-relaxed font-sans">
+                              Reserved allotted seat under {team.teamTitle}. Induction conducted via Psychometric Test &amp; Professional Interview by the 3 Core Trustees.
+                            </p>
+                          </div>
+
+                          <div className="pt-3 border-t border-amber-200/70 flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-amber-900 uppercase font-semibold">
+                              Allotted Seat #{scholar.scholarId.slice(-2)} of 40
+                            </span>
+                            <Link
+                              href="/#mutual-aid"
+                              className="inline-flex items-center gap-1 font-mono text-[11px] text-lion-gold-dark hover:text-obsidian font-semibold"
+                            >
+                              <span>Apply for Slot</span>
+                              <ArrowUpRight className="w-3.5 h-3.5" />
+                            </Link>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    const initials = scholar.fullName
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .slice(0, 2)
+                      .toUpperCase();
+
+                    return (
+                      <div
+                        key={scholar.id}
+                        className="bg-white border border-border rounded-2xl p-5 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between"
+                      >
+                        <div>
+                          {/* Top Row: Team Rank + Scholar ID + Official Role Badge */}
+                          <div className="flex items-center justify-between pb-3 border-b border-border mb-3.5">
+                            <div className="flex items-center gap-2 font-mono text-xs">
+                              <span className="w-6 h-6 rounded-md bg-slate-100 border border-border flex items-center justify-center text-[11px] font-bold text-obsidian">
+                                {scholar.teamRank || "•"}
+                              </span>
+                              <span className="text-lion-gold-dark font-semibold">
+                                {scholar.scholarId}
+                              </span>
+                            </div>
+                            <span
+                              className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full border uppercase ${getRoleBadgeStyle(
+                                scholar.teamRole
+                              )}`}
+                            >
+                              {scholar.teamRole || "Member"}
+                            </span>
+                          </div>
+
+                          {/* Scholar Identity Row */}
+                          <div className="flex items-center gap-3.5">
+                            {scholar.photoUrl ? (
+                              <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
+                                <Image
+                                  src={scholar.photoUrl}
+                                  alt={scholar.fullName}
+                                  fill
+                                  sizes="48px"
+                                  className="object-cover object-top"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-11 h-11 rounded-xl bg-porcelain border border-border flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
+                                {initials}
+                              </div>
+                            )}
+                            <div>
+                              <h4 className="font-serif text-lg font-bold text-obsidian leading-snug">
+                                {scholar.fullName}
+                              </h4>
+                              <p className="text-xs text-slate font-medium">
+                                {scholar.teamName || team.teamTitle}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Assignment & Soft Skills */}
+                          <div className="mt-4 pt-3 border-t border-border space-y-2 text-xs">
+                            <div>
+                              <span className="text-[10px] font-mono uppercase text-slate block font-medium">
+                                Role &amp; Wing Assignment:
+                              </span>
+                              <p className="text-obsidian font-sans text-xs mt-0.5 font-medium">
+                                {scholar.academicDiscipline}
+                              </p>
+                            </div>
+
+                            <div>
+                              <span className="text-[10px] font-mono uppercase text-slate block font-medium">
+                                Soft-Skills &amp; Research Track:
+                              </span>
+                              <div className="flex flex-wrap gap-1 mt-1">
+                                {scholar.softSkillsTrack.map((t, idx) => (
+                                  <span
+                                    key={idx}
+                                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-lion-gold-dark border border-lion-gold/25 font-medium"
+                                  >
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[11px] font-mono text-slate">
+                          <span className="text-botanical-emerald flex items-center space-x-1 font-semibold">
+                            <ShieldCheck className="w-3.5 h-3.5" />
+                            <span>100% Endowed &bull; 2026&ndash;27</span>
+                          </span>
+                          <span>Att: {scholar.attendanceRate}%</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {filteredScholars.length === 0 && (
+          <div className="p-12 text-center bg-white border border-border rounded-2xl shadow-sm text-slate font-mono text-xs">
+            No students found matching current team or search filters.
+          </div>
+        )}
+      </div>
+
       {/* Institutional Mandate Cards (PDF Charter) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-border">
         <div className="bg-white border border-border rounded-2xl p-6 space-y-3 shadow-elevation-1">
           <div className="w-10 h-10 rounded-full bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark shadow-sm">
             <Award className="w-5 h-5" />
@@ -92,7 +525,7 @@ export default function StudentsRosterClient({
             Psychometric &amp; Interview Selection
           </h3>
           <p className="text-xs text-slate leading-relaxed font-sans">
-            Exactly 40 students are chosen through a structured psychometric test and panel interview organized by our 3 Core Trustees and conducted by accomplished industry professionals.
+            Students are chosen through a structured psychometric test and panel interview organized by our 3 Core Trustees and conducted by accomplished industry professionals.
           </p>
         </div>
 
@@ -141,7 +574,7 @@ export default function StudentsRosterClient({
               Pedagogical Curriculum
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">
-              Soft Skills & Leadership Labs
+              Soft Skills &amp; Leadership Labs
             </h2>
           </div>
           <span className="text-xs font-mono text-slate font-medium">
@@ -177,119 +610,6 @@ export default function StudentsRosterClient({
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Cohort Directory: Exactly 40 Scholars */}
-      <div className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-6">
-          <div>
-            <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold">
-              Active Institutional Cohort &bull; Monospace Registry
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">
-              The 40 Sponsored Scholars
-            </h2>
-            <p className="text-xs sm:text-sm text-slate mt-1 font-sans">
-              Authoritative roster of exactly 40 scholars under active institutional sponsorship, undergoing continuous
-              pedagogical evaluation and participating in foundation-financed pro bono Summer and Winter corporate/legal residencies.
-            </p>
-          </div>
-
-          {/* Search & Filter */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="relative">
-              <Search className="w-4 h-4 text-slate absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search scholar or institution..."
-                className="pl-10 pr-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian placeholder-slate-400 focus:outline-none focus:border-lion-gold w-64 shadow-sm"
-              />
-            </div>
-
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
-            >
-              <option value="all">All Internship Statuses</option>
-              <option value="summer_intern">Summer Intern</option>
-              <option value="winter_intern">Winter Intern</option>
-              <option value="completed">Completed Residency</option>
-              <option value="upcoming">Upcoming Cohort</option>
-            </select>
-          </div>
-        </div>
-
-        {/* Scholars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredScholars.map((scholar) => (
-            <div key={scholar.id} className="bg-white border border-border rounded-2xl p-5 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between pb-3 border-b border-border mb-3">
-                  <span className="font-mono text-xs text-lion-gold-dark font-semibold">
-                    {scholar.scholarId}
-                  </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-50 border border-border uppercase text-slate font-medium">
-                    {scholar.internshipStatus.replace("_", " ")}
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-lg font-bold text-obsidian">
-                  {scholar.fullName}
-                </h3>
-                <p className="text-xs text-slate mt-0.5 font-medium">
-                  {scholar.academicDiscipline}
-                </p>
-                <p className="text-xs text-slate mt-0.5">
-                  {scholar.institution}
-                </p>
-
-                <div className="mt-4 pt-3 border-t border-border space-y-2 text-xs">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Placement & Pro Bono Lab:
-                    </span>
-                    <p className="text-obsidian font-sans text-xs mt-0.5 font-medium">
-                      {scholar.internshipPlacement}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-slate block font-medium">
-                      Soft Skills Track:
-                    </span>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {scholar.softSkillsTrack.map((t, idx) => (
-                        <span
-                          key={idx}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-lion-gold-dark border border-lion-gold/25 font-medium"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[11px] font-mono text-slate">
-                <span className="text-botanical-emerald flex items-center space-x-1 font-semibold">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>100% Endowed</span>
-                </span>
-                <span>Att: {scholar.attendanceRate}%</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {filteredScholars.length === 0 && (
-          <div className="p-12 text-center bg-white border border-border rounded-2xl shadow-sm text-slate font-mono text-xs">
-            No scholars found matching current search filters.
-          </div>
-        )}
       </div>
 
       {/* Operational Hierarchy & Supervisory Corps (Student Welfare Wing) */}

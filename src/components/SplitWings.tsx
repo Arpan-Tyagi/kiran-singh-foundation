@@ -30,8 +30,13 @@ export default function SplitWings() {
   const stage3Ref = useRef<HTMLDivElement>(null);
   const stage4Ref = useRef<HTMLDivElement>(null);
 
-  // Take top 4 for quick spotlight
-  const previewScholars = SCHOLARS_COHORT.slice(0, 4);
+  // Take 1 representative leader from each of the 4 official 2026-27 teams for quick spotlight
+  const previewScholars = [
+    SCHOLARS_COHORT[0],  // Team 1: Unnaati Roy (HSM)
+    SCHOLARS_COHORT[12], // Team 2: Vaishnavi (HSM)
+    SCHOLARS_COHORT[23], // Team 3: Prateeksha Pandey (HSM)
+    SCHOLARS_COHORT[33], // Team 4: Shubhangi Singh (Dy. HSM)
+  ].filter(Boolean);
   const previewDogs = RESCUED_DOGS_ROSTER.slice(0, 4);
 
   // Track active stage on desktop based on scroll position
@@ -313,7 +318,29 @@ export default function SplitWings() {
                 <div className="text-right">
                   <span className="font-serif text-4xl font-bold text-obsidian">40</span>
                   <span className="text-[10px] font-mono text-slate block uppercase font-semibold">
-                    Chosen Scholars
+                    Allotted Scholars
+                  </span>
+                </div>
+              </div>
+
+              {/* Official 2026-27 Sheet Summary Strip */}
+              <div className="grid grid-cols-3 gap-2.5 p-3.5 rounded-2xl bg-white border border-border text-center">
+                <div>
+                  <span className="font-serif text-xl font-bold text-botanical-emerald block">37</span>
+                  <span className="text-[10px] font-mono uppercase text-slate font-semibold">
+                    Current Strength
+                  </span>
+                </div>
+                <div className="border-x border-border">
+                  <span className="font-serif text-xl font-bold text-obsidian block">40</span>
+                  <span className="text-[10px] font-mono uppercase text-slate font-semibold">
+                    Allotted Strength
+                  </span>
+                </div>
+                <div>
+                  <span className="font-serif text-xl font-bold text-lion-gold-dark block">03</span>
+                  <span className="text-[10px] font-mono uppercase text-slate font-semibold">
+                    Vacancy (2026–27)
                   </span>
                 </div>
               </div>
@@ -335,7 +362,7 @@ export default function SplitWings() {
               </div>
 
               <p className="text-sm text-slate leading-relaxed font-sans">
-                Under this wing, <strong className="text-obsidian">40 students</strong> have been chosen through a rigorous <strong className="text-obsidian">psychometric test and interview</strong> organized by the 3 core members of the foundation and conducted by accomplished industry professionals. Two flagship programs—the <strong className="text-obsidian">Summer Internship Program &amp; Winter Internship Program</strong>—develop a solid personality by incorporating soft skills and technical sessions from expert foundation members.
+                Under this wing, <strong className="text-obsidian">40 students</strong> are allotted (<strong className="text-obsidian">Current Strength: 37 &bull; Vacancy: 03</strong> for 2026–27), chosen through a rigorous <strong className="text-obsidian">psychometric test and interview</strong> organized by the 3 core members of the foundation and conducted by accomplished industry professionals. Two flagship programs—the <strong className="text-obsidian">Summer Internship Program &amp; Winter Internship Program</strong>—develop a solid personality by incorporating soft skills and technical sessions from expert foundation members.
               </p>
 
               {/* Key Charter Pillars from PDF */}
@@ -363,8 +390,8 @@ export default function SplitWings() {
               {/* Interactive Scholar Roster Preview */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono text-slate font-medium">
-                  <span>Active Cohort Spotlights</span>
-                  <span className="text-lion-gold-dark font-semibold">Certificates, Trophies &amp; Stipends</span>
+                  <span>2026–27 Team Command Spotlights (Teams 1–4)</span>
+                  <span className="text-lion-gold-dark font-semibold">37 Enrolled &bull; 03 Vacancy</span>
                 </div>
 
                 <div className="space-y-2.5">
@@ -379,13 +406,21 @@ export default function SplitWings() {
                       }`}
                     >
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-obsidian">{scholar.fullName}</span>
+                        <span className="font-semibold text-obsidian">
+                          {scholar.fullName}{" "}
+                          {scholar.teamRole && (
+                            <span className="text-[10px] font-mono text-lion-gold-dark font-semibold">
+                              ({scholar.teamRole})
+                            </span>
+                          )}
+                        </span>
                         <span className="font-mono text-[10px] text-lion-gold-dark font-semibold">
                           {scholar.scholarId}
                         </span>
                       </div>
                       <div className="text-[11px] text-slate mt-0.5 truncate font-sans">
-                        {scholar.academicDiscipline} &bull; {scholar.institution}
+                        {scholar.teamName ? `${scholar.teamName} • ` : ""}
+                        {scholar.academicDiscipline}
                       </div>
                       {activeScholarTab === idx && (
                         <div className="mt-2.5 pt-2 border-t border-border text-[11px] text-slate flex items-center justify-between font-mono">
@@ -769,8 +804,24 @@ export default function SplitWings() {
                 <div className="text-right">
                   <span className="font-serif text-3xl font-bold text-obsidian">40</span>
                   <span className="text-[10px] font-mono text-slate block uppercase font-medium">
-                    4 Teams
+                    Allotted
                   </span>
+                </div>
+              </div>
+
+              {/* 2026-27 Sheet Summary Strip */}
+              <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-white border border-border text-center text-[10px] font-mono">
+                <div>
+                  <span className="font-serif text-base font-bold text-botanical-emerald block">37</span>
+                  <span className="text-slate uppercase text-[9px]">Current</span>
+                </div>
+                <div className="border-x border-border">
+                  <span className="font-serif text-base font-bold text-obsidian block">40</span>
+                  <span className="text-slate uppercase text-[9px]">Allotted</span>
+                </div>
+                <div>
+                  <span className="font-serif text-base font-bold text-lion-gold-dark block">03</span>
+                  <span className="text-slate uppercase text-[9px]">Vacancy</span>
                 </div>
               </div>
 
