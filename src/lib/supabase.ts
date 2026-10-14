@@ -147,23 +147,25 @@ function mapDbStudentToStudent(row: any): StudentScholar {
 }
 
 function mapDbDogToDog(row: any): RescuedDog {
+  const tagNumber = row.tag_number || row.tagNumber;
+  const canonical = RESCUED_DOGS_ROSTER.find((d) => d.tagNumber === tagNumber);
   return {
-    id: row.id,
-    tagNumber: row.tag_number || row.tagNumber,
-    name: row.name,
-    breedMix: row.breed_mix || row.breedMix || "Indian Pariah Dog (Desi)",
-    estimatedAge: row.estimated_age || row.estimatedAge,
-    gender: row.gender || "Male",
-    rescueLocation: row.rescue_location || row.rescueLocation,
-    rescueDate: row.rescue_date || row.rescueDate,
-    zoneIdentifier: row.zone_identifier || row.zoneIdentifier,
-    isVaccinatedRabies: row.is_vaccinated_rabies ?? row.isVaccinatedRabies ?? true,
-    rabiesVaccinationDate: row.rabies_vaccination_date || row.rabiesVaccinationDate,
-    boosterDueDate: row.booster_due_date || row.boosterDueDate,
-    isSterilized: row.is_sterilized ?? row.isSterilized ?? true,
-    dietaryNeeds: row.dietary_needs || row.dietaryNeeds,
-    medicalNotes: row.medical_notes || row.medicalNotes || "",
-    photoUrl: row.photo_url || row.photoUrl || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80",
+    id: row.id || canonical?.id || tagNumber,
+    tagNumber,
+    name: canonical?.name || row.name,
+    breedMix: canonical?.breedMix || row.breed_mix || row.breedMix || "Indian Pariah Dog (Desi)",
+    estimatedAge: canonical?.estimatedAge || row.estimated_age || row.estimatedAge,
+    gender: canonical?.gender || row.gender || "Male",
+    rescueLocation: canonical?.rescueLocation || row.rescue_location || row.rescueLocation,
+    rescueDate: canonical?.rescueDate || row.rescue_date || row.rescueDate,
+    zoneIdentifier: canonical?.zoneIdentifier || row.zone_identifier || row.zoneIdentifier,
+    isVaccinatedRabies: row.is_vaccinated_rabies ?? row.isVaccinatedRabies ?? canonical?.isVaccinatedRabies ?? true,
+    rabiesVaccinationDate: canonical?.rabiesVaccinationDate || row.rabies_vaccination_date || row.rabiesVaccinationDate,
+    boosterDueDate: canonical?.boosterDueDate || row.booster_due_date || row.boosterDueDate,
+    isSterilized: row.is_sterilized ?? row.isSterilized ?? canonical?.isSterilized ?? true,
+    dietaryNeeds: canonical?.dietaryNeeds || row.dietary_needs || row.dietaryNeeds,
+    medicalNotes: canonical?.medicalNotes || row.medical_notes || row.medicalNotes || "",
+    photoUrl: row.photo_url || row.photoUrl || canonical?.photoUrl || "/images/dogs/branto.jpg",
   };
 }
 
