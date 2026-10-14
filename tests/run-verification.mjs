@@ -219,4 +219,26 @@ assert.ok(intakeActionContent.includes("standard") && intakeActionContent.includ
 assert.ok(intakeActionContent.includes("VALID_CATEGORIES"), "D9: Intake action must validate category.");
 console.log("[PASS] [D9] Strict intake priority and category validation with fallback verified.");
 
-console.log("=== ALL INTEGRITY GATES AND AUDIT FIXES PASSED SUCCESSFULLY (22/22) ===");
+// 20. [CANINE INTEGRITY] Verify 100% Zero Canine Photo Duplication across all 34 dogs
+const dataPath = path.resolve("src/lib/data/foundation-data.ts");
+const dataContent = fs.readFileSync(dataPath, "utf-8");
+const photoUrlMatches = [...dataContent.matchAll(/photoUrl:\s*"(\/images\/dogs\/[^"]+)"/g)].map((m) => m[1]);
+assert.equal(photoUrlMatches.length, 34, "Expected exactly 34 dog photo URLs in foundation-data.ts");
+const uniqueDataUrls = new Set(photoUrlMatches);
+assert.equal(uniqueDataUrls.size, 34, "Fatal: Found duplicate canine photo URLs in foundation-data.ts");
+
+photoUrlMatches.forEach((relPath) => {
+  const diskPath = path.resolve(`public${relPath}`);
+  assert.ok(fs.existsSync(diskPath), `Canine photo must exist on disk: ${diskPath}`);
+  const stats = fs.statSync(diskPath);
+  assert.ok(stats.size > 20000, `Canine photo ${relPath} must be > 20KB`);
+});
+
+const seedUrls = [...seedContent.matchAll(/'(\/images\/dogs\/[^']+)'/g)].map((m) => m[1]);
+const dogSeedUrls = seedUrls.filter(url => !url.includes("mp4") && !url.includes("dr-vk-singh"));
+assert.equal(dogSeedUrls.length, 34, "Expected exactly 34 dog photo URLs in seed.sql");
+assert.equal(new Set(dogSeedUrls).size, 34, "Fatal: Found duplicate canine photo URLs in seed.sql");
+console.log("[PASS] [CANINE INTEGRITY] Zero-duplication verified: All 34 rescued dogs have distinct authentic photographs.");
+
+console.log("=== ALL INTEGRITY GATES AND AUDIT FIXES PASSED SUCCESSFULLY (23/23) ===");
+

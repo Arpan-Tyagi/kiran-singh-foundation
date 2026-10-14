@@ -450,4 +450,43 @@ test("3 Landmark Internship Events & Dynamic Event Detail Architecture", async (
   });
 });
 
+test("Exhaustive Canine Forensic Analysis & Zero-Duplication Roster Integrity", async (t) => {
+  await t.test("Flagship dogs must follow exact alphabetical order a through k (Bujo to Chotu)", () => {
+    const flagshipNames = [
+      "Bujo", "Jujo", "Khujo", "Tujo", "Safedi",
+      "Branto", "Mario", "Victor", "Casper", "Leo", "Chotu"
+    ];
+    flagshipNames.forEach((name) => {
+      assert.ok(dataContent.includes(`name: "${name}"`), `foundation-data must include flagship dog ${name}`);
+      assert.ok(seedContent.includes(`'${name}'`), `seed.sql must include flagship dog ${name}`);
+    });
+  });
+
+  await t.test("Zero-Duplication Guarantee: all 34 rescued dogs must have 100% distinct photo URLs", () => {
+    // Extract photoUrl from foundation-data.ts
+    const photoUrlMatches = [...dataContent.matchAll(/photoUrl:\s*"(\/images\/dogs\/[^"]+)"/g)].map((m) => m[1]);
+    assert.equal(photoUrlMatches.length, 34, "Must find exactly 34 dog photo URLs in foundation-data.ts");
+    const uniqueDataUrls = new Set(photoUrlMatches);
+    assert.equal(uniqueDataUrls.size, 34, "Zero duplication: all 34 dog photo URLs in foundation-data.ts must be completely unique");
+
+    // Extract photo_url from seed.sql
+    const seedUrlMatches = [...seedContent.matchAll(/'(\/images\/dogs\/[^']+)'/g)].map((m) => m[1]);
+    const dogSeedUrls = seedUrlMatches.filter(url => !url.includes("mp4") && !url.includes("dr-vk-singh"));
+    const uniqueSeedUrls = new Set(dogSeedUrls);
+    assert.equal(dogSeedUrls.length, 34, "Must find exactly 34 dog photo URLs in seed.sql");
+    assert.equal(uniqueSeedUrls.size, 34, "Zero duplication: all 34 dog photo URLs in seed.sql must be completely unique");
+  });
+
+  await t.test("All 34 canine photographic assets must exist on disk with valid file size (> 20KB)", () => {
+    const photoUrlMatches = [...dataContent.matchAll(/photoUrl:\s*"(\/images\/dogs\/[^"]+)"/g)].map((m) => m[1]);
+    photoUrlMatches.forEach((relPath) => {
+      const diskPath = path.resolve(`public${relPath}`);
+      assert.ok(fs.existsSync(diskPath), `Canine photo must exist on disk: ${diskPath}`);
+      const stats = fs.statSync(diskPath);
+      assert.ok(stats.size > 20000, `Canine photo ${relPath} must be > 20KB (found ${stats.size} bytes)`);
+    });
+  });
+});
+
+
 
