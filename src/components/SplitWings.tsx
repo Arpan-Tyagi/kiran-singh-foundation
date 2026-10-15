@@ -280,7 +280,7 @@ export default function SplitWings() {
                   <span>Secretariat: Prayagraj (211006)</span>
                 </div>
                 <p className="text-xs text-slate leading-relaxed font-sans">
-                  Registered at <strong className="text-obsidian">191/C, Tilak Nagar, Allahpur, Prayagraj</strong>. Incorporated 31/12/2025 (student welfare active 3 years prior).
+                  Registered at <strong className="text-obsidian">191/C, Tilak Nagar, Allahpur, Prayagraj</strong>. Established on 30th of April 2023 (Trust registered under Indian Trust Act of 1882).
                 </p>
               </div>
 

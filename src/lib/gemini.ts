@@ -20,7 +20,7 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
    - Foundation Motto: "Working Towards Change"
 3. STATUTORY REGISTRATION, TAX & CSR CREDENTIALS:
    - Legal Status: Trust registered under Indian Trust Act of 1882.
-   - Date of Incorporation: 31/12/2025 (Student welfare activities initiated 3 years prior, in 2022).
+   - Date of Establishment: 30th of April 2023 (30/04/2023).
    - Permanent Account Number (PAN): AAGTK3961N
    - Unique Registration Number (URN) under Section 332(8) and 354(4) of Income Tax Act: AAGTK3961NE20261
    - Corporate Social Responsibility (CSR) Registration Number: CSR00110895

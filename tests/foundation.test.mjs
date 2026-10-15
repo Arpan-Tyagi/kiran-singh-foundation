@@ -299,12 +299,13 @@ test("Operational Hierarchy & Action Photographs Integrity (3 Tiers & 10 Officer
 });
 
 test("Official PDF Dossier Alignment: Statutory, Banking, 3 Core Members & 4 Operational Wings", async (t) => {
-  await t.test("Statutory PAN, Income Tax URN, CSR Registration, SRN, and Incorporation Date must be present", () => {
+  await t.test("Statutory PAN, Income Tax URN, CSR Registration, SRN, and Establishment Date must be present", () => {
     assert.ok(dataContent.includes('pan: "AAGTK3961N"'), "PAN AAGTK3961N must be present");
     assert.ok(dataContent.includes('incomeTaxUrn: "AAGTK3961NE20261"'), "Income Tax URN AAGTK3961NE20261 must be present");
     assert.ok(dataContent.includes('csrRegistrationNumber: "CSR00110895"'), "CSR Registration CSR00110895 must be present");
     assert.ok(dataContent.includes('applicationSrn: "SRN AC3352827"'), "Application SRN AC3352827 must be present");
-    assert.ok(dataContent.includes('incorporationDate: "31/12/2025"'), "Incorporation date 31/12/2025 must be present");
+    assert.ok(dataContent.includes('incorporationDate: "30/04/2023"'), "Incorporation/Establishment date 30/04/2023 must be present");
+    assert.ok(dataContent.includes('establishmentDate: "30th of April 2023"'), "Establishment date 30th of April 2023 must be present");
   });
 
   await t.test("Official HDFC Bank Naya Katra Prayagraj Endowment Account details must be present", () => {

@@ -113,8 +113,10 @@ export interface BlogPost {
 export const FOUNDATION_META = {
   name: "Kiran Singh Foundation",
   trustRegistration: "Trust registered under Indian Trust Act of 1882",
-  incorporationDate: "31/12/2025",
-  operationsCommencedNote: "Incorporated on 31/12/2025; student welfare activities commenced 3 years prior (2022)",
+  incorporationDate: "30/04/2023",
+  establishmentDate: "30th of April 2023",
+  establishmentDateFormatted: "30/04/2023",
+  operationsCommencedNote: "Established on 30th of April 2023 (Trust registered under Indian Trust Act of 1882)",
   tagline: "A Journey from struggle to Enlightenment",
   motto: "Working Towards Change",
   founder: "Late Kiran Singh ji",
@@ -2404,16 +2406,20 @@ At the conclusion of each term, an **Internship Closing Ceremony** is conducted 
     slug: "the-mutual-aid-grid-in-action",
     title: "Village Development, Women Empowerment & The 4-Wing Institutional Agenda",
     summary: "How KSF (Village Development) Wing and KSF (Women Empowerment) Wing expand our mission through rural educational endowment and women's investment summits.",
-    contentMarkdown: `Incorporated on **31/12/2025** under the Indian Trust Act (after initiating student welfare operations 3 years prior), the **Kiran Singh Foundation** (` + "`PAN: AAGTK3961N`" + ` | ` + "`CSR: CSR00110895`" + `) operates **4 comprehensive wings** dedicated to bringing structural, positive change to society.
+    contentMarkdown: `Established on **30th of April 2023** under the Indian Trust Act of 1882, the **Kiran Singh Foundation** (` + "`PAN: AAGTK3961N`" + ` | ` + "`CSR: CSR00110895`" + `) leads four operational wings dedicated to structural community transformation.
 
-### Wing C: KSF (Village Development) Wing — "Empowering Village Through Education"
-The core aim of our Village Development Wing is **empowering villages through education**. Students residing in rural villages are given adequate resources and opportunities so that they can express themselves effectively and compete with real-life challenges. Crucially, **their educational fees are taken care of by the Kiran Singh Foundation, including their daily food cost and shelter facility**.
+### Wing C: KSF (Village Development) Wing — Empowering Villages
+The primary aim of our Village Development Wing is empowering villages through education. Rural scholars receive comprehensive learning resources, digital labs, and competitive academic guidance to overcome systemic barriers.
+
+Crucially, complete academic tuition fees are underwritten directly by the Kiran Singh Foundation, coupled with hygienic daily nourishment and stable residential shelter facilities for every enrolled rural scholar.
 
 ### Wing D: KSF (Women Empowerment) Wing — Careers & Investment Summits
-Under the Women Empowerment Wing, female students and women who possess strong skills are given concrete opportunities to develop a solid career across diverse fields including **education, business, and entrepreneurship**. Various awareness programs are organized by the Kiran Singh Foundation—including **dedicated investment summits**—to motivate young women to pursue their careers in spite of family pressures.
+Under the Women Empowerment Wing, ambitious female scholars and skilled women gain concrete avenues to build sustainable careers across higher education, commercial enterprise, and technology innovation.
+
+Specialized career workshops and dedicated investor summits are convened regularly by trustee leadership, equipping young women to navigate professional leadership pathways and achieve financial self-reliance.
 
 ### Emergency Mutual-Aid Interconnectedness
-Across all 4 operational wings, our members, scholars, and caretakers remain linked via synchronized WhatsApp and email dispatch channels at **191/C, Tilak Nagar, Allahpur, Prayagraj – 211006**, ensuring no student, rural scholar, woman entrepreneur, or street animal ever stands alone in crisis.`,
+Across all four wings, our scholars, rescuers, and community leaders remain synchronized through rapid WhatsApp dispatch at 191/C Tilak Nagar Allahpur Prayagraj, guaranteeing that no community member or rescue stands alone.`,
     authorName: "Field Coordination Cell",
     coverImageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
     isAiDrafted: false,

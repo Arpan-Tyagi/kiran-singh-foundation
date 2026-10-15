@@ -12,7 +12,7 @@
 | **Institutional Tagline** | *“A Journey from struggle to Enlightenment”* | PDF Page 1, Header |
 | **Guiding Motto** | *“Working Towards Change”* | Institutional Crest & Seal |
 | **Legal Registration** | Trust registered under Indian Trust Act of 1882 *(cited as 1881/1882 in charter)* | PDF Page 2, Para 1 |
-| **Date of Incorporation** | **31/12/2025** *(Student welfare operations commenced 3 years prior, in 2022)* | PDF Page 2, Para 1 |
+| **Date of Establishment** | **30th of April 2023 (30/04/2023)** | Official Institutional Foundation Record |
 | **Official Address** | **191/C, Tilak Nagar, Allahpur, Allahabad (Prayagraj), U.P, India – 211006** | PDF Page 1, Item 2 |
 | **Official Helplines** | **9670970750**, **8115141378**, **9450630310** | PDF Page 1, Item 3 |
 | **Official Email** | **kiransinghfoundation@gmail.com** | Institutional Registry |

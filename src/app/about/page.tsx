@@ -60,7 +60,7 @@ export default function AboutPage() {
               Kiran Singh Foundation
             </h2>
             <p className="font-mono text-xs text-lion-gold-dark mt-1 font-semibold">
-              {FOUNDATION_META.trustRegistration} &bull; Incorporated: {FOUNDATION_META.incorporationDate} (Student Welfare Active Since 2022)
+              {FOUNDATION_META.trustRegistration} &bull; Established: {FOUNDATION_META.establishmentDate} ({FOUNDATION_META.incorporationDate})
             </p>
           </div>
           <div className="text-left md:text-right">
@@ -140,7 +140,7 @@ export default function AboutPage() {
               <span className="text-sm font-bold text-obsidian mt-0.5 block">{FOUNDATION_META.applicationSrn}</span>
             </div>
             <div className="p-3.5 rounded-xl bg-porcelain border border-border">
-              <span className="text-[10px] text-slate uppercase block">Date of Incorporation</span>
+              <span className="text-[10px] text-slate uppercase block">Date of Establishment</span>
               <span className="text-sm font-bold text-lion-gold-dark mt-0.5 block">{FOUNDATION_META.incorporationDate}</span>
             </div>
           </div>

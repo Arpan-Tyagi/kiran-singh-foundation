@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="p-4 rounded-2xl bg-slate-50 border border-border space-y-2">
               <div className="flex items-center space-x-2 text-xs font-mono text-slate font-medium">
                 <ShieldCheck className="w-4 h-4 text-botanical-emerald shrink-0" />
-                <span>Trust registered under Indian Trust Act of 1882 &bull; Inc: 31/12/2025</span>
+                <span>Trust registered under Indian Trust Act of 1882 &bull; Est: 30/04/2023</span>
               </div>
               <p className="text-xs text-slate leading-relaxed">
                 100% of operational resources are directly deployed across our 4 Operational Wings: 40 scholars (4 teams), 34 resident canines (4 shelter homes), Village Development, and Women Empowerment.
