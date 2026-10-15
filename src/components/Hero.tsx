@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { FOUNDATION_META } from "@/lib/data/foundation-data";
 
 export default function Hero() {
   return (
@@ -14,7 +15,7 @@ export default function Hero() {
         GRID REF // 25.4358° N, 81.8463° E (PRAYAGRAJ)
       </div>
       <div className="absolute top-6 right-8 hidden lg:block font-mono text-[11px] text-slate/80 font-medium uppercase tracking-widest select-none pointer-events-none">
-        INSTITUTIONAL ARCHIVE &bull; EST. 1994
+        INSTITUTIONAL ARCHIVE &bull; EST. 30TH APRIL 2023
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
@@ -34,7 +35,7 @@ export default function Hero() {
           </div>
           {/* Micro-badge */}
           <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3.5 py-1 rounded-full bg-white border border-border text-[10px] font-mono tracking-widest uppercase text-lion-gold-dark font-semibold shadow-sm">
-            Est. Sacred Memory &bull; 1994
+            Established &bull; {FOUNDATION_META.establishmentDate}
           </div>
         </div>
 

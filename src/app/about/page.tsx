@@ -242,7 +242,7 @@ export default function AboutPage() {
                   {/* Accession Seal Tag */}
                   <div className="absolute top-3 left-3">
                     <span className="px-2.5 py-1 rounded-full bg-obsidian/75 backdrop-blur-md border border-white/20 text-[9px] font-mono tracking-widest text-lion-gold uppercase font-semibold">
-                      ARCHIVE &bull; REF: AAZP-1994
+                      ARCHIVE &bull; REF: AAZP-VANDALUR
                     </span>
                   </div>
 
