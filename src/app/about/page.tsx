@@ -18,7 +18,7 @@ import {
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
 export const metadata = {
-  title: 'Institutional Archive & Legal Secretariat | Kiran Singh Foundation',
+  title: 'About Us | Kiran Singh Foundation',
   description:
     'Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (PAN: AAGTK3961N, CSR: CSR00110895, URN: AAGTK3961NE20261, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Official charter covering 4 Operational Wings: Student Welfare, Dog Welfare, Village Development, and Women Empowerment.',
 };
@@ -29,7 +29,7 @@ export default function AboutPage() {
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
-          <span>Official Institutional Archive &bull; Trust Registered Under Indian Trust Act of 1882</span>
+          <span>About Us &bull; Official Institutional Archive &bull; Trust Registered Under Indian Trust Act of 1882</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl text-obsidian uppercase leading-tight font-normal">
           The Heritage & <span className="italic text-lion-gold-dark font-light">Mandate</span>

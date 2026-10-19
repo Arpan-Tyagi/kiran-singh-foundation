@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Archive", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "40 Scholars", href: "/wings/students" },
     { label: "34 Dogs", href: "/wings/dogs" },
     { label: "Events", href: "/events" },
