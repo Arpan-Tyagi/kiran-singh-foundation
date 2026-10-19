@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "Chief Minister J Jayalalithaa alignment",
     "Student Welfare Wing 40 Scholars",
     "Dog Care Centre 34 Rescued Dogs",
-    "kiransinghfoundation@gmail.com",
+    "kiransinghfoundationindia@gmail.com",
     "Emergency Mutual Aid Grid",
   ],
   icons: {
@@ -63,7 +63,7 @@ const jsonLd = {
     "Registered trust under the Indian Trust Act of 1882 established in sacred memory of Late Kiran Singh ji. Operates Student Welfare Wing (40 scholars), Dog Care Centre (34 rescued dogs), and 24/7 emergency mutual-aid grid.",
   url: "https://kiransinghfoundation.org",
   logo: "https://kiransinghfoundation.org/images/logo.png",
-  email: "kiransinghfoundation@gmail.com",
+  email: "kiransinghfoundationindia@gmail.com",
   telephone: "+91-9670970750",
   address: {
     "@type": "PostalAddress",

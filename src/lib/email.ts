@@ -4,8 +4,8 @@
 import { Resend } from "resend";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "kiransinghfoundation@gmail.com";
-const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "kiransinghfoundation@gmail.com";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "kiransinghfoundationindia@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "kiransinghfoundationindia@gmail.com";
 
 function getResendClient(): Resend | null {
   if (!RESEND_API_KEY || RESEND_API_KEY === "placeholder-resend-key" || RESEND_API_KEY.trim() === "") {
@@ -84,7 +84,7 @@ export async function sendIntakeConfirmationEmail(payload: IntakeEmailPayload) {
     <div class="footer">
       Kiran Singh Foundation &bull; Trust registered under Indian Trust Act of 1882<br/>
       191/C, Tilak Nagar Allahpur Prayagraj 211006<br/>
-      Mobile: +91 96709 70750, +91 81151 41378, +91 94506 30310 &bull; Email: kiransinghfoundation@gmail.com<br/>
+      Mobile: +91 96709 70750, +91 81151 41378, +91 94506 30310 &bull; Email: kiransinghfoundationindia@gmail.com<br/>
       Student Welfare Wing (40 Scholars) &bull; Dog Care Centre (34 Rescued Canines)
     </div>
   </div>

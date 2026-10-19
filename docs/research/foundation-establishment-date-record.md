@@ -18,7 +18,7 @@
 | **CSR Registration Number** | **CSR00110895** | Ministry of Corporate Affairs (MCA), Govt. of India |
 | **MCA Application SRN** | **SRN AC3352827** | MCA e-Governance Registry |
 | **Official Helplines** | **9670970750** (WhatsApp SOS), **8115141378**, **9450630310** | 24/7 Command Helplines |
-| **Official Email** | **kiransinghfoundation@gmail.com** | Official Institutional Correspondence |
+| **Official Email** | **kiransinghfoundationindia@gmail.com** | Official Institutional Correspondence |
 
 ---
 

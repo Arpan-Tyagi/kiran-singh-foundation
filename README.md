@@ -3,7 +3,7 @@
 > **"A Journey from struggle to Enlightenment"** &bull; *"Working Towards Change"*  
 > **Trust registered under Indian Trust Act of 1882**  
 > **Registered Secretariat:** 191/C, Tilak Nagar Allahpur Prayagraj 211006  
-> **Mobile Helplines:** 9670970750, 8115141378, 9450630310 &bull; **Email:** kiransinghfoundation@gmail.com
+> **Mobile Helplines:** 9670970750, 8115141378, 9450630310 &bull; **Email:** kiransinghfoundationindia@gmail.com
 
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.1.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Google Gemini 2.5 Flash](https://img.shields.io/badge/Google_Gemini-2.5_Flash-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev/)
@@ -20,7 +20,7 @@ Under no circumstances should core institutional facts be altered, abstracted, o
 - **Registered Secretariat:** `191/C, Tilak Nagar Allahpur Prayagraj 211006` (Uttar Pradesh, India).
 - **Official Contacts:**
   - **Mobile Numbers:** `9670970750` (Primary/WhatsApp), `8115141378`, `9450630310`
-  - **Email:** `kiransinghfoundation@gmail.com`
+  - **Email:** `kiransinghfoundationindia@gmail.com`
 - **Official Tagline & Motto:**
   - Tagline: *"A Journey from struggle to Enlightenment"*
   - Motto: *"Working Towards Change"*
@@ -43,7 +43,7 @@ Under no circumstances should core institutional facts be altered, abstracted, o
   - The foundation operates its Dog Care Centre (sheltering 34 rescued dogs), Student Welfare Wing (40 scholars), animal clinic, and registered secretariat **exclusively in Prayagraj** (`191/C, Tilak Nagar Allahpur Prayagraj 211006`, Uttar Pradesh).
   - The foundation does **NOT** operate a clinic, shelter, or triage base in Chennai. Late Kiran Singh ji's historical research and Analyst tenure took place at AAZP Vandalur (Chennai), but all modern operational facilities are based in Prayagraj.
 - **Core Purpose:** Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies.
-- **Multi-Channel Communications:** Primary engagement through deep-linked WhatsApp (`wa.me/919670970750`) and transactional emails (`kiransinghfoundation@gmail.com`).
+- **Multi-Channel Communications:** Primary engagement through deep-linked WhatsApp (`wa.me/919670970750`) and transactional emails (`kiransinghfoundationindia@gmail.com`).
 
 ---
 

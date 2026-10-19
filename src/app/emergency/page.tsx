@@ -29,7 +29,7 @@ export default function EmergencyPage() {
     try {
       const res = await submitIntakeAction({
         applicantName: callerName,
-        contactEmail: "kiransinghfoundation@gmail.com",
+        contactEmail: "kiransinghfoundationindia@gmail.com",
         contactPhone,
         category: "emergency_distress",
         priority: "critical_emergency",
@@ -266,7 +266,7 @@ export default function EmergencyPage() {
             <div className="text-slate">Trust registered under Indian Trust Act of 1882 &bull; &ldquo;A Journey from struggle to Enlightenment&rdquo;</div>
             <div className="pt-2 border-t border-border space-y-1">
               <div><strong className="text-obsidian">Helplines:</strong> +91 96709 70750, +91 81151 41378, +91 94506 30310</div>
-              <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
+              <div><strong className="text-obsidian">Email:</strong> kiransinghfoundationindia@gmail.com</div>
             </div>
             <div className="text-[11px] text-slate/80 pt-1">
               Sanctuary Base: Dog Care Centre, Prayagraj &bull; Surgical recovery bay &amp; emergency triage.

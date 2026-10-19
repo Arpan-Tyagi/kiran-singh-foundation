@@ -53,7 +53,7 @@ export default function Footer() {
                 <div><strong className="text-obsidian">Registered Office:</strong> 191/C, Tilak Nagar Allahpur Prayagraj 211006</div>
                 <div><strong className="text-obsidian">Statutory IDs:</strong> PAN: AAGTK3961N &bull; CSR: CSR00110895 &bull; URN: AAGTK3961NE20261 &bull; SRN: AC3352827</div>
                 <div><strong className="text-obsidian">Endowment Bank:</strong> HDFC Bank (Naya Katra, Prayagraj) &bull; A/C: 50200119758811 &bull; IFSC: HDFC0004664</div>
-                <div><strong className="text-obsidian">Email:</strong> kiransinghfoundation@gmail.com</div>
+                <div><strong className="text-obsidian">Email:</strong> kiransinghfoundationindia@gmail.com</div>
               </div>
             </div>
           </div>
@@ -154,11 +154,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:kiransinghfoundation@gmail.com"
+                  href="mailto:kiransinghfoundationindia@gmail.com"
                   className="flex items-center space-x-2 hover:text-obsidian"
                 >
                   <Mail className="w-3.5 h-3.5 text-slate shrink-0" />
-                  <span className="break-all font-mono text-[11px]">kiransinghfoundation@gmail.com</span>
+                  <span className="break-all font-mono text-[11px]">kiransinghfoundationindia@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start space-x-2 text-slate pt-1 leading-relaxed">

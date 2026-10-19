@@ -128,7 +128,7 @@ export const FOUNDATION_META = {
   mobileNumbers: ["9670970750", "8115141378", "9450630310"],
   primaryMobile: "9670970750",
   formattedMobiles: ["+91 96709 70750", "+91 81151 41378", "+91 94506 30310"],
-  email: "kiransinghfoundation@gmail.com",
+  email: "kiransinghfoundationindia@gmail.com",
   address: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
   officialAddressFull: "191/C, Tilak Nagar, Allahpur, Allahabad (Prayagraj), U.P, India – 211006",
   registeredOffice: "191/C, Tilak Nagar Allahpur Prayagraj 211006",

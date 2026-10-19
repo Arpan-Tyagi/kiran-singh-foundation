@@ -4,7 +4,7 @@
 **Statutory Entity:** Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882)  
 **Registered Secretariat & Clinic Facility:** 191/C, Tilak Nagar Allahpur Prayagraj 211006, Uttar Pradesh  
 **Helplines:** Primary/WhatsApp: +91 96709 70750 | Line 2: +91 81151 41378 | Line 3: +91 94506 30310  
-**Official Email:** kiransinghfoundation@gmail.com  
+**Official Email:** kiransinghfoundationindia@gmail.com  
 **Motto & Tagline:** *"Working Towards Change"* & *"A Journey from struggle to Enlightenment"*  
 
 ---

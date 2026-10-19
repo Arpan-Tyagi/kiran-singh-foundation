@@ -15,7 +15,7 @@
 | **Date of Establishment** | **30th of April 2023 (30/04/2023)** | Official Institutional Foundation Record |
 | **Official Address** | **191/C, Tilak Nagar, Allahpur, Allahabad (Prayagraj), U.P, India – 211006** | PDF Page 1, Item 2 |
 | **Official Helplines** | **9670970750**, **8115141378**, **9450630310** | PDF Page 1, Item 3 |
-| **Official Email** | **kiransinghfoundation@gmail.com** | Institutional Registry |
+| **Official Email** | **kiransinghfoundationindia@gmail.com** | Institutional Registry |
 | **Permanent Account Number (PAN)** | **AAGTK3961N** | PDF Page 1, Item 4 |
 | **Income Tax URN (Sec. 332(8) & 354(4))** | **AAGTK3961NE20261** | PDF Page 1, Item 5 |
 | **CSR Registration Number** | **CSR00110895** | PDF Page 1, Item 6 |

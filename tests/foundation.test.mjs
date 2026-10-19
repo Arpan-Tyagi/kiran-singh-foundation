@@ -21,7 +21,7 @@ test("Institutional Data Integrity Mandates", async (t) => {
     assert.ok(dataContent.includes('trustRegistration: "Trust registered under Indian Trust Act of 1882"'));
     assert.ok(dataContent.includes('tagline: "A Journey from struggle to Enlightenment"'));
     assert.ok(dataContent.includes('address: "191/C, Tilak Nagar Allahpur Prayagraj 211006"'));
-    assert.ok(dataContent.includes('email: "kiransinghfoundation@gmail.com"'));
+    assert.ok(dataContent.includes('email: "kiransinghfoundationindia@gmail.com"'));
     assert.ok(dataContent.includes('"9670970750"') && dataContent.includes('"8115141378"') && dataContent.includes('"9450630310"'));
     assert.ok(dataContent.includes("scholarsCount: 40"));
     assert.ok(dataContent.includes("dogsCount: 34"));

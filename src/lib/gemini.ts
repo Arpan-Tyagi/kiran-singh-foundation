@@ -42,7 +42,7 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
    - 191/C, Tilak Nagar Allahpur Prayagraj 211006 (Allahabad / Prayagraj, U.P., India - 211006).
 7. OFFICIAL COMMUNICATIONS:
    - Mobile Numbers: 9670970750, 8115141378, 9450630310 (Primary Dispatch / WhatsApp: +91 96709 70750)
-   - Official Email: kiransinghfoundation@gmail.com
+   - Official Email: kiransinghfoundationindia@gmail.com
 8. HERALDIC EMBLEM: A classical circular seal containing a detailed roaring male lion, surrounded by the ring inscription "KIRAN SINGH FOUNDATION".
 9. FOUR OPERATIONAL WINGS UNDER KIRAN SINGH FOUNDATION:
    - Wing A: KSF (Student Welfare) Wing:
@@ -72,7 +72,7 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
    - Wing D: KSF (Women Empowerment) Wing:
      * Female students and women with great skills are given opportunities to develop a solid career across education, business, and entrepreneurship.
      * Organizes awareness programs and investment summits to motivate young women to pursue their career despite family pressures.
-10. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies via WhatsApp (+91 96709 70750) and email (kiransinghfoundation@gmail.com).
+10. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies via WhatsApp (+91 96709 70750) and email (kiransinghfoundationindia@gmail.com).
 
 STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (divided into 4 teams in Wing A) and exactly 34 rescued street dogs (housed across 4 built shelter homes in Wing B).
@@ -409,7 +409,7 @@ export async function executeFoundationChatTurn(
   }
 
   return {
-    reply: `Welcome to the Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882, PAN: AAGTK3961N, CSR: CSR00110895, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji, our mission operates under the tagline "A Journey from struggle to Enlightenment" and motto "Working Towards Change". We execute 4 Operational Wings: Student Welfare (40 scholars across 4 teams), Dog Welfare (34 rescued street dogs across 4 built shelter homes), Village Development, and Women Empowerment. Contact: +91 96709 70750 / kiransinghfoundation@gmail.com. How may we assist you today?`,
+    reply: `Welcome to the Kiran Singh Foundation (Trust registered under Indian Trust Act of 1882, PAN: AAGTK3961N, CSR: CSR00110895, 191/C, Tilak Nagar Allahpur Prayagraj 211006). Established in sacred memory of Late Kiran Singh ji, our mission operates under the tagline "A Journey from struggle to Enlightenment" and motto "Working Towards Change". We execute 4 Operational Wings: Student Welfare (40 scholars across 4 teams), Dog Welfare (34 rescued street dogs across 4 built shelter homes), Village Development, and Women Empowerment. Contact: +91 96709 70750 / kiransinghfoundationindia@gmail.com. How may we assist you today?`,
     suggestedAction: {
       type: "intake_form",
       label: "Mutual-Aid & Community Intake",

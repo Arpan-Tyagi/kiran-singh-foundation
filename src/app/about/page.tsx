@@ -102,8 +102,8 @@ export default function AboutPage() {
               Institutional Email &amp; Dispatch
             </span>
             <p className="font-mono text-xs font-semibold text-obsidian break-all">
-              <a href="mailto:kiransinghfoundation@gmail.com" className="hover:text-lion-gold-dark">
-                kiransinghfoundation@gmail.com
+              <a href="mailto:kiransinghfoundationindia@gmail.com" className="hover:text-lion-gold-dark">
+                kiransinghfoundationindia@gmail.com
               </a>
             </p>
             <p className="text-slate text-[11px]">
