@@ -25,10 +25,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Dispatch Not Found | Kiran Singh Foundation",
     };
   }
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kiransinghfoundation.org";
+  const postUrl = `${siteUrl}/dispatches/${post.slug}`;
   return {
-    title: `${post.title} | Kiran Singh Foundation Directorate Press`,
+    title: `${post.title} | Kiran Singh Foundation`,
     description: post.summary,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
+      title: post.title,
+      description: post.summary,
+      url: postUrl,
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.authorName],
+      images: [
+        {
+          url: post.coverImageUrl,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: post.title,
       description: post.summary,
       images: [post.coverImageUrl],
@@ -102,8 +122,40 @@ export default async function DispatchDetailPage({ params }: Props) {
   const shareText = `Read "${post.title}" on the Kiran Singh Foundation Institutional Press: ${postUrl}`;
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary,
+    image: [post.coverImageUrl],
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    author: {
+      "@type": "Organization",
+      name: post.authorName,
+      url: "https://kiransinghfoundation.org",
+    },
+    publisher: {
+      "@type": "NGO",
+      name: "Kiran Singh Foundation",
+      url: "https://kiransinghfoundation.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://kiransinghfoundation.org/images/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+  };
+
   return (
     <article className="py-16 px-4 md:px-8 max-w-4xl mx-auto space-y-12 bg-porcelain">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Back button */}
       <div>
         <Link
