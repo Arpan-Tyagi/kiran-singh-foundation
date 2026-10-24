@@ -488,7 +488,9 @@ export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
     wing: "Student Welfare Wing",
     moment: "Configured with editorial monogram, ready for photo upload",
     badge: "Cohort Leadership & Peer Coordination",
-    description: "Directing peer study groups, soft-skills debate rehearsals, and mutual-aid student mobilization. Configured with editorial crest monogram, awaiting archival photo upload.",
+    description: "Presented with the framed Letter of Appreciation from Col. Prasoon Singh, SM by Secretary Shri Anuj Kumar Singh at the Winter 2026 convocation.",
+    photoUrl: "/images/office-bearers/varnika-mishra.jpg",
+    photoPosition: "object-[70%_28%]",
   },
 ];
 
@@ -1168,6 +1170,7 @@ export const SCHOLARS_COHORT: StudentScholar[] = [
     teamName: "Team 3: Team Prateeksha & Rohini",
     teamRole: "Member",
     teamRank: 8,
+    photoUrl: "/images/office-bearers/varnika-mishra.jpg",
     academicDiscipline: "Team Member (Ceremonial Team Leader Honors) • Team 3",
     institution: "KSF (Student Welfare) Wing — Prayagraj",
     cohortYear: 2026,
@@ -2369,7 +2372,7 @@ Today, the **KSF (Dog Welfare) Wing** in Prayagraj rescues and vaccinates street
 
 In every calm gaze from our 34 resident canines across our 4 shelter homes, the foundational discipline of Late Kiran Singh ji lives on.`,
     authorName: "Foundation Directorate",
-    coverImageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: "/images/dispatches/felid-ethology-archive.jpg",
     isAiDrafted: false,
     publishedAt: "2024-11-15T09:00:00+05:30",
     isPublished: true,
@@ -2396,7 +2399,7 @@ Diverse research topics are assigned to each of the 4 teams. Each team prepares 
 ### Internship Closing Ceremony & Stipend Conferral
 At the conclusion of each term, an **Internship Closing Ceremony** is conducted where students are awarded **Certificates, Trophies, and Mementos along with a Stipend amount** to honor their hard work and dedication throughout the journey.`,
     authorName: "Trustee Academic Board",
-    coverImageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: "/images/dispatches/forty-scholars-cohort-graduation.jpg",
     isAiDrafted: false,
     publishedAt: "2024-12-05T10:30:00+05:30",
     isPublished: true,
@@ -2421,7 +2424,7 @@ Specialized career workshops and dedicated investor summits are convened regular
 ### Emergency Mutual-Aid Interconnectedness
 Across all four wings, our scholars, rescuers, and community leaders remain synchronized through rapid WhatsApp dispatch at 191/C Tilak Nagar Allahpur Prayagraj, guaranteeing that no community member or rescue stands alone.`,
     authorName: "Field Coordination Cell",
-    coverImageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: "/images/dispatches/village-development-community-aid.jpg",
     isAiDrafted: false,
     publishedAt: "2025-01-10T14:00:00+05:30",
     isPublished: true,
@@ -2567,7 +2570,7 @@ For urgent veterinary coordination or severe trauma cases in the Prayagraj regio
 
 Coordinate rescue support through our dedicated institutional email at \`kiransinghfoundationindia@gmail.com\` or transmit live location data via our emergency triage dispatch desk.`,
     authorName: "KSF Veterinary Medical Wing",
-    coverImageUrl: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: "/images/dispatches/stray-dog-veterinary-triage-protocol.jpg",
     isAiDrafted: false,
     publishedAt: "2026-10-24T21:00:00+05:30",
     isPublished: true,

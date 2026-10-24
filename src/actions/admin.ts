@@ -35,7 +35,7 @@ export async function createBlogPostAction(formData: {
     summary: formData.summary,
     contentMarkdown: formData.contentMarkdown,
     authorName: formData.authorName || "Foundation Directorate",
-    coverImageUrl: formData.coverImageUrl || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: formData.coverImageUrl || "/images/dispatches/felid-ethology-archive.jpg",
     isAiDrafted: !!formData.isAiDrafted,
     publishedAt: new Date().toISOString(),
     isPublished: true,

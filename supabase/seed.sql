@@ -252,7 +252,7 @@ Today, the Kiran Singh Foundation Dog Care Centre shelters exactly 34 rescued st
 
 In every calm gaze from our resident canines, the foundational discipline of Late Kiran Singh ji lives on.',
     'Foundation Directorate',
-    'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
+    '/images/dispatches/felid-ethology-archive.jpg',
     FALSE,
     '2024-11-15 09:00:00+05:30',
     TRUE
@@ -279,7 +279,7 @@ To prevent academic insularity, every scholar participates in Winter and Summer 
 
 Through discipline and devotion, these forty young women and men carry forward the motto: **"Working Towards Change"**.',
     'Trustee Academic Board',
-    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+    '/images/dispatches/forty-scholars-cohort-graduation.jpg',
     FALSE,
     '2024-12-05 10:30:00+05:30',
     TRUE
@@ -300,7 +300,7 @@ Whether a family faces severe illness, a sudden crisis in street canine trauma, 
 
 When emergencies strike, we do not deliberate; we respond.',
     'Field Coordination Cell',
-    'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
+    '/images/dispatches/village-development-community-aid.jpg',
     FALSE,
     '2025-01-10 14:00:00+05:30',
     TRUE

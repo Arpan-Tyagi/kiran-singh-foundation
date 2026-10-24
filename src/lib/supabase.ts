@@ -218,7 +218,7 @@ function mapDbBlogPostToBlogPost(row: any): BlogPost {
     summary: row.summary,
     contentMarkdown: row.content_markdown || row.contentMarkdown,
     authorName: row.author_name || row.authorName || "Kiran Singh Foundation Directorate",
-    coverImageUrl: row.cover_image_url || row.coverImageUrl || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80",
+    coverImageUrl: row.cover_image_url || row.coverImageUrl || "/images/dispatches/felid-ethology-archive.jpg",
     isAiDrafted: row.is_ai_drafted ?? row.isAiDrafted ?? false,
     publishedAt: row.published_at || row.publishedAt || new Date().toISOString(),
     isPublished: row.is_published ?? row.isPublished ?? true,
