@@ -518,6 +518,14 @@ test("Accredited Academic Partnership & UPES Dehradun MoU Accord", async (t) => 
     assert.ok(rosterContent.includes("UPES_ACADEMIC_PARTNERSHIP"), "StudentsRosterClient must reference UPES_ACADEMIC_PARTNERSHIP");
     assert.ok(footerContent.includes("UPES Dehradun"), "Footer must cite UPES Dehradun");
   });
+
+  await t.test("Footer must feature minimalist agency credit for Panarch Digital with valid outbound link", () => {
+    const footerContent = fs.readFileSync(path.resolve("src/components/Footer.tsx"), "utf8");
+    assert.ok(footerContent.includes("Crafted with Purpose by"), "Footer must include 'Crafted with Purpose by'");
+    assert.ok(footerContent.includes("Panarch Digital"), "Footer must credit Panarch Digital");
+    assert.ok(footerContent.includes("https://panarchdigital.com"), "Footer must link to https://panarchdigital.com");
+    assert.ok(footerContent.includes('rel="noopener noreferrer"'), "Footer external link must include rel='noopener noreferrer'");
+  });
 });
 
 

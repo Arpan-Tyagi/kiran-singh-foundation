@@ -196,12 +196,26 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Legal & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate font-mono gap-4">
-          <p>
+        {/* Legal, Credits & Copyright */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate font-mono gap-4 border-t border-border/40 mt-2">
+          <p className="text-center md:text-left">
             &copy; {new Date().getFullYear()} Kiran Singh Foundation. All Rights Reserved.
           </p>
-          <p className="italic font-serif text-slate font-medium">
+
+          <div className="flex items-center space-x-1.5 text-xs text-slate font-mono text-center">
+            <span>Crafted with Purpose by</span>
+            <a
+              href="https://panarchdigital.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-obsidian hover:text-lion-gold-dark transition-colors inline-flex items-center gap-1 underline underline-offset-4 decoration-border hover:decoration-lion-gold"
+            >
+              <span>Panarch Digital</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-slate hover:text-lion-gold-dark transition-colors" />
+            </a>
+          </div>
+
+          <p className="italic font-serif text-slate font-medium text-center md:text-right">
             Dedicated in Sacred Memory of Late Kiran Singh ji
           </p>
         </div>
