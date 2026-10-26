@@ -73,6 +73,17 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
      * Female students and women with great skills are given opportunities to develop a solid career across education, business, and entrepreneurship.
      * Organizes awareness programs and investment summits to motivate young women to pursue their career despite family pressures.
 10. CORE PURPOSE: Deep community interconnectedness—ensuring participants and supporters are immediately available for one another during emergencies via WhatsApp (+91 96709 70750) and email (kiransinghfoundationindia@gmail.com).
+11. ACCREDITED ACADEMIC PARTNERSHIP (UPES DEHRADUN):
+    - Institutional Partner: The University of Petroleum and Energy Studies (UPES), Dehradun, Uttarakhand (Main campus: Bidholi, Dehradun).
+    - Bilateral Memorandum of Understanding (MoU): Arrived and executed on 13th April 2026 under Government of Uttarakhand e-Stamp Certificate IN-UK09052749976330X (Unique Ref: SUBIN-UKUK129890424840684099060X).
+    - Program Track: "School for Life" program — integrating UPES undergraduate students into pro-bono social awareness and field internships across Kiran Singh Foundation projects.
+    - Key Operational Standards:
+      * Mandatory 1:5 Mentor Ratio: At least one dedicated foundation mentor for every 5 student interns.
+      * Duration: 6 to 8-week structured summer and winter terms (preferred during June and July).
+      * Strict Pro-Bono Mandate: Zero fees, stipends, or charges billed or reimbursed between institutions.
+      * Student Protections: Full POSH Act 2013 and anti-discrimination policy compliance, absolute prohibition against deploying interns for crowdfunding/fundraising, and 100% out-of-district/interstate travel reimbursement covered by KSF.
+      * Academic Credits & Evaluation: Systematic performance credits, attendance records, and grades submitted directly to UPES Registrar for academic coursework grading.
+      * 5-Year Term: 5-year binding horizon (April 2026 to April 2031) with mutual institutional logo authorization (MoU Clause 5).
 
 STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (divided into 4 teams in Wing A) and exactly 34 rescued street dogs (housed across 4 built shelter homes in Wing B).

@@ -110,6 +110,32 @@ export interface BlogPost {
   isPublished: boolean;
 }
 
+export interface AcademicPartnership {
+  id: string;
+  institutionName: string;
+  shortName: string;
+  location: string;
+  logoUrl: string;
+  programName: string;
+  effectiveDate: string;
+  effectiveDateFormatted: string;
+  expiryDate: string;
+  tenureYears: number;
+  eStampNumber: string;
+  eStampIssueDate: string;
+  statutoryRef: string;
+  signatories: {
+    upes: string;
+    foundation: string;
+  };
+  mentorRatio: string;
+  durationWeeks: string;
+  proBonoMandate: string;
+  keyClauses: string[];
+  summary: string;
+  description: string;
+}
+
 export const FOUNDATION_META = {
   name: "Kiran Singh Foundation",
   trustRegistration: "Trust registered under Indian Trust Act of 1882",
@@ -159,6 +185,15 @@ export const FOUNDATION_META = {
     ckycNumber: "80001700802453",
     mmid: "9240594",
     smartHubVyaparTid: "82215825",
+  },
+  academicPartner: {
+    institutionName: "The University of Petroleum and Energy Studies",
+    shortName: "UPES Dehradun",
+    programName: "School for Life",
+    moUDate: "13th April 2026",
+    eStampNumber: "IN-UK09052749976330X",
+    mentorRatio: "1:5",
+    proBono: true,
   },
 };
 
@@ -2576,3 +2611,41 @@ Coordinate rescue support through our dedicated institutional email at \`kiransi
     isPublished: true,
   },
 ];
+
+export const UPES_ACADEMIC_PARTNERSHIP: AcademicPartnership = {
+  id: "partnership-upes-dehradun",
+  institutionName: "The University of Petroleum and Energy Studies",
+  shortName: "UPES Dehradun",
+  location: "Villages Bidholi, via Prem Nagar, Dehradun, Uttarakhand, 248007, India",
+  logoUrl: "/images/partners/upes-logo.png",
+  programName: "School for Life (Pro-Bono Civic & Field Internship)",
+  effectiveDate: "2026-04-13",
+  effectiveDateFormatted: "13th April 2026",
+  expiryDate: "2031-04-12",
+  tenureYears: 5,
+  eStampNumber: "IN-UK09052749976330X",
+  eStampIssueDate: "25-Jul-2025 06:51 AM",
+  statutoryRef: "SUBIN-UKUK129890424840684099060X / Article 5 Agreement",
+  signatories: {
+    upes: "Mr. Manish Madaan, Registrar, UPES Dehradun",
+    foundation: "Shri Anuj Kumar Singh, Manager, Kiran Singh Foundation",
+  },
+  mentorRatio: "1:5 (At least one dedicated mentor per 5 student interns)",
+  durationWeeks: "6 to 8 weeks (Preferred during June & July)",
+  proBonoMandate: "Strict pro-bono collaboration without charging or seeking reimbursement of any fee, stipend, or charges.",
+  keyClauses: [
+    "School for Life Integration: Social awareness and experiential field learning across foundation public interest projects.",
+    "Mandatory 1:5 Mentor Ratio: Minimum of one senior foundation mentor assigned per five interns for rigorous research and field supervision.",
+    "Student Safety & POSH Act 2013: Anti-Harassment (Prevention, Prohibition and Redressal Act, 2013) and Anti-Discrimination protections applicable ipso facto.",
+    "Prohibition of Commercial Fundraising: Interns are legally protected from being deployed for crowdfunding or financial solicitation.",
+    "Travel Reimbursement: All out-of-district and interstate travel expenses incurred during foundation duties are fully borne by KSF.",
+    "Academic Credit Mechanism: Formal tracking matrix, attendance reports, and grades transmitted directly to UPES Registrar for course evaluation.",
+    "Mutual Logo Authorization: Institutional marks authorized solely for administering and promoting collaborative academic initiatives.",
+    "5-Year Term & Arbitration: Enforceable for 5 years with 90-day written notice and arbitration seat at Dehradun under Arbitration & Conciliation Act 1996.",
+  ],
+  summary: "Official bilateral Memorandum of Understanding between UPES Dehradun and Kiran Singh Foundation establishing a 5-year pro-bono field internship pathway under the School for Life program with a 1:5 mentor ratio.",
+  description: "Executed on 13th April 2026 under Government of Uttarakhand e-Stamp IN-UK09052749976330X, this landmark accord enables undergraduate scholars from UPES Dehradun to complete structured 6 to 8-week pro-bono internships across Kiran Singh Foundation's operational wings, receiving formal academic credits, empirical research mentorship, and zero commercial exploitation.",
+};
+
+export const ACADEMIC_PARTNERSHIPS: AcademicPartnership[] = [UPES_ACADEMIC_PARTNERSHIP];
+

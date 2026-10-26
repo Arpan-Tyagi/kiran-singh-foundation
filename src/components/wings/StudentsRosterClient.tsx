@@ -19,6 +19,7 @@ import {
   StudentScholar,
   STUDENT_WELFARE_TEAMS_2026_27,
   STUDENT_COHORT_SUMMARY_2026_27,
+  UPES_ACADEMIC_PARTNERSHIP,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
@@ -203,6 +204,47 @@ export default function StudentsRosterClient({
             <p className="text-[11px] text-slate font-sans">
               Headed by HSM, Dy. HSM &amp; Team Leader supervisory corps
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* UPES School for Life Academic Alliance Callout */}
+      <div className="rounded-3xl p-2 sm:p-2.5 bg-gradient-to-r from-stone-100 via-lion-gold/15 to-stone-100 border border-lion-gold/30 shadow-elevation-1">
+        <div className="rounded-2xl bg-white p-5 sm:p-7 border border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-2.5 border border-border shadow-xs shrink-0 flex items-center justify-center">
+              <Image
+                src={UPES_ACADEMIC_PARTNERSHIP.logoUrl}
+                alt="UPES Dehradun Logo"
+                fill
+                sizes="96px"
+                className="object-contain p-1.5"
+              />
+            </div>
+            <div className="space-y-1.5 max-w-2xl">
+              <div className="inline-flex items-center space-x-2 px-2.5 py-0.5 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+                <span>Accredited Academic Partner &bull; UPES Dehradun</span>
+              </div>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
+                School for Life &bull; Pro-Bono Field & Research Internship Track
+              </h3>
+              <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
+                Under the bilateral MoU executed on 13th April 2026 (Uttarakhand e-Stamp <span className="font-mono text-obsidian font-semibold">{UPES_ACADEMIC_PARTNERSHIP.eStampNumber}</span>), UPES scholars join our 4-team operational wings under a strict <strong className="text-obsidian font-semibold">1:5 mentor ratio</strong>. All participation is 100% pro-bono with zero commercial fundraising, guaranteed POSH Act 2013 protections, and formal academic credits submitted to the UPES Registrar.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0 w-full sm:w-auto">
+            <Link
+              href="/about#academic-partnership"
+              className="px-5 py-2.5 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center justify-center gap-1.5 text-center shadow-sm"
+            >
+              <span>Inspect Accord</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-lion-gold" />
+            </Link>
+            <span className="text-[10px] font-mono text-slate text-center block">
+              5-Year Horizon (2026&ndash;2031)
+            </span>
           </div>
         </div>
       </div>

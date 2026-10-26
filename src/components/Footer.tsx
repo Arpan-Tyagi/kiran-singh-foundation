@@ -53,6 +53,7 @@ export default function Footer() {
                 <div><strong className="text-obsidian">Registered Office:</strong> 191/C, Tilak Nagar Allahpur Prayagraj 211006</div>
                 <div><strong className="text-obsidian">Statutory IDs:</strong> PAN: AAGTK3961N &bull; CSR: CSR00110895 &bull; URN: AAGTK3961NE20261 &bull; SRN: AC3352827</div>
                 <div><strong className="text-obsidian">Endowment Bank:</strong> HDFC Bank (Naya Katra, Prayagraj) &bull; A/C: 50200119758811 &bull; IFSC: HDFC0004664</div>
+                <div><strong className="text-obsidian">Academic Partner:</strong> UPES Dehradun &bull; MoU Accord: 13/04/2026 (e-Stamp IN-UK09052749976330X)</div>
                 <div><strong className="text-obsidian">Email:</strong> kiransinghfoundationindia@gmail.com</div>
               </div>
             </div>
@@ -172,6 +173,16 @@ export default function Footer() {
               <div>&bull; Shri Anuj Kumar Singh (Secretary)</div>
               <div>&bull; Shri Anil Kumar Singh (President)</div>
               <div>&bull; Ms. Akansha Singh (Treasurer)</div>
+            </div>
+
+            <div className="p-3 rounded-xl bg-slate-50 border border-border font-mono text-[10px] text-slate space-y-1">
+              <div className="flex items-center space-x-2">
+                <div className="relative w-4 h-4 rounded overflow-hidden shrink-0">
+                  <Image src="/images/partners/upes-logo.png" alt="UPES Logo" fill className="object-contain" sizes="16px" />
+                </div>
+                <span className="text-obsidian font-semibold">Academic Alliance:</span>
+              </div>
+              <div className="text-slate">UPES Dehradun &bull; School for Life (1:5 Mentor Ratio)</div>
             </div>
 
             <div className="pt-1">

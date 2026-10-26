@@ -489,5 +489,37 @@ test("Exhaustive Canine Forensic Analysis & Zero-Duplication Roster Integrity", 
   });
 });
 
+test("Accredited Academic Partnership & UPES Dehradun MoU Accord", async (t) => {
+  await t.test("UPES Academic Partnership must be exported with canonical MoU attributes", () => {
+    assert.ok(dataContent.includes("export const UPES_ACADEMIC_PARTNERSHIP"), "Must export UPES_ACADEMIC_PARTNERSHIP");
+    assert.ok(dataContent.includes("IN-UK09052749976330X"), "Must include Government of Uttarakhand e-Stamp IN-UK09052749976330X");
+    assert.ok(dataContent.includes("School for Life"), "Must cite UPES School for Life program");
+    assert.ok(dataContent.includes("13th April 2026"), "Must cite execution date 13th April 2026");
+    assert.ok(dataContent.includes("1:5"), "Must enforce mandatory 1:5 mentor ratio");
+    assert.ok(dataContent.includes("pro-bono"), "Must state pro-bono non-commercial mandate");
+  });
+
+  await t.test("UPES official logo must exist on disk with valid dimensions", () => {
+    const logoDiskPath = path.resolve("public/images/partners/upes-logo.png");
+    assert.ok(fs.existsSync(logoDiskPath), "UPES logo must exist in public/images/partners/upes-logo.png");
+    const stats = fs.statSync(logoDiskPath);
+    assert.ok(stats.size > 15000, `UPES logo must be > 15KB (found ${stats.size} bytes)`);
+  });
+
+  await t.test("About page must render accredited academic alliance section with anchor id", () => {
+    const aboutContent = fs.readFileSync(path.resolve("src/app/about/page.tsx"), "utf8");
+    assert.ok(aboutContent.includes('id="academic-partnership"'), "About page must contain id='academic-partnership'");
+    assert.ok(aboutContent.includes("UPES_ACADEMIC_PARTNERSHIP"), "About page must reference UPES_ACADEMIC_PARTNERSHIP");
+  });
+
+  await t.test("Students Roster and Footer must display UPES School for Life collaboration", () => {
+    const rosterContent = fs.readFileSync(path.resolve("src/components/wings/StudentsRosterClient.tsx"), "utf8");
+    const footerContent = fs.readFileSync(path.resolve("src/components/Footer.tsx"), "utf8");
+    assert.ok(rosterContent.includes("UPES_ACADEMIC_PARTNERSHIP"), "StudentsRosterClient must reference UPES_ACADEMIC_PARTNERSHIP");
+    assert.ok(footerContent.includes("UPES Dehradun"), "Footer must cite UPES Dehradun");
+  });
+});
+
+
 
 

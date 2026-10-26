@@ -14,6 +14,7 @@ import {
   FOUNDATION_META,
   FOUNDATION_LEADERSHIP,
   FOUR_OPERATIONAL_WINGS,
+  UPES_ACADEMIC_PARTNERSHIP,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
@@ -689,6 +690,134 @@ export default function AboutPage() {
           })}
         </div>
       </div>
+
+      {/* Accredited Academic Alliances & University Collaborations: UPES Dehradun */}
+      <section id="academic-partnership" className="rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-b from-[#FBF9F5] via-stone-50 to-[#F5F2EB] p-2.5 sm:p-4 border border-lion-gold/30 shadow-elevation-card relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-lion-gold/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="rounded-2xl sm:rounded-[calc(2.5rem-0.625rem)] bg-white p-6 sm:p-10 md:p-12 border border-stone-200/70 shadow-[inset_0_1px_2px_rgba(255,255,255,0.9)] relative space-y-10">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-border/80 pb-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+                <GraduationCap className="w-3.5 h-3.5 text-lion-gold-dark" />
+                <span>Accredited Academic Alliance &bull; Bilateral MoU Accord</span>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">
+                {UPES_ACADEMIC_PARTNERSHIP.institutionName}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate font-sans max-w-3xl leading-relaxed">
+                {UPES_ACADEMIC_PARTNERSHIP.description}
+              </p>
+            </div>
+
+            {/* UPES Boxed Logo Emblem */}
+            <div className="flex items-center space-x-4 shrink-0">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-3 border-2 border-lion-gold/30 shadow-elevation-1 flex items-center justify-center">
+                <Image
+                  src={UPES_ACADEMIC_PARTNERSHIP.logoUrl}
+                  alt={`${UPES_ACADEMIC_PARTNERSHIP.shortName} Official Logo`}
+                  fill
+                  sizes="128px"
+                  className="object-contain p-2"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Key Metrics Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl bg-stone-50/80 border border-border/80 space-y-1">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate block font-semibold">
+                Mentorship Guarantee
+              </span>
+              <span className="text-xl sm:text-2xl font-bold text-obsidian font-serif block">
+                1 : 5 Ratio
+              </span>
+              <span className="text-[11px] text-slate font-sans block leading-tight">
+                1 senior mentor assigned for every 5 student interns
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl bg-stone-50/80 border border-border/80 space-y-1">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate block font-semibold">
+                Academic Program
+              </span>
+              <span className="text-lg sm:text-xl font-bold text-botanical-emerald font-serif block">
+                School for Life
+              </span>
+              <span className="text-[11px] text-slate font-sans block leading-tight">
+                Pro-bono civic learning & social awareness track
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl bg-stone-50/80 border border-border/80 space-y-1">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate block font-semibold">
+                Cohort Duration
+              </span>
+              <span className="text-xl sm:text-2xl font-bold text-obsidian font-serif block">
+                6 to 8 Weeks
+              </span>
+              <span className="text-[11px] text-slate font-sans block leading-tight">
+                Structured field immersion during June & July
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl bg-stone-50/80 border border-border/80 space-y-1">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate block font-semibold">
+                Statutory Accord
+              </span>
+              <span className="text-xl sm:text-2xl font-bold text-lion-gold-dark font-serif block">
+                5-Year Term
+              </span>
+              <span className="text-[11px] text-slate font-sans block leading-tight">
+                Binding 2026&ndash;2031 &bull; Dehradun Arbitration
+              </span>
+            </div>
+          </div>
+
+          {/* Statutory Verification & Key Clauses */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-border/60">
+            <div className="lg:col-span-5 space-y-4">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-lion-gold-dark font-semibold">
+                Statutory Instrument & Signatories
+              </h4>
+              <div className="space-y-3 bg-stone-50/60 p-4 rounded-xl border border-border/70 text-xs font-sans">
+                <div>
+                  <span className="text-slate block text-[10px] font-mono uppercase">Uttarakhand e-Stamp Certificate</span>
+                  <span className="font-mono font-bold text-obsidian">{UPES_ACADEMIC_PARTNERSHIP.eStampNumber}</span>
+                  <span className="text-[10px] text-slate block mt-0.5">Issued: {UPES_ACADEMIC_PARTNERSHIP.eStampIssueDate} &bull; Article 5 Agreement</span>
+                </div>
+                <div className="pt-2 border-t border-border/50">
+                  <span className="text-slate block text-[10px] font-mono uppercase">University Signatory</span>
+                  <span className="font-medium text-obsidian">{UPES_ACADEMIC_PARTNERSHIP.signatories.upes}</span>
+                </div>
+                <div className="pt-2 border-t border-border/50">
+                  <span className="text-slate block text-[10px] font-mono uppercase">Foundation Signatory</span>
+                  <span className="font-medium text-obsidian">{UPES_ACADEMIC_PARTNERSHIP.signatories.foundation}</span>
+                </div>
+                <div className="pt-2 border-t border-border/50 flex items-center justify-between text-[11px]">
+                  <span className="text-slate">Effective Date:</span>
+                  <span className="font-bold text-obsidian font-mono">{UPES_ACADEMIC_PARTNERSHIP.effectiveDateFormatted}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-4">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-botanical-emerald font-semibold">
+                Core MoU Operating Clauses & Student Protections
+              </h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {UPES_ACADEMIC_PARTNERSHIP.keyClauses.map((clause, idx) => (
+                  <li key={idx} className="p-3 rounded-xl bg-stone-50/50 border border-border/60 text-xs text-slate font-sans leading-relaxed">
+                    <span className="font-bold text-lion-gold-dark mr-1.5 font-mono">0{idx + 1}.</span>
+                    {clause}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
