@@ -84,6 +84,14 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
       * Student Protections: Full POSH Act 2013 and anti-discrimination policy compliance, absolute prohibition against deploying interns for crowdfunding/fundraising, and 100% out-of-district/interstate travel reimbursement covered by KSF.
       * Academic Credits & Evaluation: Systematic performance credits, attendance records, and grades submitted directly to UPES Registrar for academic coursework grading.
       * 5-Year Term: 5-year binding horizon (April 2026 to April 2031) with mutual institutional logo authorization (MoU Clause 5).
+12. UPCOMING WINTER INTERNSHIP PROGRAM (2026–27 BATCH DEPLOYMENT):
+    - Official Executive Decree: Signed by Secretary Shri Anuj Kumar Singh on 05/11/2026 (5th November 2026) at Prayagraj on official Kiran Singh Foundation letterhead.
+    - Mobilized Cohort: Exactly 26 selected scholars deployed across 4 tactical teams from the 37 active scholars:
+      * Team I (8 scholars): Headed by Vaishnavi (HSM) with members Aarya Srivastava, Anwesha Sinha, Swarnima Singh, Shubhi Singh, Vanya Singh, Karan Pal, Annanya Arora.
+      * Team II (9 scholars): Headed by Prateeksha Pandey (HSM) with members Varnika Mishra, Yashaswa Singh, Saksham Agrawal, Stuti Singh, Navleen Kaur Puri, Aleen Chaurasia, Parinita Bhushan, Mansi Raj Purwar.
+      * Team III (5 scholars): Headed by Shubhangi Singh (HSM - elevated from Dy. HSM) with members Stuti Dwivedi, Luvleen Kaur Puri, Yashi Singh, Vaibhavi Kushwaha.
+      * Team IV (4 scholars): Headed by Vedant Agrawal (HSM - elevated from Member) with members Heramb Mishra, Anadi Ratan Srivastava, Shaurya Pratap Singh.
+    - 4 Appointed HSMs: Vaishnavi, Prateeksha Pandey, Shubhangi Singh, and Vedant Agrawal.
 
 STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (divided into 4 teams in Wing A) and exactly 34 rescued street dogs (housed across 4 built shelter homes in Wing B).

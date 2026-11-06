@@ -528,6 +528,37 @@ test("Accredited Academic Partnership & UPES Dehradun MoU Accord", async (t) => 
   });
 });
 
+test("Official Decree: Upcoming Winter Internship Batch (2026-27 Session)", async (t) => {
+  await t.test("Must export WINTER_INTERNSHIP_BATCH_2026_27 with exactly 26 mobilized scholars across 4 teams", () => {
+    assert.ok(dataContent.includes("export const WINTER_INTERNSHIP_BATCH_2026_27"), "Must export WINTER_INTERNSHIP_BATCH_2026_27");
+    assert.ok(dataContent.includes("totalScholars: 26"), "Must declare totalScholars: 26");
+    assert.ok(dataContent.includes("teamsCount: 4"), "Must declare teamsCount: 4");
+    assert.ok(dataContent.includes("decreeDate: \"2026-11-05\""), "Must record decree date 2026-11-05");
+    assert.ok(dataContent.includes("Shri Anuj Kumar Singh"), "Must record signatory Shri Anuj Kumar Singh");
+  });
+
+  await t.test("Must accurately assign the 4 appointed Head Superintendent Managers (HSMs)", () => {
+    assert.ok(dataContent.includes("name: \"Vaishnavi\""), "Team I HSM must be Vaishnavi");
+    assert.ok(dataContent.includes("name: \"Prateeksha Pandey\""), "Team II HSM must be Prateeksha Pandey");
+    assert.ok(dataContent.includes("name: \"Shubhangi Singh\""), "Team III HSM must be Shubhangi Singh");
+    assert.ok(dataContent.includes("name: \"Vedant Agrawal\""), "Team IV HSM must be Vedant Agrawal");
+  });
+
+  await t.test("Official Letterhead Decree photographic asset must exist on disk", () => {
+    const decreeAssetPath = path.resolve("public/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg");
+    assert.ok(fs.existsSync(decreeAssetPath), "Decree image must exist at public/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg");
+    const stats = fs.statSync(decreeAssetPath);
+    assert.ok(stats.size > 50000, `Decree image must be > 50KB (found ${stats.size} bytes)`);
+  });
+
+  await t.test("Event detail page must integrate the 26-scholar winter roster section and decree image", () => {
+    const eventDetailContent = fs.readFileSync(path.resolve("src/app/events/[slug]/page.tsx"), "utf8");
+    assert.ok(eventDetailContent.includes("WINTER_INTERNSHIP_BATCH_2026_27"), "Event detail page must import and use WINTER_INTERNSHIP_BATCH_2026_27");
+    assert.ok(eventDetailContent.includes("Official Roster: 26 Selected Scholars Across 4 Teams"), "Event detail must render official roster title");
+  });
+});
+
+
 
 
 

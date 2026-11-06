@@ -16,8 +16,11 @@ import {
   FileCheck2,
   Sparkles,
   Share2,
+  ShieldCheck,
+  GraduationCap,
 } from "lucide-react";
 import { fetchEventBySlug, fetchEvents } from "@/lib/supabase";
+import { WINTER_INTERNSHIP_BATCH_2026_27 } from "@/lib/data/foundation-data";
 
 interface Props {
   params: Promise<{
@@ -221,6 +224,135 @@ export default async function EventDetailPage({ params }: Props) {
           </div>
         )}
       </section>
+
+      {/* Official 26-Scholar Winter Batch Deployment (If Winter 2026-27 Session) */}
+      {event.slug === "upcoming-winter-internship-program-2026-27" && (
+        <section className="space-y-8">
+          <div className="border-b border-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center space-x-1.5 text-xs font-mono text-lion-gold-dark uppercase font-semibold mb-1">
+                <GraduationCap className="w-3.5 h-3.5" />
+                <span>Official Executive Decree &bull; Date: 05/11/2026</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
+                Official Roster: 26 Selected Scholars Across 4 Teams
+              </h2>
+              <p className="text-xs sm:text-sm text-slate font-sans mt-0.5 max-w-2xl">
+                Certified by Secretary Shri Anuj Kumar Singh. Each team is commanded by an appointed Head Superintendent Manager (HSM) preparing plagiarism-audited research defenses.
+              </p>
+            </div>
+            <div className="shrink-0 flex items-center gap-2">
+              <span className="px-3.5 py-1.5 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 text-botanical-emerald text-xs font-mono font-semibold">
+                4 Active Teams &bull; 26 Deployed
+              </span>
+            </div>
+          </div>
+
+          {/* Letterhead Decree Card + Team Bento */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left: Scanned Decree Document */}
+            <div className="lg:col-span-5 bg-white border border-border rounded-3xl p-5 shadow-elevation-1 space-y-4">
+              <div className="flex items-center justify-between border-b border-border pb-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-lion-gold-dark font-semibold">
+                  Official Notification Letterhead
+                </span>
+                <span className="text-[10px] font-mono text-slate">
+                  Prayagraj &bull; 05/11/26
+                </span>
+              </div>
+
+              <div className="relative w-full aspect-[1/1.4] rounded-2xl overflow-hidden border border-border/80 bg-slate-50 shadow-inner group">
+                <Image
+                  src={WINTER_INTERNSHIP_BATCH_2026_27.decreeDocumentUrl}
+                  alt="Official Executed Decree: Final List for Upcoming Internship Program"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-contain p-1 group-hover:scale-102 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-porcelain border border-border/70 text-xs font-sans text-slate space-y-1.5">
+                <div className="flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-slate">Issuing Authority:</span>
+                  <strong className="text-obsidian">{WINTER_INTERNSHIP_BATCH_2026_27.signatory}</strong>
+                </div>
+                <div className="flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-slate">Official Secretariat:</span>
+                  <span className="text-obsidian font-medium">191/C Tilak Nagar, Prayagraj</span>
+                </div>
+                <div className="flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-slate">Verified Hotline:</span>
+                  <span className="text-obsidian font-medium">+91 96709 70750 / 80048 62107</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: 4 Deployed Teams Grid */}
+            <div className="lg:col-span-7 space-y-5">
+              {WINTER_INTERNSHIP_BATCH_2026_27.teams.map((team) => (
+                <div
+                  key={team.teamCode}
+                  className="bg-white border border-border rounded-2xl p-5 shadow-elevation-1 space-y-3"
+                >
+                  <div className="flex items-center justify-between border-b border-border/70 pb-3">
+                    <div className="flex items-center space-x-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark font-mono text-xs font-bold uppercase">
+                        {team.teamCode}
+                      </span>
+                      <h3 className="font-serif text-lg font-bold text-obsidian">
+                        Command: {team.hsm.name} <span className="text-xs font-mono text-botanical-emerald uppercase font-semibold">(HSM)</span>
+                      </h3>
+                    </div>
+                    <span className="text-xs font-mono text-slate">
+                      {team.totalStrength} Scholars
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans">
+                    {/* HSM */}
+                    <div className="p-2.5 rounded-xl bg-lion-gold/5 border border-lion-gold/30 col-span-1 sm:col-span-2 flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <div className="flex items-center space-x-2">
+                          <strong className="text-obsidian font-medium">{team.hsm.name}</strong>
+                          <span className="px-1.5 py-0.5 rounded bg-lion-gold/20 text-lion-gold-dark text-[9px] font-mono font-bold uppercase">
+                            HSM Commander
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate block">
+                          {team.hsm.academicDiscipline}
+                        </span>
+                      </div>
+                      <span className="font-mono text-[10px] text-lion-gold-dark font-bold shrink-0">
+                        {team.hsm.scholarId}
+                      </span>
+                    </div>
+
+                    {/* Members */}
+                    {team.members.map((mem) => (
+                      <div
+                        key={mem.scholarId}
+                        className="p-2.5 rounded-xl bg-porcelain border border-border/60 flex items-center justify-between"
+                      >
+                        <div className="space-y-0.5 truncate mr-2">
+                          <span className="font-medium text-obsidian text-xs block truncate">
+                            {mem.name}
+                          </span>
+                          <span className="text-[10px] text-slate block truncate font-sans">
+                            {mem.academicDiscipline}
+                          </span>
+                        </div>
+                        <span className="font-mono text-[10px] text-slate shrink-0">
+                          {mem.scholarId}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4. Ceremonial Action Photographs Gallery */}
       {event.galleryImages && event.galleryImages.length > 0 && (

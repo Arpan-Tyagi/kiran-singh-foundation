@@ -136,6 +136,36 @@ export interface AcademicPartnership {
   description: string;
 }
 
+export interface WinterInternshipTeamMember {
+  scholarId: string;
+  name: string;
+  decreeRole: "HSM" | "Member";
+  academicDiscipline: string;
+}
+
+export interface WinterInternshipDeployedTeam {
+  teamCode: "Team I" | "Team II" | "Team III" | "Team IV";
+  teamTitle: string;
+  hsm: WinterInternshipTeamMember;
+  members: WinterInternshipTeamMember[];
+  totalStrength: number;
+}
+
+export interface WinterInternshipBatchDeployment {
+  session: string;
+  title: string;
+  decreeDate: string;
+  decreeDateFormatted: string;
+  place: string;
+  signatory: string;
+  signatoryTitle: string;
+  decreeDocumentUrl: string;
+  totalScholars: number;
+  teamsCount: number;
+  teams: WinterInternshipDeployedTeam[];
+  description: string;
+}
+
 export const FOUNDATION_META = {
   name: "Kiran Singh Foundation",
   trustRegistration: "Trust registered under Indian Trust Act of 1882",
@@ -151,10 +181,13 @@ export const FOUNDATION_META = {
   incomeTaxSection: "Section 332(8) and 354(4) of Income Tax Act",
   csrRegistrationNumber: "CSR00110895",
   applicationSrn: "SRN AC3352827",
-  mobileNumbers: ["9670970750", "8115141378", "9450630310"],
+  mobileNumbers: ["9670970750", "8115141378", "9450630310", "8004862107"],
   primaryMobile: "9670970750",
-  formattedMobiles: ["+91 96709 70750", "+91 81151 41378", "+91 94506 30310"],
+  secretariatHotline: "8004862107",
+  formattedMobiles: ["+91 96709 70750", "+91 81151 41378", "+91 94506 30310", "+91 80048 62107"],
   email: "kiransinghfoundationindia@gmail.com",
+  secretariatEmail: "ankus0102@gmail.com",
+  upiId: "9670970750@ybl",
   address: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
   officialAddressFull: "191/C, Tilak Nagar, Allahpur, Allahabad (Prayagraj), U.P, India – 211006",
   registeredOffice: "191/C, Tilak Nagar Allahpur Prayagraj 211006",
@@ -2324,10 +2357,37 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     scheduledAt: "2026-12-20T10:00:00+05:30",
     location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
     description:
-      "Upcoming winter internship convening for our 37 active scholars across Teams 1 to 4 and incoming vacancy inductees. Curriculum covers executive communications, public policy synthesis, and winter research defense before the trustee board.",
+      "Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh, the upcoming Winter Internship Program convenes 26 selected scholars deployed across 4 tactical teams under appointed Head Superintendent Managers (HSMs): Team I (Vaishnavi), Team II (Prateeksha Pandey), Team III (Shubhangi Singh), and Team IV (Vedant Agrawal). Scholars prepare plagiarism-audited research reports and slide defenses before the Board of Trustees, earning academic credits, distinction certificates, trophies, and merit stipends.",
     capacity: 100,
     isPublished: true,
+    certificateType: "Winter Internship Certificate of Distinction & Research Honor",
     whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Upcoming%20Winter%20Internship%202026-27",
+    syllabusCovered: [
+      "Advanced Statutory Governance & Public Policy Synthesis",
+      "Plagiarism-Audited Formatted Research Report Preparation",
+      "High-Pressure Executive Speech Formulation & Oratory",
+      "Field Mutual-Aid Deployment & Emergency Community Triage",
+    ],
+    highlights: [
+      "Officially Decreed by Secretary Shri Anuj Kumar Singh on 05/11/2026",
+      "26 Selected Scholars Mobilized Across 4 Specialized Research Teams",
+      "4 Appointed Head Superintendent Managers (HSMs): Vaishnavi, Prateeksha, Shubhangi, Vedant",
+      "Academic Credit Transmission to UPES Dehradun School for Life Framework",
+    ],
+    researchThemes: [
+      "Empirical Veterinary Triage Dynamics in Street Canine Sanctuaries",
+      "Constitutional Protections and POSH Act 2013 Compliance in Civic Internships",
+      "Digital Divide Bridging in Rural Uttar Pradesh Education",
+      "Micro-Finance and Entrepreneurial Resilience Among Tier-2 Women",
+    ],
+    galleryImages: [
+      {
+        url: "/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg",
+        caption: "Official Notification Decree: Final List for Upcoming Internship Program signed by Secretary Shri Anuj Kumar Singh on 05/11/26 at Prayagraj",
+        officerName: "Shri Anuj Kumar Singh",
+        roleBadge: "Secretary • Official Decree 05/11/26",
+      },
+    ],
   },
 
   // 5. UPCOMING GATHERING 2: Canine Welfare Health & Booster Camp
@@ -2648,4 +2708,205 @@ export const UPES_ACADEMIC_PARTNERSHIP: AcademicPartnership = {
 };
 
 export const ACADEMIC_PARTNERSHIPS: AcademicPartnership[] = [UPES_ACADEMIC_PARTNERSHIP];
+
+export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = {
+  session: "2026–27",
+  title: "Final List for Upcoming Internship Program",
+  decreeDate: "2026-11-05",
+  decreeDateFormatted: "05/11/2026 (5th November 2026)",
+  place: "Prayagraj, U.P.",
+  signatory: "Shri Anuj Kumar Singh",
+  signatoryTitle: "Secretary, Kiran Singh Foundation",
+  decreeDocumentUrl: "/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg",
+  totalScholars: 26,
+  teamsCount: 4,
+  description:
+    "Official executive decree signed by Secretary Shri Anuj Kumar Singh on 5th November 2026 at Prayagraj, mobilizing 26 selected scholars across 4 operational teams headed by appointed Head Superintendent Managers (HSMs) for the upcoming Winter Internship Program.",
+  teams: [
+    {
+      teamCode: "Team I",
+      teamTitle: "Team I (Command: Vaishnavi, HSM)",
+      totalStrength: 8,
+      hsm: {
+        scholarId: "KSF-STU-013",
+        name: "Vaishnavi",
+        decreeRole: "HSM",
+        academicDiscipline: "Head Superintendent Manager (HSM) • Political Science & Constitutional Governance",
+      },
+      members: [
+        {
+          scholarId: "KSF-STU-020",
+          name: "Aarya Srivastava",
+          decreeRole: "Member",
+          academicDiscipline: "Economics & Public Policy Analysis",
+        },
+        {
+          scholarId: "KSF-STU-015",
+          name: "Anwesha Sinha",
+          decreeRole: "Member",
+          academicDiscipline: "International Humanitarian Law & Human Rights (Team Leader Honors)",
+        },
+        {
+          scholarId: "KSF-STU-018",
+          name: "Swarnima Singh",
+          decreeRole: "Member",
+          academicDiscipline: "English Literature & Critical Cultural Studies",
+        },
+        {
+          scholarId: "KSF-STU-017",
+          name: "Shubhi Singh",
+          decreeRole: "Member",
+          academicDiscipline: "Environmental Science & Sustainable Development",
+        },
+        {
+          scholarId: "KSF-STU-016",
+          name: "Vanya Singh",
+          decreeRole: "Member",
+          academicDiscipline: "Political Science & Constitutional Governance",
+        },
+        {
+          scholarId: "KSF-STU-019",
+          name: "Karan Pal",
+          decreeRole: "Member",
+          academicDiscipline: "Business Administration & Corporate Strategy",
+        },
+        {
+          scholarId: "KSF-STU-023",
+          name: "Annanya Arora",
+          decreeRole: "Member",
+          academicDiscipline: "Sociology & Rural Development Studies",
+        },
+      ],
+    },
+    {
+      teamCode: "Team II",
+      teamTitle: "Team II (Command: Prateeksha Pandey, HSM)",
+      totalStrength: 9,
+      hsm: {
+        scholarId: "KSF-STU-024",
+        name: "Prateeksha Pandey",
+        decreeRole: "HSM",
+        academicDiscipline: "Head Superintendent Manager (HSM) • Public Administration & Civic Systems",
+      },
+      members: [
+        {
+          scholarId: "KSF-STU-031",
+          name: "Varnika Mishra",
+          decreeRole: "Member",
+          academicDiscipline: "Environmental Law & Public Interest Litigation (Team Leader Honors)",
+        },
+        {
+          scholarId: "KSF-STU-026",
+          name: "Yashaswa Singh",
+          decreeRole: "Member",
+          academicDiscipline: "Corporate Law & Governance Compliance",
+        },
+        {
+          scholarId: "KSF-STU-027",
+          name: "Saksham Agrawal",
+          decreeRole: "Member",
+          academicDiscipline: "Economics & Public Finance Analysis",
+        },
+        {
+          scholarId: "KSF-STU-030",
+          name: "Stuti Singh",
+          decreeRole: "Member",
+          academicDiscipline: "International Relations & Diplomatic Protocols",
+        },
+        {
+          scholarId: "KSF-STU-033",
+          name: "Navleen Kaur Puri",
+          decreeRole: "Member",
+          academicDiscipline: "Psychology & Behavioral Counseling Science",
+        },
+        {
+          scholarId: "KSF-STU-028",
+          name: "Aleen Chaurasia",
+          decreeRole: "Member",
+          academicDiscipline: "Political Science & Social Policy Research",
+        },
+        {
+          scholarId: "KSF-STU-032",
+          name: "Parinita Bhushan",
+          decreeRole: "Member",
+          academicDiscipline: "Journalism & Mass Communications Ethics",
+        },
+        {
+          scholarId: "KSF-STU-029",
+          name: "Mansi Raj Purwar",
+          decreeRole: "Member",
+          academicDiscipline: "Commerce & Fiscal Audit Accounting",
+        },
+      ],
+    },
+    {
+      teamCode: "Team III",
+      teamTitle: "Team III (Command: Shubhangi Singh, HSM)",
+      totalStrength: 5,
+      hsm: {
+        scholarId: "KSF-STU-034",
+        name: "Shubhangi Singh",
+        decreeRole: "HSM",
+        academicDiscipline: "Head Superintendent Manager (HSM) • Sociology & Community Intervention Dynamics",
+      },
+      members: [
+        {
+          scholarId: "KSF-STU-003",
+          name: "Stuti Dwivedi",
+          decreeRole: "Member",
+          academicDiscipline: "Applied Psychology & Human Relations (Team Leader & Cultural Arts)",
+        },
+        {
+          scholarId: "KSF-STU-005",
+          name: "Luvleen Kaur Puri",
+          decreeRole: "Member",
+          academicDiscipline: "Clinical Psychology & Counseling Dynamics",
+        },
+        {
+          scholarId: "KSF-STU-035",
+          name: "Yashi Singh",
+          decreeRole: "Member",
+          academicDiscipline: "English Literature & Communication Arts",
+        },
+        {
+          scholarId: "KSF-STU-037",
+          name: "Vaibhavi Kushwaha",
+          decreeRole: "Member",
+          academicDiscipline: "Computer Science & Digital Literacy Integration",
+        },
+      ],
+    },
+    {
+      teamCode: "Team IV",
+      teamTitle: "Team IV (Command: Vedant Agrawal, HSM)",
+      totalStrength: 4,
+      hsm: {
+        scholarId: "KSF-STU-006",
+        name: "Vedant Agrawal",
+        decreeRole: "HSM",
+        academicDiscipline: "Head Superintendent Manager (HSM) • Commerce & Financial Accounting Systems",
+      },
+      members: [
+        {
+          scholarId: "KSF-STU-007",
+          name: "Heramb Mishra",
+          decreeRole: "Member",
+          academicDiscipline: "Public Administration & Urban Policy",
+        },
+        {
+          scholarId: "KSF-STU-011",
+          name: "Anadi Ratan Srivastava",
+          decreeRole: "Member",
+          academicDiscipline: "Legal Studies & Constitutional Law",
+        },
+        {
+          scholarId: "KSF-STU-009",
+          name: "Shaurya Pratap Singh",
+          decreeRole: "Member",
+          academicDiscipline: "Business Analytics & Operational Management",
+        },
+      ],
+    },
+  ],
+};
 
