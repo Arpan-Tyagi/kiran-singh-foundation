@@ -14,12 +14,17 @@ import {
   ShieldCheck,
   UserPlus,
   ArrowUpRight,
+  Sparkles,
+  FileText,
+  Eye,
+  X,
 } from "lucide-react";
 import {
   StudentScholar,
   STUDENT_WELFARE_TEAMS_2026_27,
   STUDENT_COHORT_SUMMARY_2026_27,
   UPES_ACADEMIC_PARTNERSHIP,
+  WINTER_INTERNSHIP_BATCH_2026_27,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
@@ -31,6 +36,31 @@ export default function StudentsRosterClient({
   const [searchTerm, setSearchTerm] = useState("");
   const [teamFilter, setTeamFilter] = useState<string>("all");
   const [roleFilter, setRoleFilter] = useState<string>("all");
+  const [rosterViewMode, setRosterViewMode] = useState<"winter_2026_27" | "session_2026_27">("winter_2026_27");
+  const [isDecreeModalOpen, setIsDecreeModalOpen] = useState(false);
+
+  // Map student scholarId to Winter 2026-27 Deployment
+  const winterScholarMap = React.useMemo(() => {
+    const map = new Map<string, { teamCode: string; decreeRole: string; hsmName: string }>();
+    for (const team of WINTER_INTERNSHIP_BATCH_2026_27.teams) {
+      map.set(team.hsm.scholarId, { teamCode: team.teamCode, decreeRole: "HSM", hsmName: team.hsm.name });
+      for (const mem of team.members) {
+        map.set(mem.scholarId, { teamCode: team.teamCode, decreeRole: "Member", hsmName: team.hsm.name });
+      }
+    }
+    return map;
+  }, []);
+
+  // Map student scholarId to custom photos if present
+  const scholarPhotoMap = React.useMemo(() => {
+    const map = new Map<string, string>();
+    for (const s of scholars) {
+      if (s.photoUrl) {
+        map.set(s.scholarId, s.photoUrl);
+      }
+    }
+    return map;
+  }, [scholars]);
 
   const filteredScholars = scholars.filter((scholar) => {
     const q = searchTerm.toLowerCase().trim();
@@ -50,6 +80,45 @@ export default function StudentsRosterClient({
 
     return matchesSearch && matchesTeam && matchesRole;
   });
+
+  // Filter Winter Teams dynamically based on search and teamFilter
+  const filteredWinterTeams = WINTER_INTERNSHIP_BATCH_2026_27.teams
+    .map((team) => {
+      if (teamFilter !== "all") {
+        const matchesCode =
+          teamFilter === team.teamCode ||
+          teamFilter === team.teamCode.replace("Team ", "") ||
+          (teamFilter === "1" && team.teamCode === "Team I") ||
+          (teamFilter === "2" && team.teamCode === "Team II") ||
+          (teamFilter === "3" && team.teamCode === "Team III") ||
+          (teamFilter === "4" && team.teamCode === "Team IV");
+        if (!matchesCode) return null;
+      }
+
+      const q = searchTerm.toLowerCase().trim();
+      if (!q) return team;
+
+      const hsmMatches =
+        team.hsm.name.toLowerCase().includes(q) ||
+        team.hsm.scholarId.toLowerCase().includes(q) ||
+        team.hsm.academicDiscipline.toLowerCase().includes(q);
+
+      const matchingMembers = team.members.filter(
+        (m) =>
+          m.name.toLowerCase().includes(q) ||
+          m.scholarId.toLowerCase().includes(q) ||
+          m.academicDiscipline.toLowerCase().includes(q)
+      );
+
+      if (hsmMatches || matchingMembers.length > 0) {
+        return {
+          ...team,
+          members: hsmMatches ? team.members : matchingMembers,
+        };
+      }
+      return null;
+    })
+    .filter(Boolean) as typeof WINTER_INTERNSHIP_BATCH_2026_27.teams;
 
   const syllabusModules = [
     {
@@ -249,22 +318,106 @@ export default function StudentsRosterClient({
         </div>
       </div>
 
+      {/* Official Cohort View Switcher & Letterhead Decree Notification */}
+      <div className="bg-gradient-to-r from-stone-100 via-lion-gold/15 to-stone-100 p-2 sm:p-2.5 rounded-3xl border border-lion-gold/30 shadow-elevation-1">
+        <div className="rounded-2xl bg-white p-6 sm:p-8 border border-stone-200/80 space-y-6">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-border/80 pb-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+                <FileText className="w-3.5 h-3.5 text-lion-gold-dark" />
+                <span>Official Decree Executed &bull; Date: 05/11/2026</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
+                Upcoming Winter Internship Batch: 26 Selected Scholars
+              </h2>
+              <p className="text-xs sm:text-sm text-slate font-sans max-w-2xl leading-relaxed">
+                Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh at Prayagraj. Deploys 26 scholars across 4 operational teams headed by appointed Head Superintendent Managers (HSMs): Vaishnavi (Team I), Prateeksha Pandey (Team II), Shubhangi Singh (Team III), and Vedant Agrawal (Team IV).
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => setIsDecreeModalOpen(true)}
+                className="px-4 py-2.5 rounded-full bg-white border border-lion-gold/40 text-obsidian text-xs font-mono font-semibold tracking-wider hover:bg-stone-50 transition-colors inline-flex items-center gap-1.5 shadow-2xs"
+              >
+                <Eye className="w-3.5 h-3.5 text-lion-gold-dark" />
+                <span>View Certified Decree</span>
+              </button>
+
+              <Link
+                href="/events/upcoming-winter-internship-program-2026-27"
+                className="px-5 py-2.5 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-1.5 shadow-sm"
+              >
+                <span>Winter Event Dossier</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-lion-gold" />
+              </Link>
+            </div>
+          </div>
+
+          {/* View Mode Switcher Pills */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
+            <div className="flex items-center space-x-2 text-xs font-mono text-obsidian font-semibold">
+              <Sparkles className="w-4 h-4 text-lion-gold-dark" />
+              <span>Select Active Student Roster View:</span>
+            </div>
+
+            <div className="flex items-center p-1 bg-stone-100 rounded-full border border-border w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => {
+                  setRosterViewMode("winter_2026_27");
+                  setTeamFilter("all");
+                }}
+                className={`flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-mono transition-all font-semibold ${
+                  rosterViewMode === "winter_2026_27"
+                    ? "bg-obsidian text-white shadow-sm"
+                    : "text-slate hover:text-obsidian"
+                }`}
+              >
+                Upcoming Winter Batch (26 Scholars)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setRosterViewMode("session_2026_27");
+                  setTeamFilter("all");
+                }}
+                className={`flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-mono transition-all font-semibold ${
+                  rosterViewMode === "session_2026_27"
+                    ? "bg-obsidian text-white shadow-sm"
+                    : "text-slate hover:text-obsidian"
+                }`}
+              >
+                Annual Session Roll (37 Active &bull; 40 Allotted)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Team-Wise Directory & Interactive Filter */}
       <div className="space-y-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-6">
           <div>
             <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-widest font-semibold">
-              Official 2026&ndash;27 Team Roster &bull; Organized by Team (1 to 4)
+              {rosterViewMode === "winter_2026_27"
+                ? "Official Notification (05/11/2026) • 4 Operational Winter Teams"
+                : "Official 2026–27 Team Roster • Organized by Team (1 to 4)"}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-obsidian font-semibold mt-1">
-              4-Team Student Welfare Registry
+              {rosterViewMode === "winter_2026_27"
+                ? "Winter 2026–27 Deployment Registry"
+                : "4-Team Student Welfare Registry"}
             </h2>
             <p className="text-xs sm:text-sm text-slate mt-1 font-sans max-w-2xl">
-              Complete 2026&ndash;27 roster organized across Team 1 (Team Unnaati &amp; Shiksha), Team 2 (Team Vaishnavi &amp; Navyanshi), Team 3 (Team Prateeksha &amp; Rohini), and Team 4 (Team Shubhangi).
+              {rosterViewMode === "winter_2026_27"
+                ? "Active deployment of 26 selected scholars across Team I (Vaishnavi, HSM), Team II (Prateeksha Pandey, HSM), Team III (Shubhangi Singh, HSM), and Team IV (Vedant Agrawal, HSM)."
+                : "Complete 2026–27 session roster organized across Team 1 (Team Unnaati & Shiksha), Team 2 (Team Vaishnavi & Navyanshi), Team 3 (Team Prateeksha & Rohini), and Team 4 (Team Shubhangi)."}
             </p>
           </div>
 
-          {/* Search & Team/Role Filters */}
+          {/* Search & Team Filters */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="relative">
               <Search className="w-4 h-4 text-slate absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -277,78 +430,315 @@ export default function StudentsRosterClient({
               />
             </div>
 
-            <select
-              value={teamFilter}
-              onChange={(e) => setTeamFilter(e.target.value)}
-              aria-label="Filter by Team"
-              className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
-            >
-              <option value="all">All 4 Teams (37 + 03 Vacancy)</option>
-              <option value="1">Team 1: Unnaati &amp; Shiksha (12)</option>
-              <option value="2">Team 2: Vaishnavi &amp; Navyanshi (11)</option>
-              <option value="3">Team 3: Prateeksha &amp; Rohini (10)</option>
-              <option value="4">Team 4: Shubhangi (04 + 03 Vacancy)</option>
-            </select>
+            {rosterViewMode === "winter_2026_27" ? (
+              <select
+                value={teamFilter}
+                onChange={(e) => setTeamFilter(e.target.value)}
+                aria-label="Filter by Winter Team"
+                className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
+              >
+                <option value="all">All 4 Winter Teams (26 Scholars)</option>
+                <option value="Team I">Team I: Vaishnavi (HSM) &bull; 8 Scholars</option>
+                <option value="Team II">Team II: Prateeksha Pandey (HSM) &bull; 9 Scholars</option>
+                <option value="Team III">Team III: Shubhangi Singh (HSM) &bull; 5 Scholars</option>
+                <option value="Team IV">Team IV: Vedant Agrawal (HSM) &bull; 4 Scholars</option>
+              </select>
+            ) : (
+              <select
+                value={teamFilter}
+                onChange={(e) => setTeamFilter(e.target.value)}
+                aria-label="Filter by Team"
+                className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
+              >
+                <option value="all">All 4 Teams (37 + 03 Vacancy)</option>
+                <option value="1">Team 1: Unnaati &amp; Shiksha (12)</option>
+                <option value="2">Team 2: Vaishnavi &amp; Navyanshi (11)</option>
+                <option value="3">Team 3: Prateeksha &amp; Rohini (10)</option>
+                <option value="4">Team 4: Shubhangi (04 + 03 Vacancy)</option>
+              </select>
+            )}
 
-            <select
-              value={roleFilter}
-              onChange={(e) => setRoleFilter(e.target.value)}
-              aria-label="Filter by Designation"
-              className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
-            >
-              <option value="all">All Designations</option>
-              <option value="HSM">HSM (Head Superintendent)</option>
-              <option value="Dy. HSM">Dy. HSM (Deputy HSM)</option>
-              <option value="Team Leader">Team Leader</option>
-              <option value="Member">Member</option>
-              <option value="Vacancy">Vacancy (03 Open Slots)</option>
-            </select>
+            {rosterViewMode === "session_2026_27" && (
+              <select
+                value={roleFilter}
+                onChange={(e) => setRoleFilter(e.target.value)}
+                aria-label="Filter by Designation"
+                className="px-4 py-2 bg-white border border-border rounded-full text-xs text-obsidian focus:outline-none focus:border-lion-gold font-mono shadow-sm"
+              >
+                <option value="all">All Designations</option>
+                <option value="HSM">HSM (Head Superintendent)</option>
+                <option value="Dy. HSM">Dy. HSM (Deputy HSM)</option>
+                <option value="Team Leader">Team Leader</option>
+                <option value="Member">Member</option>
+                <option value="Vacancy">Vacancy (03 Open Slots)</option>
+              </select>
+            )}
           </div>
         </div>
 
         {/* Quick Team Jump Pills */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
-            const isSelected = teamFilter === String(team.teamNumber);
-            return (
-              <button
-                key={team.teamNumber}
-                type="button"
-                onClick={() =>
-                  setTeamFilter(isSelected ? "all" : String(team.teamNumber))
-                }
-                className={`text-left p-4 rounded-2xl border transition-all ${
-                  isSelected
-                    ? "bg-obsidian text-white border-obsidian shadow-card"
-                    : "bg-white text-obsidian border-border hover:border-lion-gold/50 shadow-elevation-1"
-                }`}
-              >
-                <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
-                  <span className={isSelected ? "text-lion-gold" : "text-lion-gold-dark font-semibold"}>
-                    Team 0{team.teamNumber}
-                  </span>
-                  <span className={isSelected ? "text-white/80" : "text-slate"}>
-                    {team.currentCount} Enrolled
-                    {team.vacancyCount > 0 ? ` + 0${team.vacancyCount} Vacancy` : ""}
-                  </span>
-                </div>
-                <div className="font-serif text-base font-bold mt-1">
-                  {team.teamTitle.replace(/^Team \d:\s*/, "")}
-                </div>
-                <p
-                  className={`text-[11px] mt-1 line-clamp-1 font-sans ${
-                    isSelected ? "text-white/80" : "text-slate"
+        {rosterViewMode === "winter_2026_27" ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {WINTER_INTERNSHIP_BATCH_2026_27.teams.map((wTeam) => {
+              const isSelected = teamFilter === wTeam.teamCode;
+              return (
+                <button
+                  key={wTeam.teamCode}
+                  type="button"
+                  onClick={() =>
+                    setTeamFilter(isSelected ? "all" : wTeam.teamCode)
+                  }
+                  className={`text-left p-4 rounded-2xl border transition-all ${
+                    isSelected
+                      ? "bg-obsidian text-white border-obsidian shadow-card"
+                      : "bg-white text-obsidian border-border hover:border-lion-gold/50 shadow-elevation-1"
                   }`}
                 >
-                  {team.commandSummary}
-                </p>
-              </button>
-            );
-          })}
-        </div>
+                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
+                    <span className={isSelected ? "text-lion-gold" : "text-lion-gold-dark font-semibold"}>
+                      {wTeam.teamCode}
+                    </span>
+                    <span className={isSelected ? "text-white/80" : "text-slate"}>
+                      {wTeam.totalStrength} Scholars
+                    </span>
+                  </div>
+                  <div className="font-serif text-base font-bold mt-1">
+                    HSM: {wTeam.hsm.name}
+                  </div>
+                  <p
+                    className={`text-[11px] mt-1 line-clamp-1 font-sans ${
+                      isSelected ? "text-white/80" : "text-slate"
+                    }`}
+                  >
+                    Commanded by appointed Head Superintendent Manager
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
+              const isSelected = teamFilter === String(team.teamNumber);
+              return (
+                <button
+                  key={team.teamNumber}
+                  type="button"
+                  onClick={() =>
+                    setTeamFilter(isSelected ? "all" : String(team.teamNumber))
+                  }
+                  className={`text-left p-4 rounded-2xl border transition-all ${
+                    isSelected
+                      ? "bg-obsidian text-white border-obsidian shadow-card"
+                      : "bg-white text-obsidian border-border hover:border-lion-gold/50 shadow-elevation-1"
+                  }`}
+                >
+                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
+                    <span className={isSelected ? "text-lion-gold" : "text-lion-gold-dark font-semibold"}>
+                      Team 0{team.teamNumber}
+                    </span>
+                    <span className={isSelected ? "text-white/80" : "text-slate"}>
+                      {team.currentCount} Enrolled
+                      {team.vacancyCount > 0 ? ` + 0${team.vacancyCount} Vacancy` : ""}
+                    </span>
+                  </div>
+                  <div className="font-serif text-base font-bold mt-1">
+                    {team.teamTitle.replace(/^Team \d:\s*/, "")}
+                  </div>
+                  <p
+                    className={`text-[11px] mt-1 line-clamp-1 font-sans ${
+                      isSelected ? "text-white/80" : "text-slate"
+                    }`}
+                  >
+                    {team.commandSummary}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        )}
 
-        {/* Render Each Team Block */}
-        <div className="space-y-12">
+        {/* Dynamic Team Content: Winter 2026-27 Mode vs. Session Mode */}
+        {rosterViewMode === "winter_2026_27" ? (
+          <div className="space-y-12">
+            {filteredWinterTeams.map((wTeam) => (
+              <div
+                key={wTeam.teamCode}
+                className="bg-white border border-border rounded-3xl overflow-hidden shadow-elevation-1"
+              >
+                {/* Team Architectural Banner */}
+                <div className="p-6 sm:p-8 bg-slate-50 border-b border-border flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div className="space-y-1.5">
+                    <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-lion-gold-dark font-semibold">
+                      <Users className="w-3.5 h-3.5" />
+                      <span>
+                        Winter 2026&ndash;27 Deployment &bull; Decreed 05/11/2026
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian">
+                      {wTeam.teamTitle}
+                    </h3>
+                    <p className="text-xs text-slate font-mono">
+                      <strong className="text-obsidian">Supervisory Command:</strong> {wTeam.hsm.name} (HSM) &bull; Plagiarism Defense Track
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+                    <div className="px-3.5 py-2 rounded-xl bg-white border border-border text-obsidian font-semibold shadow-2xs">
+                      Deployed Strength: <span className="text-botanical-emerald">{wTeam.totalStrength} Scholars</span>
+                    </div>
+                    <span className="px-3 py-1.5 rounded-xl bg-lion-gold/10 text-lion-gold-dark font-semibold border border-lion-gold/30">
+                      1 HSM + {wTeam.members.length} Members
+                    </span>
+                  </div>
+                </div>
+
+                {/* Team Members Grid */}
+                <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {/* HSM Card */}
+                  <div className="bg-gradient-to-br from-white via-lion-gold/5 to-white border-2 border-lion-gold/40 rounded-2xl p-5 shadow-elevation-1 flex flex-col justify-between col-span-1 md:col-span-2 lg:col-span-1">
+                    <div>
+                      <div className="flex items-center justify-between pb-3 border-b border-lion-gold/30 mb-3.5">
+                        <div className="flex items-center gap-2 font-mono text-xs">
+                          <span className="w-6 h-6 rounded-md bg-lion-gold/20 border border-lion-gold/40 flex items-center justify-center text-[11px] font-bold text-lion-gold-dark">
+                            01
+                          </span>
+                          <span className="text-lion-gold-dark font-semibold">
+                            {wTeam.hsm.scholarId}
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full border uppercase bg-lion-gold/20 text-lion-gold-dark border-lion-gold/40 font-bold">
+                          HSM Commander
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-3.5">
+                        {scholarPhotoMap.get(wTeam.hsm.scholarId) ? (
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
+                            <Image
+                              src={scholarPhotoMap.get(wTeam.hsm.scholarId)!}
+                              alt={wTeam.hsm.name}
+                              fill
+                              sizes="48px"
+                              className="object-cover object-top"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-11 h-11 rounded-xl bg-lion-gold/15 border border-lion-gold/30 flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
+                            {wTeam.hsm.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
+                          </div>
+                        )}
+                        <div>
+                          <h4 className="font-serif text-lg font-bold text-obsidian leading-snug">
+                            {wTeam.hsm.name}
+                          </h4>
+                          <p className="text-xs text-lion-gold-dark font-mono font-medium">
+                            Head Superintendent Manager
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 pt-3 border-t border-lion-gold/20 space-y-1 text-xs">
+                        <span className="text-[10px] font-mono uppercase text-slate block font-medium">
+                          Academic Discipline:
+                        </span>
+                        <p className="text-obsidian font-sans text-xs font-medium">
+                          {wTeam.hsm.academicDiscipline}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-lion-gold/20 flex items-center justify-between text-[11px] font-mono text-slate">
+                      <span className="text-botanical-emerald flex items-center space-x-1 font-semibold">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>Winter &apos;26&ndash;27 Command</span>
+                      </span>
+                      <span className="text-lion-gold-dark font-bold font-mono">05/11/26 Decree</span>
+                    </div>
+                  </div>
+
+                  {/* Members Cards */}
+                  {wTeam.members.map((mem, mIdx) => {
+                    const initials = mem.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .slice(0, 2)
+                      .toUpperCase();
+
+                    return (
+                      <div
+                        key={mem.scholarId}
+                        className="bg-white border border-border rounded-2xl p-5 shadow-elevation-1 hover:shadow-elevation-card hover:border-lion-gold/50 transition-all duration-300 flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between pb-3 border-b border-border mb-3.5">
+                            <div className="flex items-center gap-2 font-mono text-xs">
+                              <span className="w-6 h-6 rounded-md bg-slate-100 border border-border flex items-center justify-center text-[11px] font-bold text-obsidian">
+                                {String(mIdx + 2).padStart(2, "0")}
+                              </span>
+                              <span className="text-lion-gold-dark font-semibold">
+                                {mem.scholarId}
+                              </span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full border uppercase bg-slate-100 text-obsidian border-border font-medium">
+                              Member
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-3.5">
+                            {scholarPhotoMap.get(mem.scholarId) ? (
+                              <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
+                                <Image
+                                  src={scholarPhotoMap.get(mem.scholarId)!}
+                                  alt={mem.name}
+                                  fill
+                                  sizes="48px"
+                                  className="object-cover object-top"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-11 h-11 rounded-xl bg-porcelain border border-border flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
+                                {initials}
+                              </div>
+                            )}
+                            <div>
+                              <h4 className="font-serif text-lg font-bold text-obsidian leading-snug">
+                                {mem.name}
+                              </h4>
+                              <p className="text-xs text-slate font-medium">
+                                {wTeam.teamCode} &bull; Research Member
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="mt-4 pt-3 border-t border-border space-y-1 text-xs">
+                            <span className="text-[10px] font-mono uppercase text-slate block font-medium">
+                              Academic Discipline:
+                            </span>
+                            <p className="text-obsidian font-sans text-xs font-medium">
+                              {mem.academicDiscipline}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[11px] font-mono text-slate">
+                          <span className="text-botanical-emerald flex items-center space-x-1 font-semibold">
+                            <ShieldCheck className="w-3.5 h-3.5" />
+                            <span>Winter Cohort</span>
+                          </span>
+                          <span className="text-slate">HSM: {wTeam.hsm.name}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Render Full Session Teams (37 Active + 03 Vacancy) */
+          <div className="space-y-12">
           {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
             const teamMembers = filteredScholars
               .filter((s) => (s.teamNumber || 1) === team.teamNumber)
@@ -541,6 +931,18 @@ export default function StudentsRosterClient({
                           </span>
                           <span>Att: {scholar.attendanceRate}%</span>
                         </div>
+
+                        {winterScholarMap.has(scholar.scholarId) && (
+                          <div className="mt-2.5 pt-2 border-t border-border/60 flex items-center justify-between text-[10px] font-mono">
+                            <span className="text-botanical-emerald font-semibold flex items-center gap-1">
+                              <Sparkles className="w-3 h-3 text-lion-gold-dark" />
+                              <span>Winter &apos;26&ndash;27: {winterScholarMap.get(scholar.scholarId)?.teamCode}</span>
+                            </span>
+                            <span className="text-lion-gold-dark font-medium">
+                              {winterScholarMap.get(scholar.scholarId)?.decreeRole === "HSM" ? "HSM Commander" : "Member"}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -549,8 +951,10 @@ export default function StudentsRosterClient({
             );
           })}
         </div>
+        )}
 
-        {filteredScholars.length === 0 && (
+        {((rosterViewMode === "winter_2026_27" && filteredWinterTeams.length === 0) ||
+          (rosterViewMode === "session_2026_27" && filteredScholars.length === 0)) && (
           <div className="p-12 text-center bg-white border border-border rounded-2xl shadow-sm text-slate font-mono text-xs">
             No students found matching current team or search filters.
           </div>
@@ -658,6 +1062,53 @@ export default function StudentsRosterClient({
       <div className="pt-10 border-t border-border">
         <OperationalHierarchy />
       </div>
+
+      {/* Official Letterhead Decree Lightbox Modal */}
+      {isDecreeModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setIsDecreeModalOpen(false)}
+        >
+          <div
+            className="relative max-w-xl w-full bg-white rounded-3xl overflow-hidden p-5 sm:p-7 shadow-2xl border border-lion-gold/40 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-border pb-3.5">
+              <div>
+                <span className="font-mono text-[10px] text-lion-gold-dark uppercase tracking-widest font-semibold block">
+                  Official Letterhead Decree &bull; Executed 05/11/2026
+                </span>
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-obsidian">
+                  Final List for Upcoming Internship Program
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsDecreeModalOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-obsidian hover:bg-slate-200 transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="relative w-full aspect-[1/1.4] rounded-2xl overflow-hidden bg-slate-50 border border-border shadow-inner">
+              <Image
+                src={WINTER_INTERNSHIP_BATCH_2026_27.decreeDocumentUrl}
+                alt="Official Executed Decree: Final List for Upcoming Internship Program"
+                fill
+                className="object-contain p-1"
+                sizes="(max-width: 640px) 90vw, 550px"
+              />
+            </div>
+
+            <div className="text-xs font-mono text-slate flex flex-col sm:flex-row items-center justify-between gap-2 pt-2 border-t border-border">
+              <span>Signatory: <strong className="text-obsidian">Secretary Shri Anuj Kumar Singh</strong></span>
+              <span>Place: <strong className="text-obsidian">Prayagraj, U.P.</strong></span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
