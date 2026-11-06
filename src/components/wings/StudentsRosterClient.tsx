@@ -184,27 +184,32 @@ export default function StudentsRosterClient({
             &ldquo;A Journey from struggle to Enlightenment&rdquo;
           </p>
           <p className="font-mono text-xs sm:text-sm text-slate tracking-normal sm:tracking-wider md:tracking-widest uppercase font-semibold break-words">
-            Official Roster (2026&ndash;27) &bull; Current Strength: 37 &bull; Allotted Strength: 40 &bull; Vacancy: 03
+            Active Roster (2026&ndash;27) &bull; 26 Selected Scholars Across 4 Teams &bull; 4 HSM Commanders &bull; Allotted Strength: 40
           </p>
+          <div className="inline-block mt-1">
+            <span className="font-mono text-[11px] text-amber-800 bg-amber-50/90 px-3 py-1 rounded-full border border-amber-300">
+              Notice: The 11 scholars of the Summer Internship Batch have concluded their tenure &amp; graduated (Historical Current Strength: 37 &bull; Allotted Strength: 40 &bull; Vacancy: 03)
+            </span>
+          </div>
         </div>
         <p className="text-xs sm:text-sm md:text-base text-slate leading-relaxed max-w-2xl mx-auto font-sans break-words">
-          Students are chosen through a rigorous <strong className="text-obsidian font-semibold">psychometric test and interview</strong> organized by the 3 core members (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh) and conducted by accomplished professionals. Organized into <strong className="text-obsidian font-semibold">4 teams</strong> across our Summer &amp; Winter Internship Programs, scholars prepare plagiarism-audited <strong className="text-obsidian font-semibold">Research Reports and PowerPoint defenses</strong>, culminating in an <strong className="text-obsidian font-semibold">Internship Closing Ceremony</strong> with Certificates, Trophies, Mementos, and Stipends.
+          Students are chosen through a rigorous <strong className="text-obsidian font-semibold">psychometric test and interview</strong> organized by the 3 core members (Shri Anuj Kumar Singh, Shri Anil Kumar Singh, and Ms. Akansha Singh) and conducted by accomplished professionals. Organized into <strong className="text-obsidian font-semibold">4 teams</strong> commanded by appointed Head Superintendent Managers (HSMs), scholars prepare plagiarism-audited <strong className="text-obsidian font-semibold">Research Reports and PowerPoint defenses</strong>, culminating in an <strong className="text-obsidian font-semibold">Internship Closing Ceremony</strong> with Certificates, Trophies, Mementos, and Stipends.
         </p>
       </div>
 
-      {/* Official 2026-27 Sheet Summary Telemetry Bar */}
+      {/* Official Sheet Summary Telemetry Bar */}
       <div className="bg-white border-2 border-lion-gold/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-elevation-1 space-y-5 sm:space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 border-b border-border pb-4 sm:pb-5">
           <div className="min-w-0">
             <span className="font-mono text-[10px] uppercase tracking-wider text-lion-gold-dark font-semibold block truncate">
-              Official Sheet Summary &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
+              Official Roster Telemetry &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
             </span>
             <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-obsidian mt-0.5 break-words">
               List of Students Along With the Team of KSF (Student Welfare) Wing
             </h2>
           </div>
           <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 font-mono text-[11px] sm:text-xs text-botanical-emerald font-semibold self-start md:self-auto shrink-0">
-            4 Active Teams &bull; Verified 2026&ndash;27 Sheet
+            4 Active Teams &bull; Decreed 05/11/2026
           </span>
         </div>
 
@@ -215,14 +220,14 @@ export default function StudentsRosterClient({
             </span>
             <div className="my-2 flex flex-wrap items-baseline gap-2">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
-                {STUDENT_COHORT_SUMMARY_2026_27.currentStrength}
+                26
               </span>
               <span className="text-[11px] sm:text-xs text-botanical-emerald font-semibold uppercase">
                 Active Enrolled
               </span>
             </div>
             <p className="text-[11px] text-slate font-sans break-words leading-snug">
-              Team 1 (12) + Team 2 (11) + Team 3 (10) + Team 4 (04)
+              Team I (08) + Team II (09) + Team III (05) + Team IV (04) &bull; 11 Graduated Summer Alumni
             </p>
           </div>
 
@@ -256,24 +261,24 @@ export default function StudentsRosterClient({
               </span>
             </div>
             <p className="text-[11px] text-slate font-sans break-words leading-snug">
-              Reserved in Team 4 for Psychometric Test &amp; Interview induction
+              Reserved in Team IV for Psychometric Test &amp; Interview induction
             </p>
           </div>
 
           <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-porcelain border border-border flex flex-col justify-between min-w-0">
             <span className="text-[10px] uppercase tracking-wider text-slate font-semibold">
-              Team Hierarchy
+              Supervisory Heads
             </span>
             <div className="my-2 flex flex-wrap items-baseline gap-2">
               <span className="font-serif text-3xl sm:text-4xl font-bold text-obsidian">
-                0{STUDENT_COHORT_SUMMARY_2026_27.teamsCount}
+                04
               </span>
               <span className="text-[11px] sm:text-xs text-lion-gold-dark font-semibold uppercase">
-                Research Teams
+                HSM Commanders
               </span>
             </div>
             <p className="text-[11px] text-slate font-sans break-words leading-snug">
-              Headed by HSM, Dy. HSM &amp; Team Leader supervisory corps
+              Vaishnavi (I), Prateeksha (II), Shubhangi (III), Vedant (IV)
             </p>
           </div>
         </div>
@@ -334,10 +339,10 @@ export default function StudentsRosterClient({
                 </span>
               </div>
               <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-obsidian tracking-tight break-words">
-                Upcoming Winter Internship Batch: 26 Selected Scholars
+                Active Batch: 26 Selected Scholars Across 4 Teams
               </h2>
               <p className="text-xs sm:text-sm text-slate font-sans max-w-2xl leading-relaxed break-words">
-                Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh at Prayagraj. Deploys 26 scholars across 4 operational teams headed by appointed Head Superintendent Managers (HSMs): Vaishnavi (Team I), Prateeksha Pandey (Team II), Shubhangi Singh (Team III), and Vedant Agrawal (Team IV).
+                Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh at Prayagraj. Deploys 26 active scholars across 4 operational teams headed by appointed Head Superintendent Managers (HSMs): Vaishnavi (Team I), Prateeksha Pandey (Team II), Shubhangi Singh (Team III), and Vedant Agrawal (Team IV). The previous 11 scholars of the Summer Internship Batch have concluded their tenure and graduated.
               </p>
             </div>
 
@@ -365,7 +370,7 @@ export default function StudentsRosterClient({
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 sm:gap-4 pt-1">
             <div className="flex items-center space-x-2 text-xs font-mono text-obsidian font-semibold">
               <Sparkles className="w-4 h-4 text-lion-gold-dark shrink-0" />
-              <span>Select Active Student Roster View:</span>
+              <span>Select Student Roster View:</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 p-1 bg-stone-100 rounded-xl sm:rounded-full border border-border w-full lg:w-auto gap-1">
@@ -381,7 +386,7 @@ export default function StudentsRosterClient({
                     : "text-slate hover:text-obsidian"
                 }`}
               >
-                Upcoming Winter Batch (26 Scholars)
+                Active Enrolled Roster (26 Scholars across 4 Teams)
               </button>
               <button
                 type="button"
@@ -395,7 +400,7 @@ export default function StudentsRosterClient({
                     : "text-slate hover:text-obsidian"
                 }`}
               >
-                Annual Session Roll (37 Active &bull; 40 Allotted)
+                Graduated Summer Batch (11 Alumni &bull; Concluded)
               </button>
             </div>
           </div>
@@ -408,18 +413,18 @@ export default function StudentsRosterClient({
           <div className="min-w-0">
             <span className="font-mono text-xs text-lion-gold-dark uppercase tracking-wider font-semibold block truncate">
               {rosterViewMode === "winter_2026_27"
-                ? "Official Notification (05/11/2026) • 4 Operational Winter Teams"
-                : "Official 2026–27 Team Roster • Organized by Team (1 to 4)"}
+                ? "Official Decree (05/11/2026) • 4 Operational Teams • Active Roster"
+                : "Historical Archive • 2026 Summer Internship Batch (Now Graduated)"}
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-obsidian font-semibold mt-1 break-words">
               {rosterViewMode === "winter_2026_27"
-                ? "Winter 2026–27 Deployment Registry"
-                : "4-Team Student Welfare Registry"}
+                ? "Active Enrolled Roster (26 Scholars)"
+                : "Graduated Summer Batch (11 Alumni)"}
             </h2>
             <p className="text-xs sm:text-sm text-slate mt-1.5 font-sans max-w-2xl break-words">
               {rosterViewMode === "winter_2026_27"
                 ? "Active deployment of 26 selected scholars across Team I (Vaishnavi, HSM), Team II (Prateeksha Pandey, HSM), Team III (Shubhangi Singh, HSM), and Team IV (Vedant Agrawal, HSM)."
-                : "Complete 2026–27 session roster organized across Team 1 (Team Unnaati & Shiksha), Team 2 (Team Vaishnavi & Navyanshi), Team 3 (Team Prateeksha & Rohini), and Team 4 (Team Shubhangi)."}
+                : "Historical archival record of the 11 scholars who completed their tenure in the 2026 Summer Internship Batch and have now graduated from the active roll."}
             </p>
           </div>
 
@@ -743,8 +748,20 @@ export default function StudentsRosterClient({
             ))}
           </div>
         ) : (
-          /* Render Full Session Teams (37 Active + 03 Vacancy) */
+          /* Render Graduated Summer Batch Archive */
           <div className="space-y-10 sm:space-y-12">
+            <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-300 text-amber-900 flex flex-col sm:flex-row items-start gap-3.5 shadow-sm">
+              <Award className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+              <div className="space-y-1 min-w-0">
+                <h4 className="font-serif text-sm sm:text-base font-bold break-words">
+                  Concluded Summer Internship Batch &bull; Notice of Graduation
+                </h4>
+                <p className="text-xs font-sans leading-relaxed text-amber-800 break-words">
+                  The scholars below comprised the 2026 Summer Internship Batch. Having completed their tenure, fulfilled all curriculum milestones, defended their plagiarism-audited research before expert panels, and received their certificates and stipends, they have now formally graduated from active student rolls. The active operational wing is mobilized under the 26 selected scholars and 4 appointed HSM commanders.
+                </p>
+              </div>
+            </div>
+
           {STUDENT_WELFARE_TEAMS_2026_27.map((team) => {
             const teamMembers = filteredScholars
               .filter((s) => (s.teamNumber || 1) === team.teamNumber)
@@ -760,27 +777,27 @@ export default function StudentsRosterClient({
                 {/* Team Architectural Banner */}
                 <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-border flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                   <div className="space-y-1.5 min-w-0">
-                    <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-lion-gold-dark font-semibold">
+                    <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-amber-800 font-semibold">
                       <Users className="w-3.5 h-3.5 shrink-0" />
                       <span className="truncate sm:overflow-visible">
-                        KSF (Student Welfare) Wing &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
+                        Summer Internship Batch Archive &bull; Session {STUDENT_COHORT_SUMMARY_2026_27.session}
                       </span>
                     </div>
                     <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-obsidian break-words">
-                      {team.teamTitle}
+                      {team.teamTitle} (Graduated Batch)
                     </h3>
                     <p className="text-xs text-slate font-mono break-words">
-                      <strong className="text-obsidian">Command Structure:</strong> {team.commandSummary}
+                      <strong className="text-obsidian">Historical Command:</strong> {team.commandSummary}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono text-xs shrink-0">
-                    <div className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg sm:rounded-xl bg-white border border-border text-obsidian font-semibold shadow-2xs">
-                      Current Strength: <span className="text-botanical-emerald">{team.currentCount}</span>
+                    <div className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-300 text-amber-900 font-semibold shadow-2xs">
+                      Historical Current Strength: <span className="font-bold">{team.currentCount}</span>
                     </div>
                     {team.vacancyCount > 0 && (
-                      <div className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-300 text-amber-900 font-semibold shadow-2xs">
-                        Vacancy: 0{team.vacancyCount} Slots Open
+                      <div className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg sm:rounded-xl bg-slate-100 border border-slate-300 text-slate font-semibold shadow-2xs">
+                        Allotted Strength: 40 &bull; Vacancy: 0{team.vacancyCount}
                       </div>
                     )}
                   </div>
@@ -938,17 +955,25 @@ export default function StudentsRosterClient({
                           <span>Att: {scholar.attendanceRate}%</span>
                         </div>
 
-                        {winterScholarMap.has(scholar.scholarId) && (
+                        {scholar.isGraduated ? (
+                          <div className="mt-2.5 pt-2 border-t border-amber-200/80 flex flex-wrap items-center justify-between gap-1.5 text-[10px] font-mono">
+                            <span className="text-amber-800 font-semibold flex items-center gap-1">
+                              <CheckCircle className="w-3 h-3 text-amber-600 shrink-0" />
+                              <span>2026 Summer Batch &bull; Graduated Alumnus</span>
+                            </span>
+                            <span className="text-amber-700 font-medium">Tenure Concluded</span>
+                          </div>
+                        ) : winterScholarMap.has(scholar.scholarId) ? (
                           <div className="mt-2.5 pt-2 border-t border-border/60 flex flex-wrap items-center justify-between gap-1.5 text-[10px] font-mono">
                             <span className="text-botanical-emerald font-semibold flex items-center gap-1">
                               <Sparkles className="w-3 h-3 text-lion-gold-dark shrink-0" />
-                              <span>Winter &apos;26&ndash;27: {winterScholarMap.get(scholar.scholarId)?.teamCode}</span>
+                              <span>Active Winter Cohort: {winterScholarMap.get(scholar.scholarId)?.teamCode}</span>
                             </span>
                             <span className="text-lion-gold-dark font-medium">
                               {winterScholarMap.get(scholar.scholarId)?.decreeRole === "HSM" ? "HSM Commander" : "Member"}
                             </span>
                           </div>
-                        )}
+                        ) : null}
                       </div>
                     );
                   })}

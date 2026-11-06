@@ -26,11 +26,14 @@ export default function OperationalHierarchy({
   className = "",
 }: OperationalHierarchyProps) {
   const [selectedBearer, setSelectedBearer] = useState<OfficeBearer | null>(null);
-  const [activeTierFilter, setActiveTierFilter] = useState<number | "all">("all");
+  const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated">("all");
 
-  const tier1Bearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.tier === 1);
-  const tier2Bearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.tier === 2);
-  const tier3Bearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.tier === 3);
+  const activeBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => !b.isGraduated);
+  const graduatedBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.isGraduated);
+
+  const tier1Bearers = activeBearers.filter((b) => b.tier === 1);
+  const tier2Bearers = activeBearers.filter((b) => b.tier === 2);
+  const tier3Bearers = activeBearers.filter((b) => b.tier === 3);
 
   // Keyboard navigation for lightbox
   const handleKeyDown = useCallback(
@@ -113,7 +116,7 @@ export default function OperationalHierarchy({
                 : "bg-white border border-border text-slate hover:text-obsidian hover:border-obsidian/40"
             }`}
           >
-            All 3 Operational Tiers (10 Officers)
+            All Active Directorate (4 HSM Heads + 3 Leaders)
           </button>
           <button
             type="button"
@@ -124,18 +127,7 @@ export default function OperationalHierarchy({
                 : "bg-white border border-lion-gold/30 text-lion-gold-dark hover:bg-lion-gold/10"
             }`}
           >
-            Tier 1: Head Superintendents (3)
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTierFilter(2)}
-            className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 active:scale-[0.98] ${
-              activeTierFilter === 2
-                ? "bg-botanical-emerald text-white shadow-sm font-semibold"
-                : "bg-white border border-botanical-emerald/30 text-botanical-emerald hover:bg-botanical-emerald/10"
-            }`}
-          >
-            Tier 2: Deputy Superintendents (4)
+            Tier 1: 4 HSM Heads (Vaishnavi, Prateeksha, Shubhangi, Vedant)
           </button>
           <button
             type="button"
@@ -146,13 +138,24 @@ export default function OperationalHierarchy({
                 : "bg-white border border-border text-slate hover:text-obsidian hover:border-slate/40"
             }`}
           >
-            Tier 3: Team Leaders (3)
+            Tier 3: Active Team Leaders (3)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTierFilter("graduated")}
+            className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 active:scale-[0.98] ${
+              activeTierFilter === "graduated"
+                ? "bg-amber-800 text-white shadow-sm font-semibold"
+                : "bg-amber-50 border border-amber-300 text-amber-800 hover:bg-amber-100"
+            }`}
+          >
+            Graduated Summer Leadership (4 Alumni)
           </button>
         </div>
       </div>
 
       {/* ============================================================== */}
-      {/* TIER 1: HEAD SUPERINTENDENT MANAGERS */}
+      {/* TIER 1: ACTIVE HEAD SUPERINTENDENT MANAGERS (4 HSM HEADS)     */}
       {/* ============================================================== */}
       {(activeTierFilter === "all" || activeTierFilter === 1) && (
         <div className="space-y-6">
@@ -162,20 +165,20 @@ export default function OperationalHierarchy({
               <span className="w-3.5 h-3.5 rounded-full bg-lion-gold-dark ring-4 ring-lion-gold/20" />
               <div>
                 <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian uppercase tracking-wide">
-                  Tier 1: Head Superintendent Managers
+                  Tier 1: Head Superintendent Managers (HSMs)
                 </h4>
                 <p className="text-xs text-lion-gold-dark font-mono font-semibold">
-                  Executive Operations &bull; Convocation Oratory &bull; Scholarship Governance
+                  Active Supervisory Heads &bull; Team I (Vaishnavi) &bull; Team II (Prateeksha) &bull; Team III (Shubhangi) &bull; Team IV (Vedant)
                 </p>
               </div>
             </div>
             <span className="px-3 py-1 rounded-full bg-lion-gold/10 border border-lion-gold/30 text-[10px] font-mono text-lion-gold-dark uppercase tracking-wider font-semibold self-start sm:self-auto">
-              3 Officers &bull; Primary Directorate
+              4 Appointed HSM Heads &bull; Decreed 05/11/2026
             </span>
           </div>
 
-          {/* Tier 1 Grid: 3 Executive Cards with Generous Action Photography */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {/* Tier 1 Grid: 4 Executive HSM Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {tier1Bearers.map((bearer) => (
               <OfficerCard
                 key={bearer.id}
@@ -189,11 +192,10 @@ export default function OperationalHierarchy({
       )}
 
       {/* ============================================================== */}
-      {/* TIER 2: DEPUTY HEAD SUPERINTENDENT MANAGERS */}
+      {/* TIER 2: DEPUTY HEAD SUPERINTENDENT MANAGERS (IF ANY ACTIVE)   */}
       {/* ============================================================== */}
-      {(activeTierFilter === "all" || activeTierFilter === 2) && (
+      {(activeTierFilter === "all" || activeTierFilter === 2) && tier2Bearers.length > 0 && (
         <div className="space-y-6 pt-4">
-          {/* Tier Banner */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-botanical-emerald/30 pb-3">
             <div className="flex items-center space-x-3">
               <span className="w-3.5 h-3.5 rounded-full bg-botanical-emerald ring-4 ring-botanical-emerald/20" />
@@ -207,11 +209,10 @@ export default function OperationalHierarchy({
               </div>
             </div>
             <span className="px-3 py-1 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 text-[10px] font-mono text-botanical-emerald uppercase tracking-wider font-semibold self-start sm:self-auto">
-              4 Officers &bull; Field Operations
+              {tier2Bearers.length} Officer &bull; Field Operations
             </span>
           </div>
 
-          {/* Tier 2 Grid: 4 Cards with Dedicated Viewports */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {tier2Bearers.map((bearer) => (
               <OfficerCard
@@ -226,7 +227,7 @@ export default function OperationalHierarchy({
       )}
 
       {/* ============================================================== */}
-      {/* TIER 3: TEAM LEADERS */}
+      {/* TIER 3: TEAM LEADERS                                           */}
       {/* ============================================================== */}
       {(activeTierFilter === "all" || activeTierFilter === 3) && (
         <div className="space-y-6 pt-4">
@@ -244,13 +245,52 @@ export default function OperationalHierarchy({
               </div>
             </div>
             <span className="px-3 py-1 rounded-full bg-slate-100 border border-border text-[10px] font-mono text-slate uppercase tracking-wider font-semibold self-start sm:self-auto">
-              3 Leaders &bull; Cohort Coordination
+              {tier3Bearers.length} Leaders &bull; Cohort Coordination
             </span>
           </div>
 
-          {/* Tier 3 Grid: 3 Cards */}
+          {/* Tier 3 Grid: Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {tier3Bearers.map((bearer) => (
+              <OfficerCard
+                key={bearer.id}
+                bearer={bearer}
+                tierAccent="obsidian"
+                onSelect={() => setSelectedBearer(bearer)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* GRADUATED SUMMER LEADERSHIP ARCHIVE (4 CONCLUDED ALUMNI)      */}
+      {/* ============================================================== */}
+      {(activeTierFilter === "all" || activeTierFilter === "graduated") && (
+        <div className="space-y-6 pt-6 border-t-2 border-dashed border-border/80">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-amber-300 pb-3">
+            <div className="flex items-center space-x-3">
+              <span className="w-3.5 h-3.5 rounded-full bg-amber-600 ring-4 ring-amber-200" />
+              <div>
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian uppercase tracking-wide">
+                  Graduated Summer Batch Leadership (Alumni)
+                </h4>
+                <p className="text-xs text-amber-800 font-mono font-semibold">
+                  Former Summer Internship Directorate &bull; Completed Tenure &bull; Awarded Certificates &bull; Now Graduated
+                </p>
+              </div>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-[10px] font-mono text-amber-900 uppercase tracking-wider font-semibold self-start sm:self-auto">
+              4 Concluded Alumni Officers
+            </span>
+          </div>
+
+          <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 text-xs font-sans text-amber-900 leading-relaxed">
+            <strong className="font-semibold">Notice of Cohort Graduation:</strong> The previous student officers of the 2026 Summer Internship Batch (Unnaati Roy, Shiksha Jaiswal, Navyanshi Dwivedi, and Rohini Agrawal) have successfully concluded their internship tenure, defended their research monographs, and received their foundation honors. They have now graduated from the active roll to make way for the newly appointed 4 HSM Commanders.
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {graduatedBearers.map((bearer) => (
               <OfficerCard
                 key={bearer.id}
                 bearer={bearer}

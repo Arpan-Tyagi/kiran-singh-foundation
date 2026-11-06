@@ -30,13 +30,13 @@ export default function SplitWings() {
   const stage3Ref = useRef<HTMLDivElement>(null);
   const stage4Ref = useRef<HTMLDivElement>(null);
 
-  // Take 1 representative leader from each of the 4 official 2026-27 teams for quick spotlight
+  // Take the 4 appointed Head Superintendent Managers (HSMs) commanding the 4 active teams for spotlight
   const previewScholars = [
-    SCHOLARS_COHORT[0],  // Team 1: Unnaati Roy (HSM)
-    SCHOLARS_COHORT[12], // Team 2: Vaishnavi (HSM)
-    SCHOLARS_COHORT[23], // Team 3: Prateeksha Pandey (HSM)
-    SCHOLARS_COHORT[33], // Team 4: Shubhangi Singh (Dy. HSM)
-  ].filter(Boolean);
+    SCHOLARS_COHORT.find((s) => s.fullName === "Vaishnavi"),         // Team I Head (HSM)
+    SCHOLARS_COHORT.find((s) => s.fullName === "Prateeksha Pandey"), // Team II Head (HSM)
+    SCHOLARS_COHORT.find((s) => s.fullName === "Shubhangi Singh"),   // Team III Head (HSM)
+    SCHOLARS_COHORT.find((s) => s.fullName === "Vedant Agarwal"),    // Team IV Head (HSM)
+  ].filter(Boolean) as typeof SCHOLARS_COHORT;
   const previewDogs = RESCUED_DOGS_ROSTER.slice(0, 4);
 
   // Track active stage on desktop based on scroll position
