@@ -379,14 +379,14 @@ export default function OperationalHierarchy({
             </div>
 
             {/* Navigation Footer */}
-            <div className="px-6 py-4 bg-porcelain border-t border-border flex items-center justify-between">
+            <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-porcelain border-t border-border flex items-center justify-between gap-2">
               <button
                 type="button"
                 onClick={() => navigateBearer("prev")}
-                className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-border text-xs font-mono font-semibold text-obsidian hover:bg-slate-100 transition-colors active:scale-[0.97]"
+                className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-2 rounded-full bg-white border border-border text-xs font-mono font-semibold text-obsidian hover:bg-slate-100 transition-colors active:scale-[0.97] min-h-[40px]"
               >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Previous Officer</span>
+                <ChevronLeft className="w-4 h-4 shrink-0" />
+                <span>Prev<span className="hidden sm:inline">ious Officer</span></span>
               </button>
               <span className="text-[11px] font-mono text-slate hidden sm:inline">
                 Use &larr; &rarr; arrow keys to navigate &bull; Esc to close
@@ -394,10 +394,10 @@ export default function OperationalHierarchy({
               <button
                 type="button"
                 onClick={() => navigateBearer("next")}
-                className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-border text-xs font-mono font-semibold text-obsidian hover:bg-slate-100 transition-colors active:scale-[0.97]"
+                className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-2 rounded-full bg-white border border-border text-xs font-mono font-semibold text-obsidian hover:bg-slate-100 transition-colors active:scale-[0.97] min-h-[40px]"
               >
-                <span>Next Officer</span>
-                <ChevronRight className="w-4 h-4" />
+                <span>Next<span className="hidden sm:inline"> Officer</span></span>
+                <ChevronRight className="w-4 h-4 shrink-0" />
               </button>
             </div>
           </div>
@@ -441,14 +441,14 @@ function OfficerCard({ bearer, tierAccent, onSelect }: OfficerCardProps) {
   return (
     <div
       onClick={onSelect}
-      className={`group cursor-pointer rounded-3xl p-2.5 sm:p-3 bg-white border border-border shadow-elevation-1 hover:shadow-elevation-card transition-all duration-300 flex flex-col justify-between active:scale-[0.98] ${accentClasses.outerRing}`}
+      className={`group cursor-pointer rounded-2xl sm:rounded-3xl p-2.5 sm:p-3 bg-white border border-border shadow-elevation-1 hover:shadow-elevation-card transition-all duration-300 flex flex-col justify-between active:scale-[0.98] min-w-0 ${accentClasses.outerRing}`}
     >
-      <div className="space-y-3.5">
+      <div className="space-y-3 sm:space-y-3.5 min-w-0">
         {/* ============================================================== */}
         {/* EXPANSIVE ACTION PHOTOGRAPHY (CRITICAL REQUIREMENT)           */}
         {/* Visible, high-resolution 16:10 landscape viewport (not 48px circle!) */}
         {/* ============================================================== */}
-        <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-2xl overflow-hidden bg-slate-100 border border-border shadow-inner">
+        <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-border shadow-inner">
           {bearer.photoUrl ? (
             <>
               <Image
@@ -464,8 +464,8 @@ function OfficerCard({ bearer, tierAccent, onSelect }: OfficerCardProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/20 to-transparent pointer-events-none" />
 
               {/* Action Moment Pill on Photo */}
-              <div className="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono font-bold text-obsidian tracking-tight truncate max-w-[80%] shadow-sm">
+              <div className="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between gap-1.5">
+                <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono font-bold text-obsidian tracking-tight truncate max-w-[85%] shadow-sm">
                   {bearer.moment}
                 </span>
                 <span className="w-7 h-7 rounded-full bg-obsidian/75 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 shadow-sm">
@@ -490,36 +490,36 @@ function OfficerCard({ bearer, tierAccent, onSelect }: OfficerCardProps) {
         </div>
 
         {/* Content Details */}
-        <div className="px-1.5 space-y-2">
+        <div className="px-1.5 space-y-2 min-w-0">
           {/* Eyebrow / Role Tag */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <span
-              className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold ${accentClasses.badge}`}
+              className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold truncate ${accentClasses.badge}`}
             >
-              <span className={`w-1.5 h-1.5 rounded-full ${accentClasses.dot}`} />
-              <span>{bearer.role}</span>
+              <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${accentClasses.dot}`} />
+              <span className="truncate">{bearer.role}</span>
             </span>
-            <span className="text-[10px] font-mono text-slate">Tier {bearer.tier}</span>
+            <span className="text-[10px] font-mono text-slate shrink-0">Tier {bearer.tier}</span>
           </div>
 
           {/* Child Full Name */}
-          <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian tracking-tight group-hover:text-lion-gold-dark transition-colors">
+          <h4 className="font-serif text-lg sm:text-2xl font-bold text-obsidian tracking-tight group-hover:text-lion-gold-dark transition-colors break-words">
             {bearer.name}
           </h4>
 
           {/* Verified Moment Subtitle */}
-          <p className="text-xs text-slate-muted font-sans line-clamp-2 leading-relaxed">
+          <p className="text-xs text-slate-muted font-sans line-clamp-2 leading-relaxed break-words">
             {bearer.description}
           </p>
         </div>
       </div>
 
       {/* Card Footer: Tactile Action Button */}
-      <div className="mt-4 pt-3 border-t border-border px-1.5 flex items-center justify-between text-[11px] font-mono text-slate">
-        <span className="truncate max-w-[70%] font-medium text-slate">
+      <div className="mt-4 pt-3 border-t border-border px-1.5 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-mono text-slate">
+        <span className="truncate max-w-[65%] font-medium text-slate">
           {bearer.badge}
         </span>
-        <span className={`font-semibold group-hover:translate-x-0.5 transition-transform ${accentClasses.textAccent}`}>
+        <span className={`font-semibold group-hover:translate-x-0.5 transition-transform shrink-0 ${accentClasses.textAccent}`}>
           View Photo &rarr;
         </span>
       </div>
