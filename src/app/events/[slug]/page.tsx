@@ -310,17 +310,30 @@ export default async function EventDetailPage({ params }: Props) {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans">
                     {/* HSM */}
-                    <div className="p-2.5 rounded-xl bg-lion-gold/5 border border-lion-gold/30 col-span-1 sm:col-span-2 flex items-center justify-between">
-                      <div className="space-y-0.5">
-                        <div className="flex items-center space-x-2">
-                          <strong className="text-obsidian font-medium">{team.hsm.name}</strong>
-                          <span className="px-1.5 py-0.5 rounded bg-lion-gold/20 text-lion-gold-dark text-[9px] font-mono font-bold uppercase">
-                            HSM Commander
+                    <div className="p-3 rounded-xl bg-lion-gold/5 border border-lion-gold/30 col-span-1 sm:col-span-2 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
+                        {team.hsm.photoUrl && (
+                          <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
+                            <Image
+                              src={team.hsm.photoUrl}
+                              alt={team.hsm.name}
+                              fill
+                              sizes="40px"
+                              className="object-cover object-top"
+                            />
+                          </div>
+                        )}
+                        <div className="space-y-0.5 min-w-0">
+                          <div className="flex items-center space-x-2">
+                            <strong className="text-obsidian font-medium">{team.hsm.name}</strong>
+                            <span className="px-1.5 py-0.5 rounded bg-lion-gold/20 text-lion-gold-dark text-[9px] font-mono font-bold uppercase shrink-0">
+                              HSM Commander
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-mono text-slate block truncate">
+                            {team.hsm.academicDiscipline}
                           </span>
                         </div>
-                        <span className="text-[10px] font-mono text-slate block">
-                          {team.hsm.academicDiscipline}
-                        </span>
                       </div>
                       <span className="font-mono text-[10px] text-lion-gold-dark font-bold shrink-0">
                         {team.hsm.scholarId}

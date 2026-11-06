@@ -141,6 +141,7 @@ export interface WinterInternshipTeamMember {
   name: string;
   decreeRole: "HSM" | "Member";
   academicDiscipline: string;
+  photoUrl?: string;
 }
 
 export interface WinterInternshipDeployedTeam {
@@ -725,7 +726,8 @@ export const SCHOLARS_COHORT: StudentScholar[] = [
     teamName: "Team 1: Team Unnaati & Shiksha",
     teamRole: "Member",
     teamRank: 6,
-    academicDiscipline: "Team Member • Team 1",
+    photoUrl: "/images/office-bearers/vedant-agarwal.jpg",
+    academicDiscipline: "Commerce & Financial Accounting Systems",
     institution: "KSF (Student Welfare) Wing — Prayagraj",
     cohortYear: 2026,
     softSkillsTrack: ["Analytical Research", "PowerPoint Defense", "Civic Leadership"],
@@ -735,7 +737,7 @@ export const SCHOLARS_COHORT: StudentScholar[] = [
     expensesAndStipendCovered: true,
     attendanceRate: 98.0,
     emergencyContactPhone: "+91 96709 70750",
-    notes: "Active member of Team 1 selected through foundation psychometric assessment.",
+    notes: "Appointed Head Superintendent Manager (HSM) for Team IV in Winter 2026-27 decree; active member of Team 1 selected through foundation psychometric assessment.",
   },
   {
     id: "stu-007",
@@ -2387,6 +2389,12 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
         officerName: "Shri Anuj Kumar Singh",
         roleBadge: "Secretary • Official Decree 05/11/26",
       },
+      {
+        url: "/images/office-bearers/vedant-agarwal.jpg",
+        caption: "Vedant Agarwal (Appointed Head Superintendent Manager, Team IV) formally receiving his Certificate of Internship on stage at the Kiran Singh Foundation convocation ceremony",
+        officerName: "Vedant Agarwal",
+        roleBadge: "Head Superintendent Manager (Team IV HSM)",
+      },
     ],
   },
 
@@ -2732,6 +2740,7 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
         name: "Vaishnavi",
         decreeRole: "HSM",
         academicDiscipline: "Head Superintendent Manager (HSM) • Political Science & Constitutional Governance",
+        photoUrl: "/images/office-bearers/vaishnavi.jpg",
       },
       members: [
         {
@@ -2787,6 +2796,7 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
         name: "Prateeksha Pandey",
         decreeRole: "HSM",
         academicDiscipline: "Head Superintendent Manager (HSM) • Public Administration & Civic Systems",
+        photoUrl: "/images/office-bearers/prateeksha-pandey.jpg",
       },
       members: [
         {
@@ -2848,6 +2858,7 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
         name: "Shubhangi Singh",
         decreeRole: "HSM",
         academicDiscipline: "Head Superintendent Manager (HSM) • Sociology & Community Intervention Dynamics",
+        photoUrl: "/images/office-bearers/shubhangi-singh.jpg",
       },
       members: [
         {
@@ -2885,6 +2896,7 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
         name: "Vedant Agrawal",
         decreeRole: "HSM",
         academicDiscipline: "Head Superintendent Manager (HSM) • Commerce & Financial Accounting Systems",
+        photoUrl: "/images/office-bearers/vedant-agarwal.jpg",
       },
       members: [
         {
