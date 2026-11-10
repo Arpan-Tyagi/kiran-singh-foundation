@@ -34,10 +34,11 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
    - Central KYC (CKYC) Registration Number: 80001700802453
    - MMID: 9240594
    - HDFC Bank SmartHub Vyapar TID: 82215825
-5. 3 CORE MEMBERS (BOARD OF TRUSTEES):
+5. 3 CORE MEMBERS (BOARD OF TRUSTEES) & EXECUTIVE REGISTRY:
    - Shri Anuj Kumar Singh (Secretary, Kiran Singh Foundation)
    - Shri Anil Kumar Singh (President, Kiran Singh Foundation)
    - Ms. Akansha Singh (Treasurer, Kiran Singh Foundation)
+   - Executive Registrar: Ms. Shiksha Jaiswal (Registrar, Kiran Singh Foundation (Student Welfare) Wing)
 6. REGISTERED OFFICE & ADDRESS:
    - 191/C, Tilak Nagar Allahpur Prayagraj 211006 (Allahabad / Prayagraj, U.P., India - 211006).
 7. OFFICIAL COMMUNICATIONS:
@@ -50,6 +51,7 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
      * Selection: 40 students are chosen through a psychometric test and interview organized by the 3 core members and conducted by accomplished professionals in their respective fields.
      * 2 Internships Offered: Summer Internship Program & Winter Internship Program to develop a solid personality and incorporate soft skills.
      * 4 Teams & Supervisory Hierarchy: Students are divided into 4 teams, each headed by a Head Superintendent Manager, Dy. Head Superintendent Manager, and Team Leader.
+     * Office of the Registrar: Ms. Shiksha Jaiswal serves as permanent Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing student cohort admissions (sanctioned 40 scholars), psychometric evaluations, UPES Dehradun School for Life MoU accreditation, and formal research defense credential archives.
      * Official 2026–27 Student Roster Breakdown (Current Strength = 37, Allotted Strength = 40, Vacancy = 03):
        - Team 1 (Team Unnaati & Shiksha - 12 Students): Unnaati Roy (HSM), Shiksha Jaiswal (Dy. HSM), Stuti Dwivedi (Team Leader), Bhavya Singh, Luvleen Kaur Puri, Vedant Agarwal, Heramb Mishra, Prakhar Singh, Shaurya Pratap Singh, Vidhu Shekhar Tripathi, Anadi Ratan Srivastava, Agrima Mishra.
        - Team 2 (Team Vaishnavi & Navyanshi - 11 Students): Vaishnavi (HSM), Navyanshi Dwivedi (Dy. HSM), Anwesha Sinha, Vanya Singh, Shubhi Singh, Swarnima Singh, Karan Pal, Aarya Srivastava, Aditya Agarwal, Vasav Mishra, Annanya Arora.

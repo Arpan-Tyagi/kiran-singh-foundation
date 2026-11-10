@@ -472,7 +472,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {FOUNDATION_LEADERSHIP.map((leader) => (
             <div
               key={leader.id}
@@ -483,7 +483,7 @@ export default function AboutPage() {
                   src={leader.photoUrl}
                   alt={`${leader.name} - ${leader.role}`}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   className={`object-cover ${leader.photoPosition || "object-top"} group-hover:scale-103 transition-transform duration-500`}
                 />
               </div>
@@ -503,7 +503,9 @@ export default function AboutPage() {
                 </div>
                 <div className="pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-slate">
                   <span>Kiran Singh Foundation</span>
-                  <span className="text-lion-gold-dark font-semibold">Directorate Board</span>
+                  <span className="text-lion-gold-dark font-semibold">
+                    {leader.role.includes("Registrar") ? "Executive Registry" : "Directorate Board"}
+                  </span>
                 </div>
               </div>
             </div>

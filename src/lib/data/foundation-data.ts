@@ -405,15 +405,59 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     photoPosition: "object-[65%_20%]",
     bio: "Core member and Treasurer supervising foundation treasury and CSR accounts (HDFC Bank, Naya Katra), stipend disbursements, Women Empowerment investment summits, and the Summer & Winter Internship Programs.",
   },
+  {
+    id: "lead-04",
+    name: "Ms. Shiksha Jaiswal",
+    role: "Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+    photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
+    photoPosition: "object-[68%_35%]",
+    bio: "Appointed Registrar of the KSF (Student Welfare) Wing; governing student cohort admissions, academic accreditation registers, university accords (UPES School for Life), and research defense credential archives.",
+  },
 ];
+
+export interface WingRegistrar {
+  id: string;
+  name: string;
+  salutation: string;
+  role: string;
+  wing: string;
+  photoUrl: string;
+  photoPosition: string;
+  appointmentDate: string;
+  badge: string;
+  moment: string;
+  mandate: string[];
+  bio: string;
+}
+
+export const STUDENT_WELFARE_REGISTRAR: WingRegistrar = {
+  id: "reg-01",
+  name: "Shiksha Jaiswal",
+  salutation: "Ms.",
+  role: "Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+  wing: "KSF (Student Welfare) Wing",
+  photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
+  photoPosition: "object-[68%_35%]",
+  appointmentDate: "November 2026",
+  badge: "Academic Registry & Institutional Governance",
+  moment: "Speaking at the foundation podium",
+  mandate: [
+    "Academic Cohort Admissions & Enrollment Registry (Sanctioned Capacity: 40)",
+    "Psychometric Evaluation & Professional Interview Archives",
+    "Bilateral University Accreditation & MoU Liaison (UPES Dehradun School for Life)",
+    "Plagiarism Audit Certification & Formatted Research Monograph Repository",
+    "Internship Completion Records, Star Shields, Mementos & Stipend Endorsements",
+  ],
+  bio: "Appointed Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing student cohort admissions, academic accreditation registers, university accords (UPES School for Life), and research defense credential archives.",
+};
 
 export interface OfficeBearer {
   id: string;
   name: string;
   role: string;
-  category: "Head Superintendent Manager" | "Dy. Head Superintendent Manager" | "Team Leader";
-  tier: 1 | 2 | 3;
-  tierTitle: "Tier 1: Head Superintendent Managers" | "Tier 2: Deputy Head Superintendent Managers" | "Tier 3: Team Leaders";
+  category: "Registrar" | "Head Superintendent Manager" | "Dy. Head Superintendent Manager" | "Team Leader";
+  tier: 0 | 1 | 2 | 3;
+  tierTitle: "Office of the Registrar" | "Tier 1: Head Superintendent Managers" | "Tier 2: Deputy Head Superintendent Managers" | "Tier 3: Team Leaders";
   wing: "Student Welfare Wing";
   moment: string;
   description: string;
@@ -426,6 +470,25 @@ export interface OfficeBearer {
 }
 
 export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
+  // ==========================================================
+  // OFFICE OF THE REGISTRAR: INSTITUTIONAL EXECUTIVE DIRECTOR
+  // ==========================================================
+  {
+    id: "ob-04",
+    name: "Shiksha Jaiswal",
+    role: "Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+    category: "Registrar",
+    tier: 0,
+    tierTitle: "Office of the Registrar",
+    wing: "Student Welfare Wing",
+    moment: "Speaking at the foundation podium",
+    badge: "Academic Registry & Institutional Governance",
+    description: "Appointed Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing student cohort admissions, psychometric examination registers, university academic accords (UPES School for Life), and research defense credential archives.",
+    photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
+    photoPosition: "object-[68%_35%]",
+    status: "active",
+    isGraduated: false,
+  },
   // ==========================================================
   // ACTIVE SUPERVISORY DIRECTORS: 4 HEAD SUPERINTENDENT MANAGERS (HSMs)
   // ==========================================================
@@ -571,22 +634,6 @@ export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
     isGraduated: true,
   },
   {
-    id: "ob-04",
-    name: "Shiksha Jaiswal",
-    role: "Dy. Head Superintendent Manager",
-    category: "Dy. Head Superintendent Manager",
-    tier: 2,
-    tierTitle: "Tier 2: Deputy Head Superintendent Managers",
-    wing: "Student Welfare Wing",
-    moment: "Speaking at the foundation podium",
-    badge: "Academic Operations & Discipline (Graduated)",
-    description: "Former Deputy Head Superintendent Manager of the 2026 Summer Internship Batch (Team 1), now successfully graduated; presented cohort operational progress from the foundation podium.",
-    photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
-    photoPosition: "object-[68%_35%]",
-    status: "graduated",
-    isGraduated: true,
-  },
-  {
     id: "ob-05",
     name: "Navyanshi Dwivedi",
     role: "Dy. Head Superintendent Manager",
@@ -716,7 +763,7 @@ export const SCHOLARS_COHORT: StudentScholar[] = [
     emergencyContactPhone: "+91 96709 70750",
     isGraduated: true,
     cohortStatus: "graduated",
-    notes: "Deputy Head Superintendent Manager co-leading Team 1 alongside Unnaati Roy.",
+    notes: "Former Deputy Head Superintendent Manager in Summer 2026 cohort; now elevated and appointed as Registrar, Kiran Singh Foundation (Student Welfare) Wing.",
   },
   {
     id: "stu-003",

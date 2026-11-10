@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   STUDENT_WELFARE_OFFICE_BEARERS,
   OfficeBearer,
+  UPES_ACADEMIC_PARTNERSHIP,
 } from "@/lib/data/foundation-data";
 import {
   Maximize2,
@@ -26,9 +27,14 @@ export default function OperationalHierarchy({
   className = "",
 }: OperationalHierarchyProps) {
   const [selectedBearer, setSelectedBearer] = useState<OfficeBearer | null>(null);
-  const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated">("all");
+  const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated" | "registrar">("all");
 
-  const activeBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => !b.isGraduated);
+  const registrarBearer = STUDENT_WELFARE_OFFICE_BEARERS.find(
+    (b) => b.category === "Registrar" || b.role.includes("Registrar")
+  );
+  const activeBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter(
+    (b) => !b.isGraduated && b.category !== "Registrar"
+  );
   const graduatedBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.isGraduated);
 
   const tier1Bearers = activeBearers.filter((b) => b.tier === 1);
@@ -116,7 +122,18 @@ export default function OperationalHierarchy({
                 : "bg-white border border-border text-slate hover:text-obsidian hover:border-obsidian/40"
             }`}
           >
-            All Active Directorate (4 HSM Heads + 3 Leaders)
+            All Active Directorate (Registrar + 4 HSM Heads + 3 Leaders)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTierFilter("registrar")}
+            className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 active:scale-[0.98] ${
+              activeTierFilter === "registrar"
+                ? "bg-emerald-800 text-white shadow-sm font-semibold"
+                : "bg-emerald-50 border border-emerald-300 text-emerald-900 hover:bg-emerald-100"
+            }`}
+          >
+            Office of the Registrar (Ms. Shiksha Jaiswal)
           </button>
           <button
             type="button"
@@ -149,10 +166,133 @@ export default function OperationalHierarchy({
                 : "bg-amber-50 border border-amber-300 text-amber-800 hover:bg-amber-100"
             }`}
           >
-            Graduated Summer Leadership (4 Alumni)
+            Graduated Summer Leadership ({graduatedBearers.length} Alumni)
           </button>
         </div>
       </div>
+
+      {/* ============================================================== */}
+      {/* OFFICE OF THE REGISTRAR: WING EXECUTIVE DIRECTORATE             */}
+      {/* ============================================================== */}
+      {registrarBearer && (activeTierFilter === "all" || activeTierFilter === "registrar") && (
+        <div className="space-y-6">
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-emerald-600/30 pb-3">
+            <div className="flex items-center space-x-3">
+              <span className="w-3.5 h-3.5 rounded-full bg-emerald-700 ring-4 ring-emerald-500/20" />
+              <div>
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian uppercase tracking-wide">
+                  Office of the Registrar &bull; KSF (Student Welfare) Wing
+                </h4>
+                <p className="text-xs text-emerald-800 font-mono font-semibold">
+                  Permanent Executive Administration &bull; Academic Accreditations &bull; Admissions &bull; UPES MoU Liaison
+                </p>
+              </div>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[10px] font-mono text-emerald-800 uppercase tracking-wider font-semibold self-start sm:self-auto">
+              Statutory Registry &bull; Decreed Appointment
+            </span>
+          </div>
+
+          {/* Registrar Showcase Card */}
+          <div className="bg-gradient-to-r from-stone-50 via-emerald-50/30 to-stone-50 rounded-3xl p-2 sm:p-3 border border-emerald-600/30 shadow-elevation-1">
+            <div className="rounded-2xl bg-white p-5 sm:p-7 md:p-8 border border-stone-200/90 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              {/* Photo Column */}
+              <div
+                onClick={() => setSelectedBearer(registrarBearer)}
+                className="lg:col-span-5 group cursor-pointer relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-border shadow-md active:scale-[0.99] transition-all"
+              >
+                {registrarBearer.photoUrl && (
+                  <Image
+                    src={registrarBearer.photoUrl}
+                    alt={`${registrarBearer.name} - ${registrarBearer.moment}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                    className="object-cover object-[68%_35%] group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    priority
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/20 to-transparent pointer-events-none" />
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-900/85 backdrop-blur-md border border-emerald-400/40 text-[10px] font-mono tracking-widest text-emerald-200 uppercase font-semibold">
+                    OFFICE OF THE REGISTRAR
+                  </span>
+                </div>
+                <div className="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2">
+                  <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono font-bold text-obsidian tracking-tight truncate max-w-[85%] shadow-sm">
+                    {registrarBearer.moment}
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-obsidian/80 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 shadow-sm">
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Editorial / Portfolio Column */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="space-y-1.5">
+                  <div className="inline-flex items-center space-x-2 px-3 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono uppercase tracking-wider font-semibold">
+                    <Award className="w-3 h-3 text-emerald-700" />
+                    <span>Permanent Executive Office &bull; Sanctioned 40 Seats</span>
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">
+                    {registrarBearer.name}
+                  </h3>
+                  <p className="font-mono text-xs sm:text-sm text-emerald-800 font-semibold">
+                    {registrarBearer.role}
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
+                  {registrarBearer.description}
+                </p>
+
+                {/* Statutory Mandates Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
+                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
+                      Admissions &amp; Registry
+                    </span>
+                    <span className="font-medium text-obsidian">Sanctioned 40 Scholars Cohort</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
+                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
+                      Academic Accord Liaison
+                    </span>
+                    <span className="font-medium text-obsidian">UPES Dehradun School for Life MoU</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
+                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
+                      Monograph Verification
+                    </span>
+                    <span className="font-medium text-obsidian">Plagiarism Audits &amp; PPT Defenses</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
+                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
+                      Honors &amp; Endorsements
+                    </span>
+                    <span className="font-medium text-obsidian">Internship Certificates &amp; Shields</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBearer(registrarBearer)}
+                    className="px-4 py-2 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-2 active:scale-[0.98]"
+                  >
+                    <span>View Archival Podium Photo</span>
+                    <Maximize2 className="w-3.5 h-3.5 text-lion-gold" />
+                  </button>
+                  <span className="text-[11px] font-mono text-slate">
+                    Speaking at Foundation Heraldic Podium
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ============================================================== */}
       {/* TIER 1: ACTIVE HEAD SUPERINTENDENT MANAGERS (4 HSM HEADS)     */}
@@ -322,7 +462,9 @@ export default function OperationalHierarchy({
               <div className="flex items-center space-x-3">
                 <span
                   className={`px-3 py-0.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wider ${
-                    selectedBearer.tier === 1
+                    selectedBearer.tier === 0
+                      ? "bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold"
+                      : selectedBearer.tier === 1
                       ? "bg-lion-gold/20 text-lion-gold-dark border border-lion-gold/30"
                       : selectedBearer.tier === 2
                       ? "bg-botanical-emerald/20 text-botanical-emerald border border-botanical-emerald/30"
