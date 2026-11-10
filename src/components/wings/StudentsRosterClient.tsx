@@ -26,6 +26,7 @@ import {
   UPES_ACADEMIC_PARTNERSHIP,
   WINTER_INTERNSHIP_BATCH_2026_27,
   STUDENT_WELFARE_REGISTRAR,
+  STUDENT_WELFARE_DEPUTY_REGISTRAR,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 
@@ -289,27 +290,39 @@ export default function StudentsRosterClient({
       <div className="rounded-2xl sm:rounded-3xl p-1.5 sm:p-2.5 bg-gradient-to-r from-stone-100 via-emerald-600/15 to-stone-100 border border-emerald-600/30 shadow-elevation-1">
         <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-6 md:p-7 border border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 text-center sm:text-left min-w-0">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-slate-900 border-2 border-emerald-600/40 shadow-xs shrink-0 overflow-hidden">
-              <Image
-                src={STUDENT_WELFARE_REGISTRAR.photoUrl}
-                alt={`${STUDENT_WELFARE_REGISTRAR.name} - ${STUDENT_WELFARE_REGISTRAR.role}`}
-                fill
-                sizes="96px"
-                className={`object-cover ${STUDENT_WELFARE_REGISTRAR.photoPosition || "object-[75%_25%]"}`}
-              />
+            {/* Dual Portrait Cluster */}
+            <div className="flex items-center -space-x-3 shrink-0">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-slate-900 border-2 border-emerald-700 shadow-sm overflow-hidden z-10">
+                <Image
+                  src={STUDENT_WELFARE_REGISTRAR.photoUrl}
+                  alt={`${STUDENT_WELFARE_REGISTRAR.name} - ${STUDENT_WELFARE_REGISTRAR.role}`}
+                  fill
+                  sizes="96px"
+                  className={`object-cover ${STUDENT_WELFARE_REGISTRAR.photoPosition || "object-[75%_25%]"}`}
+                />
+              </div>
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-slate-900 border-2 border-emerald-500 shadow-sm overflow-hidden z-20">
+                <Image
+                  src={STUDENT_WELFARE_DEPUTY_REGISTRAR.photoUrl}
+                  alt={`${STUDENT_WELFARE_DEPUTY_REGISTRAR.name} - ${STUDENT_WELFARE_DEPUTY_REGISTRAR.role}`}
+                  fill
+                  sizes="96px"
+                  className={`object-cover ${STUDENT_WELFARE_DEPUTY_REGISTRAR.photoPosition || "object-[58%_25%]"}`}
+                />
+              </div>
             </div>
             <div className="space-y-1.5 max-w-2xl min-w-0">
               <div className="inline-flex items-center space-x-2 px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-[10px] font-mono tracking-wider uppercase font-semibold max-w-full">
                 <ShieldCheck className="w-3 h-3 text-emerald-700 shrink-0" />
                 <span className="truncate sm:overflow-visible sm:whitespace-normal">
-                  Office of the Registrar &bull; Institutional Directorate
+                  Office of the Registrar &bull; Dual Executive Directorate
                 </span>
               </div>
               <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-obsidian break-words">
-                {STUDENT_WELFARE_REGISTRAR.salutation} {STUDENT_WELFARE_REGISTRAR.name} &bull; {STUDENT_WELFARE_REGISTRAR.role}
+                Ms. Shiksha Jaiswal (Registrar) &amp; Ms. Navyanshi Dwivedi (Deputy Registrar)
               </h3>
               <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed break-words">
-                Certifying authority for all student cohort admissions (Sanctioned Capacity: 40 Scholars), psychometric evaluations, plagiarism audit verification, and academic accreditation records submitted to bilateral partner institutions.
+                Governing authority for all student cohort admissions (Sanctioned Capacity: 40 Scholars), psychometric evaluations, constitutional ethics, plagiarism audit verification, and academic accreditation records submitted to bilateral partner institutions.
               </p>
             </div>
           </div>
@@ -319,11 +332,11 @@ export default function StudentsRosterClient({
               href="#operational-hierarchy"
               className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-emerald-800 text-white text-xs font-mono font-semibold tracking-wider hover:bg-emerald-900 transition-colors inline-flex items-center justify-center gap-1.5 text-center shadow-sm min-h-[44px]"
             >
-              <span>Registrar Mandate</span>
+              <span>Inspect Registry</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-emerald-200 shrink-0" />
             </a>
             <span className="text-[10px] font-mono text-slate text-center block">
-              Permanent Appointment &bull; Wing A
+              Permanent Directorate &bull; Wing A
             </span>
           </div>
         </div>
@@ -352,7 +365,7 @@ export default function StudentsRosterClient({
                 School for Life &bull; Pro-Bono Field & Research Internship Track
               </h3>
               <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed break-words">
-                Under the bilateral MoU executed on 13th April 2026 (Uttarakhand e-Stamp <span className="font-mono text-obsidian font-semibold break-all">{UPES_ACADEMIC_PARTNERSHIP.eStampNumber}</span>), UPES scholars join our 4-team operational wings under a strict <strong className="text-obsidian font-semibold">1:5 mentor ratio</strong>. All participation is 100% pro-bono with zero commercial fundraising, guaranteed POSH Act 2013 protections, and formal academic credits submitted to the UPES Registrar, verified under the Office of the Registrar, Kiran Singh Foundation (Ms. Shiksha Jaiswal).
+                Under the bilateral MoU executed on 13th April 2026 (Uttarakhand e-Stamp <span className="font-mono text-obsidian font-semibold break-all">{UPES_ACADEMIC_PARTNERSHIP.eStampNumber}</span>), UPES scholars join our 4-team operational wings under a strict <strong className="text-obsidian font-semibold">1:5 mentor ratio</strong>. All participation is 100% pro-bono with zero commercial fundraising, guaranteed POSH Act 2013 protections, and formal academic credits submitted to the UPES Registrar, verified under the Office of the Registrar, Kiran Singh Foundation (Ms. Shiksha Jaiswal, Registrar &amp; Ms. Navyanshi Dwivedi, Deputy Registrar).
               </p>
             </div>
           </div>

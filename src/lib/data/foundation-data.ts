@@ -413,6 +413,14 @@ export const FOUNDATION_LEADERSHIP: LeadershipMember[] = [
     photoPosition: "object-[75%_25%]",
     bio: "Appointed Registrar of the KSF (Student Welfare) Wing; governing student cohort admissions, academic accreditation registers, university accords (UPES School for Life), and research defense credential archives.",
   },
+  {
+    id: "lead-05",
+    name: "Ms. Navyanshi Dwivedi",
+    role: "Deputy Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+    photoUrl: "/images/office-bearers/navyanshi-dwivedi.jpg",
+    photoPosition: "object-[58%_25%]",
+    bio: "Appointed Deputy Registrar of the KSF (Student Welfare) Wing; governing statutory civic ethics, cohort administration protocols, university accord coordination, and formal research monograph defense registries.",
+  },
 ];
 
 export interface WingRegistrar {
@@ -451,11 +459,32 @@ export const STUDENT_WELFARE_REGISTRAR: WingRegistrar = {
   bio: "Appointed Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing student cohort admissions, academic accreditation registers, university accords (UPES School for Life), and research defense credential archives.",
 };
 
+export const STUDENT_WELFARE_DEPUTY_REGISTRAR: WingRegistrar = {
+  id: "reg-02",
+  name: "Navyanshi Dwivedi",
+  salutation: "Ms.",
+  role: "Deputy Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+  wing: "KSF (Student Welfare) Wing",
+  photoUrl: "/images/office-bearers/navyanshi-dwivedi.jpg",
+  photoPosition: "object-[58%_25%]",
+  appointmentDate: "November 2026",
+  badge: "Civic Governance & Academic Registry",
+  moment: "Constitution Day presentation",
+  mandate: [
+    "Constitutional Governance & Statutory Civic Curriculum Administration",
+    "Student Welfare Discipline & Attendance Verification (97.5% Minimum Threshold)",
+    "Plagiarism Audit Screening & Formatted Monograph Archival Custody",
+    "Bilateral University Accord Field Logistics (UPES Dehradun School for Life)",
+    "Convocation Star Shield & Citation Protocols",
+  ],
+  bio: "Appointed Deputy Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing statutory civic ethics, cohort administration protocols, university accord coordination, and formal research monograph defense registries.",
+};
+
 export interface OfficeBearer {
   id: string;
   name: string;
   role: string;
-  category: "Registrar" | "Head Superintendent Manager" | "Dy. Head Superintendent Manager" | "Team Leader";
+  category: "Registrar" | "Deputy Registrar" | "Head Superintendent Manager" | "Dy. Head Superintendent Manager" | "Team Leader";
   tier: 0 | 1 | 2 | 3;
   tierTitle: "Office of the Registrar" | "Tier 1: Head Superintendent Managers" | "Tier 2: Deputy Head Superintendent Managers" | "Tier 3: Team Leaders";
   wing: "Student Welfare Wing";
@@ -471,7 +500,7 @@ export interface OfficeBearer {
 
 export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
   // ==========================================================
-  // OFFICE OF THE REGISTRAR: INSTITUTIONAL EXECUTIVE DIRECTOR
+  // OFFICE OF THE REGISTRAR: INSTITUTIONAL EXECUTIVE DIRECTORATE
   // ==========================================================
   {
     id: "ob-04",
@@ -486,6 +515,22 @@ export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
     description: "Appointed Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing student cohort admissions, psychometric examination registers, university academic accords (UPES School for Life), and research defense credential archives.",
     photoUrl: "/images/office-bearers/shiksha-jaiswal.jpg",
     photoPosition: "object-[75%_25%]",
+    status: "active",
+    isGraduated: false,
+  },
+  {
+    id: "ob-05",
+    name: "Navyanshi Dwivedi",
+    role: "Deputy Registrar, Kiran Singh Foundation (Student Welfare) Wing",
+    category: "Deputy Registrar",
+    tier: 0,
+    tierTitle: "Office of the Registrar",
+    wing: "Student Welfare Wing",
+    moment: "Constitution Day presentation",
+    badge: "Civic Governance & Academic Registry",
+    description: "Appointed Deputy Registrar of the Kiran Singh Foundation (Student Welfare) Wing; governing statutory civic ethics, cohort administration protocols, university accord coordination, and formal research monograph defense registries; led the landmark 26th November Constitution Day presentation ('We The People Are The Power').",
+    photoUrl: "/images/office-bearers/navyanshi-dwivedi.jpg",
+    photoPosition: "object-[58%_25%]",
     status: "active",
     isGraduated: false,
   },
@@ -630,22 +675,6 @@ export const STUDENT_WELFARE_OFFICE_BEARERS: OfficeBearer[] = [
     description: "Former Head Superintendent Manager of the 2026 Summer Internship Batch (Team 1), now successfully graduated; delivered the inaugural address from the foundation podium in blue attire.",
     photoUrl: "/images/office-bearers/unnaati-roy.jpg",
     photoPosition: "object-[55%_30%]",
-    status: "graduated",
-    isGraduated: true,
-  },
-  {
-    id: "ob-05",
-    name: "Navyanshi Dwivedi",
-    role: "Dy. Head Superintendent Manager",
-    category: "Dy. Head Superintendent Manager",
-    tier: 2,
-    tierTitle: "Tier 2: Deputy Head Superintendent Managers",
-    wing: "Student Welfare Wing",
-    moment: "Constitution Day presentation",
-    badge: "Civic Education & Field Governance (Graduated)",
-    description: "Former Deputy Head Superintendent Manager of the 2026 Summer Internship Batch (Team 2), now successfully graduated; led the 26th November Constitution Day presentation ('We The People Are The Power').",
-    photoUrl: "/images/office-bearers/navyanshi-dwivedi.jpg",
-    photoPosition: "object-[58%_25%]",
     status: "graduated",
     isGraduated: true,
   },
@@ -1035,7 +1064,7 @@ export const SCHOLARS_COHORT: StudentScholar[] = [
     emergencyContactPhone: "+91 96709 70750",
     isGraduated: true,
     cohortStatus: "graduated",
-    notes: "Deputy Head Superintendent Manager co-leading Team 2; led the Constitution Day presentation.",
+    notes: "Former Deputy Head Superintendent Manager in Summer 2026 cohort; now elevated and appointed as Deputy Registrar, Kiran Singh Foundation (Student Welfare) Wing.",
   },
   {
     id: "stu-015",

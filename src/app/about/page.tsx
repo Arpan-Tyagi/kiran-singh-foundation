@@ -472,7 +472,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {FOUNDATION_LEADERSHIP.map((leader) => (
             <div
               key={leader.id}
@@ -483,7 +483,7 @@ export default function AboutPage() {
                   src={leader.photoUrl}
                   alt={`${leader.name} - ${leader.role}`}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   className={`object-cover ${leader.photoPosition || "object-top"} group-hover:scale-103 transition-transform duration-500`}
                 />
               </div>

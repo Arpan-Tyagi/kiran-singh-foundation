@@ -29,11 +29,11 @@ export default function OperationalHierarchy({
   const [selectedBearer, setSelectedBearer] = useState<OfficeBearer | null>(null);
   const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated" | "registrar">("all");
 
-  const registrarBearer = STUDENT_WELFARE_OFFICE_BEARERS.find(
-    (b) => b.category === "Registrar" || b.role.includes("Registrar")
+  const registrarBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter(
+    (b) => b.category === "Registrar" || b.category === "Deputy Registrar" || b.tier === 0
   );
   const activeBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter(
-    (b) => !b.isGraduated && b.category !== "Registrar"
+    (b) => !b.isGraduated && b.tier !== 0
   );
   const graduatedBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter((b) => b.isGraduated);
 
@@ -122,7 +122,7 @@ export default function OperationalHierarchy({
                 : "bg-white border border-border text-slate hover:text-obsidian hover:border-obsidian/40"
             }`}
           >
-            All Active Directorate (Registrar + 4 HSM Heads + 3 Leaders)
+            All Active Directorate (Registrar, Dy. Registrar, 4 HSM Heads + 3 Leaders)
           </button>
           <button
             type="button"
@@ -133,7 +133,7 @@ export default function OperationalHierarchy({
                 : "bg-emerald-50 border border-emerald-300 text-emerald-900 hover:bg-emerald-100"
             }`}
           >
-            Office of the Registrar (Ms. Shiksha Jaiswal)
+            Office of the Registrar ({registrarBearers.length} Executive Officers)
           </button>
           <button
             type="button"
@@ -174,7 +174,7 @@ export default function OperationalHierarchy({
       {/* ============================================================== */}
       {/* OFFICE OF THE REGISTRAR: WING EXECUTIVE DIRECTORATE             */}
       {/* ============================================================== */}
-      {registrarBearer && (activeTierFilter === "all" || activeTierFilter === "registrar") && (
+      {registrarBearers.length > 0 && (activeTierFilter === "all" || activeTierFilter === "registrar") && (
         <div className="space-y-6">
           {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-emerald-600/30 pb-3">
@@ -185,111 +185,89 @@ export default function OperationalHierarchy({
                   Office of the Registrar &bull; KSF (Student Welfare) Wing
                 </h4>
                 <p className="text-xs text-emerald-800 font-mono font-semibold">
-                  Permanent Executive Administration &bull; Academic Accreditations &bull; Admissions &bull; UPES MoU Liaison
+                  Permanent Executive Registry &bull; Admissions &bull; Civic Governance &bull; UPES Accord &bull; Plagiarism Audits
                 </p>
               </div>
             </div>
             <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[10px] font-mono text-emerald-800 uppercase tracking-wider font-semibold self-start sm:self-auto">
-              Statutory Registry &bull; Decreed Appointment
+              Statutory Registry &bull; {registrarBearers.length} Executive Officers
             </span>
           </div>
 
-          {/* Registrar Showcase Card */}
-          <div className="bg-gradient-to-r from-stone-50 via-emerald-50/30 to-stone-50 rounded-3xl p-2 sm:p-3 border border-emerald-600/30 shadow-elevation-1">
-            <div className="rounded-2xl bg-white p-5 sm:p-7 md:p-8 border border-stone-200/90 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Photo Column */}
+          {/* Registrar Grid: 2 Executive Cards for Registrar & Deputy Registrar */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {registrarBearers.map((officer) => (
               <div
-                onClick={() => setSelectedBearer(registrarBearer)}
-                className="lg:col-span-5 group cursor-pointer relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-border shadow-md active:scale-[0.99] transition-all"
+                key={officer.id}
+                className="bg-gradient-to-r from-stone-50 via-emerald-50/30 to-stone-50 rounded-3xl p-2 sm:p-2.5 border border-emerald-600/30 shadow-elevation-1 flex flex-col justify-between"
               >
-                {registrarBearer.photoUrl && (
-                  <Image
-                    src={registrarBearer.photoUrl}
-                    alt={`${registrarBearer.name} - ${registrarBearer.moment}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 420px"
-                    className="object-cover object-[75%_25%] group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                    priority
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/20 to-transparent pointer-events-none" />
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-900/85 backdrop-blur-md border border-emerald-400/40 text-[10px] font-mono tracking-widest text-emerald-200 uppercase font-semibold">
-                    OFFICE OF THE REGISTRAR
-                  </span>
-                </div>
-                <div className="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2">
-                  <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono font-bold text-obsidian tracking-tight truncate max-w-[85%] shadow-sm">
-                    {registrarBearer.moment}
-                  </span>
-                  <span className="w-7 h-7 rounded-full bg-obsidian/80 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 shadow-sm">
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </span>
+                <div className="rounded-2xl bg-white p-5 sm:p-6 border border-stone-200/90 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    {/* Portrait Frame */}
+                    <div
+                      onClick={() => setSelectedBearer(officer)}
+                      className="group cursor-pointer relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-border shadow-md active:scale-[0.99] transition-all"
+                    >
+                      {officer.photoUrl && (
+                        <Image
+                          src={officer.photoUrl}
+                          alt={`${officer.name} - ${officer.moment}`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 560px"
+                          className={`object-cover ${officer.photoPosition || "object-center"} group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/20 to-transparent pointer-events-none" />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-900/85 backdrop-blur-md border border-emerald-400/40 text-[9px] sm:text-[10px] font-mono tracking-widest text-emerald-200 uppercase font-semibold">
+                          {officer.category === "Deputy Registrar" ? "DEPUTY REGISTRAR" : "REGISTRAR"}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2">
+                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-border text-[10px] font-mono font-bold text-obsidian tracking-tight truncate max-w-[85%] shadow-sm">
+                          {officer.moment}
+                        </span>
+                        <span className="w-7 h-7 rounded-full bg-obsidian/80 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 shadow-sm">
+                          <Maximize2 className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Metadata & Narrative */}
+                    <div className="space-y-1.5">
+                      <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono uppercase tracking-wider font-semibold">
+                        <Award className="w-3 h-3 text-emerald-700 shrink-0" />
+                        <span className="truncate">{officer.badge}</span>
+                      </div>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
+                        {officer.name}
+                      </h3>
+                      <p className="font-mono text-xs sm:text-sm text-emerald-800 font-semibold">
+                        {officer.role}
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed pt-1">
+                        {officer.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card Action Trigger */}
+                  <div className="pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedBearer(officer)}
+                      className="px-3.5 py-1.5 rounded-full bg-obsidian text-white text-[11px] font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-1.5 active:scale-[0.98]"
+                    >
+                      <span>View Verified Photograph</span>
+                      <Maximize2 className="w-3 h-3 text-lion-gold" />
+                    </button>
+                    <span className="text-[10px] font-mono text-slate">
+                      Active Registry &bull; Decreed Appointment
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              {/* Editorial / Portfolio Column */}
-              <div className="lg:col-span-7 space-y-4">
-                <div className="space-y-1.5">
-                  <div className="inline-flex items-center space-x-2 px-3 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono uppercase tracking-wider font-semibold">
-                    <Award className="w-3 h-3 text-emerald-700" />
-                    <span>Permanent Executive Office &bull; Sanctioned 40 Seats</span>
-                  </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">
-                    {registrarBearer.name}
-                  </h3>
-                  <p className="font-mono text-xs sm:text-sm text-emerald-800 font-semibold">
-                    {registrarBearer.role}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
-                  {registrarBearer.description}
-                </p>
-
-                {/* Statutory Mandates Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
-                      Admissions &amp; Registry
-                    </span>
-                    <span className="font-medium text-obsidian">Sanctioned 40 Scholars Cohort</span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
-                      Academic Accord Liaison
-                    </span>
-                    <span className="font-medium text-obsidian">UPES Dehradun School for Life MoU</span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
-                      Monograph Verification
-                    </span>
-                    <span className="font-medium text-obsidian">Plagiarism Audits &amp; PPT Defenses</span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-obsidian space-y-0.5">
-                    <span className="text-[9px] uppercase tracking-wider text-slate block font-semibold">
-                      Honors &amp; Endorsements
-                    </span>
-                    <span className="font-medium text-obsidian">Internship Certificates &amp; Shields</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBearer(registrarBearer)}
-                    className="px-4 py-2 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-2 active:scale-[0.98]"
-                  >
-                    <span>View Archival Convocation Photo</span>
-                    <Maximize2 className="w-3.5 h-3.5 text-lion-gold" />
-                  </button>
-                  <span className="text-[11px] font-mono text-slate">
-                    Conferred Star Shield by Secretary Shri Anuj Kumar Singh
-                  </span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       )}
@@ -421,15 +399,15 @@ export default function OperationalHierarchy({
               </div>
             </div>
             <span className="px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-[10px] font-mono text-amber-900 uppercase tracking-wider font-semibold self-start sm:self-auto">
-              4 Concluded Alumni Officers
+              {graduatedBearers.length} Concluded Alumni Officers
             </span>
           </div>
 
           <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 text-xs font-sans text-amber-900 leading-relaxed">
-            <strong className="font-semibold">Notice of Cohort Graduation:</strong> The previous student officers of the 2026 Summer Internship Batch (Unnaati Roy, Shiksha Jaiswal, Navyanshi Dwivedi, and Rohini Agrawal) have successfully concluded their internship tenure, defended their research monographs, and received their foundation honors. They have now graduated from the active roll to make way for the newly appointed 4 HSM Commanders.
+            <strong className="font-semibold">Notice of Cohort Graduation:</strong> The previous student officers of the 2026 Summer Internship Batch (Unnaati Roy, Shiksha Jaiswal, Navyanshi Dwivedi, and Rohini Agrawal) have successfully concluded their student internship tenure and defended their research monographs. With Ms. Shiksha Jaiswal and Ms. Navyanshi Dwivedi elevated to Registrar and Deputy Registrar of the Student Welfare Wing, Unnaati Roy and Rohini Agrawal stand honored as graduated alumni.
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-3xl">
             {graduatedBearers.map((bearer) => (
               <OfficerCard
                 key={bearer.id}
