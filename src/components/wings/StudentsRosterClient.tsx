@@ -295,7 +295,7 @@ export default function StudentsRosterClient({
                 alt={`${STUDENT_WELFARE_REGISTRAR.name} - ${STUDENT_WELFARE_REGISTRAR.role}`}
                 fill
                 sizes="96px"
-                className="object-cover object-[68%_35%]"
+                className={`object-cover ${STUDENT_WELFARE_REGISTRAR.photoPosition || "object-[75%_25%]"}`}
               />
             </div>
             <div className="space-y-1.5 max-w-2xl min-w-0">

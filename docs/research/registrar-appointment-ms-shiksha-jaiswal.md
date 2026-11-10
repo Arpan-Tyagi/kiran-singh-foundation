@@ -85,7 +85,7 @@ The appointment is supported by primary archival photographic assets maintained 
 
 | Photographic Asset | File Path | Resolution / Size | Description & Context |
 | :--- | :--- | :--- | :--- |
-| **Official Portrait / Podium Address** | `/images/office-bearers/shiksha-jaiswal.jpg` | 64.9 KB (`.jpg`) | Ms. Shiksha Jaiswal addressing the student welfare assembly from the foundation podium in formal attire. |
+| **Official Portrait / Star Shield Conferral** | `/images/office-bearers/shiksha-jaiswal.jpg` | 454.2 KB (`.jpg`) | Ms. Shiksha Jaiswal receiving the prestigious foundation Star Shield and citation from Secretary Shri Anuj Kumar Singh at the 2nd Summer Convocation ceremony. |
 | **Certificate Presentation (Summer 2025)** | `/images/events/summer-2025/certificate-presentation-shiksha-jaiswal.jpg` | 65.2 KB (`.jpg`) | Receiving the Certificate of Internship before the high table with Col. Prasoon Singh, SM. |
 | **Star Shield Award (Summer 2026)** | `/images/events/summer-2026/shield-shiksha-jaiswal-trophy-unnaati.jpg` | 68.4 KB (`.jpg`) | Holding the Star Shield for Operational Discipline alongside the championship cup. |
 

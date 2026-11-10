@@ -208,7 +208,7 @@ export default function OperationalHierarchy({
                     alt={`${registrarBearer.name} - ${registrarBearer.moment}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 420px"
-                    className="object-cover object-[68%_35%] group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="object-cover object-[75%_25%] group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     priority
                   />
                 )}
@@ -281,11 +281,11 @@ export default function OperationalHierarchy({
                     onClick={() => setSelectedBearer(registrarBearer)}
                     className="px-4 py-2 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-2 active:scale-[0.98]"
                   >
-                    <span>View Archival Podium Photo</span>
+                    <span>View Archival Convocation Photo</span>
                     <Maximize2 className="w-3.5 h-3.5 text-lion-gold" />
                   </button>
                   <span className="text-[11px] font-mono text-slate">
-                    Speaking at Foundation Heraldic Podium
+                    Conferred Star Shield by Secretary Shri Anuj Kumar Singh
                   </span>
                 </div>
               </div>
