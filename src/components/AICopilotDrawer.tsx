@@ -77,10 +77,40 @@ export default function AICopilotDrawer() {
 
   const quickPrompts = [
     "Who was Late Kiran Singh ji?",
+    "Who are the trustees & members?",
     "Tell me about the 40 scholars",
     "How are the 34 dogs protected?",
+    "What events & internships are hosted?",
+    "How can I donate with 80G tax benefit?",
     "Report an injured dog / emergency",
   ];
+
+  const formatMessageText = (text: string) => {
+    return text.split("\n").map((line, lIdx) => {
+      const parts = line.split(/(\*\*.*?\*\*|`.*?`)/g);
+      return (
+        <span key={lIdx} className="block min-h-[1.25em]">
+          {parts.map((part, pIdx) => {
+            if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+              return (
+                <strong key={pIdx} className="font-semibold text-obsidian">
+                  {part.slice(2, -2)}
+                </strong>
+              );
+            }
+            if (part.startsWith("`") && part.endsWith("`") && part.length >= 2) {
+              return (
+                <code key={pIdx} className="bg-slate-100 font-mono text-xs px-1 py-0.5 rounded text-obsidian">
+                  {part.slice(1, -1)}
+                </code>
+              );
+            }
+            return part;
+          })}
+        </span>
+      );
+    });
+  };
 
   return (
     <>
@@ -194,7 +224,7 @@ export default function AICopilotDrawer() {
                         : "bg-white text-obsidian border border-border rounded-tl-none shadow-sm"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{msg.content}</p>
+                    <div className="space-y-1">{formatMessageText(msg.content)}</div>
 
                     {/* Suggested Action Pill */}
                     {msg.suggestedAction && (

@@ -97,6 +97,60 @@ export interface FoundationEvent {
   certificateType?: string;
   researchThemes?: string[];
   stipendDistributed?: boolean;
+  sanctionedBudget?: number;
+  commencementDate?: string;
+  closingCeremonyDate?: string;
+  valediction?: string;
+}
+
+export interface ExpenseLineItem {
+  id: string;
+  page: 1 | 2;
+  category: "hospitality" | "awards_printing" | "av_production" | "stipends" | "protocols_contingency";
+  categoryLabel: string;
+  articleName: string;
+  quantityOrHeadcount?: string;
+  unitRate?: string;
+  amount: number;
+  remarks?: string;
+}
+
+export interface ExpenseCategorySummary {
+  category: "hospitality" | "awards_printing" | "av_production" | "stipends" | "protocols_contingency";
+  categoryLabel: string;
+  totalAmount: number;
+  itemCount: number;
+  percentageOfBudget: number;
+  description: string;
+}
+
+export interface WinterInternshipExpenseReport {
+  title: string;
+  institutionMasthead: string;
+  motto: string;
+  totalSanctionedAmount: number;
+  page1Subtotal: number;
+  page2Subtotal: number;
+  currency: "INR";
+  sanctionDate: string;
+  sanctionDateFormatted: string;
+  signatory: string;
+  signatoryDesignation: string;
+  padFormType: string;
+  legalTrustRef: string;
+  scannedDocuments: {
+    page1Url: string;
+    page2Url: string;
+    page1Alt: string;
+    page2Alt: string;
+  };
+  totalStudentStrength: number;
+  programCommencementDate: string;
+  programClosingCeremonyDate: string;
+  primeFocus: string;
+  valediction: string;
+  items: ExpenseLineItem[];
+  categories: ExpenseCategorySummary[];
 }
 
 export interface BlogPost {
@@ -2563,19 +2617,23 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
   {
     id: "evt-04",
     slug: "upcoming-winter-internship-program-2026-27",
-    title: "Winter Internship Program (2026–27 Session)",
+    title: "2nd Winter Internship Program (2026–27 Session) & Closing Convocation",
     category: "personality_workshop",
     status: "upcoming",
-    edition: "2026–27 Winter Session",
-    monthYear: "December 2026 / January 2027",
-    scheduledAt: "2026-12-20T10:00:00+05:30",
+    edition: "2nd Winter Edition (16 Nov 2026 – 30 Dec 2026)",
+    monthYear: "16 Nov 2026 – 03 Jan 2027",
+    scheduledAt: "2026-11-16T10:00:00+05:30",
     location: "Late Kiran Singh Memorial Auditorium, Prayagraj",
     description:
-      "Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh, the upcoming Winter Internship Program convenes 26 selected scholars deployed across 4 tactical teams under appointed Head Superintendent Managers (HSMs): Team I (Vaishnavi), Team II (Prateeksha Pandey), Team III (Shubhangi Singh), and Team IV (Vedant Agrawal). Scholars prepare plagiarism-audited research reports and slide defenses before the Board of Trustees, earning academic credits, distinction certificates, trophies, and merit stipends.",
+      "2nd Winter Internship Program for 30 students of the foundation will commence from 16th of November 2026 till 30th of December 2026. Winter Internship Closing Ceremony will take place on 3rd of January 2027. Prime focus will be to divide students into teams and provide them opportunities to develop a solid research and development wing so that their research and speaking capability can be enhanced. Jai Hind.",
     capacity: 100,
     isPublished: true,
     certificateType: "Winter Internship Certificate of Distinction & Research Honor",
-    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%20Upcoming%20Winter%20Internship%202026-27",
+    whatsappRsvpLink: "https://wa.me/919670970750?text=RSVP%20for%202nd%20Winter%20Internship%202026-27",
+    sanctionedBudget: 111600,
+    commencementDate: "2026-11-16",
+    closingCeremonyDate: "2027-01-03",
+    valediction: "Jai Hind",
     syllabusCovered: [
       "Advanced Statutory Governance & Public Policy Synthesis",
       "Plagiarism-Audited Formatted Research Report Preparation",
@@ -2583,9 +2641,11 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
       "Field Mutual-Aid Deployment & Emergency Community Triage",
     ],
     highlights: [
-      "Officially Decreed by Secretary Shri Anuj Kumar Singh on 05/11/2026",
-      "26 Selected Scholars Mobilized Across 4 Specialized Research Teams",
-      "4 Appointed Head Superintendent Managers (HSMs): Vaishnavi, Prateeksha, Shubhangi, Vedant",
+      "Official Sanctioned Budget: ₹1,11,600 executed by Secretary Shri Anuj Kumar Singh on 11/11/26",
+      "Program Tenure: 16th November 2026 till 30th December 2026",
+      "Winter Internship Closing Ceremony: 3rd of January 2027",
+      "30 Foundation Scholars Mobilized into Structured Research & Development (R&D) Wings",
+      "4 Appointed Head Superintendent Managers (HSMs): Vaishnavi, Prateeksha Pandey, Shubhangi Singh, Vedant Agrawal",
       "Academic Credit Transmission to UPES Dehradun School for Life Framework",
     ],
     researchThemes: [
@@ -2600,6 +2660,18 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
         caption: "Official Notification Decree: Final List for Upcoming Internship Program signed by Secretary Shri Anuj Kumar Singh on 05/11/26 at Prayagraj",
         officerName: "Shri Anuj Kumar Singh",
         roleBadge: "Secretary • Official Decree 05/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/sanctioned-order-form-page-1.jpg",
+        caption: "Official Sanctioned Order Form (Page 1): Banquet & Hotel (₹64,000), Trophies (₹9,000), Honour Mementos (₹6,000), Sound & AV (₹7,000), Banners (₹5,000), Certificates (₹450), Appreciation Letters (₹450). Subtotal: ₹91,900.",
+        officerName: "Shri Anuj Kumar Singh",
+        roleBadge: "Secretary • Financial Sanction 11/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/sanctioned-order-form-page-2.jpg",
+        caption: "Official Sanctioned Order Form (Page 2): 30-Scholar Stipends (Registrar ₹1,200, Dy. Registrar ₹1,000, 4 HSMs ₹4,800, 26 Scholars ₹5,200), Bouquets (₹1,500), Garlands (₹1,000), Miscellaneous (₹5,000). Subtotal: ₹19,700. Grand Total: ₹1,11,600.",
+        officerName: "Shri Anuj Kumar Singh",
+        roleBadge: "Secretary • Financial Sanction 11/11/26",
       },
       {
         url: "/images/office-bearers/vedant-agarwal.jpg",
@@ -3130,6 +3202,243 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
           academicDiscipline: "Business Analytics & Operational Management",
         },
       ],
+    },
+  ],
+};
+
+// ============================================================================
+// 15. OFFICIAL SANCTIONED EXPENSE REPORT: 2ND WINTER INTERNSHIP PROGRAM (2026–27)
+// Executed & Signed by Secretary Shri Anuj Kumar Singh on 11/11/26 (Order Forms 1 & 2)
+// Total Sanctioned Expenditure: ₹1,11,600 (Page 1: ₹91,900 + Page 2: ₹19,700)
+// ============================================================================
+
+export const WINTER_INTERNSHIP_2026_27_SANCTIONED_EXPENSES: WinterInternshipExpenseReport = {
+  title: "Sanctioned Expense Report: 2nd Winter Internship Program & Closing Ceremony",
+  institutionMasthead: "Kiran Singh Foundation",
+  motto: "A journey from Struggle to Enlightenment",
+  padFormType: "Lakhani Vardaan Official Order Form",
+  legalTrustRef: "Trust registered under the Indian Trust Act of 1882 • PAN: AAGTK3961N",
+  totalSanctionedAmount: 111600,
+  page1Subtotal: 91900,
+  page2Subtotal: 19700,
+  currency: "INR",
+  sanctionDate: "2026-11-11",
+  sanctionDateFormatted: "11/11/2026 (11th November 2026)",
+  signatory: "Shri Anuj Kumar Singh",
+  signatoryDesignation: "Secretary, Kiran Singh Foundation",
+  totalStudentStrength: 30,
+  programCommencementDate: "16th November 2026",
+  programClosingCeremonyDate: "3rd January 2027",
+  primeFocus:
+    "Divide students into teams and provide them opportunities to develop a solid research and development wing so that their research and speaking capability can be enhanced.",
+  valediction: "Jai Hind",
+  scannedDocuments: {
+    page1Url: "/images/events/winter-2026-27/sanctioned-order-form-page-1.jpg",
+    page2Url: "/images/events/winter-2026-27/sanctioned-order-form-page-2.jpg",
+    page1Alt:
+      "Sanctioned Order Form Page 1: Certificates, Hotel, Trophies, Banners, Sound (Subtotal: ₹91,900)",
+    page2Alt:
+      "Sanctioned Order Form Page 2: 30-Student Stipends, Bouquets, Garlands, Contingencies (Subtotal: ₹19,700, Grand Total: ₹1,11,600) signed by Secretary Anuj Singh on 11/11/26",
+  },
+  categories: [
+    {
+      category: "hospitality",
+      categoryLabel: "Banquet & Venue Hospitality",
+      totalAmount: 64000,
+      itemCount: 1,
+      percentageOfBudget: 57.35,
+      description: "Banquet hall catering, dining and hospitality for 80 attendees and dignitaries.",
+    },
+    {
+      category: "awards_printing",
+      categoryLabel: "Awards, Mementos & Citations",
+      totalAmount: 15900,
+      itemCount: 4,
+      percentageOfBudget: 14.25,
+      description: "Trophies, honour mementos, embossed certificates, and letters of appreciation.",
+    },
+    {
+      category: "stipends",
+      categoryLabel: "Scholar Leadership & Intern Stipends",
+      totalAmount: 12200,
+      itemCount: 4,
+      percentageOfBudget: 10.93,
+      description: "Direct merit stipends for 30 scholars including Registrar, Dy. Registrar, and 4 HSMs.",
+    },
+    {
+      category: "av_production",
+      categoryLabel: "Audio-Visual & Event Production",
+      totalAmount: 12000,
+      itemCount: 2,
+      percentageOfBudget: 10.75,
+      description: "Professional sound system, microphones, ceremonial music setup, and stage banners.",
+    },
+    {
+      category: "protocols_contingency",
+      categoryLabel: "Dignitary Protocols & Contingencies",
+      totalAmount: 7500,
+      itemCount: 3,
+      percentageOfBudget: 6.72,
+      description: "VVIP welcome bouquets, traditional garlands, and emergency logistical contingencies.",
+    },
+  ],
+  items: [
+    // Page 1 Line Items
+    {
+      id: "exp-p1-01",
+      page: 1,
+      category: "awards_printing",
+      categoryLabel: "Awards, Mementos & Citations",
+      articleName: "Certificate Printing",
+      quantityOrHeadcount: "50 Certificates",
+      unitRate: "₹9 each",
+      amount: 450,
+      remarks: "₹450",
+    },
+    {
+      id: "exp-p1-02",
+      page: 1,
+      category: "awards_printing",
+      categoryLabel: "Awards, Mementos & Citations",
+      articleName: "Letter of Appreciation Printing",
+      quantityOrHeadcount: "50 Letters",
+      unitRate: "₹9 each",
+      amount: 450,
+      remarks: "₹450",
+    },
+    {
+      id: "exp-p1-03",
+      page: 1,
+      category: "hospitality",
+      categoryLabel: "Banquet & Venue Hospitality",
+      articleName: "Hotel Cost (Banquet & Catering)",
+      quantityOrHeadcount: "80 People",
+      unitRate: "₹800 each",
+      amount: 64000,
+      remarks: "₹64,000",
+    },
+    {
+      id: "exp-p1-04",
+      page: 1,
+      category: "awards_printing",
+      categoryLabel: "Awards, Mementos & Citations",
+      articleName: "Trophy & Memento Cost",
+      quantityOrHeadcount: "6 Trophies",
+      unitRate: "₹1,500 each",
+      amount: 9000,
+      remarks: "₹9,000",
+    },
+    {
+      id: "exp-p1-05",
+      page: 1,
+      category: "awards_printing",
+      categoryLabel: "Awards, Mementos & Citations",
+      articleName: "Honour Memento",
+      quantityOrHeadcount: "30 Pieces",
+      unitRate: "₹200 each",
+      amount: 6000,
+      remarks: "₹6,000",
+    },
+    {
+      id: "exp-p1-06",
+      page: 1,
+      category: "av_production",
+      categoryLabel: "Audio-Visual & Event Production",
+      articleName: "Banner & Printing Cost",
+      quantityOrHeadcount: "Stage & Venue Backdrops",
+      unitRate: "₹5,000 lump sum",
+      amount: 5000,
+      remarks: "₹5,000",
+    },
+    {
+      id: "exp-p1-07",
+      page: 1,
+      category: "av_production",
+      categoryLabel: "Audio-Visual & Event Production",
+      articleName: "Mike & Musical System Cost",
+      quantityOrHeadcount: "PA Rig & Music Equipment",
+      unitRate: "₹7,000 lump sum",
+      amount: 7000,
+      remarks: "₹7,000",
+    },
+
+    // Page 2 Line Items
+    {
+      id: "exp-p2-01",
+      page: 2,
+      category: "stipends",
+      categoryLabel: "Scholar Leadership & Intern Stipends",
+      articleName: "Registrar Stipend",
+      quantityOrHeadcount: "1 Officer (Registrar)",
+      unitRate: "₹1,200 honorarium",
+      amount: 1200,
+      remarks: "1200",
+    },
+    {
+      id: "exp-p2-02",
+      page: 2,
+      category: "stipends",
+      categoryLabel: "Scholar Leadership & Intern Stipends",
+      articleName: "Dy. Registrar Stipend",
+      quantityOrHeadcount: "1 Officer (Dy. Registrar)",
+      unitRate: "₹1,000 honorarium",
+      amount: 1000,
+      remarks: "1,000",
+    },
+    {
+      id: "exp-p2-03",
+      page: 2,
+      category: "stipends",
+      categoryLabel: "Scholar Leadership & Intern Stipends",
+      articleName: "Head Superintendent Managers (4 HSMs) Stipends",
+      quantityOrHeadcount: "4 HSMs (Team Commanders)",
+      unitRate: "₹1,200 × 4",
+      amount: 4800,
+      remarks: "1200 × 4 = 4,800",
+    },
+    {
+      id: "exp-p2-04",
+      page: 2,
+      category: "stipends",
+      categoryLabel: "Scholar Leadership & Intern Stipends",
+      articleName: "Student Intern Stipends",
+      quantityOrHeadcount: "26 Scholars",
+      unitRate: "₹200 each",
+      amount: 5200,
+      remarks: "₹5,200",
+    },
+    {
+      id: "exp-p2-05",
+      page: 2,
+      category: "protocols_contingency",
+      categoryLabel: "Dignitary Protocols & Contingencies",
+      articleName: "Bouquet Cost",
+      quantityOrHeadcount: "6 Bouquets",
+      unitRate: "₹250 each",
+      amount: 1500,
+      remarks: "₹1,500",
+    },
+    {
+      id: "exp-p2-06",
+      page: 2,
+      category: "protocols_contingency",
+      categoryLabel: "Dignitary Protocols & Contingencies",
+      articleName: "Ceremonial Garlands",
+      quantityOrHeadcount: "Dignitary Welcomes",
+      unitRate: "₹1,000 lump sum",
+      amount: 1000,
+      remarks: "₹1,000",
+    },
+    {
+      id: "exp-p2-07",
+      page: 2,
+      category: "protocols_contingency",
+      categoryLabel: "Dignitary Protocols & Contingencies",
+      articleName: "Miscellaneous Contingencies",
+      quantityOrHeadcount: "Logistics & Discretionary",
+      unitRate: "₹5,000 lump sum",
+      amount: 5000,
+      remarks: "₹5,000",
     },
   ],
 };

@@ -337,7 +337,13 @@ export async function fetchEventBySlug(slug: string): Promise<FoundationEvent | 
       console.warn("fetchEventBySlug db error:", e);
     }
   }
-  const matched = FOUNDATION_EVENTS.find((e) => e.slug === slug && e.isPublished);
+  const matched = FOUNDATION_EVENTS.find(
+    (e) =>
+      (e.slug === slug ||
+        (slug === "2nd-winter-internship-program-2026-27" &&
+          e.slug === "upcoming-winter-internship-program-2026-27")) &&
+      e.isPublished
+  );
   return matched || null;
 }
 

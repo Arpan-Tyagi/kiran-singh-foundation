@@ -18,9 +18,12 @@ import {
   Share2,
   ShieldCheck,
   GraduationCap,
+  Receipt,
+  Flag,
 } from "lucide-react";
 import { fetchEventBySlug, fetchEvents } from "@/lib/supabase";
 import { WINTER_INTERNSHIP_BATCH_2026_27 } from "@/lib/data/foundation-data";
+import EventExpenseReport from "@/components/events/EventExpenseReport";
 
 interface Props {
   params: Promise<{
@@ -155,6 +158,68 @@ export default async function EventDetailPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Official 2nd Winter Internship Announcement Callout */}
+        {event.slug === "upcoming-winter-internship-program-2026-27" && (
+          <div className="p-2 sm:p-2.5 rounded-[2rem] bg-lion-gold/10 ring-1 ring-lion-gold/30 shadow-elevation-1">
+            <div className="rounded-[calc(2rem-0.625rem)] bg-white p-6 sm:p-8 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/15 text-lion-gold-dark text-[10px] font-mono uppercase tracking-[0.2em] font-bold">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Official Institutional Announcement</span>
+                </div>
+                <div className="flex items-center space-x-2 text-xs font-mono text-slate">
+                  <Flag className="w-3.5 h-3.5 text-crimson-alert" />
+                  <span className="font-bold text-obsidian">Jai Hind</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <blockquote className="border-l-4 border-lion-gold pl-4 sm:pl-6 py-1 italic font-serif text-lg sm:text-2xl text-obsidian leading-relaxed">
+                  &ldquo;2nd Winter Internship Program for 30 students of the foundation will commence from 16th of November 2026 till 30th of December 2026.
+                  Winter Internship Closing Ceremony will take place on 3rd of January 2027.
+                  Prime focus will be to divide students into teams and provide them opportunities to develop a solid research and development wing so that their research and speaking capability can be enhanced.&rdquo;
+                </blockquote>
+                <div className="text-right">
+                  <span className="font-serif italic text-base text-lion-gold-dark font-bold block">
+                    — Jai Hind
+                  </span>
+                  <span className="text-[11px] font-mono text-slate">
+                    By Order of Secretary Shri Anuj Kumar Singh &bull; Prayagraj Secretariat
+                  </span>
+                </div>
+              </div>
+
+              {/* 4 Crucial Telemetry Pillars */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2 border-t border-border/80">
+                <div className="p-3 rounded-xl bg-porcelain border border-border/70 space-y-0.5">
+                  <span className="text-[10px] font-mono text-slate uppercase block">Program Span</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-obsidian block">
+                    16 Nov – 30 Dec 2026
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-porcelain border border-border/70 space-y-0.5">
+                  <span className="text-[10px] font-mono text-slate uppercase block">Closing Ceremony</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-lion-gold-dark block">
+                    3rd January 2027
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-porcelain border border-border/70 space-y-0.5">
+                  <span className="text-[10px] font-mono text-slate uppercase block">Cohort Capacity</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-botanical-emerald block">
+                    30 Foundation Students
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-porcelain border border-border/70 space-y-0.5">
+                  <span className="text-[10px] font-mono text-slate uppercase block">Sanctioned Budget</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-obsidian block">
+                    ₹1,11,600 Sanctioned
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* 3. Program Narrative Overview */}
@@ -365,6 +430,11 @@ export default async function EventDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
+      )}
+
+      {/* Official Audited Expense Report (Sanctioned by Secretary Shri Anuj Kumar Singh on 11/11/26) */}
+      {event.slug === "upcoming-winter-internship-program-2026-27" && (
+        <EventExpenseReport />
       )}
 
       {/* 4. Ceremonial Action Photographs Gallery */}

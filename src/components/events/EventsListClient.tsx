@@ -16,8 +16,11 @@ import {
   BookOpen,
   X,
   ExternalLink,
+  Receipt,
+  Flag,
 } from "lucide-react";
 import { FoundationEvent, EventGalleryImage } from "@/lib/data/foundation-data";
+import EventExpenseReport from "@/components/events/EventExpenseReport";
 
 export default function EventsListClient({
   events,
@@ -279,7 +282,94 @@ export default function EventsListClient({
         )}
       </div>
 
-      {/* 4. Upcoming Gatherings & Field Drives Section */}
+      {/* 4. Official Featured Announcement & Sanctioned Expense Report: 2nd Winter Internship Program (2026–27) */}
+      <section id="winter-internship-announcement" className="space-y-8 pt-8 border-t border-border scroll-mt-28">
+        {/* Double-Bezel Announcement Card */}
+        <div className="p-2 sm:p-3 rounded-[2rem] bg-lion-gold/10 ring-1 ring-lion-gold/25 shadow-elevation-1">
+          <div className="rounded-[calc(2rem-0.625rem)] bg-white p-6 sm:p-10 space-y-8">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-5">
+              <div className="flex items-center space-x-2">
+                <span className="px-3.5 py-1 rounded-full bg-lion-gold/15 text-lion-gold-dark text-[10px] font-mono uppercase tracking-[0.2em] font-bold flex items-center space-x-1.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Official Institutional Announcement &bull; Winter 2026–27</span>
+                </span>
+                <span className="px-3 py-1 rounded-full bg-botanical-emerald/10 text-botanical-emerald text-[10px] font-mono uppercase font-semibold hidden sm:inline-block">
+                  Upcoming Flagship Session
+                </span>
+              </div>
+              <div className="flex items-center space-x-2 text-xs font-mono text-slate">
+                <Flag className="w-3.5 h-3.5 text-crimson-alert" />
+                <span className="font-bold text-obsidian tracking-wider">Jai Hind</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-serif text-2xl sm:text-4xl font-normal text-obsidian tracking-tight leading-snug">
+                2nd Winter Internship Program for 30 Students &amp; Sanctioned Expense Report
+              </h2>
+              <blockquote className="border-l-4 border-lion-gold pl-4 sm:pl-6 py-3 italic font-serif text-lg sm:text-2xl text-obsidian leading-relaxed bg-porcelain rounded-r-2xl">
+                &ldquo;2nd Winter Internship Program for 30 students of the foundation will commence from 16th of November 2026 till 30th of December 2026....
+                <br />
+                Winter Internship Closing Ceremony will take place on 3rd of January 2027....
+                <br />
+                Prime focus will be to divide students into teams and provide them opportunities to develop a solid research and development wing so that their research and speaking capability can be enhanced.
+                <br />
+                Jai Hind&rdquo;
+              </blockquote>
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-2 text-xs font-mono text-slate">
+                <span>By Order of: <strong className="text-obsidian font-semibold">Shri Anuj Kumar Singh, Secretary</strong> (11/11/26)</span>
+                <Link
+                  href="/events/upcoming-winter-internship-program-2026-27"
+                  className="inline-flex items-center space-x-1.5 text-lion-gold-dark hover:underline font-semibold"
+                >
+                  <span>Explore Full 26-Scholar Roster &amp; Team Hierarchy</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* 4 Pillars Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-2 border-t border-border/80">
+              <div className="p-4 rounded-2xl bg-porcelain border border-border/70 space-y-1">
+                <span className="text-[10px] font-mono text-slate uppercase block font-semibold">Program Tenure</span>
+                <span className="text-sm sm:text-base font-mono font-bold text-obsidian block">
+                  16 Nov &ndash; 30 Dec 2026
+                </span>
+                <span className="text-[10px] font-mono text-slate block">6-Week Structured Lab</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-porcelain border border-border/70 space-y-1">
+                <span className="text-[10px] font-mono text-slate uppercase block font-semibold">Closing Ceremony</span>
+                <span className="text-sm sm:text-base font-mono font-bold text-lion-gold-dark block">
+                  3rd January 2027
+                </span>
+                <span className="text-[10px] font-mono text-slate block">Banquet &amp; Convocations</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-porcelain border border-border/70 space-y-1">
+                <span className="text-[10px] font-mono text-slate uppercase block font-semibold">Cohort Strength</span>
+                <span className="text-sm sm:text-base font-mono font-bold text-botanical-emerald block">
+                  30 Foundation Students
+                </span>
+                <span className="text-[10px] font-mono text-slate block">Solid R&amp;D Wing Mandate</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-lion-gold/5 border border-lion-gold/30 space-y-1">
+                <span className="text-[10px] font-mono uppercase text-lion-gold-dark block font-semibold">Sanctioned Budget</span>
+                <span className="text-sm sm:text-base font-mono font-bold text-obsidian block">
+                  &#8377;1,11,600 Sanctioned
+                </span>
+                <span className="text-[10px] font-mono text-lion-gold-dark block">Signed by Secretary (11/11/26)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Embedded Full Luxury Sanctioned Expense Report Component */}
+        <EventExpenseReport />
+      </section>
+
+      {/* 5. Additional Upcoming Gatherings & Field Drives Section */}
       <div className="space-y-8 pt-8 border-t border-border">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
@@ -378,22 +468,37 @@ export default function EventsListClient({
                             <span>Capacity: {evt.capacity} attendees</span>
                           </span>
                         )}
+                        {evt.sanctionedBudget && (
+                          <span className="flex items-center space-x-1 text-lion-gold-dark font-semibold">
+                            <Receipt className="w-3.5 h-3.5" />
+                            <span>Sanctioned Budget: ₹{evt.sanctionedBudget.toLocaleString("en-IN")}</span>
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
 
                   {/* Actions: WhatsApp RSVP & Detail Link */}
                   <div className="shrink-0 flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2.5 pt-4 md:pt-0 border-t md:border-t-0 border-border">
-                    <a
-                      href={evt.whatsappRsvpLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light text-white font-sans font-semibold text-xs transition-colors shadow-sm"
-                    >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>WhatsApp RSVP</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Link
+                        href={`/events/${evt.slug}`}
+                        className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-white border border-border text-obsidian hover:border-lion-gold-dark hover:text-lion-gold-dark font-sans font-medium text-xs transition-colors shadow-2xs"
+                      >
+                        <span>View Dossier &amp; Budget</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <a
+                        href={evt.whatsappRsvpLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-botanical-emerald hover:bg-botanical-emerald-light text-white font-sans font-semibold text-xs transition-colors shadow-sm"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        <span>WhatsApp RSVP</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
                     <span className="text-[10px] font-mono text-slate">
                       Instant confirmation via wa.me (+91 96709 70750)
                     </span>

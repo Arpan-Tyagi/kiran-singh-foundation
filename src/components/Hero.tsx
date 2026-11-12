@@ -19,6 +19,23 @@ export default function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
+        {/* 2nd Winter Internship Official Announcement Island Pill */}
+        <Link
+          href="/events/upcoming-winter-internship-program-2026-27#expense-report"
+          className="group mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lion-gold/10 hover:bg-lion-gold/15 border border-lion-gold/30 text-lion-gold-dark text-xs font-mono transition-all duration-300 shadow-2xs hover:scale-102"
+        >
+          <span className="w-2 h-2 rounded-full bg-lion-gold animate-pulse" />
+          <span className="font-semibold uppercase tracking-wider text-[11px]">
+            Announcement: 2nd Winter Internship (16 Nov &ndash; 30 Dec 2026)
+          </span>
+          <span className="text-slate/80 font-normal hidden sm:inline">
+            &bull; Closing Ceremony 03 Jan 2027 &bull; Sanctioned Budget &#8377;1,11,600
+          </span>
+          <div className="w-5 h-5 rounded-full bg-lion-gold/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+            <ArrowUpRight className="w-3 h-3 text-lion-gold-dark" />
+          </div>
+        </Link>
+
         {/* Heraldic Emblem Box */}
         <div className="relative group mb-8">
           <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl p-2 bg-gradient-to-b from-lion-gold/40 via-lion-gold/15 to-border shadow-elevation-card">

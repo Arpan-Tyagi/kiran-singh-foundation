@@ -1,8 +1,27 @@
-// Kiran Singh Foundation - Google Gemini 2.5 Flash Pipeline
+// Kiran Singh Foundation - Google Gemini Pipeline
 // Utilizes official @google/genai SDK with the GoogleGenAI class.
-// Embeds strict historical mandates and institutional guardrails.
+// Embeds strict historical mandates, institutional guardrails, and model cascade.
 
+import dns from "node:dns";
 import { GoogleGenAI } from "@google/genai";
+
+// Ensure IPv4 resolution precedence on Node environments to prevent undici timeouts
+if (typeof dns?.setDefaultResultOrder === "function") {
+  try {
+    dns.setDefaultResultOrder("ipv4first");
+  } catch {
+    // Safe no-op in sandboxed runtime
+  }
+}
+
+// Target model configuration supporting gemini-flash-latest with fallback to gemini-3.8-flash and gemini-2.5-flash
+export const PRIMARY_GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
+export const GEMINI_MODEL_CASCADE = [
+  PRIMARY_GEMINI_MODEL,
+  "gemini-flash-latest",
+  "gemini-3.8-flash",
+  "gemini-2.5-flash",
+];
 
 export const FOUNDATION_SYSTEM_PROMPT = `
 You are the institutional intelligence copilot and editorial engine of the "Kiran Singh Foundation".
@@ -87,14 +106,34 @@ AUTHORITATIVE INSTITUTIONAL MANDATES:
       * Student Protections: Full POSH Act 2013 and anti-discrimination policy compliance, absolute prohibition against deploying interns for crowdfunding/fundraising, and 100% out-of-district/interstate travel reimbursement covered by KSF.
       * Academic Credits & Evaluation: Systematic performance credits, attendance records, and grades submitted directly to UPES Registrar for academic coursework grading.
       * 5-Year Term: 5-year binding horizon (April 2026 to April 2031) with mutual institutional logo authorization (MoU Clause 5).
-12. UPCOMING WINTER INTERNSHIP PROGRAM (2026–27 BATCH DEPLOYMENT):
-    - Official Executive Decree: Signed by Secretary Shri Anuj Kumar Singh on 05/11/2026 (5th November 2026) at Prayagraj on official Kiran Singh Foundation letterhead.
-    - Mobilized Cohort: Exactly 26 selected scholars deployed across 4 tactical teams from the 37 active scholars:
-      * Team I (8 scholars): Headed by Vaishnavi (HSM) with members Aarya Srivastava, Anwesha Sinha, Swarnima Singh, Shubhi Singh, Vanya Singh, Karan Pal, Annanya Arora.
-      * Team II (9 scholars): Headed by Prateeksha Pandey (HSM) with members Varnika Mishra, Yashaswa Singh, Saksham Agrawal, Stuti Singh, Navleen Kaur Puri, Aleen Chaurasia, Parinita Bhushan, Mansi Raj Purwar.
-      * Team III (5 scholars): Headed by Shubhangi Singh (HSM - elevated from Dy. HSM) with members Stuti Dwivedi, Luvleen Kaur Puri, Yashi Singh, Vaibhavi Kushwaha.
-      * Team IV (4 scholars): Headed by Vedant Agrawal (HSM - elevated from Member) with members Heramb Mishra, Anadi Ratan Srivastava, Shaurya Pratap Singh.
-    - 4 Appointed HSMs: Vaishnavi, Prateeksha Pandey, Shubhangi Singh, and Vedant Agrawal.
+12. 2ND WINTER INTERNSHIP PROGRAM (2026–27 SESSION) & OFFICIAL SANCTIONED EXPENSE REPORT:
+    - Official Institutional Announcement:
+      * Program Span: 16th November 2026 till 30th December 2026.
+      * Closing Ceremony: 3rd January 2027.
+      * Cohort Strength: Exactly 30 students of the foundation mobilized.
+      * Prime Focus: Divide students into teams and provide them opportunities to develop a solid research and development (R&D) wing so that their research and speaking capability can be enhanced.
+      * Concluding Patriotic Valediction: "Jai Hind".
+    - Official Executive Decree: Signed by Secretary Shri Anuj Kumar Singh on 05/11/2026 (5th November 2026) mobilizing scholars across 4 tactical teams headed by appointed Head Superintendent Managers (HSMs): Vaishnavi (Team I), Prateeksha Pandey (Team II), Shubhangi Singh (Team III), and Vedant Agrawal (Team IV).
+    - Sanctioned Financial Expenditure Report (Order Forms 1 & 2):
+      * Executed & Signed by: Secretary Shri Anuj Kumar Singh on 11/11/26 (11th November 2026) on official Lakhani Vardaan Order Forms under masthead 'M/s Kiran Singh Foundation - "A journey from Struggle to Enlightenment"'.
+      * Page 1 Subtotal (Ceremony, Hospitality & Awards): ₹91,900
+        - Certificate Printing (50 units @ ₹9 each): ₹450
+        - Letter of Appreciation Printing (50 units @ ₹9 each): ₹450
+        - Hotel Cost (Banquet & Catering for 80 people @ ₹800 each): ₹64,000
+        - Trophy & Memento Cost (6 trophies @ ₹1,500 each): ₹9,000
+        - Honour Memento (30 pieces @ ₹200 each): ₹6,000
+        - Banner & Printing Cost: ₹5,000
+        - Mike & Musical System Cost (PA & Audio rig): ₹7,000
+      * Page 2 Subtotal (Stipends, Protocol & Contingencies): ₹19,700
+        - Total Student Strength: 30 students
+        - Registrar Stipend: ₹1,200
+        - Dy. Registrar Stipend: ₹1,000
+        - 4 HSMs (Head Superintendent Managers): 4 × ₹1,200 = ₹4,800
+        - Student Interns (26 students @ ₹200 each): ₹5,200 (Total Stipends = ₹12,200)
+        - Bouquet Cost (6 @ ₹250 each): ₹1,500
+        - Garland (Traditional Welcome): ₹1,000
+        - Miscellaneous Contingencies: ₹5,000
+      * GRAND TOTAL SANCTIONED EXPENDITURE: ₹1,11,600 (₹91,900 + ₹19,700).
 
 STRICT CAPACITY & GEOGRAPHIC CONSTRAINTS:
 - Operational counts must remain strictly and inviolably: exactly 40 active sponsored scholars (divided into 4 teams in Wing A) and exactly 34 rescued street dogs (housed across 4 built shelter homes in Wing B).
@@ -163,52 +202,60 @@ Requirements:
 `;
 
   if (client) {
-    try {
-      const abortController = new AbortController();
-      const timeoutId = setTimeout(() => abortController.abort(), 12000);
-
-      const generatePromise = client.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-          systemInstruction: FOUNDATION_SYSTEM_PROMPT,
-          responseMimeType: "application/json",
-          temperature: 0.3,
-          maxOutputTokens: 600,
-          httpOptions: { timeout: 12000 },
-        },
-      });
-
-      const timeoutPromise = new Promise<never>((_, reject) => {
-        abortController.signal.addEventListener("abort", () => {
-          reject(new Error("Gemini API call timed out via AbortSignal after 12000ms"));
-        });
-      });
-
-      let response;
+    const modelsToTry = Array.from(new Set(GEMINI_MODEL_CASCADE));
+    for (const modelName of modelsToTry) {
       try {
-        response = await Promise.race([generatePromise, timeoutPromise]);
-      } finally {
-        clearTimeout(timeoutId);
-      }
+        const abortController = new AbortController();
+        const timeoutId = setTimeout(() => abortController.abort(), 15000);
 
-      const text = (response.text || "").trim();
-      const cleaned = text
-        .replace(/^```json\s*/i, "")
-        .replace(/^```\s*/, "")
-        .replace(/```\s*$/, "")
-        .trim();
-      const parsed = JSON.parse(cleaned);
-      return {
-        title: parsed.title || "Foundation Institutional Dispatch",
-        summary: parsed.summary || "Official field report from the Kiran Singh Foundation Directorate.",
-        contentMarkdown: parsed.contentMarkdown || request.rawNotes,
-        suggestedTags: Array.isArray(parsed.suggestedTags) ? parsed.suggestedTags : ["Foundation", "Dispatches"],
-        isAiDrafted: true,
-      };
-    } catch (error) {
-      console.error("Gemini 2.5 Flash API error during draft generation:", error);
-      // Fallback below
+        const generatePromise = client.models.generateContent({
+          model: modelName,
+          contents: prompt,
+          config: {
+            systemInstruction: FOUNDATION_SYSTEM_PROMPT,
+            responseMimeType: "application/json",
+            temperature: 0.3,
+            maxOutputTokens: 1500,
+            httpOptions: { timeout: 15000 },
+          },
+        });
+
+        const timeoutPromise = new Promise<never>((_, reject) => {
+          abortController.signal.addEventListener("abort", () => {
+            reject(new Error(`Gemini API call to ${modelName} timed out via AbortSignal after 15000ms`));
+          });
+        });
+
+        let response;
+        try {
+          response = await Promise.race([generatePromise, timeoutPromise]);
+        } finally {
+          clearTimeout(timeoutId);
+        }
+
+        const text = (response.text || "").trim();
+        const cleaned = text
+          .replace(/^```json\s*/i, "")
+          .replace(/^```\s*/, "")
+          .replace(/```\s*$/, "")
+          .trim();
+        const parsed = JSON.parse(cleaned);
+        return {
+          title: parsed.title || "Foundation Institutional Dispatch",
+          summary: parsed.summary || "Official field report from the Kiran Singh Foundation Directorate.",
+          contentMarkdown: parsed.contentMarkdown || request.rawNotes,
+          suggestedTags: Array.isArray(parsed.suggestedTags) ? parsed.suggestedTags : ["Foundation", "Dispatches"],
+          isAiDrafted: true,
+        };
+      } catch (error: any) {
+        const errMsg = error?.message || "";
+        if (error?.status === 429 || errMsg.includes("429") || errMsg.includes("RESOURCE_EXHAUSTED") || errMsg.includes("quota")) {
+          console.warn(`Gemini API quota reached (429) during draft generation, deploying institutional draft generator.`);
+          break;
+        }
+        console.warn(`Gemini model ${modelName} failed during draft generation, checking next fallback:`, error);
+        // Continue loop to next model in cascade
+      }
     }
   }
 
@@ -298,60 +345,99 @@ export async function executeFoundationChatTurn(
         },
       ];
 
-      const abortController = new AbortController();
-      const timeoutId = setTimeout(() => abortController.abort(), 12000);
+      const modelsToTry = Array.from(new Set(GEMINI_MODEL_CASCADE));
+      for (const modelName of modelsToTry) {
+        try {
+          const abortController = new AbortController();
+          const timeoutId = setTimeout(() => abortController.abort(), 4000);
 
-      const generatePromise = client.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: formattedContents,
-        config: {
-          systemInstruction: FOUNDATION_SYSTEM_PROMPT,
-          temperature: 0.4,
-          maxOutputTokens: 600,
-          httpOptions: { timeout: 12000 },
-        },
-      });
+          const generatePromise = client.models.generateContent({
+            model: modelName,
+            contents: formattedContents,
+            config: {
+              systemInstruction: FOUNDATION_SYSTEM_PROMPT,
+              temperature: 0.4,
+              maxOutputTokens: 1200,
+              httpOptions: { timeout: 4000 },
+            },
+          });
 
-      const timeoutPromise = new Promise<never>((_, reject) => {
-        abortController.signal.addEventListener("abort", () => {
-          reject(new Error("Gemini API call timed out via AbortSignal after 12000ms"));
-        });
-      });
+          const timeoutPromise = new Promise<never>((_, reject) => {
+            abortController.signal.addEventListener("abort", () => {
+              reject(new Error(`Gemini API call to ${modelName} timed out via AbortSignal after 4000ms`));
+            });
+          });
 
-      let response;
-      try {
-        response = await Promise.race([generatePromise, timeoutPromise]);
-      } finally {
-        clearTimeout(timeoutId);
+          let response;
+          try {
+            response = await Promise.race([generatePromise, timeoutPromise]);
+          } finally {
+            clearTimeout(timeoutId);
+          }
+
+          const replyText = response.text || "Thank you for reaching out to the Kiran Singh Foundation.";
+
+          let suggestedAction: ChatTurnResponse["suggestedAction"];
+          const combinedLower = (latestUserMessage + " " + replyText).toLowerCase();
+          if (isEmergency) {
+            suggestedAction = {
+              type: "whatsapp_emergency",
+              label: "Trigger Immediate Emergency WhatsApp",
+              href: "/emergency",
+            };
+          } else if (combinedLower.includes("dog") || combinedLower.includes("canine") || combinedLower.includes("vaccin") || combinedLower.includes("shelter")) {
+            suggestedAction = {
+              type: "view_dogs",
+              label: "View 34 Rescued Dogs Roster",
+              href: "/wings/dogs",
+            };
+          } else if (combinedLower.includes("student") || combinedLower.includes("scholar") || combinedLower.includes("internship") || combinedLower.includes("team")) {
+            suggestedAction = {
+              type: "view_students",
+              label: "Explore Student Welfare Wing (40 Scholars)",
+              href: "/wings/students",
+            };
+          } else if (combinedLower.includes("event") || combinedLower.includes("convocation") || combinedLower.includes("gathering")) {
+            suggestedAction = {
+              type: "intake_form",
+              label: "View Flagship Internship Events",
+              href: "/events",
+            };
+          } else if (combinedLower.includes("bank") || combinedLower.includes("donat") || combinedLower.includes("80g") || combinedLower.includes("tax")) {
+            suggestedAction = {
+              type: "intake_form",
+              label: "View Official Bank Coordinates & 80G",
+              href: "/about#banking-coordinates",
+            };
+          }
+
+          return {
+            reply: replyText,
+            suggestedAction,
+          };
+        } catch (modelError: any) {
+          const errMsg = modelError?.message || "";
+          const isQuotaExhausted =
+            modelError?.status === 429 ||
+            errMsg.includes("429") ||
+            errMsg.includes("RESOURCE_EXHAUSTED") ||
+            errMsg.includes("quota");
+
+          const isTimeout =
+            errMsg.includes("timed out") ||
+            errMsg.includes("AbortSignal") ||
+            errMsg.includes("TIMEOUT") ||
+            errMsg.includes("UND_ERR_HEADERS_TIMEOUT");
+
+          if (isQuotaExhausted || isTimeout) {
+            console.warn(
+              `Gemini API unavailable (${isTimeout ? "network timeout" : "429 quota"}), switching instantly to institutional archive intelligence.`
+            );
+            break;
+          }
+          console.warn(`Gemini model ${modelName} failed during chat turn, trying next fallback:`, modelError);
+        }
       }
-
-      const replyText = response.text || "Thank you for reaching out to the Kiran Singh Foundation.";
-
-      let suggestedAction: ChatTurnResponse["suggestedAction"];
-      if (isEmergency) {
-        suggestedAction = {
-          type: "whatsapp_emergency",
-          label: "Trigger Immediate Emergency WhatsApp",
-          href: "/emergency",
-        };
-      } else if (userQueryLower.includes("dog") || userQueryLower.includes("canine") || userQueryLower.includes("vaccin")) {
-        suggestedAction = {
-          type: "view_dogs",
-          label: "View 34 Rescued Dogs Roster",
-          href: "/wings/dogs",
-        };
-      } else if (userQueryLower.includes("student") || userQueryLower.includes("scholar") || userQueryLower.includes("internship")) {
-        suggestedAction = {
-          type: "view_students",
-          label: "Explore Student Welfare Wing (40 Scholars)",
-          href: "/wings/students",
-        };
-      }
-
-      return {
-        reply: replyText,
-        suggestedAction,
-      };
     } catch (error) {
       console.error("Gemini 2.5 Flash chat error:", error);
     }
@@ -374,10 +460,13 @@ export async function executeFoundationChatTurn(
     userQueryLower.includes("founder") ||
     userQueryLower.includes("history") ||
     userQueryLower.includes("amma") ||
-    userQueryLower.includes("ethology")
+    userQueryLower.includes("jayalalithaa") ||
+    userQueryLower.includes("felid") ||
+    userQueryLower.includes("ethology") ||
+    userQueryLower.includes("vandalur")
   ) {
     return {
-      reply: `Late Kiran Singh ji was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with the then Chief Minister of Tamil Nadu, Late J. Jayalalithaa ("Amma"). Kiran Singh Foundation is a registered trust under the Indian Trust Act of 1882 (Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006). Her vision powers our guiding ethos: "A Journey from struggle to Enlightenment" ("Working Towards Change").`,
+      reply: `Late Kiran Singh ji was a distinguished ethologist who earned her Ph.D. specializing in the behavioral science, training, and conditioning of apex felids (lions, tigers, and leopards). She served as an Analyst in the Tamil Nadu Zoo Authority at Arignar Anna Zoological Park (AAZP Vandalur, Chennai) and worked in close alignment with then Chief Minister Late J. Jayalalithaa ("Amma"). Kiran Singh Foundation is a registered public charitable trust under the Indian Trust Act of 1882 (Est. 30/04/2023, Secretariat: 191/C, Tilak Nagar Allahpur Prayagraj 211006). Her vision powers our guiding ethos: "A Journey from struggle to Enlightenment" ("Working Towards Change").`,
       suggestedAction: {
         type: "intake_form",
         label: "Read Institutional Archive",
@@ -386,9 +475,42 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("dog") || userQueryLower.includes("canine") || userQueryLower.includes("rabies") || userQueryLower.includes("shelter")) {
+  if (
+    userQueryLower.includes("member") ||
+    userQueryLower.includes("trustee") ||
+    userQueryLower.includes("leader") ||
+    userQueryLower.includes("president") ||
+    userQueryLower.includes("secretary") ||
+    userQueryLower.includes("treasurer") ||
+    userQueryLower.includes("anil") ||
+    userQueryLower.includes("anuj") ||
+    userQueryLower.includes("akansha") ||
+    userQueryLower.includes("registrar") ||
+    userQueryLower.includes("shiksha") ||
+    userQueryLower.includes("navyanshi")
+  ) {
     return {
-      reply: `Our KSF (Dog Welfare) Wing shelters and protects exactly 34 rescued street dogs across 4 built shelter homes in Prayagraj. All food, clean water, housing, medical care, sterilizations, and vaccinations (rabies and annual boosters) are 100% funded by the foundation. For emergency canine rescue dispatch, call +91 96709 70750.`,
+      reply: `The Kiran Singh Foundation is governed by its 3 Core Members (Board of Trustees):\n• Shri Anil Kumar Singh — President\n• Shri Anuj Kumar Singh — Secretary\n• Ms. Akansha Singh — Treasurer\n\nAdministrative oversight for the Student Welfare Wing is led by:\n• Ms. Shiksha Jaiswal — Permanent Registrar\n• Ms. Navyanshi Dwivedi — Deputy Registrar\n\nTogether, leadership oversees the 4 Operational Wings from our registered headquarters at 191/C, Tilak Nagar Allahpur Prayagraj 211006.`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "Inspect Leadership & Governance",
+        href: "/about#hierarchy",
+      },
+    };
+  }
+
+  if (
+    userQueryLower.includes("dog") ||
+    userQueryLower.includes("canine") ||
+    userQueryLower.includes("rabies") ||
+    userQueryLower.includes("shelter") ||
+    userQueryLower.includes("puppy") ||
+    userQueryLower.includes("feeding") ||
+    userQueryLower.includes("indie") ||
+    userQueryLower.includes("pariah")
+  ) {
+    return {
+      reply: `Our KSF (Dog Welfare) Wing shelters and protects exactly 34 rescued street dogs across 4 dedicated built shelter homes in Prayagraj. Every dog receives 100% foundation-funded nutritious meals, clean water facilities, hygienic shelter, surgical sterilizations, and systematic anti-rabies and annual booster vaccinations. For rapid rescue triage or injured animal reports, our emergency helpline is +91 96709 70750.`,
       suggestedAction: {
         type: "view_dogs",
         label: "Inspect 34 Resident Dogs (4 Shelters)",
@@ -397,9 +519,60 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("student") || userQueryLower.includes("intern") || userQueryLower.includes("scholar") || userQueryLower.includes("team") || userQueryLower.includes("roster")) {
+  // 2nd Winter Internship Announcement & Sanctioned Expense Report
+  if (
+    userQueryLower.includes("winter") ||
+    userQueryLower.includes("expense") ||
+    userQueryLower.includes("budget") ||
+    userQueryLower.includes("sanction") ||
+    userQueryLower.includes("111600") ||
+    userQueryLower.includes("order form") ||
+    userQueryLower.includes("closing ceremony") ||
+    userQueryLower.includes("r&d wing") ||
+    userQueryLower.includes("research and development wing")
+  ) {
     return {
-      reply: `Our KSF (Student Welfare) Wing operates an allotted cohort of 40 scholars across 4 dedicated teams (2026–27 Session: Current Strength = 37, Allotted Strength = 40, Vacancy = 03). Teams are: Team 1 (Team Unnaati & Shiksha - 12 scholars), Team 2 (Team Vaishnavi & Navyanshi - 11 scholars), Team 3 (Team Prateeksha & Rohini - 10 scholars), and Team 4 (Team Shubhangi - 4 enrolled scholars + 3 open vacancies). Scholars participate in Summer and Winter Internships, presenting plagiarism-audited research before expert panels with certificates, trophies, and stipends awarded at the closing ceremony.`,
+      reply: `**Official Institutional Announcement: 2nd Winter Internship Program (2026–27 Session)**\n\n• **Program Tenure:** 16th November 2026 till 30th December 2026.\n• **Closing Ceremony:** 3rd January 2027.\n• **Cohort Mobilization:** Exactly 30 students of the foundation.\n• **Prime Focus:** Divide students into teams and provide them opportunities to develop a solid research and development wing so that their research and speaking capability can be enhanced.\n• **Patriotic Valediction:** "Jai Hind".\n\n**Audited Sanctioned Budget (Approved by Secretary Shri Anuj Kumar Singh on 11/11/26):**\n• **Grand Total:** ₹1,11,600 (Order Form Page 1: ₹91,900 + Page 2: ₹19,700)\n• **Banquet & Hotel (80 people @ ₹800):** ₹64,000\n• **Awards, Trophies & Mementos:** ₹15,900 (6 trophies @ ₹1,500, 30 mementos @ ₹200, 100 certs/letters @ ₹9)\n• **Scholar Stipends (30 scholars):** ₹12,200 (Registrar ₹1,200, Dy. Registrar ₹1,000, 4 HSMs ₹4,800, 26 Scholars ₹5,200)\n• **Audio-Visual Sound & Stage Banners:** ₹12,000 (Sound rig ₹7,000, Banners ₹5,000)\n• **Protocols & Contingencies:** ₹7,500 (Bouquets ₹1,500, Garlands ₹1,000, Misc ₹5,000).`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "View 2nd Winter Internship Dossier & Budget",
+        href: "/events/upcoming-winter-internship-program-2026-27#expense-report",
+      },
+    };
+  }
+
+  if (
+    userQueryLower.includes("event") ||
+    userQueryLower.includes("convocation") ||
+    userQueryLower.includes("symposium") ||
+    userQueryLower.includes("ceremony") ||
+    userQueryLower.includes("gathering") ||
+    userQueryLower.includes("winter 2026") ||
+    userQueryLower.includes("flagship") ||
+    userQueryLower.includes("decree")
+  ) {
+    return {
+      reply: `Kiran Singh Foundation has executed 3 landmark Flagship Internship Programs in Prayagraj:\n1. 1st Summer Internship Program (July 2025): Inaugural personality incubation and executive speech labs.\n2. Winter Internship Program (January 2026): Constitution Day symposium and presentation defense.\n3. 2nd Summer Internship Program (June 2026): Plagiarism-audited research defense and convocation awards.\n\nUpcoming Deployment: The 2026–27 Winter Internship Batch (Decree signed 05/11/2026 by Secretary Shri Anuj Kumar Singh) mobilizes 26 scholars across 4 tactical teams headed by HSMs Vaishnavi, Prateeksha Pandey, Shubhangi Singh, and Vedant Agrawal.`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "View Convocations & Events Hub",
+        href: "/events",
+      },
+    };
+  }
+
+  if (
+    userQueryLower.includes("student") ||
+    userQueryLower.includes("scholar") ||
+    userQueryLower.includes("intern") ||
+    userQueryLower.includes("roster") ||
+    userQueryLower.includes("team") ||
+    userQueryLower.includes("plagiarism") ||
+    userQueryLower.includes("stipend") ||
+    userQueryLower.includes("psychometric")
+  ) {
+    return {
+      reply: `Our KSF (Student Welfare) Wing operates an allotted cohort of exactly 40 scholars chosen through psychometric testing and interviews conducted by the 3 core members and industry professionals. The 40 scholars are organized into 4 teams:\n• Team 1 (Team Unnaati & Shiksha - 12 scholars)\n• Team 2 (Team Vaishnavi & Navyanshi - 11 scholars)\n• Team 3 (Team Prateeksha & Rohini - 10 scholars)\n• Team 4 (Team Shubhangi - 4 enrolled scholars + 3 open vacancies)\n\nScholars undertake research reports verified by formal plagiarism audits, defended before evaluative panels, and receive completion certificates, trophies, mementos, and cash stipends.`,
       suggestedAction: {
         type: "view_students",
         label: "View 2026–27 4-Team Student Roster",
@@ -408,24 +581,80 @@ export async function executeFoundationChatTurn(
     };
   }
 
-  if (userQueryLower.includes("village") || userQueryLower.includes("women") || userQueryLower.includes("bank") || userQueryLower.includes("csr") || userQueryLower.includes("pan")) {
+  if (
+    userQueryLower.includes("upes") ||
+    userQueryLower.includes("dehradun") ||
+    userQueryLower.includes("mou") ||
+    userQueryLower.includes("school for life") ||
+    userQueryLower.includes("partnership") ||
+    userQueryLower.includes("alliance")
+  ) {
     return {
-      reply: `Kiran Singh Foundation (PAN: AAGTK3961N, CSR: CSR00110895, URN: AAGTK3961NE20261, SRN: AC3352827) operates 4 Operational Wings: (a) Student Welfare Wing (40 scholars across 4 teams), (b) Dog Welfare Wing (34 dogs across 4 built shelter homes), (c) Village Development Wing ("Empowering village through education" — 100% educational fees, food, and shelter), and (d) Women Empowerment Wing (career development in education, business & entrepreneurship via awareness programs and investment summits). Official Bank: HDFC Bank, Naya Katra, Prayagraj (A/C: 50200119758811, IFSC: HDFC0004664).`,
+      reply: `Kiran Singh Foundation maintains a binding 5-year bilateral academic partnership (MoU executed 13th April 2026) with the University of Petroleum and Energy Studies (UPES), Dehradun for their "School for Life" undergraduate social internship track. The program guarantees a strict 1:5 mentor ratio, 100% pro-bono zero fee policy, POSH Act compliance, full travel reimbursement, and official coursework credits submitted to UPES Registrar.`,
       suggestedAction: {
         type: "intake_form",
-        label: "View Statutory Charter & 4 Wings",
+        label: "View UPES Partnership Details",
+        href: "/about#accredited-partnerships",
+      },
+    };
+  }
+
+  if (
+    userQueryLower.includes("donat") ||
+    userQueryLower.includes("bank") ||
+    userQueryLower.includes("account") ||
+    userQueryLower.includes("80g") ||
+    userQueryLower.includes("tax") ||
+    userQueryLower.includes("hdfc") ||
+    userQueryLower.includes("ifsc") ||
+    userQueryLower.includes("pan") ||
+    userQueryLower.includes("csr") ||
+    userQueryLower.includes("urn")
+  ) {
+    return {
+      reply: `Kiran Singh Foundation is a public charitable trust registered under the Indian Trust Act of 1882 (Est. 30/04/2023).\n\nOfficial Bank Endowment Details:\n• Bank: HDFC Bank, Naya Katra, Prayagraj\n• A/C Number: 50200119758811\n• IFSC Code: HDFC0004664\n• Customer ID: 353372799\n\nStatutory Tax Credentials:\n• PAN: AAGTK3961N\n• Income Tax URN (80G/12A): AAGTK3961NE20261\n• MCA CSR Registration: CSR00110895\n• Sub-Registrar SRN: AC3352827\n\nAll donations are eligible for statutory tax deductions under Section 80G with Form 10BE certificates issued for all qualifying contributions.`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "View Banking & Tax Credentials",
         href: "/about#four-wings-charter",
       },
     };
   }
 
-  if (userQueryLower.includes("event") || userQueryLower.includes("internship program") || userQueryLower.includes("gathering") || userQueryLower.includes("convocation") || userQueryLower.includes("symposium")) {
+  if (
+    userQueryLower.includes("village") ||
+    userQueryLower.includes("rural") ||
+    userQueryLower.includes("women") ||
+    userQueryLower.includes("female") ||
+    userQueryLower.includes("girl") ||
+    userQueryLower.includes("entrepreneur") ||
+    userQueryLower.includes("summit")
+  ) {
     return {
-      reply: `Kiran Singh Foundation has conducted 3 landmark Flagship Internship Programs under the KSF (Student Welfare) Wing in Prayagraj: (1) 1st Summer Internship Program (July 2025) — inaugural personality development and speech labs; (2) Winter Internship Program (January 2026) — Constitution Day symposium and slide presentation defenses; and (3) 2nd Summer Internship Program (June 2026) — 4-team plagiarism-audited research defense and grand convocation closing ceremony honoring scholars with certificates, trophies, mementos, and stipends.`,
+      reply: `Our community transformation agenda encompasses Wings C and D:\n\n• Wing C: KSF (Village Development) Wing — Aim: "Empowering village through education." Complete academic tuition fees, hygienic daily meals, and residential shelter are 100% underwritten by the foundation for enrolled rural scholars.\n\n• Wing D: KSF (Women Empowerment) Wing — Dedicated to building sustainable careers for female scholars and women through professional mentorship, skill incubation, and regular Investor Summits held in Prayagraj to connect regional women founders with angel capital.`,
       suggestedAction: {
         type: "intake_form",
-        label: "View Convocations & Events Calendar",
-        href: "/events",
+        label: "Explore Village & Women Wings",
+        href: "/about#four-wings-charter",
+      },
+    };
+  }
+
+  if (
+    userQueryLower.includes("contact") ||
+    userQueryLower.includes("email") ||
+    userQueryLower.includes("phone") ||
+    userQueryLower.includes("address") ||
+    userQueryLower.includes("location") ||
+    userQueryLower.includes("office") ||
+    userQueryLower.includes("helpline")
+  ) {
+    return {
+      reply: `Official Institutional Coordinates for Kiran Singh Foundation:\n• Secretariat & HQ: 191/C, Tilak Nagar Allahpur Prayagraj 211006 (U.P., India)\n• Primary Dispatch & Helpline: +91 96709 70750 / 8115141378 / 9450630310\n• Official Email: kiransinghfoundationindia@gmail.com\n• Website: https://kiransinghfoundation.org\n• All facilities and shelter homes are located exclusively in Prayagraj.`,
+      suggestedAction: {
+        type: "intake_form",
+        label: "Contact Emergency & Support Desk",
+        href: "/emergency",
       },
     };
   }
