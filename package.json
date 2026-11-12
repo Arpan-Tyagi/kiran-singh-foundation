@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/clean-next-cache.mjs",
+    "build": "opennextjs-cloudflare build",
+    "build:next": "next build && node scripts/clean-next-cache.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "node tests/run-verification.mjs && node --test tests/foundation.test.mjs"
@@ -22,12 +23,14 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.17",
     "@types/node": "^20.17.10",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wrangler": "^4.161.0"
   }
 }

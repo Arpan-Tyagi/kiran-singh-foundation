@@ -1,9 +1,11 @@
 name = "kiran-singh-foundation"
+main = ".open-next/worker.js"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
 [assets]
-directory = ".next"
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 [vars]
 GEMINI_MODEL = "gemini-flash-latest"
