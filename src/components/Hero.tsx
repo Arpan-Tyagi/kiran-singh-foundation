@@ -6,15 +6,15 @@ import { FOUNDATION_META } from "@/lib/data/foundation-data";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-4 pb-16 md:pt-6 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
       {/* Architectural hairline grid framing and archival coordinates */}
       <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
-      <div className="absolute top-6 left-8 hidden lg:block font-mono text-[11px] text-slate/80 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-20 sm:top-24 left-6 lg:left-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         GRID REF // 25.4358° N, 81.8463° E (PRAYAGRAJ)
       </div>
-      <div className="absolute top-6 right-8 hidden lg:block font-mono text-[11px] text-slate/80 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-20 sm:top-24 right-6 lg:right-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         INSTITUTIONAL ARCHIVE &bull; EST. 30TH APRIL 2023
       </div>
 
@@ -22,17 +22,37 @@ export default function Hero() {
         {/* 2nd Winter Internship Official Announcement Island Pill */}
         <Link
           href="/events/upcoming-winter-internship-program-2026-27#expense-report"
-          className="group mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lion-gold/10 hover:bg-lion-gold/15 border border-lion-gold/30 text-lion-gold-dark text-xs font-mono transition-all duration-300 shadow-2xs hover:scale-102"
+          className="group mb-8 inline-flex items-center gap-2 sm:gap-3 p-1.5 pl-2.5 sm:pl-3 pr-1.5 sm:pr-2 rounded-full bg-white/95 hover:bg-white border border-lion-gold/30 hover:border-lion-gold/70 shadow-[0_2px_14px_rgba(180,130,40,0.09)] hover:shadow-[0_6px_28px_rgba(180,130,40,0.2)] hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md max-w-full"
         >
-          <span className="w-2 h-2 rounded-full bg-lion-gold animate-pulse" />
-          <span className="font-semibold uppercase tracking-wider text-[11px]">
-            Announcement: 2nd Winter Internship (16 Nov &ndash; 30 Dec 2026)
+          {/* Contrasting Inner Alert Tag */}
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-lion-gold-dark text-white font-mono text-[10px] font-bold uppercase tracking-wider shrink-0 shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-200" />
+            </span>
+            <span>Announcement</span>
           </span>
-          <span className="text-slate/80 font-normal hidden sm:inline">
-            &bull; Closing Ceremony 03 Jan 2027 &bull; Sanctioned Budget &#8377;1,11,600
+
+          {/* Core Announcement Text */}
+          <span className="font-sans font-semibold text-xs sm:text-[13px] text-obsidian tracking-tight">
+            2nd Winter Internship (16 Nov &ndash; 30 Dec 2026)
           </span>
-          <div className="w-5 h-5 rounded-full bg-lion-gold/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-            <ArrowUpRight className="w-3 h-3 text-lion-gold-dark" />
+
+          {/* Closing Ceremony Date */}
+          <span className="text-border-dark hidden md:inline select-none font-light">|</span>
+          <span className="hidden md:inline font-sans text-xs text-slate">
+            Closing: <strong className="text-obsidian font-medium">03 Jan 2027</strong>
+          </span>
+
+          {/* Sanctioned Budget Highlight Pill */}
+          <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-lion-gold/10 text-lion-gold-dark border border-lion-gold/25 font-mono text-[10px] font-bold tracking-wide shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-lion-gold-dark" />
+            Budget &#8377;1,11,600
+          </span>
+
+          {/* Action Indicator Circle */}
+          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-lion-gold/15 group-hover:bg-lion-gold-dark text-lion-gold-dark group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0 shadow-2xs">
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </Link>
 
