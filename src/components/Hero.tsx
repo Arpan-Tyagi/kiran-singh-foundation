@@ -6,15 +6,15 @@ import { FOUNDATION_META } from "@/lib/data/foundation-data";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
+    <section className="relative min-h-[90vh] flex flex-col items-center pt-[104px] sm:pt-[112px] md:pt-[118px] pb-16 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
       {/* Architectural hairline grid framing and archival coordinates */}
       <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
-      <div className="absolute top-20 sm:top-24 left-6 lg:left-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-[110px] sm:top-[118px] md:top-[124px] left-6 lg:left-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         GRID REF // 25.4358° N, 81.8463° E (PRAYAGRAJ)
       </div>
-      <div className="absolute top-20 sm:top-24 right-6 lg:right-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-[110px] sm:top-[118px] md:top-[124px] right-6 lg:right-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         INSTITUTIONAL ARCHIVE &bull; EST. 30TH APRIL 2023
       </div>
 
