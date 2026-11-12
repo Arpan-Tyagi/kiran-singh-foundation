@@ -1,0 +1,8 @@
+# Cloudflare Workers Static Assets ignore list
+.next/cache/**
+cache/**
+.cache/**
+*.pack
+*.pack.gz
+*.nft.json
+trace

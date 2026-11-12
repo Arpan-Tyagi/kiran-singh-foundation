@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/clean-next-cache.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "node tests/run-verification.mjs && node --test tests/foundation.test.mjs"
