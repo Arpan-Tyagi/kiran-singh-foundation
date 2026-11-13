@@ -73,4 +73,40 @@ test("2nd Winter Internship Announcement & Audited Sanctioned Expense Report", a
     const wranglerToml = fs.readFileSync(wranglerTomlPath, "utf8");
     assert.ok(wranglerToml.includes("gemini-flash-latest"), "wrangler.toml must contain GEMINI_MODEL = gemini-flash-latest");
   });
+
+  await t.test("Authentic Handwritten Decree & 5-Page Official Setup Declaration (UP/2026/0987361)", () => {
+    // 1. Handwritten decree asset
+    const decreePath = path.resolve("public/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg");
+    assert.ok(fs.existsSync(decreePath), "Decree image must exist");
+    assert.ok(fs.statSync(decreePath).size > 80000, "Decree image must be > 80KB authentic scan");
+
+    // 2. Official 5-page declaration PDF
+    const pdfPath = path.resolve("public/docs/KSF-Winter-Internship-Program-2026-27-Official-Setup-Declaration.pdf");
+    assert.ok(fs.existsSync(pdfPath), "Setup Declaration PDF must exist");
+    assert.ok(fs.statSync(pdfPath).size > 300000, "Setup Declaration PDF must be > 300KB");
+
+    // 3. Rendered images for all 5 pages
+    for (let i = 1; i <= 5; i++) {
+      const pagePath = path.resolve(`public/images/events/winter-2026-27/official-setup-declaration-page-${i}.jpg`);
+      assert.ok(fs.existsSync(pagePath), `Declaration Page ${i} image must exist`);
+      assert.ok(fs.statSync(pagePath).size > 50000, `Declaration Page ${i} image must be > 50KB`);
+    }
+
+    // 4. Dataset export verification
+    assert.ok(dataContent.includes("export const WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION"), "Must export WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION");
+    assert.ok(dataContent.includes("UP/2026/0987361"), "Must include Unique Id UP/2026/0987361");
+    assert.ok(dataContent.includes("Colonel Prasoon Singh (Sena Medal)"), "Must include Colonel Prasoon Singh (Sena Medal)");
+    assert.ok(dataContent.includes("Ms. Shiksha Jaiswal"), "Must include Registrar Ms. Shiksha Jaiswal");
+    assert.ok(dataContent.includes("Ms. Navyanshi Dwivedi"), "Must include Dy. Registrar Ms. Navyanshi Dwivedi");
+    assert.ok(dataContent.includes("KSF-Winter-Internship-Program-2026-27-Official-Setup-Declaration.pdf"), "Dataset must specify PDF path");
+
+    // 5. Component integration verification
+    const eventDetailContent = fs.readFileSync(path.resolve("src/app/events/[slug]/page.tsx"), "utf8");
+    assert.ok(eventDetailContent.includes("WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION"), "Event detail must import WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION");
+    assert.ok(eventDetailContent.includes("WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.pdfUrl"), "Event detail must link to PDF dossier");
+
+    const rosterContent = fs.readFileSync(path.resolve("src/components/wings/StudentsRosterClient.tsx"), "utf8");
+    assert.ok(rosterContent.includes("WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION"), "Students roster must import WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION");
+    assert.ok(rosterContent.includes("WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.pdfUrl"), "Students roster must provide download link to PDF dossier");
+  });
 });

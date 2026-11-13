@@ -20,9 +20,14 @@ import {
   GraduationCap,
   Receipt,
   Flag,
+  FileText,
+  Download,
 } from "lucide-react";
 import { fetchEventBySlug, fetchEvents } from "@/lib/supabase";
-import { WINTER_INTERNSHIP_BATCH_2026_27 } from "@/lib/data/foundation-data";
+import {
+  WINTER_INTERNSHIP_BATCH_2026_27,
+  WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION,
+} from "@/lib/data/foundation-data";
 import EventExpenseReport from "@/components/events/EventExpenseReport";
 
 interface Props {
@@ -315,40 +320,95 @@ export default async function EventDetailPage({ params }: Props) {
 
           {/* Letterhead Decree Card + Team Bento */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left: Scanned Decree Document */}
-            <div className="lg:col-span-5 bg-white border border-border rounded-3xl p-5 shadow-elevation-1 space-y-4">
-              <div className="flex items-center justify-between border-b border-border pb-3">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-lion-gold-dark font-semibold">
-                  Official Notification Letterhead
-                </span>
-                <span className="text-[10px] font-mono text-slate">
-                  Prayagraj &bull; 05/11/26
-                </span>
+            {/* Left: Scanned Decree Document & 5-Page Setup Declaration Dossier */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white border border-border rounded-3xl p-5 shadow-elevation-1 space-y-4">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-lion-gold-dark font-semibold">
+                    Official Notification Decree
+                  </span>
+                  <span className="text-[10px] font-mono text-slate">
+                    Prayagraj &bull; 05/11/26
+                  </span>
+                </div>
+
+                <div className="relative w-full aspect-[1/1.4] rounded-2xl overflow-hidden border border-border/80 bg-slate-50 shadow-inner group">
+                  <Image
+                    src={WINTER_INTERNSHIP_BATCH_2026_27.decreeDocumentUrl}
+                    alt="Official Executed Decree: Final List for Upcoming Internship Program signed by Secretary Shri Anuj Kumar Singh"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-contain p-1 group-hover:scale-102 transition-transform duration-500"
+                  />
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-porcelain border border-border/70 text-xs font-sans text-slate space-y-1.5">
+                  <div className="flex items-center justify-between font-mono text-[11px]">
+                    <span className="text-slate">Issuing Authority:</span>
+                    <strong className="text-obsidian">{WINTER_INTERNSHIP_BATCH_2026_27.signatory}</strong>
+                  </div>
+                  <div className="flex items-center justify-between font-mono text-[11px]">
+                    <span className="text-slate">Field Mobilization:</span>
+                    <span className="text-obsidian font-medium">26 Scholars Across 4 HSM Teams</span>
+                  </div>
+                  <div className="flex items-center justify-between font-mono text-[11px]">
+                    <span className="text-slate">Official Secretariat:</span>
+                    <span className="text-obsidian font-medium">191/C Tilak Nagar, Prayagraj</span>
+                  </div>
+                  <div className="flex items-center justify-between font-mono text-[11px]">
+                    <span className="text-slate">Verified Hotline:</span>
+                    <span className="text-obsidian font-medium">+91 96709 70750 / 80048 62107</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="relative w-full aspect-[1/1.4] rounded-2xl overflow-hidden border border-border/80 bg-slate-50 shadow-inner group">
-                <Image
-                  src={WINTER_INTERNSHIP_BATCH_2026_27.decreeDocumentUrl}
-                  alt="Official Executed Decree: Final List for Upcoming Internship Program"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-contain p-1 group-hover:scale-102 transition-transform duration-500"
-                />
-              </div>
+              {/* 5-Page Official Hierarchy Setup Declaration Dossier */}
+              <div className="bg-white border border-lion-gold/40 rounded-3xl p-5 shadow-elevation-1 space-y-4">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <div className="flex items-center space-x-2">
+                    <ShieldCheck className="w-4 h-4 text-lion-gold-dark" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-lion-gold-dark font-bold">
+                      Official Setup Declaration
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark font-semibold">
+                    {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.uniqueId}
+                  </span>
+                </div>
 
-              <div className="p-3.5 rounded-2xl bg-porcelain border border-border/70 text-xs font-sans text-slate space-y-1.5">
-                <div className="flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate">Issuing Authority:</span>
-                  <strong className="text-obsidian">{WINTER_INTERNSHIP_BATCH_2026_27.signatory}</strong>
+                <div className="space-y-2 text-xs font-sans text-slate leading-relaxed">
+                  <p className="font-serif text-sm font-bold text-obsidian">
+                    Ratified 30-Student Cohort Hierarchy & Directorate Setup
+                  </p>
+                  <p>
+                    Formal statutory decree issued by the Governing Body of KSF, confirming Registrar <strong>{WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.registrar}</strong>, Dy. Registrar <strong>{WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.dyRegistrar}</strong>, Senior Scale HSMs, and all 4 operational teams totaling 30 students.
+                  </p>
                 </div>
-                <div className="flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate">Official Secretariat:</span>
-                  <span className="text-obsidian font-medium">191/C Tilak Nagar, Prayagraj</span>
+
+                <div className="p-3 rounded-2xl bg-porcelain border border-border/70 text-[11px] font-mono space-y-1.5 text-slate">
+                  <div className="flex items-center justify-between">
+                    <span>Forwarded By:</span>
+                    <strong className="text-obsidian">{WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.forwardedBy}</strong>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Location & Date:</span>
+                    <span className="text-obsidian font-medium">{WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.place} &bull; {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.dateFormatted}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Total Strength:</span>
+                    <span className="text-botanical-emerald font-bold">{WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.totalScholars} Students (Jai Hind)</span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate">Verified Hotline:</span>
-                  <span className="text-obsidian font-medium">+91 96709 70750 / 80048 62107</span>
-                </div>
+
+                <a
+                  href={WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center justify-center gap-2 shadow-sm"
+                >
+                  <Download className="w-3.5 h-3.5 text-lion-gold" />
+                  <span>Download Complete 5-Page Dossier (PDF)</span>
+                </a>
               </div>
             </div>
 

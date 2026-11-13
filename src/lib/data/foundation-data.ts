@@ -217,10 +217,44 @@ export interface WinterInternshipBatchDeployment {
   signatory: string;
   signatoryTitle: string;
   decreeDocumentUrl: string;
+  setupDeclarationPdfUrl?: string;
+  setupDeclarationUniqueId?: string;
   totalScholars: number;
   teamsCount: number;
   teams: WinterInternshipDeployedTeam[];
   description: string;
+}
+
+export interface WinterInternshipSetupDeclaration {
+  uniqueId: string;
+  title: string;
+  session: string;
+  establishmentBody: string;
+  governingBody: string;
+  forwardedBy: string;
+  valediction: string;
+  place: string;
+  date: string;
+  dateFormatted: string;
+  totalScholars: number;
+  pdfUrl: string;
+  pages: {
+    pageNumber: number;
+    title: string;
+    description: string;
+    imageUrl: string;
+  }[];
+  directorate: {
+    registrar: string;
+    dyRegistrar: string;
+  };
+  teamsSummary: {
+    teamCode: string;
+    hsm: string;
+    scale?: string;
+    strength: number;
+    scholars: string[];
+  }[];
 }
 
 export const FOUNDATION_META = {
@@ -2657,9 +2691,39 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
     galleryImages: [
       {
         url: "/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg",
-        caption: "Official Notification Decree: Final List for Upcoming Internship Program signed by Secretary Shri Anuj Kumar Singh on 05/11/26 at Prayagraj",
+        caption: "Official Notification Decree: Final List for Upcoming Internship Program signed by Secretary Shri Anuj Kumar Singh on 05/11/26 at Prayagraj (Handwritten order form deploying 26 scholars across 4 HSM teams)",
         officerName: "Shri Anuj Kumar Singh",
         roleBadge: "Secretary • Official Decree 05/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/official-setup-declaration-page-1.jpg",
+        caption: "Official Setup Declaration (Page 1): Unique Id UP/2026/0987361. Governing Body of KSF headed by Shri Anil Kumar Singh (President) and Colonel Prasoon Singh. Winter Internship Program 2026-27.",
+        officerName: "Colonel Prasoon Singh (Sena Medal)",
+        roleBadge: "Governing Body • Declaration 12/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/official-setup-declaration-page-2.jpg",
+        caption: "Official Setup Declaration (Page 2): Student Welfare Wing Directorate — Registrar Ms. Shiksha Jaiswal, Dy. Registrar Ms. Navyanshi Dwivedi, and Team IV Command under Vedant Agarwal (HSM) with Anadi R. Srivastava, Heramb Mishra, Shaurya P. Singh, Vasav Mishra.",
+        officerName: "Ms. Shiksha Jaiswal & Ms. Navyanshi Dwivedi",
+        roleBadge: "Directorate • Official Decree 12/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/official-setup-declaration-page-3.jpg",
+        caption: "Official Setup Declaration (Page 3): Team I Command under Vaishnavi, HSM (Senior Scale) commanding 7 scholars: Aarya Srivastava, Anwesha Sinha, Swarnima Singh, Karan Pal, Annanya Arora, Vanya Singh, Shubhi Singh.",
+        officerName: "Vaishnavi (HSM, Senior Scale)",
+        roleBadge: "Team I Commander • 12/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/official-setup-declaration-page-4.jpg",
+        caption: "Official Setup Declaration (Page 4): Team II Command under Ms. Prateeksha Pandey, HSM (Senior Scale) commanding 9 scholars: Varnika Mishra, Saksham Agrawal, Yashaswa Singh, Stuti Singh, Navleen Kaur Puri, Parinita Bhushan, Aleen Chaurasia, Mansi Raj Purwar, and 1 scholar on probation.",
+        officerName: "Ms. Prateeksha Pandey (HSM, Senior Scale)",
+        roleBadge: "Team II Commander • 12/11/26",
+      },
+      {
+        url: "/images/events/winter-2026-27/official-setup-declaration-page-5.jpg",
+        caption: "Official Setup Declaration (Page 5): Team III Command under Shubhangi Singh (HSM) with Stuti Dwivedi, Luvleen Kaur Puri, Yashi Singh, Vaibhavi Kushwaha. Ratified Total Strength: 30 Students. Valediction: 'Jai Hind', Lebanon, 12/11/2026, forwarded by Colonel Prasoon Singh (Sena Medal).",
+        officerName: "Colonel Prasoon Singh (Sena Medal)",
+        roleBadge: "Governing Body • Ratified Total 30",
       },
       {
         url: "/images/events/winter-2026-27/sanctioned-order-form-page-1.jpg",
@@ -3010,6 +3074,8 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
   signatory: "Shri Anuj Kumar Singh",
   signatoryTitle: "Secretary, Kiran Singh Foundation",
   decreeDocumentUrl: "/images/events/winter-2026-27/final-list-upcoming-internship-decree.jpg",
+  setupDeclarationPdfUrl: "/docs/KSF-Winter-Internship-Program-2026-27-Official-Setup-Declaration.pdf",
+  setupDeclarationUniqueId: "UP/2026/0987361",
   totalScholars: 26,
   teamsCount: 4,
   description:
@@ -3202,6 +3268,91 @@ export const WINTER_INTERNSHIP_BATCH_2026_27: WinterInternshipBatchDeployment = 
           academicDiscipline: "Business Analytics & Operational Management",
         },
       ],
+    },
+  ],
+};
+
+// ============================================================================
+// 14B. OFFICIAL SETUP DECLARATION DOSSIER: 5-PAGE RATIFIED HIERARCHY (UP/2026/0987361)
+// Issued 12/11/2026 at Lebanon, Forwarded by Colonel Prasoon Singh (Sena Medal)
+// Complete Cohort Setup: 30 Students (Registrar + Dy. Registrar + 4 HSM Teams)
+// ============================================================================
+
+export const WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION: WinterInternshipSetupDeclaration = {
+  uniqueId: "UP/2026/0987361",
+  title: "Hierarchy of the official setup of the Kiran Singh Foundation (Student Welfare) Wing",
+  session: "2026–27",
+  establishmentBody: "Kiran Singh Foundation • “A Journey from struggle to Enlightenment”",
+  governingBody: "Governing Body of KSF headed by Shri Anil Kumar Singh (President) and Colonel Prasoon Singh",
+  forwardedBy: "Colonel Prasoon Singh (Sena Medal)",
+  valediction: "Jai Hind",
+  place: "Lebanon",
+  date: "2026-11-12",
+  dateFormatted: "12/11/2026 (12th November 2026)",
+  totalScholars: 30,
+  pdfUrl: "/docs/KSF-Winter-Internship-Program-2026-27-Official-Setup-Declaration.pdf",
+  pages: [
+    {
+      pageNumber: 1,
+      title: "Unique Id UP/2026/0987361 & Governing Body Ratification",
+      description: "Governing Body of KSF headed by Shri Anil Kumar Singh (President) and Colonel Prasoon Singh ratifying the 2026-27 Winter Internship Program.",
+      imageUrl: "/images/events/winter-2026-27/official-setup-declaration-page-1.jpg",
+    },
+    {
+      pageNumber: 2,
+      title: "Directorate & Team IV Operational Attachment",
+      description: "Registrar Ms. Shiksha Jaiswal, Dy. Registrar Ms. Navyanshi Dwivedi, and Team IV under Vedant Agarwal (HSM) with Anadi R. Srivastava, Heramb Mishra, Shaurya P. Singh, Vasav Mishra.",
+      imageUrl: "/images/events/winter-2026-27/official-setup-declaration-page-2.jpg",
+    },
+    {
+      pageNumber: 3,
+      title: "Team I Command (Senior Scale)",
+      description: "Vaishnavi, HSM (Senior Scale) commanding Ms. Aarya Srivastava, Ms. Anwesha Sinha, Ms. Swarnima Singh, Mr. Karan Pal, Ms. Annanya Arora, Ms. Vanya Singh, Ms. Shubhi Singh.",
+      imageUrl: "/images/events/winter-2026-27/official-setup-declaration-page-3.jpg",
+    },
+    {
+      pageNumber: 4,
+      title: "Team II Command (Senior Scale & Probation Scholar)",
+      description: "Ms. Prateeksha Pandey, HSM (Senior Scale) commanding Ms. Varnika Mishra, Mr. Saksham Agrawal, Mr. Yashaswa Singh, Ms. Stuti Singh, Ms. Navleen Kaur Puri, Ms. Parinita Bhushan, Ms. Aleen Chaurasia, Ms. Mansi Raj Purwar, and One student on probation.",
+      imageUrl: "/images/events/winter-2026-27/official-setup-declaration-page-4.jpg",
+    },
+    {
+      pageNumber: 5,
+      title: "Team III Command & Official Ratification of 30 Students",
+      description: "Shubhangi Singh (HSM) with Ms. Stuti Dwivedi, Ms. Luvleen Kaur Puri, Ms. Yashi Singh, Ms. Vaibhavi Kushwaha. Total ratified cohort: 30 students. Forwarded from Lebanon by Colonel Prasoon Singh (Sena Medal). Valediction: 'Jai Hind'.",
+      imageUrl: "/images/events/winter-2026-27/official-setup-declaration-page-5.jpg",
+    },
+  ],
+  directorate: {
+    registrar: "Ms. Shiksha Jaiswal",
+    dyRegistrar: "Ms. Navyanshi Dwivedi",
+  },
+  teamsSummary: [
+    {
+      teamCode: "Team IV",
+      hsm: "Vedant Agarwal (HSM)",
+      strength: 5,
+      scholars: ["Anadi R. Srivastava", "Heramb Mishra", "Shaurya P. Singh", "Vasav Mishra"],
+    },
+    {
+      teamCode: "Team I",
+      hsm: "Vaishnavi (HSM - Senior Scale)",
+      scale: "Senior Scale",
+      strength: 8,
+      scholars: ["Ms. Aarya Srivastava", "Ms. Anwesha Sinha", "Ms. Swarnima Singh", "Mr. Karan Pal", "Ms. Annanya Arora", "Ms. Vanya Singh", "Ms. Shubhi Singh"],
+    },
+    {
+      teamCode: "Team II",
+      hsm: "Ms. Prateeksha Pandey (HSM - Senior Scale)",
+      scale: "Senior Scale",
+      strength: 10,
+      scholars: ["Ms. Varnika Mishra", "Mr. Saksham Agrawal", "Mr. Yashaswa Singh", "Ms. Stuti Singh", "Ms. Navleen Kaur Puri", "Ms. Parinita Bhushan", "Ms. Aleen Chaurasia", "Ms. Mansi Raj Purwar", "One student on probation"],
+    },
+    {
+      teamCode: "Team III",
+      hsm: "Shubhangi Singh (HSM)",
+      strength: 5,
+      scholars: ["Ms. Stuti Dwivedi", "Ms. Luvleen Kaur Puri", "Ms. Yashi Singh", "Ms. Vaibhavi Kushwaha"],
     },
   ],
 };

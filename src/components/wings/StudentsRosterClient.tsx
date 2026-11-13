@@ -18,6 +18,7 @@ import {
   FileText,
   Eye,
   X,
+  Download,
 } from "lucide-react";
 import {
   StudentScholar,
@@ -25,6 +26,7 @@ import {
   STUDENT_COHORT_SUMMARY_2026_27,
   UPES_ACADEMIC_PARTNERSHIP,
   WINTER_INTERNSHIP_BATCH_2026_27,
+  WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION,
   STUDENT_WELFARE_REGISTRAR,
   STUDENT_WELFARE_DEPUTY_REGISTRAR,
 } from "@/lib/data/foundation-data";
@@ -413,6 +415,16 @@ export default function StudentsRosterClient({
                 <Eye className="w-3.5 h-3.5 text-lion-gold-dark shrink-0" />
                 <span>View Certified Decree</span>
               </button>
+
+              <a
+                href={WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-full bg-lion-gold/15 border border-lion-gold/40 text-lion-gold-dark text-xs font-mono font-semibold tracking-wider hover:bg-lion-gold/25 transition-colors inline-flex items-center justify-center gap-1.5 shadow-2xs min-h-[44px]"
+              >
+                <Download className="w-3.5 h-3.5 text-lion-gold-dark shrink-0" />
+                <span>5-Page Declaration (PDF)</span>
+              </a>
 
               <Link
                 href="/events/upcoming-winter-internship-program-2026-27"
@@ -1184,7 +1196,7 @@ export default function StudentsRosterClient({
             </div>
 
             <div className="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1">
-              <div className="relative w-full aspect-[1/1.4] max-h-[62vh] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-50 border border-border shadow-inner mx-auto">
+              <div className="relative w-full aspect-[1/1.4] max-h-[56vh] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-50 border border-border shadow-inner mx-auto">
                 <Image
                   src={WINTER_INTERNSHIP_BATCH_2026_27.decreeDocumentUrl}
                   alt="Official Executed Decree: Final List for Upcoming Internship Program"
@@ -1193,6 +1205,30 @@ export default function StudentsRosterClient({
                   sizes="(max-width: 640px) 95vw, 550px"
                   priority
                 />
+              </div>
+
+              {/* 5-Page Official Setup Declaration (UP/2026/0987361) */}
+              <div className="p-3.5 rounded-xl bg-lion-gold/10 border border-lion-gold/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-sans">
+                <div className="space-y-0.5 min-w-0">
+                  <div className="flex items-center space-x-1.5">
+                    <ShieldCheck className="w-4 h-4 text-lion-gold-dark shrink-0" />
+                    <strong className="font-serif text-obsidian text-sm">
+                      Official Setup Declaration ({WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.uniqueId})
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate font-mono">
+                    Ratified 30-Student Cohort &bull; Forwarded by Colonel Prasoon Singh (Sena Medal), Lebanon (12/11/26) &bull; Jai Hind
+                  </p>
+                </div>
+                <a
+                  href={WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-full bg-obsidian text-white font-mono text-[11px] font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center gap-1.5 shrink-0 shadow-xs"
+                >
+                  <Download className="w-3 h-3 text-lion-gold" />
+                  <span>Download PDF (5 Pages)</span>
+                </a>
               </div>
             </div>
 
