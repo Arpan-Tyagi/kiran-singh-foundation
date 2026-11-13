@@ -295,7 +295,7 @@ export default async function EventDetailPage({ params }: Props) {
         )}
       </section>
 
-      {/* Official 26-Scholar Winter Batch Deployment (If Winter 2026-27 Session) */}
+      {/* Official 26-Scholar Winter Batch Deployment & 30-Student Ratified Hierarchy */}
       {event.slug === "upcoming-winter-internship-program-2026-27" && (
         <section className="space-y-8">
           <div className="border-b border-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -308,12 +308,12 @@ export default async function EventDetailPage({ params }: Props) {
                 Official Roster: 26 Selected Scholars Across 4 Teams
               </h2>
               <p className="text-xs sm:text-sm text-slate font-sans mt-0.5 max-w-2xl">
-                Certified by Secretary Shri Anuj Kumar Singh. Each team is commanded by an appointed Head Superintendent Manager (HSM) preparing plagiarism-audited research defenses.
+                Mobilized on 05/11/26 by Secretary Shri Anuj Kumar Singh at Prayagraj and ratified as the complete 30-student cohort hierarchy under Unique Id UP/2026/0987361 by Colonel Prasoon Singh (Sena Medal).
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-2">
               <span className="px-3.5 py-1.5 rounded-full bg-botanical-emerald/10 border border-botanical-emerald/30 text-botanical-emerald text-xs font-mono font-semibold">
-                4 Active Teams &bull; 26 Deployed
+                Directorate + 4 Teams &bull; 30 Ratified Students
               </span>
             </div>
           </div>
@@ -412,9 +412,53 @@ export default async function EventDetailPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Right: 4 Deployed Teams Grid */}
-            <div className="lg:col-span-7 space-y-5">
-              {WINTER_INTERNSHIP_BATCH_2026_27.teams.map((team) => (
+            {/* Right: Official Directorate & 4 Deployed Teams Grid */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Directorate Card */}
+              <div className="bg-gradient-to-r from-stone-50 via-emerald-50/20 to-stone-50 border-2 border-emerald-600/30 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-elevation-1 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-600/20 pb-3">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 font-bold">
+                      Executive Administration &bull; Winter 2026–27
+                    </span>
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-obsidian">
+                      Office of the Registrar &bull; Student Welfare Wing
+                    </h3>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 font-mono text-[10px] font-bold self-start sm:self-auto uppercase">
+                    Directorate
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3.5 rounded-xl bg-white border border-emerald-600/20 shadow-2xs space-y-1">
+                    <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block">
+                      Registrar
+                    </span>
+                    <strong className="font-serif text-base text-obsidian block">
+                      {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.registrar}
+                    </strong>
+                    <span className="text-[11px] font-mono text-slate block">
+                      Academic Administration &bull; Stipend Endorsement
+                    </span>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white border border-emerald-600/20 shadow-2xs space-y-1">
+                    <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block">
+                      Deputy Registrar
+                    </span>
+                    <strong className="font-serif text-base text-obsidian block">
+                      {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.dyRegistrar}
+                    </strong>
+                    <span className="text-[11px] font-mono text-slate block">
+                      Field Coordination &bull; Plagiarism Verification
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 Deployed Teams from Official Setup Declaration */}
+              {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.teamsSummary.map((team) => (
                 <div
                   key={team.teamCode}
                   className="bg-white border border-border rounded-2xl p-5 shadow-elevation-1 space-y-3"
@@ -424,69 +468,60 @@ export default async function EventDetailPage({ params }: Props) {
                       <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark font-mono text-xs font-bold uppercase">
                         {team.teamCode}
                       </span>
-                      <h3 className="font-serif text-lg font-bold text-obsidian">
-                        Command: {team.hsm.name} <span className="text-xs font-mono text-botanical-emerald uppercase font-semibold">(HSM)</span>
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-obsidian">
+                        Command: {team.hsm}
                       </h3>
                     </div>
-                    <span className="text-xs font-mono text-slate">
-                      {team.totalStrength} Scholars
+                    <span className="text-xs font-mono text-botanical-emerald font-semibold">
+                      {team.strength} Scholars
                     </span>
                   </div>
 
+                  {/* Team Members List */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans">
-                    {/* HSM */}
-                    <div className="p-3 rounded-xl bg-lion-gold/5 border border-lion-gold/30 col-span-1 sm:col-span-2 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3 min-w-0">
-                        {team.hsm.photoUrl && (
-                          <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
-                            <Image
-                              src={team.hsm.photoUrl}
-                              alt={team.hsm.name}
-                              fill
-                              sizes="40px"
-                              className="object-cover object-top"
-                            />
-                          </div>
-                        )}
-                        <div className="space-y-0.5 min-w-0">
-                          <div className="flex items-center space-x-2">
-                            <strong className="text-obsidian font-medium">{team.hsm.name}</strong>
-                            <span className="px-1.5 py-0.5 rounded bg-lion-gold/20 text-lion-gold-dark text-[9px] font-mono font-bold uppercase shrink-0">
-                              HSM Commander
+                    {team.scholars.map((scholarName, sIdx) => {
+                      const isProbation = scholarName.toLowerCase().includes("probation");
+                      return (
+                        <div
+                          key={sIdx}
+                          className={`p-2.5 rounded-xl border flex items-center justify-between ${
+                            isProbation
+                              ? "bg-amber-50/60 border-amber-200 text-amber-900"
+                              : "bg-porcelain border-border/60 text-obsidian"
+                          }`}
+                        >
+                          <div className="flex items-center space-x-2 truncate">
+                            <span className="w-5 h-5 rounded-md bg-stone-200/70 text-[10px] font-mono font-bold flex items-center justify-center shrink-0 text-slate">
+                              {String(sIdx + 1).padStart(2, "0")}
+                            </span>
+                            <span className="font-medium text-xs truncate">
+                              {scholarName}
                             </span>
                           </div>
-                          <span className="text-[10px] font-mono text-slate block truncate">
-                            {team.hsm.academicDiscipline}
+                          <span className={`text-[10px] font-mono shrink-0 uppercase font-semibold ${
+                            isProbation ? "text-amber-800" : "text-slate"
+                          }`}>
+                            {isProbation ? "Probation" : "Research Intern"}
                           </span>
                         </div>
-                      </div>
-                      <span className="font-mono text-[10px] text-lion-gold-dark font-bold shrink-0">
-                        {team.hsm.scholarId}
-                      </span>
-                    </div>
-
-                    {/* Members */}
-                    {team.members.map((mem) => (
-                      <div
-                        key={mem.scholarId}
-                        className="p-2.5 rounded-xl bg-porcelain border border-border/60 flex items-center justify-between"
-                      >
-                        <div className="space-y-0.5 truncate mr-2">
-                          <span className="font-medium text-obsidian text-xs block truncate">
-                            {mem.name}
-                          </span>
-                          <span className="text-[10px] text-slate block truncate font-sans">
-                            {mem.academicDiscipline}
-                          </span>
-                        </div>
-                        <span className="font-mono text-[10px] text-slate shrink-0">
-                          {mem.scholarId}
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               ))}
+
+              {/* Total Cohort Ratification Footer */}
+              <div className="p-4 rounded-2xl bg-stone-100 border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono text-xs text-slate">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-botanical-emerald shrink-0" />
+                  <span className="text-obsidian font-semibold">
+                    Total Ratified Strength: 30 Students (Directorate + 4 Teams)
+                  </span>
+                </div>
+                <span className="text-lion-gold-dark font-bold uppercase">
+                  Jai Hind &bull; Lebanon 12/11/26
+                </span>
+              </div>
             </div>
           </div>
         </section>

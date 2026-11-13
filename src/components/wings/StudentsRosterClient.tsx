@@ -399,10 +399,10 @@ export default function StudentsRosterClient({
                 </span>
               </div>
               <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-obsidian tracking-tight break-words">
-                Active Batch: 26 Selected Scholars Across 4 Teams
+                Active Batch: 26 Selected Scholars Across 4 Teams &bull; Ratified 30-Student Cohort Setup
               </h2>
               <p className="text-xs sm:text-sm text-slate font-sans max-w-2xl leading-relaxed break-words">
-                Officially decreed on 5th November 2026 by Secretary Shri Anuj Kumar Singh at Prayagraj. Deploys 26 active scholars across 4 operational teams headed by appointed Head Superintendent Managers (HSMs): Vaishnavi (Team I), Prateeksha Pandey (Team II), Shubhangi Singh (Team III), and Vedant Agrawal (Team IV). The previous 11 scholars of the Summer Internship Batch have concluded their tenure and graduated.
+                Decreed on 05/11/26 by Secretary Shri Anuj Kumar Singh at Prayagraj and ratified under Unique Id UP/2026/0987361 by the Governing Body of KSF (Colonel Prasoon Singh, Sena Medal &amp; Shri Anil Kumar Singh, President) comprising 30 students across the Executive Directorate (Registrar Ms. Shiksha Jaiswal, Dy. Registrar Ms. Navyanshi Dwivedi) and 4 HSM Teams. Summer Internship scholars from earlier sessions have completed their separate summer convocation.
               </p>
             </div>
 
@@ -642,6 +642,49 @@ export default function StudentsRosterClient({
         {/* Dynamic Team Content: Winter 2026-27 Mode vs. Session Mode */}
         {rosterViewMode === "winter_2026_27" ? (
           <div className="space-y-10 sm:space-y-12">
+            {/* Executive Directorate of Student Welfare Wing */}
+            <div className="bg-gradient-to-r from-stone-50 via-emerald-50/20 to-stone-50 border-2 border-emerald-600/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-elevation-1 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-600/20 pb-3">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 font-bold">
+                    Official Directorate Setup &bull; Unique Id UP/2026/0987361
+                  </span>
+                  <h3 className="font-serif text-lg sm:text-2xl font-bold text-obsidian">
+                    Office of the Registrar &bull; Student Welfare Wing
+                  </h3>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-mono text-xs font-bold self-start sm:self-auto uppercase">
+                  Executive Directorate
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 rounded-xl bg-white border border-emerald-600/20 shadow-2xs space-y-1">
+                  <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block">
+                    Registrar (Student Welfare Wing)
+                  </span>
+                  <strong className="font-serif text-base sm:text-lg text-obsidian block">
+                    {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.registrar}
+                  </strong>
+                  <span className="text-xs font-mono text-slate block">
+                    Academic Accreditation &bull; Admissions &bull; Stipend Endorsements
+                  </span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white border border-emerald-600/20 shadow-2xs space-y-1">
+                  <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block">
+                    Deputy Registrar (Student Welfare Wing)
+                  </span>
+                  <strong className="font-serif text-base sm:text-lg text-obsidian block">
+                    {WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION.directorate.dyRegistrar}
+                  </strong>
+                  <span className="text-xs font-mono text-slate block">
+                    Field Team Governance &bull; Plagiarism Audits &bull; Panel Defense
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {filteredWinterTeams.map((wTeam) => (
               <div
                 key={wTeam.teamCode}
@@ -694,21 +737,9 @@ export default function StudentsRosterClient({
                       </div>
 
                       <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
-                        {scholarPhotoMap.get(wTeam.hsm.scholarId) ? (
-                          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
-                            <Image
-                              src={scholarPhotoMap.get(wTeam.hsm.scholarId)!}
-                              alt={wTeam.hsm.name}
-                              fill
-                              sizes="48px"
-                              className="object-cover object-top"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-lion-gold/15 border border-lion-gold/30 flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
-                            {wTeam.hsm.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
-                          </div>
-                        )}
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-lion-gold/15 border border-lion-gold/30 flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
+                          {wTeam.hsm.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
+                        </div>
                         <div className="min-w-0 flex-1">
                           <h4 className="font-serif text-base sm:text-lg font-bold text-obsidian leading-snug break-words">
                             {wTeam.hsm.name}
@@ -768,21 +799,9 @@ export default function StudentsRosterClient({
                           </div>
 
                           <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
-                            {scholarPhotoMap.get(mem.scholarId) ? (
-                              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-lion-gold/40 shrink-0 bg-slate-100">
-                                <Image
-                                  src={scholarPhotoMap.get(mem.scholarId)!}
-                                  alt={mem.name}
-                                  fill
-                                  sizes="48px"
-                                  className="object-cover object-top"
-                                />
-                              </div>
-                            ) : (
-                              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-porcelain border border-border flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
-                                {initials}
-                              </div>
-                            )}
+                            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-porcelain border border-border flex items-center justify-center font-serif text-sm font-bold text-lion-gold-dark shrink-0">
+                              {initials}
+                            </div>
                             <div className="min-w-0 flex-1">
                               <h4 className="font-serif text-base sm:text-lg font-bold text-obsidian leading-snug break-words">
                                 {mem.name}
