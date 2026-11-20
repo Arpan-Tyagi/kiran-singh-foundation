@@ -2683,10 +2683,10 @@ export const FOUNDATION_EVENTS: FoundationEvent[] = [
       "Academic Credit Transmission to UPES Dehradun School for Life Framework",
     ],
     researchThemes: [
-      "Empirical Veterinary Triage Dynamics in Street Canine Sanctuaries",
-      "Constitutional Protections and POSH Act 2013 Compliance in Civic Internships",
-      "Digital Divide Bridging in Rural Uttar Pradesh Education",
-      "Micro-Finance and Entrepreneurial Resilience Among Tier-2 Women",
+      "Empowering Young People through Education - with Choices that Broaden their Futures (KSF/DISC/2026/093)",
+      "The existing Criminal Justice System in India (KSF/DISC/2026/094)",
+      "How AI is utilising our emotions to violate Right to Privacy (KSF/DISC/2026/095)",
+      "Mind of a politician to face a crisis situation (KSF/DISC/2026/096)",
     ],
     galleryImages: [
       {
@@ -3589,4 +3589,459 @@ export const WINTER_INTERNSHIP_2026_27_SANCTIONED_EXPENSES: WinterInternshipExpe
     },
   ],
 };
+
+// ============================================================================
+// OFFICIAL STUDENT RESEARCH & DISCUSSION TOPIC DOSSIERS (WINTER INTERNSHIP 2026–27)
+// Formal Decrees KSF/DISC/2026/093, 094, 095, 096 sanctioned at Prayagraj Secretariat
+// "Topic of research given to students in order to enhance their research and logical capabilities"
+// ============================================================================
+
+export interface StudentResearchTopicModule {
+  step: number;
+  title: string;
+  focusPoint?: string;
+}
+
+export interface StudentResearchTopic {
+  id: string;
+  documentRef: string;
+  docType: "Topic of Discussion" | "Topic of Research";
+  title: string;
+  themeOverview: string;
+  teamCode: "Team I" | "Team II" | "Team III" | "Team IV";
+  commander: {
+    name: string;
+    role: string;
+    scholarId: string;
+  };
+  cohortStrength: string;
+  abstractRequirement: string;
+  keywordsRequirement: string;
+  formattingStandard: {
+    footnotes: string;
+    reportFont: string;
+    footnoteFont: string;
+  };
+  curriculumModules: StudentResearchTopicModule[];
+  decreeScanUrl: string;
+  sealLabel: string;
+  secretariatContact: string;
+  officialDomain: string;
+  academicRationale: string;
+}
+
+export const STUDENT_RESEARCH_TOPIC_DOSSIERS_2026: StudentResearchTopic[] = [
+  {
+    id: "ksf-disc-2026-093",
+    documentRef: "KSF/DISC/2026/093",
+    docType: "Topic of Discussion",
+    title: "Empowering Young People through Education - with Choices that Broaden their Futures",
+    themeOverview:
+      "A critical inquiry into Indian educational evolution, National Education Policy (NEP) 2020 systemic paradigms, and cultivation of analytical decision-making for future career trajectories.",
+    teamCode: "Team I",
+    commander: {
+      name: "Vaishnavi",
+      role: "Head Superintendent Manager (HSM, Senior Scale)",
+      scholarId: "KSF-STU-013",
+    },
+    cohortStrength: "8 Selected Scholars",
+    abstractRequirement: "300 words; Italics; Times New Roman; Font Size 12",
+    keywordsRequirement: "Min - 10; Italics; Times New Roman; Font Size 12",
+    formattingStandard: {
+      footnotes: "Calibri, Font Size 10, Min. 10 footnotes",
+      reportFont: "Times New Roman, Font Size 12",
+      footnoteFont: "Calibri 10pt",
+    },
+    curriculumModules: [
+      { step: 1, title: "INTRODUCTION", focusPoint: "Epistemological foundation & modern challenges in youth empowerment" },
+      { step: 2, title: "Historical Background of the Education System in India :- A Critical Overview.", focusPoint: "From indigenous Gurukuls to Macaulay's 1835 Minute and post-independence Commissions" },
+      { step: 3, title: "Levels or Stages of Education in India.", focusPoint: "Foundational, Preparatory, Middle, Secondary, and Higher Education strata" },
+      { step: 4, title: "NEP, 2020 :- Educational Shift towards Change.", focusPoint: "Structural re-engineering, multidisciplinary pedagogy, and vocational mainstreaming" },
+      { step: 5, title: "Making Choices Related to Career :- Requirement of Critical Thinking & Analysis.", focusPoint: "Deconstructing parental bias, herd behavior, and market volatility through logic" },
+      { step: 6, title: "Education with Specialization.", focusPoint: "Deep-domain competency vs broad foundational inquiry in economic landscapes" },
+      { step: 7, title: "SUGGESTIONS", focusPoint: "Actionable institutional recommendations for grassroots curriculum reform" },
+      { step: 8, title: "CONCLUSION", focusPoint: "Synthesized vision for democratized, choice-driven youth empowerment" },
+      { step: 9, title: "REFERENCES", focusPoint: "Standardized scholarly bibliography and institutional citations" },
+    ],
+    decreeScanUrl: "/images/events/winter-2026-27/research-topics/ksf-disc-2026-093-empowering-education.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+    academicRationale:
+      "Tasked to Team I to cultivate macro-educational policy critique, constitutional rights under Article 21A, and logical evaluation of NEP 2020 implementation bottlenecks in rural Uttar Pradesh.",
+  },
+  {
+    id: "ksf-disc-2026-094",
+    documentRef: "KSF/DISC/2026/094",
+    docType: "Topic of Research",
+    title: "The existing Criminal Justice System in India",
+    themeOverview:
+      "An empirical and statutory analysis of India's penal architecture, substantive criminal law elements, penal philosophies, systemic backlogs, and judicial remedies.",
+    teamCode: "Team II",
+    commander: {
+      name: "Prateeksha Pandey",
+      role: "Head Superintendent Manager (HSM, Senior Scale)",
+      scholarId: "KSF-STU-024",
+    },
+    cohortStrength: "9 Selected Scholars (8 Scholars + 1 on Probation)",
+    abstractRequirement: "300 words; Italics; Times New Roman; Font Size 12",
+    keywordsRequirement: "Min - 10; Italics; Times New Roman; Font Size 12",
+    formattingStandard: {
+      footnotes: "Calibri, Font Size 10, Min. 10 footnotes",
+      reportFont: "Times New Roman, Font Size 12",
+      footnoteFont: "Calibri 10pt",
+    },
+    curriculumModules: [
+      { step: 1, title: "Introduction", focusPoint: "Preamble to procedural due process and state prosecution dynamics" },
+      { step: 2, title: "Historical Background of the Criminal System of India.", focusPoint: "Colonial codification (IPC 1860, CrPC 1973) and modern Bharatiya Nyaya Sanhita transitions" },
+      { step: 3, title: "Elements of Crime. Explain through case laws.", focusPoint: "Mens Rea, Actus Reus, concurrence, and landmark Supreme Court precedents" },
+      { step: 4, title: "Theories of Punishment.", focusPoint: "Deterrent, Retributive, Preventive, and Reformative justice jurisprudence" },
+      { step: 5, title: "Current Situation of Criminal Justice System in India.", focusPoint: "Undertrial pendency, forensics infrastructure, prison overcapacity, and legal aid" },
+      { step: 6, title: "Case studies related to it.", focusPoint: "Detailed longitudinal review of contentious rulings and investigative miscarriages" },
+      { step: 7, title: "SUGGESTIONS", focusPoint: "Systemic reforms: police autonomy, digitised caseflow, and victim restitution" },
+      { step: 8, title: "CONCLUSION", focusPoint: "Harmonizing custodial deterrence with constitutional fundamental freedoms" },
+      { step: 9, title: "REFERENCES", focusPoint: "Legal law reports (AIR, SCC, SCR) and statutory enactments" },
+    ],
+    decreeScanUrl: "/images/events/winter-2026-27/research-topics/ksf-disc-2026-094-criminal-justice-system.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+    academicRationale:
+      "Assigned to Team II to develop forensic case-briefing capabilities, evidentiary precision, and constitutional scrutiny of policing under Articles 20, 21, and 22.",
+  },
+  {
+    id: "ksf-disc-2026-095",
+    documentRef: "KSF/DISC/2026/095",
+    docType: "Topic of Research",
+    title: "How AI is utilising our emotions to violate Right to Privacy.",
+    themeOverview:
+      "A frontier exploration of affective computing, predictive neural emotion-mining, biometric data exploitation, and constitutional protections under the landmark Puttaswamy privacy doctrine.",
+    teamCode: "Team III",
+    commander: {
+      name: "Shubhangi Singh",
+      role: "Head Superintendent Manager (HSM)",
+      scholarId: "KSF-STU-027",
+    },
+    cohortStrength: "5 Selected Scholars",
+    abstractRequirement: "300 words; Italics; Times New Roman; Font Size 12",
+    keywordsRequirement: "Min - 10; Italics; Times New Roman; Font Size 12",
+    formattingStandard: {
+      footnotes: "Calibri, Font Size 10, Min. 10 footnotes",
+      reportFont: "Times New Roman, Font Size 12",
+      footnoteFont: "Calibri 10pt",
+    },
+    curriculumModules: [
+      { step: 1, title: "Introduction", focusPoint: "Convergence of algorithmic surveillance and human psychological vulnerability" },
+      { step: 2, title: "Historical Evolution of Artificial Intelligence and its after effects.", focusPoint: "From symbolic AI to large multimodal emotion recognition models (ERMs)" },
+      { step: 3, title: "Concept of AI.", focusPoint: "Supervised classifiers, deep neural networks, and subconscious behavioral profiling" },
+      { step: 4, title: "AI tools and their utility.", focusPoint: "Facial micro-expression trackers, voice stress decoders, and biometric ad-targeting" },
+      { step: 5, title: "Right to Privacy. Judgement of KS Puttaswamy v. UOI", focusPoint: "Informational privacy, bodily autonomy, and proportionality tests under Article 21" },
+      { step: 6, title: "Use of AI tools to understand the emotions of the citizens:-", focusPoint: "Political sentiment manipulation, targeted fear-triggering, and commercial exploitation" },
+      { step: 7, title: "Working model to be explained in detail.", focusPoint: "Technical data-pipeline: sensor ingestion, latent vector mapping, and behavioural nudge" },
+      { step: 8, title: "SUGGESTION", focusPoint: "Digital Personal Data Protection (DPDP) enforcement, algorithmic auditing, and consent fences" },
+      { step: 9, title: "CONCLUSION", focusPoint: "Guarding sovereign cognitive freedom against invasive corporate and state surveillance" },
+      { step: 10, title: "REFERENCES", focusPoint: "International tech-ethics treaties, Supreme Court judgments, and computer science papers" },
+    ],
+    decreeScanUrl: "/images/events/winter-2026-27/research-topics/ksf-disc-2026-095-ai-emotions-right-to-privacy.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+    academicRationale:
+      "Mobilized for Team III to master contemporary digital jurisprudence, affective computing architectures, and legal advocacy defending cognitive privacy.",
+  },
+  {
+    id: "ksf-disc-2026-096",
+    documentRef: "KSF/DISC/2026/096",
+    docType: "Topic of Research",
+    title: "Mind of a politician to face a crisis situation",
+    themeOverview:
+      "A comparative statecraft study examining political psychology during acute crises, contrasting bureaucratic rote-learning with seasoned grassroots field experience in real-time governance.",
+    teamCode: "Team IV",
+    commander: {
+      name: "Vedant Agrawal",
+      role: "Head Superintendent Manager (HSM)",
+      scholarId: "KSF-STU-001",
+    },
+    cohortStrength: "3 Selected Scholars",
+    abstractRequirement: "300 words; Italics; Times New Roman; Font Size 12",
+    keywordsRequirement: "Min - 10; Italics; Times New Roman; Font Size 12",
+    formattingStandard: {
+      footnotes: "Calibri, Font Size 10, Min. 10 footnotes",
+      reportFont: "Times New Roman, Font Size 12",
+      footnoteFont: "Calibri 10pt",
+    },
+    curriculumModules: [
+      { step: 1, title: "Introduction", focusPoint: "The psychology of crisis command, accountability pressure, and institutional survival" },
+      { step: 2, title: "Evolution of Politics and its role in Indian Society.", focusPoint: "From ancient Arthashastra Rajadharma to democratic coalition statecraft" },
+      { step: 3, title: "Politics in India:- Pre-independence era and post-independence era.", focusPoint: "Freedom struggle moral authority vs modern electoral administrative compulsions" },
+      { step: 4, title: "Mind of a politician:- How it is different from an ordinary man.", focusPoint: "Risk tolerance, political calculus, strategic ambiguity, and narrative resilience" },
+      { step: 5, title: "Role of Politics in India.", focusPoint: "Resource allocation, caste mediation, regional aspirations, and institutional equilibrium" },
+      { step: 6, title: "Facing a crisis situation:- Study of reaction given by an ordinary citizen and a politician.", focusPoint: "Panic vs calculated response; emotional immediacy vs long-term constituency impact" },
+      { step: 7, title: "Difference between Rote Learning and Grassroot level experience. Impact on decision making.", focusPoint: "Why textbook theoretical models fail in disaster triage where lived community instinct succeeds" },
+      { step: 8, title: "SUGGESTION", focusPoint: "Institutionalizing mandatory grassroots internships for civil servants and civic leaders" },
+      { step: 9, title: "CONCLUSION", focusPoint: "Synthesizing empathetic statesmanship with resolute crisis management" },
+      { step: 10, title: "REFERENCES", focusPoint: "Political science treatises, crisis debriefs, memoirs, and governance archives" },
+    ],
+    decreeScanUrl: "/images/events/winter-2026-27/research-topics/ksf-disc-2026-096-mind-of-politician-crisis.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+    academicRationale:
+      "Challenging Team IV to probe high-stakes political sociology, strategic psychological resilience, and the epistemological superiority of grassroots field practice over rote theory.",
+  },
+];
+
+// ============================================================================
+// OFFICIAL SCHOLAR & OFFICER TESTIMONIALS (KSF STUDENT WELFARE WING)
+// Decrees KSF/DISC/2026/099, 100, 101 and KSF/TEST/2026/103 Stamped with KSF Approved 2026
+// ============================================================================
+
+export interface ScholarTestimonial {
+  id: string;
+  documentRef: string;
+  authorName: string;
+  authorRole: string;
+  authorAffiliation: string;
+  pullQuote: string;
+  fullStatement: string[];
+  decreeScanUrl: string;
+  sealLabel: string;
+  secretariatContact: string;
+  officialDomain: string;
+  teamCode?: "Team I" | "Team II" | "Team III" | "Team IV";
+}
+
+export const OFFICIAL_SCHOLAR_TESTIMONIALS_2026: ScholarTestimonial[] = [
+  {
+    id: "ksf-test-099",
+    documentRef: "KSF/DISC/2026/099",
+    authorName: "Ms. Luvleen Kaur Puri",
+    authorRole: "Scholar & Member, Designing Committee",
+    authorAffiliation: "Kiran Singh Foundation (Student Welfare) Wing",
+    teamCode: "Team III",
+    pullQuote:
+      "The foundation's visionary commitment to uplifting students through education while simultaneously championing animal welfare is genuinely inspiring.",
+    fullStatement: [
+      "Kiran Singh Foundation has been an important part of my journey and has given me many opportunities to learn and grow. It is not just a foundation but a place where I have gained valuable experiences and learned important life lessons.",
+      "The foundation's visionary commitment to uplifting students through education while simultaneously championing animal welfare is genuinely inspiring.",
+      "My integration into KSF has illuminated the profound significance of cultivating kindness, upholding responsibility, and contributing meaningfully to the broader community.",
+      "The diverse array of sessions and activities has enabled me to examine various scenarios through a multifaceted lens.",
+      "I have cultivated the ability to articulate my own ideas, actively engage with the perspectives of others, and fully appreciate the vital role of collaboration.",
+      "Furthermore, I have come to recognize that genuine growth is cultivated through the acceptance of one's errors, the assimilation of critical feedback, and the resilience required to surmount adversity.",
+      "I am convinced that the foundation establlishes a platform enabling students to unearth their inherent potential. I remain deeply appreciative of the experiences, mentorship, and prospects I have been afforded within this environment. I look forward to persisting in my own education, making meaningful contributions, and remaining an integral participant in the foundation's future trajectory.",
+    ],
+    decreeScanUrl: "/images/testimonials/ksf-testimonial-099-luvleen-kaur-puri.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+  },
+  {
+    id: "ksf-test-100",
+    documentRef: "KSF/DISC/2026/100",
+    authorName: "Shubhangi Singh",
+    authorRole: "Head Superintendent Manager (HSM)",
+    authorAffiliation: "Team III Commander & Senior Leadership, Kiran Singh Foundation",
+    teamCode: "Team III",
+    pullQuote:
+      "No matter the setbacks, we have always come together, found ways to bounce back, and continued giving our best. I believe that resilience is one of the foundation's greatest strengths.",
+    fullStatement: [
+      "I joined the Kiran Singh Foundation around December 2025, and completed my first summer internship as a Team Leader. Over this journey, I have had the opportunity to witness the foundation grow, evolve, and overcome various challenges.",
+      "Working with the foundation has been a truly enriching experience. It has taught me the importance of time management, teamwork, collaboration, and working with people from different teams. More than just an organisation, the foundation provides us with an opportunity to explore our potential, understand different fields of work, and discover where our interests and strengths lie.",
+      "One of the most valuable aspects of this journey has been the regular feedback and reports we receive. They help us identify areas where we need improvement, understand what can be done better, and recognise the scope for further growth. This continuous process has also helped me develop my communication, research, public speaking, and strengths lie.",
+      "An experience that particularly stands out to me is the foundation's ability to remain strong despite the challenges it has faced. No matter the setbacks, we have always come together, found ways to bounce back, and continued giving our best.",
+      "I believe that resilience is one of the foundation's greatest strengths. I am grateful to be a part of this journey, and I look forward to learning, growing, contributing, and continuing to give my best to the Kiran Singh Foundation.",
+    ],
+    decreeScanUrl: "/images/testimonials/ksf-testimonial-100-shubhangi-singh-hsm.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+  },
+  {
+    id: "ksf-test-101",
+    documentRef: "KSF/DISC/2026/101",
+    authorName: "Stuti Dwivedi",
+    authorRole: "Head, Designing Committee",
+    authorAffiliation: "Creative Directorate & Student Welfare Wing, Kiran Singh Foundation",
+    teamCode: "Team III",
+    pullQuote:
+      "What I appreciate most about the foundation is the sense of teamwork, encouragement and belonging it creates... It has really helped me explore my abilities and built a lot of confidence.",
+    fullStatement: [
+      "Being a part of the Foundation has been a really meaningful experience for me. What I appreciate most about the foundation is the sense of teamwork, encouragement and belonging it creates. Being associated with it has helped me understand the importance of working together towards a common purpose.",
+      "Also it has really helped me explore my abilities and built a lot of confidence.",
+      "I hope to continue being a part of this journey and contribute even more in the future.",
+    ],
+    decreeScanUrl: "/images/testimonials/ksf-testimonial-101-stuti-dwivedi-dc-head.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+  },
+  {
+    id: "ksf-test-103",
+    documentRef: "KSF/TEST/2026/103",
+    authorName: "Ms. Navleen Kaur Puri",
+    authorRole: "Scholar & Member, Designing Committee",
+    authorAffiliation: "Team II & Creative Directorate, Kiran Singh Foundation",
+    teamCode: "Team II",
+    pullQuote:
+      "Through various sessions and activities, I have gradually overcome my hesitation and become more comfortable expressing my thoughts in front of others. It has taught me the importance of courage, consistency and continuous learning.",
+    fullStatement: [
+      "My journey with the Kiran Singh Foundation has been a truly enriching and meaningful experience. It has provided me with opportunities to learn something new every day and discover my potential. The foundation has played an important role in building my confidence, especially in public speaking.",
+      "Through various sessions and activities, I have gradually overcome my hesitation and become more comfortable expressing my thoughts in front of others. It has helped me improve my communication skills, develop a positive attitude and become more confident.",
+      "I have also had the opportunity to interact with inspiring people and foundation encourages us to step out of our comfort zones, explore new opportunities and belive in ourselves. It has taught me the importance of courage, consistency and continuous learning.",
+      "More than just an organisation, It has been a platform for personal growth and self-discovery. I am truly grateful for the guidance, encouragement and opportunities it has provided me.",
+    ],
+    decreeScanUrl: "/images/testimonials/ksf-testimonial-103-navleen-kaur-puri.jpg",
+    sealLabel: "KSF Approved 2026",
+    secretariatContact: "+91-9670970750",
+    officialDomain: "www.kiransinghfoundation.org",
+  },
+];
+
+// ============================================================================
+// OFFICIAL FOUNDATION COMMITTEES (CREATIVE & STRATEGIC DIRECTORATE)
+// Official Broadsheet Decrees ratified by Kiran Singh Foundation Secretariat
+// ============================================================================
+
+export interface FoundationCommitteeMember {
+  name: string;
+  role: string;
+  stageMoment?: string;
+  photoUrl?: string;
+}
+
+export interface FoundationCommittee {
+  id: string;
+  name: string;
+  code: string;
+  headName: string;
+  headRole: string;
+  headStageMoment: string;
+  headPhotoUrl?: string;
+  members: FoundationCommitteeMember[];
+  posterUrl: string;
+  mandate: string;
+  secretariatContact: string;
+}
+
+export const OFFICIAL_COMMITTEES_2026: FoundationCommittee[] = [
+  {
+    id: "ksf-comm-designing",
+    name: "Designing Committee",
+    code: "DC",
+    headName: "Ms. Stuti Dwivedi",
+    headRole: "Designing Head, Kiran Singh Foundation",
+    headStageMoment: "Conferring live musical synthesizer performance on Casio keyboard during foundation convocation assembly",
+    headPhotoUrl: "/images/office-bearers/stuti-dwivedi.jpg",
+    members: [
+      {
+        name: "Ms. Navleen Kaur Puri",
+        role: "Member, DC, KSF",
+        stageMoment: "Addressing foundation convocation at the ceremonial lectern",
+      },
+      {
+        name: "Ms. Luvleen Kaur Puri",
+        role: "Member, Designing Committee, KSF",
+        stageMoment: "Receiving merit memento from distinguished convocation dignitary",
+        photoUrl: "/images/events/winter-2026/memento-presentation-luvleen-kaur.jpg",
+      },
+      {
+        name: "Mr. Shaurya Pratap Singh",
+        role: "Member, DC, KSF",
+        stageMoment: "Executive design operations & visual systems modeling",
+      },
+    ],
+    posterUrl: "/images/hierarchy/posters/ksf-designing-committee-poster.jpg",
+    mandate:
+      "Official creative and visual communications directorate of Kiran Singh Foundation. Responsible for graphic decrees, typography standards, convocation visual media, stage design architecture, and academic exhibition boards.",
+    secretariatContact: "+91-9670970750",
+  },
+];
+
+// ============================================================================
+// OFFICIAL TEAM OPERATIONAL HIERARCHY POSTERS (GRAPHIC BROADSHEETS)
+// Color Decrees with Stage Convocation Photographs Ratified by Secretariat
+// ============================================================================
+
+export interface TeamHierarchyPoster {
+  teamCode: "Team I" | "Team II" | "Team III" | "Team IV";
+  teamTitle: string;
+  commanderName: string;
+  commanderRole: string;
+  convocationMoment: string;
+  deployedScholars: string[];
+  posterUrl: string;
+  secretariatContact: string;
+}
+
+export const OFFICIAL_TEAM_POSTERS_2026: TeamHierarchyPoster[] = [
+  {
+    teamCode: "Team I",
+    teamTitle: "Socio-Legal Research & Legislative Analysis",
+    commanderName: "Vaishnavi (HSM)",
+    commanderRole: "Head Superintendent Manager (Senior Scale)",
+    convocationMoment: "Vaishnavi formally receiving the championship trophy cup from dignitary at convocation podium",
+    deployedScholars: [
+      "Ms. Aarya Srivastava",
+      "Ms. Anwesha Sinha",
+      "Ms. Swarnima Singh",
+      "Mr. Karan Pal",
+      "Ms. Annanya Arora",
+      "Ms. Vanya Singh",
+      "Ms. Shubhi Singh",
+    ],
+    posterUrl: "/images/hierarchy/posters/ksf-team-1-hierarchy-poster.jpg",
+    secretariatContact: "+91-9670970750",
+  },
+  {
+    teamCode: "Team II",
+    teamTitle: "Public Policy & Judicial Redressal",
+    commanderName: "Ms. Prateeksha Pandey (HSM)",
+    commanderRole: "Head Superintendent Manager (Senior Scale)",
+    convocationMoment: "Ms. Prateeksha Pandey receiving the official framed decree and honour memento on stage",
+    deployedScholars: [
+      "Ms. Varnika Mishra",
+      "Mr. Saksham Agrawal",
+      "Mr. Yashaswa Singh",
+      "Ms. Stuti Singh",
+      "Ms. Navleen Kaur Puri",
+      "Ms. Parinita Bhushan",
+      "Ms. Aleen Chaurasia",
+      "Ms. Mansi Raj Purwar",
+    ],
+    posterUrl: "/images/hierarchy/posters/ksf-team-2-hierarchy-poster.jpg",
+    secretariatContact: "+91-9670970750",
+  },
+  {
+    teamCode: "Team III",
+    teamTitle: "Civil Liberties & Tech-Ethics Governance",
+    commanderName: "Shubhangi Singh (HSM)",
+    commanderRole: "Head Superintendent Manager",
+    convocationMoment: "Shubhangi Singh receiving convocation shield and trophy cup on stage from distinguished trustee",
+    deployedScholars: [
+      "Ms. Stuti Dwivedi",
+      "Ms. Luvleen Kaur Puri",
+      "Ms. Yashi Singh",
+      "Ms. Vaibhavi Kushwaha",
+    ],
+    posterUrl: "/images/hierarchy/posters/ksf-team-3-hierarchy-poster.jpg",
+    secretariatContact: "+91-9670970750",
+  },
+  {
+    teamCode: "Team IV",
+    teamTitle: "Crisis Statecraft & Grassroots Administration",
+    commanderName: "Mr. Vedant Agarwal (HSM)",
+    commanderRole: "Head Superintendent Manager under Executive Directorate",
+    convocationMoment: "Directorate presentation: Registrar Ms. Shiksha Jaiswal, Dy. Registrar Ms. Navyanshi Dwivedi, and HSM Mr. Vedant Agarwal",
+    deployedScholars: [
+      "Heramb Mishra",
+      "Anadi R. Srivastava",
+      "Shaurya P. Singh",
+      "Vasav Mishra",
+    ],
+    posterUrl: "/images/hierarchy/posters/ksf-team-4-directorate-hierarchy-poster.jpg",
+    secretariatContact: "+91-9670970750",
+  },
+];
+
+
 

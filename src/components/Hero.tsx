@@ -6,15 +6,15 @@ import { FOUNDATION_META } from "@/lib/data/foundation-data";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center pt-[104px] sm:pt-[112px] md:pt-[118px] pb-16 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
+    <section className="relative min-h-[90vh] flex flex-col items-center pt-6 sm:pt-8 md:pt-10 pb-16 md:pb-24 px-4 md:px-8 overflow-hidden bg-porcelain">
       {/* Architectural hairline grid framing and archival coordinates */}
       <div className="absolute inset-0 pointer-events-none border-x border-border/40 max-w-7xl mx-auto" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent pointer-events-none" />
-      <div className="absolute top-[110px] sm:top-[118px] md:top-[124px] left-6 lg:left-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-6 sm:top-8 lg:top-9 left-6 lg:left-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         GRID REF // 25.4358° N, 81.8463° E (PRAYAGRAJ)
       </div>
-      <div className="absolute top-[110px] sm:top-[118px] md:top-[124px] right-6 lg:right-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
+      <div className="absolute top-6 sm:top-8 lg:top-9 right-6 lg:right-8 hidden xl:block font-mono text-[10px] text-slate/70 font-medium uppercase tracking-widest select-none pointer-events-none">
         INSTITUTIONAL ARCHIVE &bull; EST. 30TH APRIL 2023
       </div>
 
@@ -22,7 +22,7 @@ export default function Hero() {
         {/* 2nd Winter Internship Official Announcement Island Pill */}
         <Link
           href="/events/upcoming-winter-internship-program-2026-27#expense-report"
-          className="group mb-8 inline-flex items-center gap-2 sm:gap-3 p-1.5 pl-2.5 sm:pl-3 pr-1.5 sm:pr-2 rounded-full bg-white/95 hover:bg-white border border-lion-gold/30 hover:border-lion-gold/70 shadow-[0_2px_14px_rgba(180,130,40,0.09)] hover:shadow-[0_6px_28px_rgba(180,130,40,0.2)] hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md max-w-full"
+          className="group mb-8 inline-flex items-center flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-3 p-1.5 pl-2.5 sm:pl-3 pr-1.5 sm:pr-2 rounded-full bg-white/95 hover:bg-white border border-lion-gold/30 hover:border-lion-gold/70 shadow-[0_2px_14px_rgba(180,130,40,0.09)] hover:shadow-[0_6px_28px_rgba(180,130,40,0.2)] hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md max-w-full"
         >
           {/* Contrasting Inner Alert Tag */}
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-lion-gold-dark text-white font-mono text-[10px] font-bold uppercase tracking-wider shrink-0 shadow-xs">
@@ -77,7 +77,7 @@ export default function Hero() {
         </div>
 
         {/* Eyebrow tag */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-xs font-mono tracking-widest uppercase mb-6 shadow-sm">
+        <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-1.5 rounded-full bg-white border border-border text-slate text-[10px] sm:text-xs font-mono tracking-wider sm:tracking-widest uppercase mb-6 shadow-sm max-w-full text-center">
           <span className="text-lion-gold-dark font-bold">§</span>
           <span>Trust registered under Indian Trust Act of 1882 &bull; PAN: AAGTK3961N &bull; CSR: CSR00110895</span>
         </div>

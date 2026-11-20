@@ -53,7 +53,7 @@ export default function Navbar() {
             <span className="font-serif text-sm md:text-base font-bold tracking-wider text-obsidian uppercase leading-tight group-hover:text-lion-gold-dark transition-colors">
               Kiran Singh Foundation
             </span>
-            <span className="text-[11px] text-slate font-mono tracking-widest uppercase font-medium">
+            <span className="text-[11px] text-slate font-mono tracking-widest uppercase font-medium hidden sm:block">
               A Journey from struggle to Enlightenment
             </span>
           </div>
@@ -83,13 +83,16 @@ export default function Navbar() {
         <div className="flex items-center space-x-2 md:space-x-3">
           <Link
             href="/emergency"
-            className="group relative inline-flex items-center space-x-2 px-3.5 md:px-4 py-2 min-h-[48px] rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs font-medium hover:bg-crimson-alert/15 hover:border-crimson-alert active:scale-[0.97] transition-all duration-200"
+            className="group relative inline-flex items-center space-x-2 px-3 md:px-4 py-2 min-h-[48px] rounded-full bg-crimson-alert/10 border border-crimson-alert/30 text-crimson-alert text-xs font-medium hover:bg-crimson-alert/15 hover:border-crimson-alert active:scale-[0.97] transition-all duration-200"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" aria-hidden="true"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600" aria-hidden="true"></span>
             </span>
-            <span className="font-mono uppercase tracking-wider text-[11px] font-semibold">Emergency Grid</span>
+            <span className="font-mono uppercase tracking-wider text-[11px] font-semibold">
+              <span className="inline sm:hidden">Emergency</span>
+              <span className="hidden sm:inline">Emergency Grid</span>
+            </span>
             <div className="w-5 h-5 rounded-full bg-crimson-alert/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
               <ArrowUpRight className="w-3 h-3 text-crimson-alert" aria-hidden="true" strokeWidth={1.5} />
             </div>

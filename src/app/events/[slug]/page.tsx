@@ -29,6 +29,9 @@ import {
   WINTER_INTERNSHIP_2026_27_SETUP_DECLARATION,
 } from "@/lib/data/foundation-data";
 import EventExpenseReport from "@/components/events/EventExpenseReport";
+import StudentResearchTopicsDossier from "@/components/events/StudentResearchTopicsDossier";
+import ScholarTestimonialsSection from "@/components/testimonials/ScholarTestimonialsSection";
+import OfficialHierarchyPostersViewer from "@/components/hierarchy/OfficialHierarchyPostersViewer";
 
 interface Props {
   params: Promise<{
@@ -295,6 +298,11 @@ export default async function EventDetailPage({ params }: Props) {
         )}
       </section>
 
+      {/* Official 4 Student Research Topics Dossier (Decrees KSF/DISC/2026/093 - 096) */}
+      {event.slug === "upcoming-winter-internship-program-2026-27" && (
+        <StudentResearchTopicsDossier />
+      )}
+
       {/* Official 26-Scholar Winter Batch Deployment & 30-Student Ratified Hierarchy */}
       {event.slug === "upcoming-winter-internship-program-2026-27" && (
         <section className="space-y-8">
@@ -524,12 +532,20 @@ export default async function EventDetailPage({ params }: Props) {
               </div>
             </div>
           </div>
+
+          {/* Official Graphic Hierarchy & Committee Posters Broadside */}
+          <OfficialHierarchyPostersViewer />
         </section>
       )}
 
       {/* Official Audited Expense Report (Sanctioned by Secretary Shri Anuj Kumar Singh on 11/11/26) */}
       {event.slug === "upcoming-winter-internship-program-2026-27" && (
         <EventExpenseReport />
+      )}
+
+      {/* Official Scholar & Officer Testimonials */}
+      {event.slug === "upcoming-winter-internship-program-2026-27" && (
+        <ScholarTestimonialsSection />
       )}
 
       {/* 4. Ceremonial Action Photographs Gallery */}

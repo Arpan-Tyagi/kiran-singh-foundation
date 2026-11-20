@@ -6,6 +6,7 @@ import {
   STUDENT_WELFARE_OFFICE_BEARERS,
   OfficeBearer,
   UPES_ACADEMIC_PARTNERSHIP,
+  OFFICIAL_COMMITTEES_2026,
 } from "@/lib/data/foundation-data";
 import {
   Maximize2,
@@ -17,6 +18,7 @@ import {
   ShieldCheck,
   Camera,
   CheckCircle2,
+  Download,
 } from "lucide-react";
 
 interface OperationalHierarchyProps {
@@ -27,7 +29,8 @@ export default function OperationalHierarchy({
   className = "",
 }: OperationalHierarchyProps) {
   const [selectedBearer, setSelectedBearer] = useState<OfficeBearer | null>(null);
-  const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated" | "registrar">("all");
+  const [selectedCommitteePoster, setSelectedCommitteePoster] = useState<string | null>(null);
+  const [activeTierFilter, setActiveTierFilter] = useState<number | "all" | "graduated" | "registrar" | "committee">("all");
 
   const registrarBearers = STUDENT_WELFARE_OFFICE_BEARERS.filter(
     (b) => b.category === "Registrar" || b.category === "Deputy Registrar" || b.tier === 0
@@ -44,11 +47,20 @@ export default function OperationalHierarchy({
   // Keyboard navigation for lightbox
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (selectedCommitteePoster) {
+          setSelectedCommitteePoster(null);
+          return;
+        }
+        if (selectedBearer) {
+          setSelectedBearer(null);
+          return;
+        }
+      }
+
       if (!selectedBearer) return;
 
-      if (e.key === "Escape") {
-        setSelectedBearer(null);
-      } else if (e.key === "ArrowRight") {
+      if (e.key === "ArrowRight") {
         const currentIndex = STUDENT_WELFARE_OFFICE_BEARERS.findIndex(
           (b) => b.id === selectedBearer.id
         );
@@ -64,7 +76,7 @@ export default function OperationalHierarchy({
         setSelectedBearer(STUDENT_WELFARE_OFFICE_BEARERS[prevIndex]);
       }
     },
-    [selectedBearer]
+    [selectedBearer, selectedCommitteePoster]
   );
 
   useEffect(() => {
@@ -134,6 +146,17 @@ export default function OperationalHierarchy({
             }`}
           >
             Office of the Registrar ({registrarBearers.length} Executive Officers)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTierFilter("committee")}
+            className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 active:scale-[0.98] ${
+              activeTierFilter === "committee"
+                ? "bg-amber-900 text-white shadow-sm font-semibold"
+                : "bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100"
+            }`}
+          >
+            Designing Committee (Head: Stuti Dwivedi)
           </button>
           <button
             type="button"
@@ -268,6 +291,99 @@ export default function OperationalHierarchy({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* SPECIALIZED COMMITTEE: DESIGNING COMMITTEE (CREATIVE WING)      */}
+      {/* ============================================================== */}
+      {(activeTierFilter === "all" || activeTierFilter === "committee") && (
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-amber-600/30 pb-3">
+            <div className="flex items-center space-x-3">
+              <span className="w-3.5 h-3.5 rounded-full bg-amber-700 ring-4 ring-amber-500/20" />
+              <div>
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-obsidian uppercase tracking-wide">
+                  Designing Committee &bull; KSF (Student Welfare) Wing
+                </h4>
+                <p className="text-xs text-amber-900 font-mono font-semibold">
+                  Creative Directorate &bull; Head: Ms. Stuti Dwivedi &bull; Members: Ms. Navleen Kaur Puri, Ms. Luvleen Kaur Puri, Mr. Shaurya Pratap Singh
+                </p>
+              </div>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-[10px] font-mono text-amber-900 uppercase tracking-wider font-semibold self-start sm:self-auto">
+              Creative Directorate &bull; 4 Officers
+            </span>
+          </div>
+
+          <div className="bg-gradient-to-r from-stone-50 via-amber-50/20 to-stone-50 rounded-3xl p-5 sm:p-6 border border-amber-600/30 shadow-elevation-1 space-y-5">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold uppercase tracking-wider">
+                  <span>Official Creative Directorate</span>
+                </div>
+                <h5 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
+                  Designing Committee &bull; Visual Communications &amp; Typography Standards
+                </h5>
+                <p className="text-xs sm:text-sm text-slate font-sans leading-relaxed">
+                  {OFFICIAL_COMMITTEES_2026[0].mandate}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-xs font-sans">
+                  <div className="p-3 rounded-xl bg-white border border-border space-y-0.5">
+                    <span className="text-[10px] font-mono uppercase text-amber-800 font-bold block">
+                      Designing Head
+                    </span>
+                    <strong className="text-obsidian text-sm font-serif block">
+                      {OFFICIAL_COMMITTEES_2026[0].headName}
+                    </strong>
+                    <span className="text-[11px] text-slate block">
+                      {OFFICIAL_COMMITTEES_2026[0].headStageMoment}
+                    </span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-border space-y-0.5">
+                    <span className="text-[10px] font-mono uppercase text-amber-800 font-bold block">
+                      Committee Members
+                    </span>
+                    <span className="text-obsidian text-xs font-medium block">
+                      Ms. Navleen Kaur Puri &bull; Ms. Luvleen Kaur Puri &bull; Mr. Shaurya Pratap Singh
+                    </span>
+                    <span className="text-[11px] text-slate block">
+                      Ceremonial podium orator &bull; Memento conferral &bull; Visual systems
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="shrink-0 w-full sm:w-72 space-y-3">
+                <div
+                  onClick={() => setSelectedCommitteePoster(OFFICIAL_COMMITTEES_2026[0].posterUrl)}
+                  className="relative w-full aspect-[1/1.3] rounded-2xl overflow-hidden border border-border bg-slate-900 shadow-md group cursor-pointer"
+                >
+                  <Image
+                    src={OFFICIAL_COMMITTEES_2026[0].posterUrl}
+                    alt="Designing Committee Official Decree Poster"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 288px"
+                    className="object-contain p-1 group-hover:scale-102 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-obsidian/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="px-3.5 py-1.5 rounded-full bg-white text-obsidian font-mono text-xs font-semibold flex items-center space-x-1.5 shadow-md">
+                      <Maximize2 className="w-3.5 h-3.5 text-lion-gold-dark" />
+                      <span>Zoom Poster</span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCommitteePoster(OFFICIAL_COMMITTEES_2026[0].posterUrl)}
+                  className="w-full py-2 px-3 rounded-full bg-obsidian text-white text-xs font-mono font-semibold tracking-wider hover:bg-stone-800 transition-colors inline-flex items-center justify-center gap-1.5 min-h-[44px]"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-lion-gold" />
+                  <span>Inspect Committee Poster</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -559,6 +675,68 @@ export default function OperationalHierarchy({
                 <span>Next<span className="hidden sm:inline"> Officer</span></span>
                 <ChevronRight className="w-4 h-4 shrink-0" />
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Designing Committee Poster Lightbox Modal */}
+      {selectedCommitteePoster && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Inspect Designing Committee Official Poster"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-obsidian/85 backdrop-blur-md transition-opacity duration-300"
+          onClick={() => setSelectedCommitteePoster(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-stone-divider flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-6 py-4 border-b border-border flex items-center justify-between bg-porcelain">
+              <div className="flex items-center space-x-3">
+                <span className="px-3 py-0.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wider bg-amber-900 text-white">
+                  Designing Committee
+                </span>
+                <span className="text-sm font-serif font-bold text-obsidian">
+                  Official Creative Directorate Broadsheet
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedCommitteePoster(null)}
+                className="w-10 h-10 min-w-[44px] min-h-[44px] rounded-full bg-white border border-border flex items-center justify-center text-obsidian hover:bg-slate-100 transition-colors"
+                aria-label="Close Poster"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-4 sm:p-6 overflow-y-auto flex-grow flex items-center justify-center bg-stone-900">
+              <div className="relative w-full h-[65vh] sm:h-[72vh]">
+                <Image
+                  src={selectedCommitteePoster}
+                  alt="Designing Committee Official Decree Poster"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 80vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+
+            <div className="px-6 py-3.5 border-t border-border bg-white flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+              <span className="text-slate text-[11px]">
+                Head: Ms. Stuti Dwivedi &bull; Members: Navleen Kaur Puri, Luvleen Kaur Puri, Shaurya Pratap Singh
+              </span>
+              <a
+                href={selectedCommitteePoster}
+                download="ksf-designing-committee-poster.jpg"
+                className="px-4 py-2 rounded-full bg-obsidian text-white hover:bg-stone-800 transition-colors inline-flex items-center space-x-1.5"
+              >
+                <Download className="w-3.5 h-3.5 text-lion-gold" />
+                <span>Download High-Res Poster</span>
+              </a>
             </div>
           </div>
         </div>

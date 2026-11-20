@@ -31,6 +31,8 @@ import {
   STUDENT_WELFARE_DEPUTY_REGISTRAR,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
+import ScholarTestimonialsSection from "@/components/testimonials/ScholarTestimonialsSection";
+import OfficialHierarchyPostersViewer from "@/components/hierarchy/OfficialHierarchyPostersViewer";
 
 export default function StudentsRosterClient({
   scholars,
@@ -1175,9 +1177,35 @@ export default function StudentsRosterClient({
                   </span>
                 ))}
               </div>
+
+              {mod.num === "04" && (
+                <div className="pt-3 border-t border-border/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                  <div className="flex items-center space-x-1.5 text-[11px] font-mono text-lion-gold-dark font-semibold">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Decrees KSF/DISC/2026/093–096</span>
+                  </div>
+                  <Link
+                    href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
+                    className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-full bg-lion-gold/15 hover:bg-lion-gold/25 border border-lion-gold/30 text-lion-gold-dark text-xs font-mono font-semibold transition-colors"
+                  >
+                    <span>Inspect 4 Research Decrees</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Official Scholar Testimonials & Voices of the Cohort */}
+      <div className="pt-8 sm:pt-10 border-t border-border">
+        <ScholarTestimonialsSection />
+      </div>
+
+      {/* Official Graphical Hierarchy & Committee Posters Broadside */}
+      <div className="pt-8 sm:pt-10 border-t border-border">
+        <OfficialHierarchyPostersViewer />
       </div>
 
       {/* Operational Hierarchy & Supervisory Corps (Student Welfare Wing) */}
