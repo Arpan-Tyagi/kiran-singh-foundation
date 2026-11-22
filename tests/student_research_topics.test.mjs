@@ -67,14 +67,33 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
     }
   });
 
-  await t.test("Component StudentResearchTopicsDossier must exist and render interactive elements", () => {
+  await t.test("Must export PUBLISHED_STUDENT_PAPERS with full paper for KSF/DISC/2026/096", () => {
+    const papersPath = path.resolve("src/lib/data/student-papers-data.ts");
+    assert.ok(fs.existsSync(papersPath), "student-papers-data.ts must exist");
+    const paperContent = fs.readFileSync(papersPath, "utf8");
+
+    assert.ok(paperContent.includes("PUBLISHED_STUDENT_PAPERS"), "Must export PUBLISHED_STUDENT_PAPERS");
+    assert.ok(paperContent.includes("paper-disc-2026-096"), "Must contain paper-disc-2026-096");
+    assert.ok(paperContent.includes("Mr. Anuj Kumar Singh"), "Must include author Mr. Anuj Kumar Singh");
+    assert.ok(paperContent.includes("Ms. Vaishnavi"), "Must include author Ms. Vaishnavi");
+    assert.ok(paperContent.includes("Mr. Karan Pal"), "Must include author Mr. Karan Pal");
+    assert.ok(paperContent.includes("Suggestions for Institutional and Policy Reform"), "Must include Section 8 Suggestions");
+    assert.ok(paperContent.includes("Statutory Creation of Community Liaison Cells within DDMAs"), "Must include suggestion 1");
+    assert.ok(paperContent.includes("Paschim Banga Khet Mazdoor Samity v. State of West Bengal"), "Must cite Article 21 ruling");
+    assert.ok(paperContent.includes("Boin, A., & ’t Hart, P."), "Must cite Boin and 't Hart");
+  });
+
+  await t.test("Component StudentResearchTopicsDossier must exist, render interactive elements, and support full paper reader", () => {
     const compPath = path.resolve("src/components/events/StudentResearchTopicsDossier.tsx");
     assert.ok(fs.existsSync(compPath), "StudentResearchTopicsDossier component must exist");
     const compContent = fs.readFileSync(compPath, "utf8");
 
     assert.ok(compContent.includes("STUDENT_RESEARCH_TOPIC_DOSSIERS_2026"), "Must import dataset");
+    assert.ok(compContent.includes("PUBLISHED_STUDENT_PAPERS"), "Must import PUBLISHED_STUDENT_PAPERS");
     assert.ok(compContent.includes("Topic of Research Given to Students"), "Must display section title");
+    assert.ok(compContent.includes("readingPaper"), "Must support full paper reading state");
     assert.ok(compContent.includes("lightboxScanUrl"), "Must support full-screen lightbox modal");
+    assert.ok(compContent.includes("Read Full Paper Online") || compContent.includes("Launch Full Scholarly Reader"), "Must provide reader CTA");
     assert.ok(compContent.includes("Escape"), "Must handle Escape key for accessibility");
     assert.ok(compContent.includes("min-h-[44px]"), "Must meet mobile touch target requirements");
   });
@@ -101,6 +120,6 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
   await t.test("Navbar must hide wide tracking text on small screens", () => {
     const navPath = path.resolve("src/components/Navbar.tsx");
     const navContent = fs.readFileSync(navPath, "utf8");
-    assert.ok(navContent.includes("hidden sm:block"), "Navbar motto must hide on small screens to prevent overflow");
+    assert.ok(navContent.includes("hidden sm:block"), "Navbar tracking subtitle must hide on small screens");
   });
 });

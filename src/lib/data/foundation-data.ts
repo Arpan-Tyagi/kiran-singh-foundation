@@ -4043,5 +4043,8 @@ export const OFFICIAL_TEAM_POSTERS_2026: TeamHierarchyPoster[] = [
   },
 ];
 
+export * from "./student-papers-data";
+
+
 
 
