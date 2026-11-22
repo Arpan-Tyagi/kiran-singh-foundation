@@ -83,6 +83,29 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
     assert.ok(paperContent.includes("Boin, A., & ’t Hart, P."), "Must cite Boin and 't Hart");
   });
 
+  await t.test("Must export PUBLISHED_STUDENT_PAPERS with full paper for KSF/DISC/2026/093", () => {
+    const papersPath = path.resolve("src/lib/data/student-papers-data.ts");
+    const paperContent = fs.readFileSync(papersPath, "utf8");
+
+    assert.ok(paperContent.includes("paper-disc-2026-093"), "Must contain paper-disc-2026-093");
+    assert.ok(paperContent.includes("Ms. Shubhi Singh"), "Must include author Ms. Shubhi Singh");
+    assert.ok(paperContent.includes("Ms. Annanya Arora"), "Must include author Ms. Annanya Arora");
+    assert.ok(paperContent.includes("NIPUN Bharat"), "Must include NIPUN Bharat FLN framework");
+    assert.ok(paperContent.includes("Academic Bank of Credits"), "Must include Academic Bank of Credits");
+    assert.ok(paperContent.includes("Article 21A"), "Must include Article 21A jurisprudence");
+  });
+
+  await t.test("Must export SCHOLAR_SPECIAL_MONOGRAPHS with Vanya's decision-science report", () => {
+    const papersPath = path.resolve("src/lib/data/student-papers-data.ts");
+    const paperContent = fs.readFileSync(papersPath, "utf8");
+
+    assert.ok(paperContent.includes("SCHOLAR_SPECIAL_MONOGRAPHS"), "Must export SCHOLAR_SPECIAL_MONOGRAPHS");
+    assert.ok(paperContent.includes("KSF-STU-016"), "Must include scholar ID KSF-STU-016");
+    assert.ok(paperContent.includes("Ms. Vanya Singh"), "Must include author Ms. Vanya Singh");
+    assert.ok(paperContent.includes("Roger Boisjoly"), "Must cite engineer Roger Boisjoly");
+    assert.ok(paperContent.includes("BATNA"), "Must include BATNA framework");
+  });
+
   await t.test("Component StudentResearchTopicsDossier must exist, render interactive elements, and support full paper reader", () => {
     const compPath = path.resolve("src/components/events/StudentResearchTopicsDossier.tsx");
     assert.ok(fs.existsSync(compPath), "StudentResearchTopicsDossier component must exist");

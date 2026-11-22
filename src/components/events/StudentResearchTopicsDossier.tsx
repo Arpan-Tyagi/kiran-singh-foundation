@@ -7,6 +7,8 @@ import {
   StudentResearchTopic,
   PUBLISHED_STUDENT_PAPERS,
   PublishedStudentPaper,
+  SCHOLAR_SPECIAL_MONOGRAPHS,
+  ScholarMonograph,
 } from "@/lib/data/foundation-data";
 import {
   BookOpen,
@@ -37,6 +39,7 @@ export default function StudentResearchTopicsDossier() {
   const [lightboxScanUrl, setLightboxScanUrl] = useState<string | null>(null);
   const [lightboxCaption, setLightboxCaption] = useState<string>("");
   const [readingPaper, setReadingPaper] = useState<PublishedStudentPaper | null>(null);
+  const [readingMonograph, setReadingMonograph] = useState<ScholarMonograph | null>(null);
   const [activeTab, setActiveTab] = useState<"syllabus" | "manuscript">("syllabus");
   const [copiedCitation, setCopiedCitation] = useState<boolean>(false);
 
@@ -53,9 +56,10 @@ export default function StudentResearchTopicsDossier() {
       if (e.key === "Escape") {
         setLightboxScanUrl(null);
         setReadingPaper(null);
+        setReadingMonograph(null);
       }
     };
-    if (lightboxScanUrl || readingPaper) {
+    if (lightboxScanUrl || readingPaper || readingMonograph) {
       window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     } else {
@@ -65,7 +69,7 @@ export default function StudentResearchTopicsDossier() {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "unset";
     };
-  }, [lightboxScanUrl, readingPaper]);
+  }, [lightboxScanUrl, readingPaper, readingMonograph]);
 
   const shareTopic = (topic: StudentResearchTopic) => {
     const text = encodeURIComponent(
@@ -135,6 +139,60 @@ export default function StudentResearchTopicsDossier() {
     const link = document.createElement("a");
     link.href = url;
     link.download = paper.downloadFilename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadMonographMarkdown = (m: ScholarMonograph) => {
+    let md = `# ${m.title}\n## ${m.subTitle}\n\n`;
+    md += `**Author:** ${m.scholarName} (${m.scholarId}) • ${m.scholarRole} (${m.teamCode})\n`;
+    md += `**Institution:** Kiran Singh Foundation Directorate of Socio-Legal Research\n\n`;
+    md += `> *"${m.epigraph}"*\n\n`;
+    md += `### Central Question: ${m.centralQuestion}\n\n---\n\n`;
+    md += `## Purpose and Objectives\n\n`;
+    m.objectives.forEach((obj, idx) => {
+      md += `${idx + 1}. ${obj}\n`;
+    });
+    md += `\n## The Tripartite Decision Test\n\n`;
+    md += `- **Value:** ${m.decisionTest.value}\n`;
+    md += `- **Cost:** ${m.decisionTest.cost}\n`;
+    md += `- **Alternative:** ${m.decisionTest.alternative}\n\n`;
+    md += `## Theoretical Arguments\n\n`;
+    m.coreArguments.forEach((ca) => {
+      md += `### ${ca.heading}\n\n`;
+      ca.text.forEach((p) => {
+        md += `${p}\n\n`;
+      });
+    });
+    md += `## Case Study: ${m.caseStudy.title} (${m.caseStudy.eventDate})\n\n`;
+    m.caseStudy.description.forEach((p) => {
+      md += `${p}\n\n`;
+    });
+    md += `**Theoretical Nuance:** ${m.caseStudy.theoreticalNuance}\n\n`;
+    md += `## Real-Life Applications\n\n`;
+    m.applications.forEach((app) => {
+      md += `### ${app.domain}\n- **Context:** ${app.context}\n- **Guideline:** ${app.guideline}\n\n`;
+    });
+    md += `## Analysis\n\n`;
+    m.analysisText.forEach((p) => {
+      md += `${p}\n\n`;
+    });
+    md += `## Conclusion\n\n`;
+    m.conclusionText.forEach((p) => {
+      md += `${p}\n\n`;
+    });
+    md += `## References\n\n`;
+    m.references.forEach((r, idx) => {
+      md += `${idx + 1}. ${r}\n`;
+    });
+
+    const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `KSF-Monograph-Vanya-Not-Every-Battle-Worth-Fighting.md`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -371,7 +429,10 @@ export default function StudentResearchTopicsDossier() {
                       <strong className="text-white">
                         {activePublishedPaper.authors.map((a) => a.name).join(", ")}
                       </strong>
-                      . Features all 10 mandated sections, Boin &amp; &rsquo;t Hart&rsquo;s 5 Crisis Leadership Tasks, Article 21 constitutional jurisprudence, and 12 verified footnotes.
+                      .{" "}
+                      {activePublishedPaper.documentRef === "KSF/DISC/2026/093"
+                        ? "Features all 10 mandated sections, the 5+3+3+4 framework under NEP 2020, Article 21A constitutional jurisprudence, and 12 verified footnotes."
+                        : "Features all 10 mandated sections, Boin & ’t Hart’s 5 Crisis Leadership Tasks, Article 21 constitutional jurisprudence, and 12 verified footnotes."}
                     </p>
                   </div>
 
@@ -416,6 +477,39 @@ export default function StudentResearchTopicsDossier() {
                   >
                     2. Manuscript Text Preview
                   </button>
+                </div>
+              </div>
+            )}
+
+            {/* Team I Featured Scholar Monograph Callout */}
+            {activeTopic.teamCode === "Team I" && SCHOLAR_SPECIAL_MONOGRAPHS.length > 0 && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-lion-gold/40 shadow-md space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+                  <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-wider">
+                    Featured Scholar Monograph &bull; Team I
+                  </span>
+                  <span className="text-[10px] font-mono text-stone-300">
+                    Decision Science &bull; BATNA &bull; Rogers Commission Case Study
+                  </span>
+                </div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <h4 className="font-serif text-base sm:text-lg font-bold text-white">
+                      &ldquo;{SCHOLAR_SPECIAL_MONOGRAPHS[0].title}&rdquo;
+                    </h4>
+                    <p className="text-xs text-stone-300 font-sans max-w-xl">
+                      Authored by scholar <strong className="text-white">{SCHOLAR_SPECIAL_MONOGRAPHS[0].scholarName}</strong> ({SCHOLAR_SPECIAL_MONOGRAPHS[0].scholarId}). Explores conflict triage, Harvard negotiation theory (BATNA), the Space Shuttle Challenger disaster, and why walking away reflects cognitive self-control.
+                    </p>
+                  </div>
+                  <div className="shrink-0 flex items-center space-x-2">
+                    <button
+                      onClick={() => setReadingMonograph(SCHOLAR_SPECIAL_MONOGRAPHS[0])}
+                      className="px-4 py-2 rounded-full bg-lion-gold text-obsidian text-xs font-mono font-bold hover:bg-lion-gold-light active:scale-95 transition-all inline-flex items-center space-x-1.5 shadow-md min-h-[44px]"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-obsidian" />
+                      <span>Read Vanya&rsquo;s Monograph</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -985,6 +1079,264 @@ export default function StudentResearchTopicsDossier() {
                     Close Reader
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* 5. Full-Screen Accessible Scholar Monograph Reading Modal */}
+      {readingMonograph && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Read Scholar Monograph: ${readingMonograph.title}`}
+          onClick={() => setReadingMonograph(null)}
+          className="fixed inset-0 z-50 p-2 sm:p-4 md:p-6 bg-obsidian/90 backdrop-blur-md flex items-center justify-center animate-in fade-in duration-200"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-4xl h-[92vh] max-h-[95vh] bg-[#fcfbf9] rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col"
+          >
+            {/* Monograph Modal Header Bar */}
+            <div className="px-5 py-3.5 border-b border-stone-200 flex items-center justify-between bg-white shrink-0">
+              <div className="flex items-center space-x-2 truncate pr-4">
+                <Bookmark className="w-5 h-5 text-lion-gold-dark shrink-0" />
+                <div className="truncate">
+                  <span className="text-[10px] font-mono text-slate uppercase block leading-none">
+                    Scholar Monograph &bull; {readingMonograph.scholarId} &bull; {readingMonograph.teamCode}
+                  </span>
+                  <span className="font-serif text-xs sm:text-sm font-bold text-obsidian truncate block mt-0.5">
+                    {readingMonograph.title}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-2 shrink-0">
+                <button
+                  onClick={() => downloadMonographMarkdown(readingMonograph)}
+                  className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-porcelain border border-border text-[11px] font-mono text-obsidian hover:bg-white transition-colors"
+                  title="Download Markdown Report"
+                >
+                  <Download className="w-3.5 h-3.5 text-slate" />
+                  <span>Download (.md)</span>
+                </button>
+
+                <button
+                  onClick={() => window.print()}
+                  className="hidden md:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-porcelain border border-border text-[11px] font-mono text-obsidian hover:bg-white transition-colors"
+                  title="Print or Save as PDF"
+                >
+                  <Printer className="w-3.5 h-3.5 text-slate" />
+                  <span>Print</span>
+                </button>
+
+                <button
+                  onClick={() => setReadingMonograph(null)}
+                  aria-label="Close Monograph"
+                  className="w-10 h-10 min-w-[44px] min-h-[44px] rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-300 flex items-center justify-center text-obsidian active:scale-95 transition-all"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Monograph Document Body with Archival Layout */}
+            <div className="flex-grow overflow-y-auto px-6 sm:px-12 md:px-16 py-8 space-y-8 max-w-3xl mx-auto w-full font-sans text-obsidian">
+              
+              {/* Illustrated Midnight Cover Style Masthead */}
+              <div className="rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-[#0b1528] via-[#102347] to-[#1e3a6a] text-white text-center space-y-4 shadow-xl border border-lion-gold/30">
+                <span className="px-3.5 py-1 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-[0.2em] inline-block">
+                  Kiran Singh Foundation Decision Science Report
+                </span>
+                <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase leading-tight">
+                  {readingMonograph.title}
+                </h1>
+                <p className="text-xs sm:text-sm font-sans text-stone-200 max-w-xl mx-auto">
+                  {readingMonograph.subTitle}
+                </p>
+
+                <div className="pt-2 border-t border-white/15 max-w-sm mx-auto">
+                  <span className="text-[10px] font-mono uppercase text-stone-300 block">Submitted By</span>
+                  <strong className="text-sm font-serif font-bold text-white block mt-0.5">
+                    {readingMonograph.scholarName}
+                  </strong>
+                  <span className="text-[11px] font-mono text-lion-gold block">
+                    {readingMonograph.scholarId} &bull; {readingMonograph.scholarRole}
+                  </span>
+                </div>
+
+                <div className="pt-3">
+                  <p className="text-xs italic font-serif text-stone-300 max-w-md mx-auto">
+                    &ldquo;{readingMonograph.epigraph}&rdquo;
+                  </p>
+                </div>
+              </div>
+
+              {/* Central Question Banner */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-amber-800 font-bold block">
+                  THE CENTRAL QUESTION
+                </span>
+                <h3 className="font-serif text-base sm:text-xl font-bold text-obsidian">
+                  {readingMonograph.centralQuestion}
+                </h3>
+              </div>
+
+              {/* A Simple Decision Test: Tripartite Cards */}
+              <div className="space-y-3">
+                <h3 className="font-serif text-lg font-bold text-obsidian border-b border-stone-200 pb-1">
+                  A Simple Decision Test
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
+                    <span className="font-mono text-[10px] uppercase font-bold text-lion-gold-dark block">
+                      1. VALUE
+                    </span>
+                    <strong className="text-xs font-semibold text-obsidian block">What could I gain?</strong>
+                    <p className="text-[11px] text-slate leading-relaxed">{readingMonograph.decisionTest.value}</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
+                    <span className="font-mono text-[10px] uppercase font-bold text-lion-gold-dark block">
+                      2. COST
+                    </span>
+                    <strong className="text-xs font-semibold text-obsidian block">What could I lose?</strong>
+                    <p className="text-[11px] text-slate leading-relaxed">{readingMonograph.decisionTest.cost}</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
+                    <span className="font-mono text-[10px] uppercase font-bold text-lion-gold-dark block">
+                      3. ALTERNATIVE
+                    </span>
+                    <strong className="text-xs font-semibold text-obsidian block">Would walking away serve me?</strong>
+                    <p className="text-[11px] text-slate leading-relaxed">{readingMonograph.decisionTest.alternative}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Purpose and Objectives */}
+              <div className="space-y-3">
+                <h3 className="font-serif text-lg font-bold text-obsidian border-b border-stone-200 pb-1">
+                  Purpose and Objectives
+                </h3>
+                <div className="space-y-2">
+                  {readingMonograph.objectives.map((obj, oIdx) => (
+                    <div key={oIdx} className="p-3 rounded-xl bg-white border border-stone-200 flex items-start space-x-3 text-xs">
+                      <span className="w-6 h-6 rounded-lg bg-lion-gold/15 text-lion-gold-dark font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                        0{oIdx + 1}
+                      </span>
+                      <p className="text-stone-700 leading-relaxed pt-0.5">{obj}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Theoretical Arguments */}
+              <div className="space-y-4">
+                {readingMonograph.coreArguments.map((ca, cIdx) => (
+                  <div key={cIdx} className="p-5 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
+                    <h4 className="font-serif font-bold text-sm sm:text-base text-obsidian">
+                      {ca.heading}
+                    </h4>
+                    {ca.text.map((tp, tpIdx) => (
+                      <p key={tpIdx} className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {tp}
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Case Study: The Challenger Disaster */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-stone-900 text-white space-y-3 shadow-lg border border-lion-gold/40">
+                <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-lion-gold font-bold">
+                    Historical Case Study &bull; {readingMonograph.caseStudy.eventDate}
+                  </span>
+                  <span className="text-[10px] font-mono text-stone-300">The Rogers Commission</span>
+                </div>
+                <h4 className="font-serif text-lg font-bold text-white">
+                  {readingMonograph.caseStudy.title}
+                </h4>
+                {readingMonograph.caseStudy.description.map((dp, dIdx) => (
+                  <p key={dIdx} className="text-xs text-stone-300 leading-relaxed font-sans">
+                    {dp}
+                  </p>
+                ))}
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 text-xs text-amber-200 space-y-1">
+                  <strong className="block font-mono text-[10px] uppercase text-lion-gold">
+                    Theoretical Nuance &bull; Normalization of Deviance:
+                  </strong>
+                  <p className="leading-relaxed">
+                    {readingMonograph.caseStudy.theoreticalNuance}
+                  </p>
+                </div>
+              </div>
+
+              {/* Real-Life Applications Matrix */}
+              <div className="space-y-3">
+                <h3 className="font-serif text-lg font-bold text-obsidian border-b border-stone-200 pb-1">
+                  Real-Life Applications: Conflict Triage
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {readingMonograph.applications.map((app, aIdx) => (
+                    <div key={aIdx} className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                      <span className="font-mono text-[10px] uppercase text-lion-gold-dark font-bold block">
+                        {app.domain}
+                      </span>
+                      <p className="text-[11px] text-slate font-sans">
+                        <strong>Context:</strong> {app.context}
+                      </p>
+                      <p className="text-xs text-stone-800 font-sans font-medium">
+                        <strong>Guideline:</strong> {app.guideline}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Analysis & Conclusion */}
+              <div className="space-y-4">
+                <div className="p-5 rounded-2xl bg-white border border-stone-200 space-y-2">
+                  <h4 className="font-serif font-bold text-sm text-obsidian">Analysis: Proportionality</h4>
+                  {readingMonograph.analysisText.map((ap, apIdx) => (
+                    <p key={apIdx} className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                      {ap}
+                    </p>
+                  ))}
+                </div>
+
+                <div className="p-5 rounded-2xl bg-amber-50/50 border border-lion-gold/30 space-y-2">
+                  <h4 className="font-serif font-bold text-sm text-obsidian">Conclusion</h4>
+                  {readingMonograph.conclusionText.map((cp, cpIdx) => (
+                    <p key={cpIdx} className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                      {cp}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Formal References */}
+              <div className="p-5 rounded-2xl bg-white border border-stone-200 space-y-2">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-obsidian font-bold block">
+                  References &amp; Academic Sources
+                </span>
+                <ol className="list-decimal list-inside space-y-1 text-xs text-stone-600 font-sans">
+                  {readingMonograph.references.map((ref, rIdx) => (
+                    <li key={rIdx} className="pl-1">
+                      {ref}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Sign-Off Footer */}
+              <div className="text-center space-y-2 pt-4 pb-8">
+                <button
+                  onClick={() => downloadMonographMarkdown(readingMonograph)}
+                  className="px-5 py-2.5 rounded-full bg-obsidian text-white text-xs font-mono font-semibold hover:bg-stone-800 transition-colors inline-flex items-center space-x-2"
+                >
+                  <Download className="w-3.5 h-3.5 text-lion-gold" />
+                  <span>Download Monograph (.md)</span>
+                </button>
               </div>
             </div>
           </div>
