@@ -262,9 +262,18 @@ export default function OperationalHierarchy({
                         <Award className="w-3 h-3 text-emerald-700 shrink-0" />
                         <span className="truncate">{officer.badge}</span>
                       </div>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
-                        {officer.name}
-                      </h3>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
+                          {officer.name}
+                        </h3>
+                        {["Navyanshi Dwivedi", "Prateeksha Pandey", "Shiksha Jaiswal", "Rohini Agarwal", "Anuj Kumar Singh", "Akansha Singh"].some(
+                          (author) => officer.name.toLowerCase().includes(author.toLowerCase())
+                        ) && (
+                          <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-lion-gold/15 border border-lion-gold/40 text-lion-gold-dark text-[10px] font-mono font-semibold" title="Published in International Peer-Reviewed Journal (ISSN: 2583-6633)">
+                            <span>★ Published Author</span>
+                          </span>
+                        )}
+                      </div>
                       <p className="font-mono text-xs sm:text-sm text-emerald-800 font-semibold">
                         {officer.role}
                       </p>

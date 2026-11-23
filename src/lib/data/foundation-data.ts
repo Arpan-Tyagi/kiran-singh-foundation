@@ -2,6 +2,7 @@
 // Mandate: Under no circumstances alter, abstract, or invent core institutional facts.
 
 import { RESEARCH_BLOG_POSTS } from "./research-blogs-data";
+import { INTERNATIONAL_PUBLICATIONS_BLOGS } from "./international-publications-data";
 
 export interface MemorialRecord {
   id: string;
@@ -166,7 +167,7 @@ export interface BlogPost {
   isAiDrafted: boolean;
   publishedAt: string;
   isPublished: boolean;
-  category?: "editorial_dispatch" | "student_research" | "scholar_monograph" | "canine_welfare";
+  category?: "editorial_dispatch" | "student_research" | "scholar_monograph" | "canine_welfare" | "international_journal";
   badge?: string;
   readTime?: string;
   documentRef?: string;
@@ -3047,6 +3048,7 @@ Coordinate rescue support through our dedicated institutional email at \`kiransi
 ];
 
 export const FOUNDATION_BLOGS: BlogPost[] = [
+  ...INTERNATIONAL_PUBLICATIONS_BLOGS,
   ...RESEARCH_BLOG_POSTS,
   ...FOUNDATION_EDITORIAL_BLOGS,
 ];
@@ -4068,6 +4070,7 @@ export const OFFICIAL_TEAM_POSTERS_2026: TeamHierarchyPoster[] = [
 
 export * from "./student-papers-data";
 export * from "./research-blogs-data";
+export * from "./international-publications-data";
 
 
 

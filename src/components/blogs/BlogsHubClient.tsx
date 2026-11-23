@@ -16,6 +16,7 @@ import {
   FileText,
   X,
   Sparkles,
+  Award,
 } from "lucide-react";
 import type { BlogPost } from "@/lib/data/foundation-data";
 
@@ -25,7 +26,7 @@ interface Props {
   baseRoute?: string; // "/blogs" or "/dispatches"
 }
 
-type CategoryFilter = "all" | "student_research" | "scholar_monograph" | "editorial_dispatch" | "canine_welfare";
+type CategoryFilter = "all" | "international_journal" | "student_research" | "scholar_monograph" | "editorial_dispatch" | "canine_welfare";
 
 export default function BlogsHubClient({
   initialPosts,
@@ -39,6 +40,12 @@ export default function BlogsHubClient({
 
   const categories = [
     { id: "all", label: "All Publications", count: initialPosts.length, icon: BookOpen },
+    {
+      id: "international_journal",
+      label: "International Journals",
+      count: initialPosts.filter((p) => p.category === "international_journal").length,
+      icon: Award,
+    },
     {
       id: "student_research",
       label: "Student Research Papers",
@@ -69,6 +76,9 @@ export default function BlogsHubClient({
     return initialPosts.filter((post) => {
       // Category filter
       if (selectedCategory !== "all") {
+        if (selectedCategory === "international_journal" && post.category !== "international_journal") {
+          return false;
+        }
         if (selectedCategory === "student_research" && post.category !== "student_research") {
           return false;
         }
@@ -293,7 +303,9 @@ export default function BlogsHubClient({
                   )}
                   {post.category && (
                     <div className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-obsidian/90 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-wider font-medium">
-                      {post.category === "student_research"
+                      {post.category === "international_journal"
+                        ? "International Journal"
+                        : post.category === "student_research"
                         ? "Research Paper"
                         : post.category === "scholar_monograph"
                         ? "Monograph"
@@ -332,7 +344,13 @@ export default function BlogsHubClient({
               {/* Bottom Action Strip */}
               <div className="mt-5 pt-3.5 border-t border-border flex items-center justify-between text-xs font-mono text-lion-gold-dark font-medium">
                 <span className="flex items-center space-x-1">
-                  <span>{isResearch ? "Read Academic Paper" : "Read Full Article"}</span>
+                  <span>
+                    {post.category === "international_journal"
+                      ? "Read Refereed Paper"
+                      : isResearch
+                      ? "Read Academic Paper"
+                      : "Read Full Article"}
+                  </span>
                 </span>
                 <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:translate-x-1 group-hover:bg-lion-gold/15 transition-all">
                   <ArrowUpRight className="w-3.5 h-3.5 text-obsidian" />

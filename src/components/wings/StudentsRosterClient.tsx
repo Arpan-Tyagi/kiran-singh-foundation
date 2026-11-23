@@ -33,6 +33,7 @@ import {
 import OperationalHierarchy from "@/components/OperationalHierarchy";
 import ScholarTestimonialsSection from "@/components/testimonials/ScholarTestimonialsSection";
 import OfficialHierarchyPostersViewer from "@/components/hierarchy/OfficialHierarchyPostersViewer";
+import InternationalPublicationsSection from "@/components/publications/InternationalPublicationsSection";
 
 export default function StudentsRosterClient({
   scholars,
@@ -1000,9 +1001,18 @@ export default function StudentsRosterClient({
                               </div>
                             )}
                             <div className="min-w-0 flex-1">
-                              <h4 className="font-serif text-base sm:text-lg font-bold text-obsidian leading-snug break-words">
-                                {scholar.fullName}
-                              </h4>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <h4 className="font-serif text-base sm:text-lg font-bold text-obsidian leading-snug break-words">
+                                  {scholar.fullName}
+                                </h4>
+                                {["Navyanshi Dwivedi", "Prateeksha Pandey", "Shiksha Jaiswal", "Rohini Agarwal", "Anuj Kumar Singh", "Akansha Singh"].some(
+                                  (author) => scholar.fullName.toLowerCase().includes(author.toLowerCase())
+                                ) && (
+                                  <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-lion-gold/15 border border-lion-gold/40 text-lion-gold-dark text-[9px] font-mono font-semibold" title="Published in International Peer-Reviewed Journal (ISSN: 2583-6633)">
+                                    <span>★ Published Author</span>
+                                  </span>
+                                )}
+                              </div>
                               <p className="text-xs text-slate font-medium truncate">
                                 {scholar.teamName || team.teamTitle}
                               </p>
@@ -1196,6 +1206,11 @@ export default function StudentsRosterClient({
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Official International Peer-Reviewed Journal Publications */}
+      <div className="pt-8 sm:pt-10 border-t border-border">
+        <InternationalPublicationsSection />
       </div>
 
       {/* Official Scholar Testimonials & Voices of the Cohort */}

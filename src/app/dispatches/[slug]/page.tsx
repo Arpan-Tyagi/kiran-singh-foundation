@@ -2,9 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, User, Calendar, Phone, Clock, GraduationCap, ExternalLink } from "lucide-react";
+import { ArrowLeft, User, Calendar, Phone, Clock, GraduationCap, ExternalLink, Award, ShieldCheck } from "lucide-react";
 import { Metadata } from "next";
 import { fetchBlogPostBySlug, fetchBlogPosts } from "@/lib/supabase";
+import { INTERNATIONAL_JOURNAL_PUBLICATIONS } from "@/lib/data/international-publications-data";
 
 interface Props {
   params: Promise<{
@@ -176,29 +177,64 @@ export default async function DispatchDetailPage({ params }: Props) {
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
   const isResearch = post.category === "student_research" || post.category === "scholar_monograph";
+  const isInternationalJournal = post.category === "international_journal";
+
+  const matchingPublication = isInternationalJournal
+    ? INTERNATIONAL_JOURNAL_PUBLICATIONS.find((p) => p.slug === post.slug)
+    : undefined;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": isResearch ? "ScholarlyArticle" : "BlogPosting",
+    "@type": isResearch || isInternationalJournal ? "ScholarlyArticle" : "BlogPosting",
     headline: post.title,
     description: post.summary,
     image: [post.coverImageUrl],
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
-    author: {
-      "@type": "Person",
-      name: post.authorName,
-      url: "https://kiransinghfoundation.org",
-    },
-    publisher: {
-      "@type": "NGO",
-      name: "Kiran Singh Foundation",
-      url: "https://kiransinghfoundation.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://kiransinghfoundation.org/images/logo.png",
-      },
-    },
+    author: matchingPublication
+      ? matchingPublication.authors.map((a) => ({
+          "@type": "Person",
+          name: a.name,
+          jobTitle: a.role,
+          affiliation: {
+            "@type": "Organization",
+            name: a.institution,
+          },
+        }))
+      : {
+          "@type": "Person",
+          name: post.authorName,
+          url: "https://kiransinghfoundation.org",
+        },
+    ...(isInternationalJournal
+      ? {
+          isPartOf: {
+            "@type": "Periodical",
+            name:
+              matchingPublication?.journalName ||
+              "Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal",
+            issn: matchingPublication?.issn || "2583-6633",
+          },
+          issueNumber: matchingPublication?.issue.replace("No. ", "") || "10",
+          volumeNumber: matchingPublication?.volume.replace("Vol. ", "") || "5",
+          publisher: {
+            "@type": "Organization",
+            name:
+              matchingPublication?.issuingSociety ||
+              "Society for Academic Facilitation & Extension (SAFE)",
+          },
+        }
+      : {
+          publisher: {
+            "@type": "NGO",
+            name: "Kiran Singh Foundation",
+            url: "https://kiransinghfoundation.org",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://kiransinghfoundation.org/images/logo.png",
+            },
+          },
+        }),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": postUrl,
@@ -227,6 +263,16 @@ export default async function DispatchDetailPage({ params }: Props) {
           >
             <GraduationCap className="w-3.5 h-3.5" />
             <span>View in Research Dossier</span>
+          </Link>
+        )}
+
+        {isInternationalJournal && (
+          <Link
+            href="/wings/students#international-publications"
+            className="hidden sm:inline-flex items-center space-x-1.5 text-lion-gold-dark hover:underline font-semibold"
+          >
+            <Award className="w-3.5 h-3.5" />
+            <span>Inspect Verified Journal Certificates</span>
           </Link>
         )}
       </div>
@@ -290,6 +336,49 @@ export default async function DispatchDetailPage({ params }: Props) {
           </div>
         )}
       </div>
+
+      {/* International Journal Verification Banner */}
+      {isInternationalJournal && (
+        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-white via-amber-50/25 to-slate-50 border border-lion-gold/40 shadow-elevation-1 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-lion-gold/20 pb-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-lion-gold/20 border border-lion-gold/30 flex items-center justify-center text-lion-gold-dark shadow-sm shrink-0">
+                <Award className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-lion-gold-dark block">
+                  International Peer-Reviewed &amp; Refereed Publication
+                </span>
+                <span className="font-sans text-xs text-slate">
+                  Knowledgeable Research &bull; ISSN: 2583-6633 &bull; Vol. 5, No. 10 (October 2026)
+                </span>
+              </div>
+            </div>
+            <Link
+              href="/wings/students#international-publications"
+              className="px-4 py-2 rounded-xl bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-semibold transition-all shadow-sm inline-flex items-center space-x-1.5 self-start sm:self-auto shrink-0"
+            >
+              <Award className="w-3.5 h-3.5" />
+              <span>Inspect Certificates</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+            <div className="p-3 rounded-xl bg-white border border-border">
+              <span className="text-[10px] text-slate uppercase block">Issuing Authority</span>
+              <span className="font-semibold text-obsidian">SAFE Society</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white border border-border">
+              <span className="text-[10px] text-slate uppercase block">Chief Editor</span>
+              <span className="font-semibold text-obsidian">Dr. Ramesh Chandra</span>
+            </div>
+            <div className="p-3 rounded-xl bg-white border border-border">
+              <span className="text-[10px] text-slate uppercase block">Registry Validation</span>
+              <span className="font-semibold text-botanical-emerald-dark">Published &amp; Certified (31/10/2026)</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Article Body Content */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-12 space-y-6 text-sm sm:text-base text-obsidian leading-relaxed font-sans shadow-elevation-1">
@@ -375,6 +464,56 @@ export default async function DispatchDetailPage({ params }: Props) {
           );
         })}
       </div>
+
+      {/* International Journal Verified Certificate Gallery */}
+      {isInternationalJournal && matchingPublication && (
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-border shadow-elevation-1 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-4">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-lion-gold-dark font-semibold">
+                SAFE &bull; Knowledgeable Research
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-obsidian">
+                Official Certificates of Publication
+              </h3>
+            </div>
+            <Link
+              href="/wings/students#international-publications"
+              className="text-xs font-mono text-lion-gold-dark hover:underline inline-flex items-center space-x-1 font-semibold"
+            >
+              <span>View Interactive Showcase</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {matchingPublication.authors.map((author, aIdx) => (
+              <div key={aIdx} className="space-y-3 rounded-2xl border border-border p-4 bg-slate-50/60">
+                <div className="relative h-56 w-full rounded-xl overflow-hidden border border-border bg-white shadow-sm">
+                  <Image
+                    src={author.certificateUrl}
+                    alt={`Certificate for ${author.name}`}
+                    fill
+                    className="object-contain p-2"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="font-serif font-bold text-obsidian text-sm">{author.name}</span>
+                    {author.scholarId && (
+                      <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30">
+                        {author.scholarId}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-slate font-sans">{author.role}</p>
+                  <p className="text-[11px] text-slate font-mono">{author.institution}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Footer / Share Strip */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-border text-xs font-mono shadow-sm">
