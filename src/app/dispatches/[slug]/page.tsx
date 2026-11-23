@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, User, Calendar, Phone } from "lucide-react";
+import { ArrowLeft, User, Calendar, Phone, Clock, GraduationCap, ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 import { fetchBlogPostBySlug, fetchBlogPosts } from "@/lib/supabase";
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kiransinghfoundation.org";
-  const postUrl = `${siteUrl}/dispatches/${post.slug}`;
+  const postUrl = `${siteUrl}/blogs/${post.slug}`;
   return {
     title: `${post.title} | Kiran Singh Foundation`,
     description: post.summary,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function renderFormattedText(text: string): React.ReactNode {
-  const tokenRegex = /(\[.*?\]\(.*?\)|\*\*\*.*?\*\*\*|\*\*.*?\*\*|\*.*?\*|`.*?`)/g;
+  const tokenRegex = /(\[.*?\]\(.*?\)|\*\*\*.*?\*\*\*|\*\*.*?\*\*|\*.*?\*|`.*?`|\$\$.*?\$\$)/g;
   const parts = text.split(tokenRegex);
   return parts.map((part, i) => {
     if (!part) return null;
@@ -77,6 +77,14 @@ function renderFormattedText(text: string): React.ReactNode {
         </a>
       );
     }
+    if (part.startsWith("$$") && part.endsWith("$$") && part.length >= 4) {
+      const mathStr = part.slice(2, -2).replace(/\\text\{|\}|\\textbf\{/g, "");
+      return (
+        <span key={i} className="font-serif italic font-semibold text-lion-gold-dark text-center block my-2">
+          {mathStr}
+        </span>
+      );
+    }
     if (part.startsWith("***") && part.endsWith("***") && part.length >= 6) {
       return (
         <strong key={i} className="font-semibold text-obsidian">
@@ -93,7 +101,7 @@ function renderFormattedText(text: string): React.ReactNode {
     }
     if (part.startsWith("*") && part.endsWith("*") && part.length >= 2) {
       return (
-        <em key={i} className="italic">
+        <em key={i} className="italic text-slate">
           {part.slice(1, -1)}
         </em>
       );
@@ -109,6 +117,51 @@ function renderFormattedText(text: string): React.ReactNode {
   });
 }
 
+function renderTable(chunk: string): React.ReactNode {
+  const lines = chunk.trim().split("\n").filter((l) => l.trim().startsWith("|"));
+  if (lines.length < 2) return null;
+  const headerLine = lines[0];
+  const bodyLines = lines.slice(2);
+
+  const parseRow = (line: string) =>
+    line
+      .split("|")
+      .slice(1, -1)
+      .map((cell) => cell.trim());
+
+  const headers = parseRow(headerLine);
+
+  return (
+    <div className="overflow-x-auto my-6 rounded-xl border border-border bg-white shadow-sm">
+      <table className="w-full text-left text-xs sm:text-sm">
+        <thead className="bg-slate-50 border-b border-border font-mono text-[11px] text-obsidian uppercase tracking-wider">
+          <tr>
+            {headers.map((h, i) => (
+              <th key={i} className="py-3 px-4 font-semibold">
+                {renderFormattedText(h)}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border font-sans">
+          {bodyLines.map((line, rIdx) => {
+            const cells = parseRow(line);
+            return (
+              <tr key={rIdx} className="hover:bg-slate-50/60 transition-colors">
+                {cells.map((cell, cIdx) => (
+                  <td key={cIdx} className="py-3 px-4 text-slate">
+                    {renderFormattedText(cell)}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default async function DispatchDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = await fetchBlogPostBySlug(slug);
@@ -122,16 +175,18 @@ export default async function DispatchDetailPage({ params }: Props) {
   const shareText = `Read "${post.title}" on the Kiran Singh Foundation Institutional Press: ${postUrl}`;
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
+  const isResearch = post.category === "student_research" || post.category === "scholar_monograph";
+
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": isResearch ? "ScholarlyArticle" : "BlogPosting",
     headline: post.title,
     description: post.summary,
     image: [post.coverImageUrl],
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: post.authorName,
       url: "https://kiransinghfoundation.org",
     },
@@ -151,25 +206,39 @@ export default async function DispatchDetailPage({ params }: Props) {
   };
 
   return (
-    <article className="py-16 px-4 md:px-8 max-w-4xl mx-auto space-y-12 bg-porcelain">
+    <article className="py-12 md:py-16 px-4 md:px-8 max-w-4xl mx-auto space-y-10 bg-porcelain">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       {/* Back button */}
-      <div>
+      <div className="flex items-center justify-between text-xs font-mono text-slate">
         <Link
-          href="/dispatches"
-          className="inline-flex items-center space-x-2 text-xs font-mono text-slate hover:text-lion-gold-dark transition-colors"
+          href="/blogs"
+          className="inline-flex items-center space-x-2 text-slate hover:text-lion-gold-dark transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Back to All Dispatches</span>
+          <span>Back to All Blogs &amp; Dispatches</span>
         </Link>
+        {isResearch && (
+          <Link
+            href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
+            className="hidden sm:inline-flex items-center space-x-1.5 text-lion-gold-dark hover:underline font-semibold"
+          >
+            <GraduationCap className="w-3.5 h-3.5" />
+            <span>View in Research Dossier</span>
+          </Link>
+        )}
       </div>
 
       {/* Article Header */}
       <div className="space-y-6">
-        <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate">
+        <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-slate">
+          {post.badge && (
+            <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 font-semibold text-[10px]">
+              {post.badge}
+            </span>
+          )}
           <span className="flex items-center space-x-1.5">
             <User className="w-3.5 h-3.5 text-lion-gold-dark" />
             <span>{post.authorName}</span>
@@ -185,11 +254,14 @@ export default async function DispatchDetailPage({ params }: Props) {
               })}
             </span>
           </span>
-          {post.isAiDrafted && (
-            <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark border border-lion-gold/30 flex items-center space-x-1.5 font-semibold">
-              <span className="text-lion-gold-dark font-bold">§</span>
-              <span>Directorate Archival Monograph</span>
-            </span>
+          {post.readTime && (
+            <>
+              <span>&bull;</span>
+              <span className="flex items-center space-x-1">
+                <Clock className="w-3.5 h-3.5 text-slate" />
+                <span>{post.readTime}</span>
+              </span>
+            </>
           )}
         </div>
 
@@ -212,14 +284,18 @@ export default async function DispatchDetailPage({ params }: Props) {
           className="object-cover"
           priority
         />
+        {post.documentRef && (
+          <div className="absolute bottom-3 right-3 px-3.5 py-1 rounded-full bg-obsidian/90 backdrop-blur-md text-lion-gold border border-lion-gold/40 text-[11px] font-mono shadow-md">
+            Ref: {post.documentRef}
+          </div>
+        )}
       </div>
 
       {/* Article Body Content */}
       <div className="bg-white border border-border rounded-3xl p-8 md:p-12 space-y-6 text-sm sm:text-base text-obsidian leading-relaxed font-sans shadow-elevation-1">
-        {/* Render markdown split by paragraphs */}
         {post.contentMarkdown.split("\n\n").map((chunk, idx) => {
           if (chunk.startsWith("# ")) {
-            return null; // Skip main title as already displayed
+            return null; // Skip main title
           }
           if (chunk.startsWith("### ")) {
             return (
@@ -235,30 +311,59 @@ export default async function DispatchDetailPage({ params }: Props) {
             return (
               <h2
                 key={idx}
-                className="font-serif text-2xl sm:text-3xl font-bold text-obsidian pt-6 text-left"
+                className="font-serif text-2xl sm:text-3xl font-bold text-obsidian pt-6 text-left border-b border-border/60 pb-2"
               >
                 {renderFormattedText(chunk.replace("## ", ""))}
               </h2>
             );
           }
+          if (chunk.startsWith("---")) {
+            return <hr key={idx} className="my-6 border-border" />;
+          }
+          if (chunk.startsWith("> ")) {
+            return (
+              <blockquote
+                key={idx}
+                className="p-4 rounded-xl bg-slate-50 border-l-4 border-lion-gold text-slate font-sans italic my-4"
+              >
+                {renderFormattedText(chunk.replace(/^>\s*/gm, ""))}
+              </blockquote>
+            );
+          }
+          if (chunk.trim().startsWith("|") && chunk.includes("\n|")) {
+            return <React.Fragment key={idx}>{renderTable(chunk)}</React.Fragment>;
+          }
+          if (chunk.startsWith("```")) {
+            const codeContent = chunk.replace(/^```[a-z]*\n/i, "").replace(/```$/, "");
+            return (
+              <pre
+                key={idx}
+                className="p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto my-4 shadow-sm"
+              >
+                <code>{codeContent}</code>
+              </pre>
+            );
+          }
           if (chunk.startsWith("- ")) {
             const items = chunk.split("\n- ");
             return (
-              <ul key={idx} className="space-y-2 pl-4">
+              <ul key={idx} className="space-y-2 pl-4 list-disc list-outside text-slate">
                 {items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="list-disc list-inside text-slate">
+                  <li key={itemIdx} className="leading-relaxed">
                     {renderFormattedText(item.replace(/^- /, ""))}
                   </li>
                 ))}
               </ul>
             );
           }
-          if (chunk.startsWith("1. ")) {
+          if (/^\d+\.\s/.test(chunk)) {
             const items = chunk.split(/\n\d+\.\s/);
             return (
-              <ol key={idx} className="space-y-2 pl-4 list-decimal list-inside text-slate">
+              <ol key={idx} className="space-y-2 pl-4 list-decimal list-outside text-slate">
                 {items.map((item, itemIdx) => (
-                  <li key={itemIdx}>{renderFormattedText(item.replace(/^\d+\.\s/, ""))}</li>
+                  <li key={itemIdx} className="leading-relaxed">
+                    {renderFormattedText(item.replace(/^\d+\.\s/, ""))}
+                  </li>
                 ))}
               </ol>
             );

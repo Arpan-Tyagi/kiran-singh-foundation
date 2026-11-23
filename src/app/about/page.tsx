@@ -411,7 +411,7 @@ export default function AboutPage() {
               {/* Link CTA with Nested Button-in-Button */}
               <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link
-                  href="/dispatches/from-apex-felids-to-compassionate-canines"
+                  href="/blogs/from-apex-felids-to-compassionate-canines"
                   className="inline-flex items-center space-x-3 px-6 py-3.5 rounded-full bg-lion-gold hover:bg-lion-gold-dark text-white font-sans font-semibold text-xs transition-all shadow-gold-glow group"
                 >
                   <span>Read Complete Ethology Monograph &amp; Field Records</span>

@@ -187,13 +187,13 @@ export default function Footer() {
 
             <div className="pt-1 flex flex-col space-y-1.5 font-mono text-[11px]">
               <Link
-                href="/dispatches"
+                href="/blogs"
                 className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
               >
-                <span>&rarr; Editorial Dispatches &amp; Articles</span>
+                <span>&rarr; Foundation Blogs &amp; Research</span>
               </Link>
               <Link
-                href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
+                href="/blogs?category=student_research"
                 className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
               >
                 <span>&rarr; Student Research Papers &amp; Monograph</span>

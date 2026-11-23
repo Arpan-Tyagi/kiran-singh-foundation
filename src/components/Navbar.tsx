@@ -24,7 +24,7 @@ export default function Navbar() {
     { label: "40 Scholars", href: "/wings/students" },
     { label: "34 Dogs", href: "/wings/dogs" },
     { label: "Events", href: "/events" },
-    { label: "Dispatches", href: "/dispatches" },
+    { label: "Blogs", href: "/blogs" },
     { label: "Admin", href: "/admin" },
   ];
 

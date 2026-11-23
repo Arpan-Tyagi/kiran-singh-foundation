@@ -42,6 +42,8 @@ export async function createBlogPostAction(formData: {
   });
 
   revalidatePath("/dispatches");
+  revalidatePath("/blogs");
+  revalidatePath("/research");
   revalidatePath("/admin/blogs");
   return { success: true, post: created };
 }

@@ -222,6 +222,10 @@ function mapDbBlogPostToBlogPost(row: any): BlogPost {
     isAiDrafted: row.is_ai_drafted ?? row.isAiDrafted ?? false,
     publishedAt: row.published_at || row.publishedAt || new Date().toISOString(),
     isPublished: row.is_published ?? row.isPublished ?? true,
+    category: row.category,
+    badge: row.badge,
+    readTime: row.read_time || row.readTime,
+    documentRef: row.document_ref || row.documentRef,
   };
 }
 

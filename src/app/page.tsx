@@ -107,18 +107,18 @@ export default async function HomePage() {
                   </div>
                   <div>
                     <span className="font-mono text-[10px] uppercase text-botanical-emerald tracking-widest font-semibold">
-                      Archival & Field Updates
+                      Press &amp; Research Archives
                     </span>
                     <h3 className="font-serif text-2xl font-bold text-obsidian">
-                      Editorial Dispatches
+                      Blogs &amp; Research
                     </h3>
                   </div>
                 </div>
                 <Link
-                  href="/dispatches"
+                  href="/blogs"
                   className="text-xs font-mono text-botanical-emerald hover:underline flex items-center space-x-1 font-semibold"
                 >
-                  <span>All Dispatches</span>
+                  <span>All Blogs</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -127,7 +127,7 @@ export default async function HomePage() {
                 {recentBlogs.map((post) => (
                   <Link
                     key={post.id}
-                    href={`/dispatches/${post.slug}`}
+                    href={`/blogs/${post.slug}`}
                     className="block bg-porcelain border border-border rounded-2xl p-5 shadow-elevation-1 hover:shadow-elevation-card hover:border-botanical-emerald/40 transition-all duration-300"
                   >
                     <div className="flex flex-col justify-between">

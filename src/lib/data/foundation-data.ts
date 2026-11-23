@@ -1,6 +1,8 @@
 // Kiran Singh Foundation - Authoritative Historical & Operational Data
 // Mandate: Under no circumstances alter, abstract, or invent core institutional facts.
 
+import { RESEARCH_BLOG_POSTS } from "./research-blogs-data";
+
 export interface MemorialRecord {
   id: string;
   title: string;
@@ -164,6 +166,10 @@ export interface BlogPost {
   isAiDrafted: boolean;
   publishedAt: string;
   isPublished: boolean;
+  category?: "editorial_dispatch" | "student_research" | "scholar_monograph" | "canine_welfare";
+  badge?: string;
+  readTime?: string;
+  documentRef?: string;
 }
 
 export interface AcademicPartnership {
@@ -2805,7 +2811,7 @@ export const LANDMARK_INTERNSHIP_EVENTS = FOUNDATION_EVENTS.filter(
   (evt) => evt.status === "concluded"
 );
 
-export const FOUNDATION_BLOGS: BlogPost[] = [
+export const FOUNDATION_EDITORIAL_BLOGS: BlogPost[] = [
   {
     id: "blog-01",
     slug: "from-apex-felids-to-compassionate-canines",
@@ -2827,6 +2833,9 @@ In every calm gaze from our 34 resident canines across our 4 shelter homes, the 
     isAiDrafted: false,
     publishedAt: "2024-11-15T09:00:00+05:30",
     isPublished: true,
+    category: "canine_welfare",
+    badge: "Directorate Monograph",
+    readTime: "7 min read",
   },
   {
     id: "blog-02",
@@ -2854,6 +2863,9 @@ At the conclusion of each term, an **Internship Closing Ceremony** is conducted 
     isAiDrafted: false,
     publishedAt: "2024-12-05T10:30:00+05:30",
     isPublished: true,
+    category: "editorial_dispatch",
+    badge: "Academic Charter",
+    readTime: "6 min read",
   },
   {
     id: "blog-03",
@@ -2879,6 +2891,9 @@ Across all four wings, our scholars, rescuers, and community leaders remain sync
     isAiDrafted: false,
     publishedAt: "2025-01-10T14:00:00+05:30",
     isPublished: true,
+    category: "editorial_dispatch",
+    badge: "Community Agenda",
+    readTime: "5 min read",
   },
   {
     id: "blog-04",
@@ -3025,7 +3040,15 @@ Coordinate rescue support through our dedicated institutional email at \`kiransi
     isAiDrafted: false,
     publishedAt: "2026-10-24T21:00:00+05:30",
     isPublished: true,
+    category: "canine_welfare",
+    badge: "Clinical Protocol",
+    readTime: "12 min read",
   },
+];
+
+export const FOUNDATION_BLOGS: BlogPost[] = [
+  ...RESEARCH_BLOG_POSTS,
+  ...FOUNDATION_EDITORIAL_BLOGS,
 ];
 
 export const UPES_ACADEMIC_PARTNERSHIP: AcademicPartnership = {
@@ -4044,6 +4067,7 @@ export const OFFICIAL_TEAM_POSTERS_2026: TeamHierarchyPoster[] = [
 ];
 
 export * from "./student-papers-data";
+export * from "./research-blogs-data";
 
 
 

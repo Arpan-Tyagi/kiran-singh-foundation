@@ -149,7 +149,7 @@ export default function BlogsDeskClient({
             <div className="mt-6 pt-3 border-t border-border flex items-center justify-between text-xs font-mono text-slate-muted">
               <span>{new Date(blog.publishedAt).toLocaleDateString()}</span>
               <a
-                href={`/dispatches/${blog.slug}`}
+                href={`/blogs/${blog.slug}`}
                 target="_blank"
                 className="text-lion-gold-dark hover:underline flex items-center space-x-1 font-medium"
               >
