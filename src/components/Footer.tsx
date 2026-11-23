@@ -185,12 +185,24 @@ export default function Footer() {
               <div className="text-slate">UPES Dehradun &bull; School for Life (1:5 Mentor Ratio)</div>
             </div>
 
-            <div className="pt-1">
+            <div className="pt-1 flex flex-col space-y-1.5 font-mono text-[11px]">
+              <Link
+                href="/dispatches"
+                className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
+              >
+                <span>&rarr; Editorial Dispatches &amp; Articles</span>
+              </Link>
+              <Link
+                href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
+                className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
+              >
+                <span>&rarr; Student Research Papers &amp; Monograph</span>
+              </Link>
               <Link
                 href="/admin"
-                className="text-[11px] font-mono text-slate hover:text-lion-gold-dark transition-colors inline-block font-medium"
+                className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
               >
-                &rarr; Directorate Admin Portal
+                <span>&rarr; Directorate Admin Portal</span>
               </Link>
             </div>
           </div>
