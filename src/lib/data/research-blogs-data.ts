@@ -1221,4 +1221,268 @@ The Kiran Singh Foundation selects exactly **40 students** per annual session fo
 
 To apply for the upcoming **Summer or Winter Internship Program**, explore our [Student Welfare Wing Roster](file:///wings/students) or submit your credentials through the [Mutual-Aid Application Portal](file:///donate).`,
   },
+
+  // --------------------------------------------------------------------------
+  // 9. ARTICLE C: THE RESIDENT'S LEGAL HANDBOOK (STREET DOG FEEDING RIGHTS)
+  // --------------------------------------------------------------------------
+  {
+    id: "blog-legal-street-dog-feeding-rights",
+    slug: "street-dog-feeding-legal-rights-animal-protection-laws-india",
+    title: "The Resident's Legal Handbook: Street Dog Feeding Rights & Animal Protection Laws in India",
+    summary:
+      "An authoritative constitutional and statutory handbook for community animal caregivers and housing society residents across India. Details Article 51A(g), Delhi High Court precedent in Maya D. Chablani, AWBI circulars, Animal Birth Control Rules 2023, and criminal provisions against harassment under the IPC and BNS.",
+    authorName: "KSF Legal Advisory Directorate & Canine Welfare Wing",
+    coverImageUrl: "/images/dogs/shelter-courtyard-feeding.jpg",
+    isAiDrafted: false,
+    publishedAt: "2026-11-24T14:30:00+05:30",
+    isPublished: true,
+    category: "canine_welfare",
+    badge: "Constitutional & Animal Rights Guide",
+    readTime: "14 min read",
+    documentRef: "KSF/LEGAL/2026/02",
+    contentMarkdown: `> **Direct Answer Box (Legal Rights Summary):**  
+> Under Indian law, feeding and caring for street dogs is a **constitutionally protected fundamental duty**:  
+> 1. **Constitutional Mandate:** Article 51A(g) establishes the duty of every citizen to show compassion to living creatures.  
+> 2. **Judicial Precedent (*Dr. Maya D. Chablani v. Radha Mittal, Delhi HC 2021*):** Community dogs possess the inherent right to food and healthcare; citizens feeding them exercise a lawful right that resident welfare associations (RWAs) cannot prohibit.  
+> 3. **Statutory Protection:** Threatening or physically obstructing an animal feeder violates IPC Sections 503 and 506 (Criminal Intimidation) and Section 341 (Wrongful Restraint).  
+> 4. **No Relocation Allowed:** The Animal Birth Control (ABC) Rules 2023 strictly prohibit relocating street dogs from their designated territory.
+
+---
+
+## 1. Introduction: The Urban Conflict Over Community Animals
+
+Across Indian residential colonies—from the apartment societies of Delhi-NCR, Lucknow, and Bengaluru to the mohallas and lanes of Prayagraj (Civil Lines, Katra, Allahpur, and George Town)—a recurring friction unfolds every evening: compassionate citizens stepping out to feed street dogs are confronted, intimidated, and harassed by neighbors or Resident Welfare Associations (RWAs).
+
+RWA management committees routinely pass unlawful bylaws attempting to impose "feeding bans," levy arbitrary fines on animal lovers, threaten eviction of tenant feeders, or illegally summon municipal dog-catching squads to relocate packs.
+
+Such actions are **unconstitutional and legally void**. Under the statutory framework of the Republic of India, street animals are recognized as sentient community residents, and the individuals who feed, vaccinate, and sterilize them are executing a vital public health service. This handbook outlines your exact legal rights and provides a step-by-step defense protocol.
+
+---
+
+## 2. Constitutional Foundations: Article 51A(g)
+
+The supreme legal authority governing animal welfare in India is the **Constitution of India**.
+
+### Article 51A(g) — Part IVA (Fundamental Duties)
+> *"It shall be the duty of every citizen of India to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures."*
+
+In the landmark judgment of the Supreme Court of India in ***Animal Welfare Board of India v. A. Nagaraja & Ors. (2014) 7 SCC 547***, the apex court elevated Article 51A(g) alongside Article 21 (Right to Life), ruling that:
+- Every species has an inherent right to live and be protected from unnecessary pain or suffering.
+- The word "life" under Article 21 includes all forms of life, extending to animal kingdom dignity and protection.
+- State organs, municipal bodies, and citizens are constitutionally obligated to uphold compassion.
+
+---
+
+## 3. Judicial Precedents: The Delhi High Court Landmark Ruling
+
+The definitive operational judgment on community dog feeding is the decision of the High Court of Delhi in ***Dr. Maya D. Chablani v. Radha Mittal & Ors. (2021) SCC OnLine Del 3599***.
+
+| Legal Protection Feature | Statutory & Judicial Ruling |
+| :--- | :--- |
+| **Inherent Right to Food** | Street dogs have a legal right to food and humans have a right to feed them without intimidation. |
+| **RWA Duty to Facilitate** | Every RWA and Apartment Association MUST create designated feeding spots in consultation with local caregivers. |
+| **Ban on Harassment** | No RWA or resident can harass, abuse, or prohibit animal feeders performing their civic duty. |
+| **Public Health Benefit** | Regular feeding stabilizes canine pack territory, prevents food aggression, and enables easy vaccination and anti-rabies inoculation. |
+
+The High Court held:
+> *"Community dogs (stray/street dogs) have the right to food and citizens have the right to feed community dogs but in exercising this right, care and caution should be taken to ensure that it does not impinge upon the rights of others... It is the duty of every resident to ensure that animals are not subjected to cruelty."*
+
+---
+
+## 4. Statutory Regulations: Animal Birth Control (ABC) Rules, 2023
+
+Notified under the **Prevention of Cruelty to Animals (PCA) Act, 1960**, the **Animal Birth Control Rules 2023 (Rule 20)** explicitly codify the procedures for feeding community animals:
+
+1. **Mandatory Designated Feeding Spots:** Rule 20 mandates that resident welfare associations or apartment owners associations must demarcate designated feeding spaces away from common staircases, children's play areas, and entry/exit gates.
+2. **Designated Feeding Timings:** Feeding hours must be fixed based on mutual consensus, preferably during early morning and late evening hours when pedestrian movement is minimal.
+3. **Caregiver Dispute Resolution Committee:** If a dispute arises between residents and feeders, the matter must be referred to a committee comprising the local Sub-Divisional Magistrate (SDM), Veterinary Officer, RWA representative, and an Animal Welfare Board of India (AWBI) representative. The RWA has zero legal power to take unilateral punitive action.
+4. **Absolute Ban on Relocation (Rule 11 & 16):** It is illegal for any resident, builder, or RWA to drive out, capture, or relocate community dogs from their native territory. Relocation leads to territorial vacuum fights and violates the core doctrine of urban canine epidemiology.
+
+---
+
+## 5. Penal Provisions: What Laws Protect Feeders from Harassment?
+
+When hostile individuals or RWA members verbally abuse, intimidate, or physically obstruct an animal feeder, they commit specific criminal offenses under the **Indian Penal Code (IPC)** and the **Bharatiya Nyaya Sanhita (BNS)**:
+
+| Offense | Relevant Statutory Section | Maximum Penalty | Legal Nature |
+| :--- | :--- | :--- | :--- |
+| **Criminal Intimidation** (Threatening violence, eviction, or harm) | IPC Section 503 / 506 (BNS Sec. 351) | Up to 2 to 7 Years Imprisonment | Cognizable / Bailable |
+| **Wrongful Restraint** (Blocking someone from entering a public lane or feeding area) | IPC Section 339 / 341 (BNS Sec. 126) | 1 Month Imprisonment or Fine | Cognizable / Bailable |
+| **Maiming or Poisoning Animals** (Causing injury or death to street dogs) | IPC Section 428 / 429 (BNS Sec. 325) | Up to 5 Years Imprisonment | Cognizable / Non-Bailable |
+| **Outraging the Modesty of Women Feeders** (Verbal stalking or abuse of female feeders) | IPC Section 354 / 509 (BNS Sec. 74 / 79) | Up to 3 to 5 Years Imprisonment | Cognizable / Non-Bailable |
+| **Inflicting Unnecessary Pain or Cruelty** | Section 11, PCA Act 1960 | Fines & Confiscation | Statutory Cognizable |
+
+---
+
+## 6. Practical Feeder Playbook: How to Handle Colony Conflict
+
+If you are facing opposition while feeding street animals in your colony or apartment complex, follow this disciplined legal protocol:
+
+### Step 1: Keep Calm and Do Not Retaliate Emotionally
+Do not engage in shouting matches or physical scuffles. Aggressors often deliberately provoke feeders to capture inflammatory video footage. Maintain a polite, firm posture and state clearly: *"I am exercising my constitutional right under Article 51A(g) and High Court orders. You are interfering with lawful duty."*
+
+### Step 2: Practice Model Feeding Hygiene
+Opponents often cite sanitation concerns as a pretext for harassment. Neutralize their arguments by maintaining impeccable cleanliness:
+- Never scatter raw food directly onto public asphalt or sidewalks. Use reusable clean trays, biodegradable leaf plates, or cardboard sheets.
+- Wait until the dogs finish eating (approx. 10–15 minutes).
+- Pick up all food remnants and disposable waste immediately and deposit them into a closed garbage bin.
+- Feed during low-traffic windows (e.g., 6:00 AM – 7:30 AM or 9:00 PM – 10:30 PM).
+
+### Step 3: Serve an Official Legal Intimation Notice
+If the RWA sends a notice or threatens a fine, do not pay. Submit an official written reply citing:
+1. Delhi High Court order in *Dr. Maya D. Chablani v. Radha Mittal*.
+2. Animal Welfare Board of India (AWBI) Circular dated 26th February 2015 on Dog Feeding.
+3. Rule 20 of Animal Birth Control Rules 2023.
+4. Notify them that levying fines or restricting entry violates IPC Sections 341, 503, and 506, rendering the executive committee personally liable for civil damages and criminal prosecution.
+
+### Step 4: File a Police Complaint (NCR or FIR)
+If threats of violence, stone pelting, or animal poisoning occur:
+- Record clear audio/video evidence on your phone.
+- Draft a formal complaint addressed to the Station House Officer (SHO) of your local police station (e.g., George Town, Civil Lines, or Cantt in Prayagraj).
+- Request the registration of an FIR under IPC Sections 428/429 (if animals harmed), 506 (criminal intimidation), and Section 11 of the PCA Act.
+
+---
+
+## 7. The Kiran Singh Foundation Legal Advisory Cell
+
+At the Kiran Singh Foundation, our **Canine Welfare Directorate** maintains a 34-dog permanent sanctuary in Prayagraj alongside active mobile veterinary clinics. We believe that caring for community animals is not a crime—it is the bedrock of civilized society.
+
+### How We Support Feeders in Uttar Pradesh:
+- **Free Legal Notice Templates:** Standardized legal reply letters tailored for RWAs and housing societies.
+- **Police Liaison Assistance:** Coordinating with local law enforcement to ensure feeder protection in Prayagraj, Kaushambi, and Pratapgarh.
+- **Anti-Rabies Vaccination Certificates:** Providing free rabies immunization badges for community packs so feeders can prove their dogs are safe and vaccinated.
+
+Need emergency animal legal assistance or reporting cruelty? Reach our 24/7 Helpline at **+91 9670970750** or submit details via the [/emergency](file:///emergency) portal.`,
+  },
+
+  // --------------------------------------------------------------------------
+  // 10. ARTICLE D: WHERE DOES YOUR CHARITY MONEY ACTUALLY GO? (BALANCE SHEET)
+  // --------------------------------------------------------------------------
+  {
+    id: "blog-sanctuary-financial-audit-80g",
+    slug: "where-charity-money-goes-inside-monthly-balance-sheet-dog-sanctuary",
+    title: "Where Does Your Charity Money Actually Go? Inside the Monthly Balance Sheet of a 34-Dog Sanctuary in Prayagraj",
+    summary:
+      "A completely transparent financial, nutritional, and clinical accounting of maintaining a 34-dog shelter and 40-scholar endowment in Prayagraj. Details itemized expenditures on food, veterinary trauma care, anti-rabies vaccination clinics, and how Section 80G tax deductions benefit donors.",
+    authorName: "KSF Board of Trustees & Finance Directorate",
+    coverImageUrl: "/images/dogs/shelter-gate-sanctuary.jpg",
+    isAiDrafted: false,
+    publishedAt: "2026-11-24T16:00:00+05:30",
+    isPublished: true,
+    category: "editorial_dispatch",
+    badge: "Audited Financial Report",
+    readTime: "12 min read",
+    documentRef: "KSF/AUDIT/2026/11",
+    contentMarkdown: `> **Direct Answer Box (Financial Transparency & 80G Summary):**  
+> - **Monthly Operational Cost:** It costs exactly **₹1,500 per month** to provide complete nutrition, clean shelter, and veterinary healthcare for 1 resident shelter dog.  
+> - **Endowment Cost:** It costs **₹2,500 per month** to sponsor 1 undergraduate rural scholar (coaching, books, laptop lab, and international journal publication support).  
+> - **Tax Deductibility:** All donations to Kiran Singh Foundation qualify for an immediate **50% tax deduction under Section 80G** of the Indian Income Tax Act (URN: \`AABTK2317PF20231\`, PAN: \`AAGTK3961N\`).  
+> - **Instant Receipt Issuance:** Donors generate instant statutory 80G receipts directly on our portal at [/donate](file:///donate).
+
+---
+
+## 1. The Charity Transparency Crisis in India
+
+In India today, thousands of well-meaning citizens hesitate to donate to non-profit organizations and animal shelters. The reasons are painfully familiar:
+- Vague claims about "helping thousands of animals" with zero photographic or clinical proof.
+- Opacity surrounding administrative overhead versus frontline field spending.
+- Endless automated phone calls from marketing agencies where 70% of your donation is swallowed by fundraising commissions.
+
+At **Kiran Singh Foundation**, established under the Indian Trust Act of 1882 in memory of Late Kiran Singh ji, we reject the non-profit opacity norm. We operate on a foundational doctrine: **Total Open-Book Financial Transparency**.
+
+Every rupee donated by our supporters goes directly to verifiable field beneficiaries: the **34 resident dogs** living in our 4 built shelter homes, and the **40 sponsored student scholars** undergoing personality and research incubation across Prayagraj.
+
+Below is our complete, audited monthly balance sheet and line-item expenditure breakdown.
+
+---
+
+## 2. Monthly Operational Budget: The 34-Dog Sanctuary
+
+Our shelter facility in Prayagraj maintains three distinct clinical zones:
+- **Zone Alpha:** Critical Care, Trauma Recovery & Infectious Quarantine (for parvovirus, distemper, and post-operative orthopedic recovery).
+- **Zone Beta:** Main Sanctuary Courtyard & Socialized Pack Run.
+- **Zone Gamma:** Senior, Blind & Palliative Care Run (for aged canines requiring soft bedding and geriatric supplements).
+
+Here is the itemized monthly expenditure required to sustain these 34 lives:
+
+| Expenditure Category | Itemized Field Description | Monthly Cost (INR) | Cost Per Dog / Month |
+| :--- | :--- | :---: | :---: |
+| **High-Protein Nutrition** | Fresh boiled chicken/egg protein mash, 150 kg broken rice, turmeric, fresh seasonal vegetables, and dry maintenance kibble. | ₹28,500 | ₹838 |
+| **Veterinary Medicines & First Aid** | Sterile gauze, Povidone-Iodine, hydrogen peroxide, antiseptic sprays, antibiotic powders, and deworming tablets (Praziquantel/Pyrantel). | ₹7,200 | ₹212 |
+| **Specialized Trauma & Anti-Rabies** | Anti-rabies booster doses (Raksharab), tetanus toxoid, emergency IV saline (DNS/RL), and post-trauma analgesics (Meloxicam). | ₹5,500 | ₹162 |
+| **Sanitation & Hygiene** | Veterinary-grade disinfectants, bleaching powder, phenol, clean straw bedding for winter, and mosquito-repellent coils/fume tablets. | ₹4,800 | ₹141 |
+| **Shelter Upkeep & Utilities** | Electricity for infrared heating lamps in puppy wards, water pump operation, clean drinking water filtration, and perimeter repair. | ₹5,000 | ₹147 |
+| **TOTAL SANCTUARY EXPENSES** | **Complete monthly care for 34 resident shelter canines** | **₹51,000** | **₹1,500** |
+
+| Allocation (INR) | Monthly Share | Direct Frontline Care Purpose |
+| :---: | :---: | :--- |
+| **₹838** | 56% | Nutrition (Wholesome protein-rich chicken/egg cooked meals) |
+| **₹212** | 14% | First Aid, Antiseptics, Bandages & Monthly Deworming |
+| **₹162** | 11% | Rabies Vaccines, Emergency IV Infusions & Medical Care |
+| **₹147** | 10% | Clean Drinking Water Filtration, Heating & Facility Upkeep |
+| **₹141** | 9% | Sanitation, Disinfection & Clean Bedding |
+
+> **The Verification Guarantee:** When you sponsor a resident dog at ₹1,500/month, you receive the dog's named tag (e.g., *Bujo [KSF-CAN-001]*, *Chotu [KSF-CAN-004]*, *Branto [KSF-CAN-007]*), periodic photo and health updates, and an invitation to visit the sanctuary courtyard in Prayagraj.
+
+---
+
+## 3. Educational Endowment: Sponsoring 40 Scholars
+
+In parallel with animal rescue, the foundation sponsors **40 undergraduate and postgraduate students** hailing from economically disadvantaged rural backgrounds across Uttar Pradesh:
+
+| Support Area | What the Foundation Provides | Monthly Allocation |
+| :--- | :--- | :---: |
+| **Academic Coaching & Soft Skills** | English fluency, personality training, public speaking, and legal analysis. | ₹1,000 / student |
+| **Research & Publication Labs** | Access to Turnitin plagiarism scanners, online legal databases, and international journal publication fees. | ₹800 / student |
+| **Conveyance & Internship Stipend** | Field travel allowances for surveys, stationary, and conference registration mementos. | ₹700 / student |
+| **TOTAL SCHOLAR SPONSORSHIP** | **Empowering 1 student to become a peer-reviewed author & leader** | **₹2,500 / month** |
+
+Our scholars have authored 3 international journal papers published under **ISSN 2583-6633** and defended landmark monographs on constitutional law, youth decision-making, and cyber rights.
+
+---
+
+## 4. How Section 80G Tax Deductions Benefit Donors
+
+Donating to Kiran Singh Foundation is not only an act of profound compassion—it is also **financially smart**:
+
+### Section 80G of the Indian Income Tax Act, 1961
+Under Section 80G(5)(vi), donations made to registered charitable trusts are eligible for a **50% deduction from taxable gross income**.
+
+#### Example Tax Savings Calculation:
+- Suppose your taxable annual income falls in the 30% tax bracket.
+- You make an annual sponsorship donation of **₹24,000** to the Kiran Singh Foundation.
+- **50% of your donation (₹12,000)** is deducted directly from your taxable income.
+- At the 30% tax slab (plus 4% cess), you save **₹3,744 in income tax**.
+- Your effective out-of-pocket cost to sustain two rescued street dogs for an entire year is reduced significantly!
+
+### Institutional Statutory Credentials:
+- **Trust Entity:** Kiran Singh Foundation (Registered under Indian Trust Act of 1882)
+- **Income Tax PAN:** \`AAGTK3961N\`
+- **Income Tax 80G URN:** \`AABTK2317PF20231\`
+- **Ministry of Corporate Affairs CSR Registration:** \`CSR00110895\`
+- **Bank Details:** HDFC Bank, Naya Katra Branch, Prayagraj • Account: \`50200119758811\` • IFSC: \`HDFC0004664\`
+
+---
+
+## 5. Instant 80G Receipt Generation on Our Website
+
+Donors no longer need to wait weeks for physical receipts or send countless follow-up emails. Through our newly launched portal at [/donate](file:///donate):
+
+1. **Select a Sponsorship Tier:** Choose from Community Feeder (₹500), 1 Rescued Dog Care (₹1,500), Rural Scholar Sponsorship (₹2,500), or Critical Medical Triage (₹5,000).
+2. **Scan the UPI QR Code:** Pay directly via Google Pay, PhonePe, Paytm, or BHIM using VPA \`9670970750@hdfcbank\`.
+3. **Submit Your Transaction Details:** Enter your UPI UTR reference number, Name, and PAN.
+4. **Instant Download & Print:** The portal instantly generates an official, digitally stamped **Section 80G Donation Receipt** complete with your PAN, receipt serial number, and statutory tax exemption clauses ready for your annual tax return filing.
+
+---
+
+## 6. Frontline Accountability: Visit Our Sanctuary
+
+We welcome donors, students, and citizens to inspect our work in person. We maintain four built shelter homes across Prayagraj where you can feed our resident pack, observe our veterinary medical ward, and meet our sponsored student leaders.
+
+**Headquarters & Contact:**  
+Kiran Singh Foundation Directorate  
+191/C, Tilak Nagar, Allahpur, Prayagraj, UP 211006  
+Phone / WhatsApp Helpline: **+91 9670970750**  
+Official Portal: [https://kiransinghfoundation.org/donate](https://kiransinghfoundation.org/donate)`,
+  },
 ];

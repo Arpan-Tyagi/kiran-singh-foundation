@@ -65,6 +65,22 @@ test("Blogs & Research Papers Hub Architecture Verification", async (t) => {
       "Article B undergrad publishing guide slug must be present."
     );
     assert.ok(content.includes("Trustee Academic Board"), "Trustee Academic Board must be credited.");
+
+    // Check Article C (Street Dog Feeding Rights Guide)
+    assert.ok(
+      content.includes("street-dog-feeding-legal-rights-animal-protection-laws-india"),
+      "Article C feeding rights slug must be present."
+    );
+    assert.ok(content.includes("KSF Legal Advisory Directorate"), "KSF Legal Advisory Directorate must be credited.");
+    assert.ok(content.includes("Maya D. Chablani"), "Maya D. Chablani landmark case must be cited.");
+
+    // Check Article D (Sanctuary Balance Sheet & 80G Guide)
+    assert.ok(
+      content.includes("where-charity-money-goes-inside-monthly-balance-sheet-dog-sanctuary"),
+      "Article D balance sheet slug must be present."
+    );
+    assert.ok(content.includes("KSF Board of Trustees & Finance Directorate"), "KSF Board of Trustees & Finance Directorate must be credited.");
+    assert.ok(content.includes("AABTK2317PF20231"), "80G URN must be declared in financial audit.");
   });
 
   await t.test("Must verify dedicated /donate portal exists with 80G receipt generator", () => {
