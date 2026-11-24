@@ -481,38 +481,67 @@ export default function StudentResearchTopicsDossier() {
               </div>
             )}
 
-            {/* Team I Featured Scholar Monograph Callout */}
-            {activeTopic.teamCode === "Team I" && SCHOLAR_SPECIAL_MONOGRAPHS.length > 0 && (
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-lion-gold/40 shadow-md space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
-                  <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-wider">
-                    Featured Scholar Monograph &bull; Team I
-                  </span>
-                  <span className="text-[10px] font-mono text-stone-300">
-                    Decision Science &bull; BATNA &bull; Rogers Commission Case Study
-                  </span>
-                </div>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <h4 className="font-serif text-base sm:text-lg font-bold text-white">
-                      &ldquo;{SCHOLAR_SPECIAL_MONOGRAPHS[0].title}&rdquo;
-                    </h4>
-                    <p className="text-xs text-stone-300 font-sans max-w-xl">
-                      Authored by scholar <strong className="text-white">{SCHOLAR_SPECIAL_MONOGRAPHS[0].scholarName}</strong> ({SCHOLAR_SPECIAL_MONOGRAPHS[0].scholarId}). Explores conflict triage, Harvard negotiation theory (BATNA), the Space Shuttle Challenger disaster, and why walking away reflects cognitive self-control.
-                    </p>
+            {/* Featured Scholar Monograph Callout (Team I & Team II) */}
+            {(() => {
+              const teamMonograph = SCHOLAR_SPECIAL_MONOGRAPHS.find(
+                (m) => m.teamCode === activeTopic.teamCode
+              );
+              if (!teamMonograph) return null;
+              const isTeamI = teamMonograph.teamCode === "Team I";
+              return (
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-lion-gold/40 shadow-md space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+                    <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-wider">
+                      Featured Scholar Monograph &bull; {teamMonograph.teamCode}
+                    </span>
+                    <span className="text-[10px] font-mono text-stone-300">
+                      {isTeamI
+                        ? "Decision Science \u2022 BATNA \u2022 Rogers Commission Case Study"
+                        : "Epistemic Inquiry \u2022 Socratic Dialogue \u2022 Dr. Ambedkar Mahad Case Study"}
+                    </span>
                   </div>
-                  <div className="shrink-0 flex items-center space-x-2">
-                    <button
-                      onClick={() => setReadingMonograph(SCHOLAR_SPECIAL_MONOGRAPHS[0])}
-                      className="px-4 py-2 rounded-full bg-lion-gold text-obsidian text-xs font-mono font-bold hover:bg-lion-gold-light active:scale-95 transition-all inline-flex items-center space-x-1.5 shadow-md min-h-[44px]"
-                    >
-                      <BookOpen className="w-3.5 h-3.5 text-obsidian" />
-                      <span>Read Vanya&rsquo;s Monograph</span>
-                    </button>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-white">
+                        &ldquo;{teamMonograph.title}&rdquo;
+                      </h4>
+                      <p className="text-xs text-stone-300 font-sans max-w-xl">
+                        {isTeamI ? (
+                          <>
+                            Authored by scholar{" "}
+                            <strong className="text-white">{teamMonograph.scholarName}</strong>{" "}
+                            ({teamMonograph.scholarId}). Explores conflict triage, Harvard
+                            negotiation theory (BATNA), the Space Shuttle Challenger disaster,
+                            and why walking away reflects cognitive self-control.
+                          </>
+                        ) : (
+                          <>
+                            Authored by scholar{" "}
+                            <strong className="text-white">{teamMonograph.scholarName}</strong>{" "}
+                            ({teamMonograph.scholarId}), supervised by{" "}
+                            <strong className="text-white">Ms. Prateeksha Pandey (HSM)</strong>.
+                            Examines the Socratic method, Dr. B.R. Ambedkar&rsquo;s Mahad Satyagraha,
+                            Article 51A(h), Harvard conversational psychology, and epistemic
+                            vigilance against misinformation.
+                          </>
+                        )}
+                      </p>
+                    </div>
+                    <div className="shrink-0 flex items-center space-x-2">
+                      <button
+                        onClick={() => setReadingMonograph(teamMonograph)}
+                        className="px-4 py-2 rounded-full bg-lion-gold text-obsidian text-xs font-mono font-bold hover:bg-lion-gold-light active:scale-95 transition-all inline-flex items-center space-x-1.5 shadow-md min-h-[44px]"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-obsidian" />
+                        <span>
+                          Read {isTeamI ? "Vanya" : "Stuti"}&rsquo;s Monograph
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Tab 1: Syllabus Modules and Scanned Decree (Default) */}
             {activeTab === "syllabus" && (

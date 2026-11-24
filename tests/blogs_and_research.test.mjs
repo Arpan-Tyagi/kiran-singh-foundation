@@ -43,6 +43,14 @@ test("Blogs & Research Papers Hub Architecture Verification", async (t) => {
     // Check Topic 094 & 095
     assert.ok(content.includes("ksf-disc-2026-094-impact-of-crimes-on-mental-health"), "Topic 094 slug must be present.");
     assert.ok(content.includes("ksf-disc-2026-095-impact-of-right-to-privacy"), "Topic 095 slug must be present.");
+
+    // Check Stuti Singh's Research Paper
+    assert.ok(
+      content.includes("the-power-of-questioning-critical-thinking-social-change"),
+      "Stuti Singh power of questioning slug must be present."
+    );
+    assert.ok(content.includes("Stuti Singh"), "Author Stuti Singh must be credited.");
+    assert.ok(content.includes("KSF-STU-030"), "Scholar ID KSF-STU-030 must be present.");
   });
 
   await t.test("Must verify Navbar has Blogs link replacing Dispatches", () => {

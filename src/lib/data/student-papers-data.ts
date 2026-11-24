@@ -691,4 +691,114 @@ export const SCHOLAR_SPECIAL_MONOGRAPHS: ScholarMonograph[] = [
       "Boisjoly, Roger. (1987). 'Ethical Decisions—Morton Thiokol and the Space Shuttle Challenger.' American Society of Mechanical Engineers (ASME), Paper 87-WA/TS-4.",
     ],
   },
+  {
+    id: "monograph-stuti-power-of-questioning",
+    scholarId: "KSF-STU-030",
+    scholarName: "Ms. Stuti Singh",
+    scholarRole: "Winter Research Scholar • R&D Wing (Supervised by Ms. Prateeksha Pandey, HSM)",
+    teamCode: "Team II",
+    title: "THE POWER OF QUESTIONING",
+    subTitle: "An Epistemic Inquiry into Critical Thinking, Socratic Dialogue, and Social Reform",
+    epigraph: "Perhaps the real power of questioning lies not just in finding answers, but in having the courage to ask.",
+    centralQuestion: "How does the discipline of questioning transform personal curiosity into democratic progress and empathetic connection?",
+    decisionTest: {
+      value: "Does this belief, custom, or received claim enhance human dignity, equality, and rational flourishing?",
+      cost: "What intellectual liberties, social justice, or individual potential are sacrificed by unquestioned compliance?",
+      alternative: "Can Socratic dialogue, lateral fact-checking, and epistemic vigilance forge a more equitable social order?",
+    },
+    objectives: [
+      "To establish a rigorous philosophical distinction between passive curiosity, critical questioning, and challenging axiomatic dogmas.",
+      "To ground epistemic inquiry in the classical Socratic Method (Elenchus) and the fundamental duty to develop the scientific temper under Article 51A(h) of the Constitution of India.",
+      "To analyze the historic crusades of Dr. B.R. Ambedkar and the Women's Suffrage Movement as triumphs of moral questioning against entrenched social hierarchies.",
+      "To integrate empirical behavioral findings from Harvard University demonstrating that follow-up questions defeat conversational egocentrism and build interpersonal empathy.",
+      "To formulate actionable cognitive heuristics for practicing epistemic vigilance against algorithmic echo chambers and digital misinformation.",
+    ],
+    coreArguments: [
+      {
+        heading: "Epistemic Taxonomy: From Passive Curiosity to Challenging Assumptions",
+        text: [
+          "In everyday life, questioning is frequently conflated with rudimentary curiosity. However, rigorous philosophical inquiry requires a clear taxonomic distinction between passive curiosity, critical questioning, and challenging foundational assumptions.",
+          "While curiosity is the innate impulse to know facts ('What is this?'), critical questioning interrogates the reliability of claims ('Is this true and provable?'). Challenging assumptions takes the highest courage by deconstructing unexamined cultural premises ('Why do we organize society this way, and who benefits from it?').",
+          "This dialectical methodology mirrors the classical Socratic Method (Elenchus), wherein Socrates proved that true wisdom begins by recognizing one's unexamined assumptions rather than passively accepting inherited dogmas.",
+        ],
+      },
+      {
+        heading: "Constitutional Morality vs. Tradition: Questioning as an Engine of Reform",
+        text: [
+          "Traditions often play a valuable sociological role by preserving community cohesion and intergenerational memory. However, longevity is not synonymous with moral validity. When customs are followed purely because 'they have always been done this way', they risk calcifying into oppressive orthodoxies.",
+          "Questioning traditions is not an act of cultural disrespect; it is an act of ethical stewardship. It asks whether a custom promotes human dignity and equality, or whether it restricts individual freedom and perpetuates gender or caste subordination.",
+          "Under Article 51A(h) of the Constitution of India, citizens bear the fundamental duty to develop the scientific temper, humanism, and the spirit of inquiry and reform. Questioning is therefore an explicit constitutional mandate.",
+        ],
+      },
+      {
+        heading: "The Relational Psychology of Active Listening and Follow-Up Inquiry",
+        text: [
+          "Beyond intellectual critique, questioning is an extraordinary catalyst for human connection and empathy. Human beings routinely construct premature caricatures of others based on external appearances, social backgrounds, or accents.",
+          "Empirical behavioral research by Huang et al. (2017) at Harvard University, published in the Journal of Personality and Social Psychology, proves that people who ask more questions—particularly follow-up questions—are perceived as significantly more likable, empathetic, and competent listeners.",
+          "Follow-up questions signal genuine cognitive validation and partner responsiveness, converting conversational narcissism into authentic mutual understanding.",
+        ],
+      },
+      {
+        heading: "Epistemic Vigilance and Lateral Reading in the Algorithmic Age",
+        text: [
+          "In modern digital ecosystems dominated by algorithmic feeds and generative AI, questioning is an essential civic defense mechanism against digital misinformation.",
+          "Algorithmic recommendation engines incentivize sensationalism, locking users into ideological echo chambers and exploiting confirmation bias. Solomon Asch's classic conformity experiments showed that social pressure often silences private doubts.",
+          "Developing cognitive 'Epistemic Vigilance' (Dan Sperber et al.) and practicing lateral reading—cross-verifying sources before sharing—empowers citizens to distinguish verifiable truth from synthetic outrage.",
+        ],
+      },
+    ],
+    caseStudy: {
+      title: "The Mahad Satyagraha of 1927: Questioning the Sanctity of Caste Hegemony",
+      eventDate: "March 20, 1927",
+      description: [
+        "On March 20, 1927, Dr. Bhimrao Ramji Ambedkar led thousands of untouchables to the Chavadar Tank in Mahad to drink water, not merely for physical thirst, but to assert the fundamental human right to access public resources.",
+        "By questioning the religious taboos that prohibited Dalits from touching public water bodies, Babasaheb directly attacked the legitimacy of caste supremacy, transforming localized protest into a nationwide civil rights awakening.",
+        "This act of fundamental questioning laid the groundwork for Article 14 (Equality Before Law) and Article 17 (Abolition of Untouchability) of the Indian Constitution, proving that questioning unjust customs is the indispensable precursor to statutory emancipation.",
+      ],
+      theoreticalNuance:
+        "The Mahad Satyagraha demonstrates that moral questioning is not an abstract academic exercise; it is an active intervention that dismantles systemic oppression and establishes constitutional morality.",
+    },
+    applications: [
+      {
+        domain: "Educational Pedagogy",
+        context: "Classrooms moving from rote-learning recall to active critical inquiry.",
+        guideline:
+          "Reward students for asking probing questions rather than merely memorizing standard textbook answers.",
+      },
+      {
+        domain: "Interpersonal Relationships",
+        context: "Bridging diverse cultural backgrounds and resolving conversational friction.",
+        guideline:
+          "Ask genuine follow-up questions to understand the other person's lived perspective before forming judgments.",
+      },
+      {
+        domain: "Digital Literacy & Social Media",
+        context: "Consuming viral headlines, digital forwards, and unverified claims.",
+        guideline:
+          "Practice epistemic vigilance: verify the source, identify hidden incentives, and check claims laterally.",
+      },
+      {
+        domain: "Civic & Community Leadership",
+        context: "Engaging outdated neighborhood practices, gender disparities, or community biases.",
+        guideline:
+          "Raise constructive, respectful questions grounded in constitutional equality and human dignity.",
+      },
+    ],
+    analysisText: [
+      "The power of questioning lies in its ability to disrupt cognitive inertia. Whether in science, law, personal relationships, or governance, unquestioned assumptions lead to systemic decay and complacency.",
+      "By cultivating the intellectual discipline to question received wisdom and the emotional maturity to listen to opposing views, individuals develop intellectual resilience and civic empathy.",
+    ],
+    conclusionText: [
+      "The journey of student scholarship at the Kiran Singh Foundation is anchored in the conviction that true leadership begins with the humility to question.",
+      "As scholar Stuti Singh writes, 'Perhaps the real power of questioning lies not just in finding answers, but in having the courage to ask.' By keeping the spirit of inquiry alive, we fulfill our constitutional promise and contribute to a more thoughtful, compassionate, and enlightened society.",
+    ],
+    references: [
+      "Ambedkar, B. R. (1936). Annihilation of Caste: An Undelivered Speech. Bombay: The Education Department, Government of Maharashtra.",
+      "Constitution of India. (1950). Part IVA: Fundamental Duties, Article 51A(h). Ministry of Law and Justice, Government of India.",
+      "Huang, K., Yeomans, M., Brooks, A. W., Minson, J., & Gino, F. (2017). 'It Doesn't Hurt to Ask: Question-Asking Increases Liking.' Journal of Personality and Social Psychology, 113(3), 430–452.",
+      "Plato. (c. 399 BCE). Apology (H. N. Fowler, Trans.). Harvard University Press (Loeb Classical Library).",
+      "Sperber, D., Clément, F., Heintz, C., Mascaro, O., Mercier, H., Origgi, G., & Wilson, D. (2010). 'Epistemic Vigilance.' Mind & Language, 25(4), 359–393.",
+      "Supreme Court of India. (2020). Mahad Satyagraha and the Constitutional Journey toward Equality. Supreme Court Legal Heritage Series.",
+    ],
+  },
 ];

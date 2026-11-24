@@ -95,7 +95,7 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
     assert.ok(paperContent.includes("Article 21A"), "Must include Article 21A jurisprudence");
   });
 
-  await t.test("Must export SCHOLAR_SPECIAL_MONOGRAPHS with Vanya's decision-science report", () => {
+  await t.test("Must export SCHOLAR_SPECIAL_MONOGRAPHS with Vanya's decision-science report and Stuti Singh's monograph", () => {
     const papersPath = path.resolve("src/lib/data/student-papers-data.ts");
     const paperContent = fs.readFileSync(papersPath, "utf8");
 
@@ -104,6 +104,12 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
     assert.ok(paperContent.includes("Ms. Vanya Singh"), "Must include author Ms. Vanya Singh");
     assert.ok(paperContent.includes("Roger Boisjoly"), "Must cite engineer Roger Boisjoly");
     assert.ok(paperContent.includes("BATNA"), "Must include BATNA framework");
+
+    // Stuti Singh monograph
+    assert.ok(paperContent.includes("KSF-STU-030"), "Must include scholar ID KSF-STU-030");
+    assert.ok(paperContent.includes("Ms. Stuti Singh"), "Must include author Ms. Stuti Singh");
+    assert.ok(paperContent.includes("THE POWER OF QUESTIONING"), "Must include title THE POWER OF QUESTIONING");
+    assert.ok(paperContent.includes("Socratic Method"), "Must include Socratic Method");
   });
 
   await t.test("Component StudentResearchTopicsDossier must exist, render interactive elements, and support full paper reader", () => {
