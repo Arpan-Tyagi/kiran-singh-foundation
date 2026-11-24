@@ -3966,13 +3966,13 @@ export const OFFICIAL_COMMITTEES_2026: FoundationCommittee[] = [
       {
         name: "Ms. Luvleen Kaur Puri",
         role: "Member, Designing Committee, KSF",
-        stageMoment: "Receiving merit memento from distinguished convocation dignitary",
+        stageMoment: "Addressing foundation convocation at the ceremonial floral podium into microphone",
         photoUrl: "/images/events/winter-2026/memento-presentation-luvleen-kaur.jpg",
       },
       {
         name: "Mr. Shaurya Pratap Singh",
         role: "Member, DC, KSF",
-        stageMoment: "Executive design operations & visual systems modeling",
+        stageMoment: "Receiving official framed decree memento on stage alongside Directorate Secretary Mr. Anuj Kumar Singh",
       },
     ],
     posterUrl: "/images/hierarchy/posters/ksf-designing-committee-poster.jpg",

@@ -358,7 +358,7 @@ export default function OperationalHierarchy({
                       Ms. Navleen Kaur Puri &bull; Ms. Luvleen Kaur Puri &bull; Mr. Shaurya Pratap Singh
                     </span>
                     <span className="text-[11px] text-slate block">
-                      Ceremonial podium orator &bull; Memento conferral &bull; Visual systems
+                      Ceremonial podium orators &bull; Framed decree memento conferral alongside Directorate
                     </span>
                   </div>
                 </div>
