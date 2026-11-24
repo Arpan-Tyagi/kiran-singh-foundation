@@ -187,6 +187,12 @@ export default function Footer() {
 
             <div className="pt-1 flex flex-col space-y-1.5 font-mono text-[11px]">
               <Link
+                href="/donate"
+                className="text-botanical-emerald hover:underline transition-colors inline-flex items-center space-x-1 font-semibold"
+              >
+                <span>&rarr; Donate &bull; Section 80G Tax Exemption</span>
+              </Link>
+              <Link
                 href="/blogs"
                 className="text-slate hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1 font-medium"
               >

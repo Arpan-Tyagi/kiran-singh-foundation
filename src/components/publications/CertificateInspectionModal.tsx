@@ -158,14 +158,21 @@ export default function CertificateInspectionModal({
               onClick={() => setIsZoomed(!isZoomed)}
             >
               <Image
-                src={currentAuthor.certificateUrl}
-                alt={`Certificate of Publication for ${currentAuthor.name} - ${publication.title}`}
+                src={currentAuthor.certificateUrl || publication.coverImageUrl}
+                alt={`Certificate / Publication Record for ${currentAuthor.name} - ${publication.title}`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 960px"
                 className="object-contain"
                 priority
               />
             </div>
+
+            {!currentAuthor.certificateUrl && (
+              <div className="absolute top-3 left-3 px-3 py-1.5 rounded-xl bg-obsidian/90 backdrop-blur-md border border-lion-gold/50 text-white text-[11px] font-mono flex items-center space-x-1.5 shadow-md">
+                <ShieldCheck className="w-4 h-4 text-lion-gold" />
+                <span>Official Co-Author Record &bull; Full Peer-Reviewed Report Digitized</span>
+              </div>
+            )}
 
             {/* Zoom / Info Overlay Pill */}
             <div className="absolute bottom-3 right-3 flex items-center space-x-2">
@@ -299,21 +306,33 @@ export default function CertificateInspectionModal({
           <span className="text-xs font-mono text-slate">
             Kiran Singh Foundation Directorate &bull; Verified Academic Milestone
           </span>
-          <div className="flex items-center space-x-3 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+            {currentAuthor.certificateUrl && (
+              <a
+                href={currentAuthor.certificateUrl}
+                download={`${currentAuthor.name.replace(/[^a-zA-Z0-9]/g, "_")}_Publication_Certificate.jpg`}
+                className="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-white border border-border hover:bg-slate-100 text-obsidian text-xs font-mono font-medium transition-colors inline-flex items-center justify-center space-x-1.5 shadow-sm"
+              >
+                <Download className="w-3.5 h-3.5 text-lion-gold-dark" />
+                <span>Certificate (JPG)</span>
+              </a>
+            )}
             <a
-              href={currentAuthor.certificateUrl}
-              download={`${currentAuthor.name.replace(/[^a-zA-Z0-9]/g, "_")}_Publication_Certificate.jpg`}
-              className="flex-1 sm:flex-none px-4 py-2 rounded-xl bg-white border border-border hover:bg-slate-100 text-obsidian text-xs font-mono font-medium transition-colors inline-flex items-center justify-center space-x-1.5 shadow-sm"
+              href={publication.pdfDownloadUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-semibold transition-colors inline-flex items-center justify-center space-x-1.5 shadow-sm"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download Certificate</span>
+              <span>Full Journal PDF ({publication.pages || "Report"})</span>
             </a>
             <a
               href={`/blogs/${publication.slug}`}
-              className="flex-1 sm:flex-none px-4 py-2 rounded-xl bg-obsidian text-white hover:bg-obsidian/90 text-xs font-mono font-medium transition-colors inline-flex items-center justify-center space-x-1.5 shadow-sm"
+              className="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-obsidian text-white hover:bg-obsidian/90 text-xs font-mono font-medium transition-colors inline-flex items-center justify-center space-x-1.5 shadow-sm"
             >
               <BookOpen className="w-3.5 h-3.5 text-lion-gold" />
-              <span>Read Full Article</span>
+              <span>Read Online</span>
             </a>
           </div>
         </div>

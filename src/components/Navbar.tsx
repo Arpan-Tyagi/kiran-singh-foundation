@@ -25,6 +25,7 @@ export default function Navbar() {
     { label: "34 Dogs", href: "/wings/dogs" },
     { label: "Events", href: "/events" },
     { label: "Blogs", href: "/blogs" },
+    { label: "Donate", href: "/donate" },
     { label: "Admin", href: "/admin" },
   ];
 

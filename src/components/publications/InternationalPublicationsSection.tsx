@@ -12,6 +12,8 @@ import {
   GraduationCap,
   Sparkles,
   ExternalLink,
+  Download,
+  FileText,
 } from "lucide-react";
 import {
   INTERNATIONAL_JOURNAL_PUBLICATIONS,
@@ -65,17 +67,17 @@ export default function InternationalPublicationsSection() {
         <div className="space-y-1">
           <span className="font-mono text-[10px] uppercase text-slate tracking-wider">Peer-Reviewed Papers</span>
           <div className="font-serif text-2xl font-bold text-obsidian">3 Papers</div>
-          <div className="text-[11px] text-slate font-sans">Full Empirical Manuscripts</div>
+          <div className="text-[11px] text-slate font-sans">24 Pages Verbatim Digitized</div>
         </div>
         <div className="space-y-1">
           <span className="font-mono text-[10px] uppercase text-slate tracking-wider">Published Authors</span>
-          <div className="font-serif text-2xl font-bold text-lion-gold-dark">6 Scholars</div>
-          <div className="text-[11px] text-slate font-sans">Trustees &amp; Student Leaders</div>
+          <div className="font-serif text-2xl font-bold text-lion-gold-dark">8 Authors</div>
+          <div className="text-[11px] text-slate font-sans">6 Scholars &bull; 2 Trustees</div>
         </div>
         <div className="space-y-1">
           <span className="font-mono text-[10px] uppercase text-slate tracking-wider">Journal Registry</span>
           <div className="font-mono text-xl font-bold text-obsidian">ISSN: 2583-6633</div>
-          <div className="text-[11px] text-slate font-sans">International Multidisciplinary</div>
+          <div className="text-[11px] text-slate font-sans">CODEN: KRABAU &bull; Refereed</div>
         </div>
         <div className="space-y-1">
           <span className="font-mono text-[10px] uppercase text-slate tracking-wider">Issuing Authority</span>
@@ -109,8 +111,10 @@ export default function InternationalPublicationsSection() {
                   <ShieldCheck className="w-3 h-3 text-lion-gold-dark" />
                   <span>ISSN: {pub.issn}</span>
                 </div>
-                <div className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-obsidian/90 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-wider">
-                  Vol. 5 No. 10 &bull; Refereed
+                <div className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-obsidian/90 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-wider flex items-center space-x-1.5">
+                  <span>Vol. 5 No. 10</span>
+                  <span>&bull;</span>
+                  <span className="text-lion-gold">{pub.pages || "Refereed"}</span>
                 </div>
               </div>
 
@@ -151,20 +155,34 @@ export default function InternationalPublicationsSection() {
             </div>
 
             {/* Action Bar */}
-            <div className="mt-6 pt-4 border-t border-border flex items-center justify-between gap-2 text-xs font-mono">
+            <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono">
               <button
                 onClick={() => handleOpenCertificate(pub, 0)}
                 className="text-lion-gold-dark hover:underline font-semibold flex items-center space-x-1"
               >
-                <span>Inspect Certificates ({pub.authors.length})</span>
+                <span>Certificates ({pub.authors.length})</span>
               </button>
-              <Link
-                href={`/blogs/${pub.slug}`}
-                className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-obsidian hover:bg-lion-gold/20 hover:text-lion-gold-dark transition-all"
-                title="Read publication overview"
-              >
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="flex items-center space-x-2">
+                <a
+                  href={pub.pdfDownloadUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-lion-gold/20 text-obsidian hover:text-lion-gold-dark font-medium transition-colors inline-flex items-center space-x-1 shadow-sm"
+                  title="Download Official 24-Page Journal PDF Report"
+                >
+                  <Download className="w-3.5 h-3.5 text-lion-gold-dark" />
+                  <span>PDF</span>
+                </a>
+                <Link
+                  href={`/blogs/${pub.slug}`}
+                  className="px-2.5 py-1 rounded-lg bg-obsidian text-white hover:bg-lion-gold hover:text-obsidian font-medium transition-colors inline-flex items-center space-x-1 shadow-sm"
+                  title="Read complete manuscript online"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-lion-gold" />
+                  <span>Read</span>
+                </Link>
+              </div>
             </div>
           </div>
         ))}

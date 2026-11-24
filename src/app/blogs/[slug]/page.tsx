@@ -16,6 +16,8 @@ import {
   BookOpen,
   Award,
   ShieldCheck,
+  HeartPulse,
+  ArrowRight,
 } from "lucide-react";
 import { Metadata } from "next";
 import { fetchBlogPostBySlug, fetchBlogPosts } from "@/lib/supabase";
@@ -375,9 +377,9 @@ export default async function BlogDetailPage({ params }: Props) {
       {/* International Journal Verification Banner */}
       {isInternationalJournal && (
         <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-white via-amber-50/25 to-slate-50 border border-lion-gold/40 shadow-elevation-1 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-lion-gold/20 pb-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-lion-gold/20 pb-4">
             <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-xl bg-lion-gold/20 border border-lion-gold/30 flex items-center justify-center text-lion-gold-dark shadow-sm shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-lion-gold/20 border border-lion-gold/30 flex items-center justify-center text-lion-gold-dark shadow-sm shrink-0">
                 <Award className="w-5 h-5" />
               </div>
               <div>
@@ -385,17 +387,31 @@ export default async function BlogDetailPage({ params }: Props) {
                   International Peer-Reviewed &amp; Refereed Publication
                 </span>
                 <span className="font-sans text-xs text-slate">
-                  Knowledgeable Research &bull; ISSN: 2583-6633 &bull; Vol. 5, No. 10 (October 2026)
+                  Knowledgeable Research &bull; ISSN: 2583-6633 &bull; CODEN: KRABAU &bull; Vol. 5, No. 10 (October 2026)
                 </span>
               </div>
             </div>
-            <Link
-              href="/wings/students#international-publications"
-              className="px-4 py-2 rounded-xl bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-semibold transition-all shadow-sm inline-flex items-center space-x-1.5 self-start sm:self-auto shrink-0"
-            >
-              <Award className="w-3.5 h-3.5" />
-              <span>Inspect Certificates</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-2">
+              {(post.pdfDownloadUrl || matchingPublication?.pdfDownloadUrl) && (
+                <a
+                  href={post.pdfDownloadUrl || matchingPublication?.pdfDownloadUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-semibold transition-all shadow-sm inline-flex items-center space-x-1.5 shrink-0"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download Journal PDF ({matchingPublication?.pages || "Official Report"})</span>
+                </a>
+              )}
+              <Link
+                href="/wings/students#international-publications"
+                className="px-3 py-2 rounded-xl bg-white border border-border hover:bg-slate-100 text-obsidian text-xs font-mono font-medium transition-all shadow-sm inline-flex items-center space-x-1.5 shrink-0"
+              >
+                <Award className="w-3.5 h-3.5 text-lion-gold-dark" />
+                <span>Certificates</span>
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
@@ -526,11 +542,16 @@ export default async function BlogDetailPage({ params }: Props) {
               <div key={aIdx} className="space-y-3 rounded-2xl border border-border p-4 bg-slate-50/60">
                 <div className="relative h-56 w-full rounded-xl overflow-hidden border border-border bg-white shadow-sm">
                   <Image
-                    src={author.certificateUrl}
-                    alt={`Certificate for ${author.name}`}
+                    src={author.certificateUrl || matchingPublication.coverImageUrl}
+                    alt={`Certificate / Author Record for ${author.name}`}
                     fill
                     className="object-contain p-2"
                   />
+                  {!author.certificateUrl && (
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-obsidian/85 text-white font-mono text-[9px] uppercase tracking-wider">
+                      Journal Author Record
+                    </div>
+                  )}
                 </div>
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
@@ -549,6 +570,116 @@ export default async function BlogDetailPage({ params }: Props) {
           </div>
         </div>
       )}
+
+      {/* End-of-Manuscript Journal PDF Download Banner */}
+      {isInternationalJournal && (post.pdfDownloadUrl || matchingPublication?.pdfDownloadUrl) && (
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-obsidian via-obsidian/95 to-lion-gold-dark text-white shadow-elevation-card flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-lion-gold font-bold">
+              Complete Official Manuscript
+            </span>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold">
+              Download Full Published Journal Report
+            </h3>
+            <p className="text-xs sm:text-sm text-white/80 font-sans max-w-xl">
+              Includes verbatim peer-reviewed empirical text, tables, case law citations, and institutional SAFE Society registry records ({matchingPublication?.pages || "Official Report"}).
+            </p>
+          </div>
+          <a
+            href={post.pdfDownloadUrl || matchingPublication?.pdfDownloadUrl}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-3 rounded-2xl bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-bold transition-all shadow-md inline-flex items-center space-x-2 shrink-0"
+          >
+            <Download className="w-4 h-4" />
+            <span>Download Original PDF</span>
+          </a>
+        </div>
+      )}
+
+      {/* Action & Engagement Funnel Bridge */}
+      <section className="p-6 sm:p-8 rounded-3xl bg-porcelain border border-border/80 shadow-elevation-1 space-y-6">
+        <div className="border-b border-border pb-4">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lion-gold/15 text-lion-gold-dark text-[10px] font-mono tracking-widest uppercase font-semibold">
+            <span>Get Involved &bull; Frontline Social Impact</span>
+          </div>
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-obsidian mt-2">
+            Turn Academic Insight Into Frontline Action
+          </h3>
+          <p className="text-xs sm:text-sm text-slate mt-1 max-w-2xl font-sans">
+            Kiran Singh Foundation bridges critical student research with 24/7 street dog rescue, rural educational endowments, and civic empowerment across Prayagraj.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Action 1: Student Internships */}
+          <div className="flex flex-col justify-between p-5 rounded-2xl bg-white border border-border hover:border-lion-gold/50 transition-all space-y-4 shadow-sm group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-lion-gold/15 flex items-center justify-center text-lion-gold-dark">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <h4 className="font-serif font-bold text-obsidian text-base group-hover:text-lion-gold-dark transition-colors">
+                Apply for Student Research Cohort
+              </h4>
+              <p className="text-xs text-slate leading-relaxed font-sans">
+                Are you an undergraduate or postgraduate student? Join our Summer/Winter internship program featuring 1-on-1 mentorship, research stipends, and peer-reviewed international publication tracks.
+              </p>
+            </div>
+            <Link
+              href="/wings/students"
+              className="inline-flex items-center justify-between text-xs font-mono font-semibold text-lion-gold-dark hover:text-lion-gold pt-2 border-t border-border/60"
+            >
+              <span>Explore Student Wing</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Action 2: 24/7 Canine Emergency Dispatch */}
+          <div className="flex flex-col justify-between p-5 rounded-2xl bg-white border border-border hover:border-crimson-vermilion/50 transition-all space-y-4 shadow-sm group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-crimson-vermilion/15 flex items-center justify-center text-crimson-vermilion">
+                <HeartPulse className="w-5 h-5" />
+              </div>
+              <h4 className="font-serif font-bold text-obsidian text-base group-hover:text-crimson-vermilion transition-colors">
+                Report an Injured Canine in Prayagraj
+              </h4>
+              <p className="text-xs text-slate leading-relaxed font-sans">
+                Witnessed a street dog struck by a vehicle or in critical medical distress? Our emergency ambulance and triage response grid operates 24/7 across Prayagraj.
+              </p>
+            </div>
+            <Link
+              href="/emergency"
+              className="inline-flex items-center justify-between text-xs font-mono font-semibold text-crimson-vermilion hover:underline pt-2 border-t border-border/60"
+            >
+              <span>24/7 Emergency Dispatch</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Action 3: Section 80G Tax-Deductible Donation */}
+          <div className="flex flex-col justify-between p-5 rounded-2xl bg-white border border-border hover:border-botanical-emerald/50 transition-all space-y-4 shadow-sm group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-botanical-emerald/15 flex items-center justify-center text-botanical-emerald">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <h4 className="font-serif font-bold text-obsidian text-base group-hover:text-botanical-emerald transition-colors">
+                Support 34 Rescued Dogs & 40 Scholars
+              </h4>
+              <p className="text-xs text-slate leading-relaxed font-sans">
+                Help us sustain medical supplies, rabies vaccines, daily nutrition for 34 shelter dogs, and rural tuition scholarships. Registered under Indian Trust Act (PAN: AAGTK3961N, CSR: CSR00110895).
+              </p>
+            </div>
+            <Link
+              href="/donate"
+              className="inline-flex items-center justify-between text-xs font-mono font-semibold text-botanical-emerald hover:underline pt-2 border-t border-border/60"
+            >
+              <span>Donate &bull; 80G Tax Exemption</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Footer / Share Strip */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-border text-xs font-mono shadow-sm">

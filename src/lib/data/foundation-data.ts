@@ -171,6 +171,7 @@ export interface BlogPost {
   badge?: string;
   readTime?: string;
   documentRef?: string;
+  pdfDownloadUrl?: string;
 }
 
 export interface AcademicPartnership {

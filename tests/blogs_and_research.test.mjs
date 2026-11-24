@@ -51,6 +51,32 @@ test("Blogs & Research Papers Hub Architecture Verification", async (t) => {
     );
     assert.ok(content.includes("Stuti Singh"), "Author Stuti Singh must be credited.");
     assert.ok(content.includes("KSF-STU-030"), "Scholar ID KSF-STU-030 must be present.");
+
+    // Check Article A (Emergency Stray Dog Rescue Guide)
+    assert.ok(
+      content.includes("what-to-do-injured-stray-dog-prayagraj-emergency-guide"),
+      "Article A emergency guide slug must be present."
+    );
+    assert.ok(content.includes("Canine Welfare Directorate"), "Canine Welfare Directorate must be credited.");
+
+    // Check Article B (Undergraduate Research Publishing Guide)
+    assert.ok(
+      content.includes("undergraduate-research-international-journal-publishing-guide"),
+      "Article B undergrad publishing guide slug must be present."
+    );
+    assert.ok(content.includes("Trustee Academic Board"), "Trustee Academic Board must be credited.");
+  });
+
+  await t.test("Must verify dedicated /donate portal exists with 80G receipt generator", () => {
+    assert.ok(fs.existsSync(path.resolve(root, "src/app/donate/page.tsx")), "Donate page.tsx must exist.");
+    assert.ok(fs.existsSync(path.resolve(root, "src/app/donate/layout.tsx")), "Donate layout.tsx must exist.");
+    assert.ok(fs.existsSync(path.resolve(root, "src/components/donate/DonateHubClient.tsx")), "DonateHubClient must exist.");
+    assert.ok(fs.existsSync(path.resolve(root, "src/actions/donate.ts")), "Donate server actions must exist.");
+
+    const clientContent = fs.readFileSync(path.resolve(root, "src/components/donate/DonateHubClient.tsx"), "utf-8");
+    assert.ok(clientContent.includes("50200119758811"), "Must display official HDFC Bank account.");
+    assert.ok(clientContent.includes("HDFC0004664"), "Must display HDFC IFSC.");
+    assert.ok(clientContent.includes("Section 80G"), "Must feature Section 80G tax exemption.");
   });
 
   await t.test("Must verify Navbar has Blogs link replacing Dispatches", () => {

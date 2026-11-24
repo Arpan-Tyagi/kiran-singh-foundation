@@ -1,7 +1,8 @@
 // ============================================================================
 // KIRAN SINGH FOUNDATION - INTERNATIONAL JOURNAL PUBLICATIONS DATASET
 // Official Peer-Reviewed Research Publications authored by KSF Scholars & Leaders
-// Published in: Knowledgeable Research (ISSN: 2583-6633) • Vol. 5 No. 10 (Oct 2026)
+// Published in: Knowledgeable Research (KR) • ISSN: 2583-6633 • Vol. 5, Issue 10 (Oct 2026)
+// Complete manuscripts digitized verbatim from official journal publication reports.
 // ============================================================================
 
 import type { BlogPost } from "./foundation-data";
@@ -11,7 +12,7 @@ export interface PublicationAuthor {
   role: string;
   scholarId?: string;
   institution: string;
-  certificateUrl: string;
+  certificateUrl?: string;
 }
 
 export interface InternationalJournalPublication {
@@ -20,15 +21,22 @@ export interface InternationalJournalPublication {
   title: string;
   journalName: string;
   issn: string;
+  coden?: string;
   volume: string;
   issue: string;
+  pages?: string;
   publicationMonthYear: string;
+  receivedDate?: string;
+  acceptedDate?: string;
   publicationDate: string;
   issuingSociety: string;
   chiefEditor: string;
+  correspondingAuthor: string;
+  correspondingEmail: string;
   peerReviewed: boolean;
   refereed: boolean;
   coverImageUrl: string;
+  pdfDownloadUrl: string;
   authors: PublicationAuthor[];
   abstract: string;
   keywords: string[];
@@ -39,7 +47,7 @@ export interface InternationalJournalPublication {
 
 export const INTERNATIONAL_JOURNAL_PUBLICATIONS: InternationalJournalPublication[] = [
   // --------------------------------------------------------------------------
-  // 1. NEP 2020 CASE STUDIES (AKANSHA SINGH & NAVYANSHI DWIVEDI)
+  // 1. NEP 2020 POLICY PERSPECTIVES & CASE STUDIES (PP. 1-10)
   // --------------------------------------------------------------------------
   {
     id: "pub-nep-2020-case-studies",
@@ -47,282 +55,372 @@ export const INTERNATIONAL_JOURNAL_PUBLICATIONS: InternationalJournalPublication
     title:
       "Policy Perspectives and Case Studies on Advancing Literacy, Digital Inclusion, Civic Engagement, and Nation-Building under the National Education Policy (NEP) 2020",
     journalName:
-      "Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal",
+      "Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal",
     issn: "2583-6633",
+    coden: "KRABAU",
     volume: "Vol. 5",
     issue: "No. 10",
+    pages: "pp. 1–10",
     publicationMonthYear: "October (2026)",
+    receivedDate: "08/09/2026",
+    acceptedDate: "23/10/2026",
     publicationDate: "2026-10-31",
     issuingSociety: "SAFE (Society for Academic Facilitation & Extension)",
     chiefEditor: "Dr. Ramesh Chandra",
+    correspondingAuthor: "Mr. Anuj Kumar Singh",
+    correspondingEmail: "ankus102@gmail.com",
     peerReviewed: true,
     refereed: true,
     coverImageUrl: "/images/publications/certificates/cert-akansha-singh-nep-2020.jpg",
+    pdfDownloadUrl: "/docs/publications/nep-2020-policy-perspectives-paper.pdf",
     authors: [
       {
-        name: "Ms. Akansha Singh",
-        role: "Core Trustee & Treasurer",
-        institution: "Kiran Singh Foundation Directorate",
-        certificateUrl: "/images/publications/certificates/cert-akansha-singh-nep-2020.jpg",
+        name: "Mr. Anuj Kumar Singh",
+        role: "Corresponding Author & Secretary (Ph.D. Scholar in Law)",
+        institution: "Department of Law, Dr. Bhim Rao Ambedkar University, Agra",
+        certificateUrl: "/images/publications/certificates/cert-anuj-kumar-singh-campus-governance.jpg",
+      },
+      {
+        name: "Ms. Vaishnavi",
+        role: "Co-Author & Student Researcher",
+        institution: "2nd Year B.A. LL.B. (Hons.), Aarya Kanya Degree College, Department of Law, University of Allahabad",
       },
       {
         name: "Ms. Navyanshi Dwivedi",
         role: "Dy. Head Superintendent Manager (Tier 2 Officer)",
         scholarId: "KSF-STU-024",
-        institution: "Kiran Singh Foundation (Student Welfare Wing)",
+        institution: "Class XII, Humanities Stream, Maharshi Patanjali Vidya Mandir (MPVM), Prayagraj",
         certificateUrl: "/images/publications/certificates/cert-navyanshi-dwivedi-nep-2020.jpg",
+      },
+      {
+        name: "Ms. Akansha Singh",
+        role: "Core Trustee & Treasurer (Internship Controller)",
+        institution: "Kiran Singh Foundation Directorate",
+        certificateUrl: "/images/publications/certificates/cert-akansha-singh-nep-2020.jpg",
       },
     ],
     abstract:
-      "The National Education Policy (NEP) 2020 signifies a historic paradigm shift in India's pedagogical philosophy, transitioning the educational ecosystem away from rote-centric legacy systems toward holistic, inquiry-driven, and multidisciplinary paradigms. This research paper evaluates policy perspectives and empirical case studies surrounding the operationalization of Foundational Literacy and Numeracy (FLN) via the NIPUN Bharat mission, digital inclusion initiatives in semi-urban and rural Uttar Pradesh, and structural avenues for youth civic engagement. By analyzing grassroots implementation bottlenecks—including the digital hardware divide, teacher-to-student ratios, and vernacular learning resource disparities—the study models how localized civic incubation and community-partnered mentorship can accelerate educational equity. The authors formulate actionable policy blueprints spanning community digital kiosks, experiential civic internships, and continuous teacher capacity-building to fulfill the constitutional promise of Article 21A and advance long-term nation-building.",
+      "Transformation of the education system of India under the National Education Policy 2020 and its implications for literacy, digital inclusion and democratic citizenship are analysed in this research paper. Among the major policies under consideration are the vision and objectives of the policy, changes in the structure of the education system with respect to school education as 5+3+3+4, the NIPUN Bharat initiative for foundational literacy and numeracy, digital programs initiated via DIKSHA and PM e-VIDYA, equity measures in terms of Socio-Economically Disadvantaged Groups and teacher training policies in terms of National Professional Standards for Teachers. In addition, implementation mechanisms including mother tongue as the medium of instruction in foundational stage, use of technology for content delivery, institutional autonomy in higher education and incorporation of constitutional values in the curricula are discussed.",
     keywords: [
-      "National Education Policy (NEP) 2020",
-      "Digital Inclusion",
-      "Foundational Literacy and Numeracy (FLN)",
-      "NIPUN Bharat",
-      "Civic Engagement",
-      "Nation-Building",
-      "Rural Educational Equity",
-      "Experiential Learning",
-      "Article 21A Jurisprudence",
-      "Pedagogical Reform",
+      "National Education Policy 2020",
+      "Foundational Literacy and Numeracy",
+      "Digital inclusion",
+      "educational equity",
+      "Civic engagement and Teacher education",
     ],
     apaCitation:
-      "Singh, A., & Dwivedi, N. (2026). Policy Perspectives and Case Studies on Advancing Literacy, Digital Inclusion, Civic Engagement, and Nation-Building under the National Education Policy (NEP) 2020. Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal, 5(10), ISSN: 2583-6633.",
+      "Singh, A. K., Vaishnavi, Dwivedi, N., & Singh, A. (2026). Policy Perspectives and Case Studies on Advancing Literacy, Digital Inclusion, Civic Engagement, and Nation-Building under the National Education Policy (NEP) 2020. Knowledgeable Research (KR), 5(10), 1–10. ISSN: 2583-6633.",
     bluebookCitation:
-      "Akansha Singh & Navyanshi Dwivedi, Policy Perspectives and Case Studies on Advancing Literacy, Digital Inclusion, Civic Engagement, and Nation-Building under the National Education Policy (NEP) 2020, 5 Knowledgeable Res. 10 (2026).",
-    contentMarkdown: `## International Journal Publication
+      "Anuj Kumar Singh, Vaishnavi, Navyanshi Dwivedi & Akansha Singh, Policy Perspectives and Case Studies on Advancing Literacy, Digital Inclusion, Civic Engagement, and Nation-Building under the National Education Policy (NEP) 2020, 5 Knowledgeable Res. 1 (2026).",
+    contentMarkdown: `## Official Publication Record
 
-**Journal:** *Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal*  
-**Issuing Authority:** Society for Academic Facilitation & Extension (SAFE)  
-**ISSN:** 2583-6633 • Volume 5, Issue 10, October 2026 (Published: 31/10/2026)  
+**Journal:** *Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal*  
+**ISSN:** 2583-6633 | **CODEN:** KRABAU  
+**Publication Details:** Vol. 5, Issue 10, October 2026, pp. 1–10  
+**Timeline:** Received: 08/09/2026 | Accepted: 23/10/2026 | Published: 31/10/2026  
+**Issuing Authority:** SAFE (Society for Academic Facilitation & Extension)  
 **Chief Editor:** Dr. Ramesh Chandra  
-**Institutional Affiliation:** Kiran Singh Foundation Directorate & Student Welfare Wing  
-**Authors:**
-- **Ms. Akansha Singh** (Core Member & Treasurer, Kiran Singh Foundation)
-- **Ms. Navyanshi Dwivedi** (Dy. Head Superintendent Manager, Tier 2 Officer, Scholar KSF-STU-024)
+**Corresponding Author:** Mr. Anuj Kumar Singh (ankus102@gmail.com)  
+**Authors:**  
+1. **Mr. Anuj Kumar Singh** (*1) — Pursuing Ph.D. in Law from Dr. Bhim Rao Ambedkar University, Agra  
+2. **Ms. Vaishnavi** (2) — 2nd year B.A. LL.B (Hons.) Aarya Kanya Degree College (Department of Law), University of Allahabad  
+3. **Ms. Navyanshi Dwivedi** (3) — Class XII, Humanities Stream, MPVM, Prayagraj; Dy. HSM, Kiran Singh Foundation  
+4. **Ms. Akansha Singh** (4) — Treasurer and Internship Controller, Kiran Singh Foundation  
+**Full PDF Manuscript:** [Download Original Journal PDF](/docs/publications/nep-2020-policy-perspectives-paper.pdf)
 
 ---
 
 ### Abstract
-The National Education Policy (NEP) 2020 signifies a historic paradigm shift in India's pedagogical philosophy, transitioning the educational ecosystem away from rote-centric legacy systems toward holistic, inquiry-driven, and multidisciplinary paradigms. This research paper evaluates policy perspectives and empirical case studies surrounding the operationalization of Foundational Literacy and Numeracy (FLN) via the NIPUN Bharat mission, digital inclusion initiatives in semi-urban and rural Uttar Pradesh, and structural avenues for youth civic engagement. By analyzing grassroots implementation bottlenecks—including the digital hardware divide, teacher-to-student ratios, and vernacular learning resource disparities—the study models how localized civic incubation and community-partnered mentorship can accelerate educational equity. The authors formulate actionable policy blueprints spanning community digital kiosks, experiential civic internships, and continuous teacher capacity-building to fulfill the constitutional promise of Article 21A and advance long-term nation-building.
 
-**Keywords:** *National Education Policy (NEP) 2020, Digital Inclusion, Foundational Literacy and Numeracy (FLN), NIPUN Bharat, Civic Engagement, Nation-Building, Rural Educational Equity, Experiential Learning, Article 21A Jurisprudence, Pedagogical Reform.*
+Transformation of the education system of India under the National Education Policy 2020 and its implications for literacy, digital inclusion and democratic citizenship are analysed in this research paper. Among the major policies under consideration are the vision and objectives of the policy, changes in the structure of the education system with respect to school education as 5+3+3+4, the NIPUN Bharat initiative for foundational literacy and numeracy, digital programs initiated via DIKSHA and PM e-VIDYA, equity measures in terms of Socio-Economically Disadvantaged Groups and teacher training policies in terms of National Professional Standards for Teachers. In addition, implementation mechanisms including mother tongue as the medium of instruction in foundational stage, use of technology for content delivery, institutional autonomy in higher education and incorporation of constitutional values in the curricula are discussed.
 
----
-
-## 1. Introduction & Socio-Economic Context
-
-The enactment of the National Education Policy 2020 (NEP 2020) by the Government of India marked the end of a 34-year policy hiatus since the 1986 National Policy on Education. Operating within the demographic reality of possessing over 250 million school-aged children, India faces the acute dual mandate of expanding institutional capacity while dramatically upgrading instructional quality.
-
-While post-colonial educational expansions succeeded in raising physical Gross Enrolment Ratios (GER), learning-outcome diagnostics repeatedly revealed severe structural learning poverty. Prior to 2020, national surveys indicated that over 50% of Grade 5 children across rural India could not fluently comprehend a simple Grade 2 text. NEP 2020 acknowledges that universal physical schooling without foundational conceptual mastery represents an illusory triumph.
-
-This research analyzes three interlinked policy frontiers:
-1. **Foundational Literacy and Numeracy (FLN)** as an urgent national public good;
-2. **Digital Inclusion Mechanisms** to bridge urban-rural cognitive access disparities; and
-3. **Civic Engagement and Nation-Building** as indispensable educational outcomes.
+**Keywords:** *National Education Policy 2020, Foundational Literacy and Numeracy, Digital inclusion, educational equity, Civic engagement and Teacher education.*
 
 ---
 
-## 2. Foundational Literacy and the NIPUN Bharat Framework
+## 1. Introduction
 
-Under the National Initiative for Proficiency in Reading with Understanding and Numeracy (NIPUN Bharat), the central policy objective is ensuring that every child achieves foundational reading comprehension and basic mathematical competence by the end of Grade 3.
+India's National Education Policy 2020 represents the first major restructuring of the country's education system in three decades, superseding the National Policy on Education of 1986 as revised in 1992. The policy, which was adopted in July 2020 by the Union Cabinet after an unusually extensive and inclusive deliberation process, started out with the T.S.R. Subramanian Committee Report of 2016 and ended up with the drafting of the final version headed by Dr. K. Kasturirangan. 
 
-### 2.1 The Critical Developmental Window (Ages 3 to 8)
-Brain science demonstrates that over 85% of cumulative brain development occurs prior to age six. The legacy 10+2 system neglected early childhood education, leaving preschools informal and unregulated. NEP 2020's **5+3+3+4 architecture** incorporates three years of Anganwadi/pre-schooling into the formal **Foundational Stage**, creating an integrated 5-year continuum that prevents early cognitive stagnation.
-
-### 2.2 Pedagogical Modality: Play, Activity, and Mother Tongue
-Research across educational psychology conclusively proves that conceptual comprehension accelerates when instruction during the foundational years occurs in the child's mother tongue or regional vernacular. Enforcing foreign linguistic instruction prematurely impedes analytical comprehension, turning early learning into stressful mechanical memorization.
+What makes NEP 2020 different from previous policies is the breadth of its ambition: unlike previous policies that addressed themselves to the school curriculum or funding models for universities, NEP 2020 sets out to redefine education as a means of personal development, social justice, economic productivity, and citizenship all at once.
 
 ---
 
-## 3. The Digital Inclusion Imperative in Rural Uttar Pradesh
+## 2. NEP 2020: Vision, Objectives and Policy Framework
 
-The COVID-19 pandemic catalyzed the widespread deployment of EdTech and digital learning platforms (DIKSHA, PM e-VIDYA, SWAYAM). However, field research across rural Uttar Pradesh reveals that digital acceleration without structural equity risks deepening the **Digital Divide**:
+The stated vision of NEP 2020 is to develop an education system based on the ethos of India that will play a direct role in making India a knowledge society and transform it into an equal and vibrant knowledge society through providing quality education to all. This is not just a statement of vision but operationalized, in the terms of four key goals that run through the entire document — access, equity, quality and accountability, with affordability being added as a fifth goal. 
 
-| Structural Bottleneck | Field Reality in Semi-Urban/Rural UP | Policy Mitigation Mechanism |
-| :--- | :--- | :--- |
-| **Hardware Scarcity** | Multi-child families sharing a single low-end smartphone with limited battery and cracked screens. | Institutional provisioning of subsidized community learning tablets and dedicated school computer labs. |
-| **Bandwidth Instability** | Intermittent 4G cellular coverage; absence of reliable last-mile broadband connectivity. | Offline-first digital architectures, local mesh Wi-Fi relays, and BharatNet optical fiber completion. |
-| **Digital Literacy Gender Gap** | Adolescent female students systematically receive subordinate access to household mobile devices. | Dedicated girl-child technology incubation cells and supervised school digital access hours. |
+Unlike the 1986 policy which focused mostly on inputs, NEP 2020 focuses on outcomes and mentions some quantitative objectives such as increasing the Gross Enrolment Ratio in higher education to 50 per cent by 2035 and achieving universal literacy and numeracy by 2025.
 
----
+### The 5+3+3+4 Structural Paradigm
+As far as the structure of the education system is concerned, school education has been structured from the earlier 10+2 system to 5+3+3+4 system, which means that it corresponds to the four stages of educational learning for the age group of three to eighteen years:
+1. **Foundational Stage (5 Years, Ages 3–8):** 3 years of preschool/Anganwadi plus Grades 1 and 2, focusing on play-based and inquiry pedagogy.
+2. **Preparatory Stage (3 Years, Ages 8–11):** Grades 3 to 5, introducing reading, writing, speaking, arithmetic, and physical education.
+3. **Middle Stage (3 Years, Ages 11–14):** Grades 6 to 8, introducing abstract concepts in sciences, mathematics, arts, and 10-day bagless vocational exposure.
+4. **Secondary Stage (4 Years, Ages 14–18):** Grades 9 to 12, multidisciplinary study with subject flexibility and critical thinking.
 
-## 4. Case Studies on Civic Engagement & Community Incubation
-
-A defining innovation of the **Kiran Singh Foundation** model in Prayagraj has been the structural integration of youth scholarship with active field service:
-- **Case Study A: Decentralized Tutoring Circles**: KSF scholars mobilize neighborhood learning pods, providing structured after-school foundational tutoring to underprivileged children from local slum clusters, directly tracking reading fluency gains.
-- **Case Study B: Digital Literacy Kiosks**: Student teams organize free public digital literacy camps, assisting senior citizens, street vendors, and rural women in navigating Aadhaar portals, DigiLocker, and welfare schemes.
-- **Case Study C: Community Animal Welfare**: Blending ethological awareness with youth civic responsibility by engaging student volunteers in animal feeding, clinical first aid, and stray dog rescue networks.
+Within the higher education segment, the policy calls for multidisciplinary universities and colleges, a Higher Education Commission of India (HECI) as an umbrella regulator, flexible multiple entry-exit points via an Academic Bank of Credits (ABC), and a four-year undergraduate program (FYUP) with an optional research thesis year.
 
 ---
 
-## 5. Policy Recommendations for Sustainable Educational Transformation
+## 3. Foundational Literacy and Numeracy (FLN) Under NEP 2020
 
-1. **Institutionalization of Community Learning Kiosks**: Gram Panchayats and municipal wards should establish solar-powered digital resource hubs equipped with pre-loaded offline NCERT multimedia learning modules.
-2. **Mandatory 50-Hour Teacher Professional Development**: Continuous, accredited upskilling for primary educators, focusing on inquiry-based learning, inclusive education for neurodivergent learners, and digital pedagogy.
-3. **Structured Civic Service Credits in Secondary Schools**: Embedding verified civic engagement hours into the PARAKH holistic progress card, incentivizing students to contribute to local public welfare before board graduation.
+Foundational Literacy and Numeracy (FLN) is considered in NEP 2020 as an urgent national mission. The policy cautions that if a child is unable to read or comprehend basic text or perform basic mathematics at Grade 3, they will be unable to access the curriculum in future years. 
+
+This diagnosis is anchored in empirical findings from the Annual Status of Education Report (ASER), which has consistently revealed that a majority of students in Grades 3 to 5 across rural India are unable to read a Grade 2-level text or perform two-digit subtraction. 
+
+### The NIPUN Bharat Mission
+To address this systemic bottleneck, the Ministry of Education launched the **NIPUN Bharat** mission in 2021 (National Initiative for Proficiency in Reading with Understanding and Numeracy). The mission sets a target to ensure universal foundational literacy and numeracy among all children by the end of Grade 3 by 2026–27. 
+
+NIPUN Bharat provides learning outcomes per grade level, advocating for play-based and activity-based pedagogy over rote memorization. However, field implementation reveals disparities: while states such as Uttar Pradesh, Rajasthan, and Madhya Pradesh have reported structured improvements, independent third-party audits cite acute shortages of primary educators and multi-grade classroom challenges in remote rural districts.
 
 ---
 
-## 6. Conclusion & Scholarly Citations
+## 4. Digital Education and Digital Inclusion
 
-The National Education Policy 2020 offers an unprecedented architectural vision for Indian education. However, its ultimate success depends upon bridging the chasm between New Delhi policy declarations and grassroots classroom realities. By combining foundational literacy guarantees, equitable digital infrastructure, and hands-on civic responsibility, India can transform its demographic scale into an empowered, ethical, and intellectually sovereign generation.
+NEP 2020 was adopted during the onset of the COVID-19 pandemic, which precipitated widespread school closures. The policy dedicates an extensive chapter to Online & Digital Education, recognizing both the potential of educational technology and the acute hazard of the **Digital Divide**.
 
-### Verified Publication Metadata
-- **Journal:** *Knowledgeable Research* (ISSN: 2583-6633)
-- **Publication Record:** Vol. 5, No. 10, October 2026, pp. 1–14
-- **Official Issuance Date:** 31st October 2026
-- **Signed by:** Dr. Ramesh Chandra, Chief Editor, SAFE`,
+The policy proposes:
+- **National Educational Technology Forum (NETF):** An autonomous platform for the free exchange of ideas on technology use in education.
+- **DIKSHA (Digital Infrastructure for Knowledge Sharing):** Curriculum-aligned content in multiple Indian languages.
+- **PM e-VIDYA:** A unified multi-channel program combining digital, television, and radio education to ensure learners in low-connectivity areas are not left behind.
+
+Data from government surveys confirms significant urban-rural internet and device disparities. Experts emphasize that digital education must serve as an instructional complement rather than a substitute for face-to-face classroom learning.
+
+---
+
+## 5. Inclusive and Equitable Education
+
+Equity constitutes one of the five foundational pillars of NEP 2020. The policy categorizes disadvantaged groups as **Socio-Economically Disadvantaged Groups (SEDGs)** across gender identity, socio-cultural identities (SC, ST, OBC), geographical conditions, and disabilities.
+
+Key mechanisms include:
+- **Gender Inclusion Fund:** Dedicated resources to assist states in facilitating education for female and transgender students.
+- **Special Education Zones (SEZs):** Targeted regional investments in areas with high proportions of disadvantaged learners.
+- **Rights of Persons with Disabilities Act, 2016 Alignment:** Assistive technologies, barrier-free infrastructure, and specialized disability educators.
+
+---
+
+## 6. Role of Teachers & Teacher Education
+
+NEP 2020 identifies teachers as the most critical pillar of educational reform:
+- Formulation of **National Professional Standards for Teachers (NPST)** by the National Council for Teacher Education (NCTE).
+- Transition to a **4-Year Integrated B.Ed.** as the minimum qualifying degree for school teaching by 2030.
+- Mandatory **50 hours of annual Continuous Professional Development (CPD)** for every educator through platforms like NISHTHA.
+
+---
+
+## 7. Civic Engagement, Constitutional Values & Nation-Building
+
+Education extends far beyond economic utility; it is the engine of democratic citizenship. NEP 2020 explicitly connects learning with the cultivation of Fundamental Duties and constitutional values: justice, liberty, equality, fraternity, empathy, pluralism, and democratic tolerance.
+
+Nation-building through education encompasses four dimensions:
+1. Universal and equitable educational access.
+2. Foundational cognitive capabilities enabling economic participation.
+3. Multidisciplinary learning and critical thinking.
+4. Multilingualism and Indian knowledge traditions.
+
+---
+
+## 8. Case Studies on the Implementation of NEP 2020
+
+The implementation of NEP 2020 is occurring progressively across states:
+
+- **Case Study 1: Delhi SCERT Task-Based Framework**: The State Council of Educational Research and Training, Delhi, operationalized a structured framework covering teacher availability, community sensitization, parental participation, and special-needs inclusion.
+- **Case Study 2: Samagra Shiksha Vocational Integration**: Integrating NSQF-aligned courses for Grades 9–12 and a 10-day bagless period for Grades 6–8 involving local craftspeople (carpenters, potters, gardeners) to dignify vocational labor.
+- **Case Study 3: NISHTHA Teacher Capacity Building**: The National Initiative for School Heads' and Teachers' Holistic Advancement expanded to deliver continuous pedagogical upskilling across foundational, preparatory, and secondary stages.
+
+---
+
+## 9. Challenges, Policy Gaps & Future Prospects
+
+Despite its transformative vision, NEP 2020 faces critical structural hurdles:
+1. **Fiscal Constraints:** Public expenditure on education remains at ~4% of GDP, falling short of the recommended 6% target first articulated by the Kothari Commission in 1966.
+2. **Federal Coordination:** Because education is in the Concurrent List (Entry 25), harmonious Union-State cooperative federalism is mandatory for curriculum and examination reforms.
+3. **Institutional Capacity Gaps:** The transition requires massive capital investments in teacher recruitment, rural laboratory infrastructure, and digital hardware.
+
+---
+
+## 10. Conclusion
+
+NEP 2020 represents a broad restructuring of Indian education in which academic learning, constitutional values, citizenship, vocational preparation, and national development are interconnected. Its emphasis on holistic education seeks to produce learners who are not only knowledgeable but also socially responsible, adaptable, and capable of participating in an evolving economy. The transition from policy document to educational reality depends upon sustained public investment, capable teachers, institutional coordination, equitable access, and evidence-based monitoring.
+
+---
+
+### Primary References
+
+1. Ministry of Education, Government of India. (2020). *National Education Policy 2020*.
+2. Ministry of Education, Government of India. (2020). *Implementation of NEP 2020*. NEP 2020 Implementation Portal.
+3. Press Information Bureau, Government of India. (2020). *Implementation of NEP, 2020*.
+4. NITI Aayog. (2021). *School Education System in India: Present State, Challenges and the Way Forward*.
+5. Ministry of Human Resource Development, Government of India. (2020). *National Education Policy 2020*.
+6. Ministry of Education, Government of India. (2021). *NIPUN Bharat: National Initiative for Proficiency in Reading with Understanding and Numeracy Guidelines*.
+7. National Council of Educational Research and Training. (2023). *National Curriculum Framework for School Education (NCF-SE)*.
+8. ASER Centre / Pratham. (2022). *Annual Status of Education Report (Rural)*.
+9. Ministry of Education, Government of India. (2021). *PM e-VIDYA and DIKSHA Platform Documentation*.
+10. Government of India. (2016). *The Rights of Persons with Disabilities Act, 2016*.`,
   },
 
   // --------------------------------------------------------------------------
-  // 2. CRISIS OF CAMPUS GOVERNANCE (ANUJ KUMAR SINGH & SHIKSHA JAISWAL)
+  // 2. CRISIS OF CAMPUS GOVERNANCE (PP. 11-17)
   // --------------------------------------------------------------------------
   {
     id: "pub-campus-governance-crisis",
     slug: "crisis-of-campus-governance-reclaiming-universities-research-culture",
     title:
-      "The Crisis of Campus Governance: Reclaiming Universities through Trust, Student Voice and Incorporating Research Culture",
+      "The Crisis of Campus Governance: Reclaiming Universities through trust, student voice and incorporating research culture",
     journalName:
-      "Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal",
+      "Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal",
     issn: "2583-6633",
+    coden: "KRABAU",
     volume: "Vol. 5",
     issue: "No. 10",
+    pages: "pp. 11–17",
     publicationMonthYear: "October (2026)",
+    receivedDate: "08/09/2026",
+    acceptedDate: "23/10/2026",
     publicationDate: "2026-10-31",
     issuingSociety: "SAFE (Society for Academic Facilitation & Extension)",
     chiefEditor: "Dr. Ramesh Chandra",
+    correspondingAuthor: "Mr. Anuj Kumar Singh",
+    correspondingEmail: "ankus102@gmail.com",
     peerReviewed: true,
     refereed: true,
     coverImageUrl: "/images/publications/certificates/cert-anuj-kumar-singh-campus-governance.jpg",
+    pdfDownloadUrl: "/docs/publications/campus-governance-student-voice-paper.pdf",
     authors: [
       {
         name: "Mr. Anuj Kumar Singh",
-        role: "Core Trustee & Secretary (Ph.D. Scholar)",
+        role: "Corresponding Author & Secretary (Ph.D. Scholar in Law)",
         institution: "Department of Law, Dr. Bhim Rao Ambedkar University, Agra",
         certificateUrl: "/images/publications/certificates/cert-anuj-kumar-singh-campus-governance.jpg",
+      },
+      {
+        name: "Ms. Unnaati Roy",
+        role: "Co-Author & Student Researcher",
+        institution: "1st Year B.A. (Hons.) History, St. Xavier's College (Autonomous), Kolkata, Raghabpur Campus",
       },
       {
         name: "Ms. Shiksha Jaiswal",
         role: "Scholar & Academic Officer",
         scholarId: "KSF-STU-025",
-        institution: "Kiran Singh Foundation (Student Welfare Wing)",
+        institution: "Class XII, Humanities Stream, Maharshi Patanjali Vidya Mandir (MPVM), Prayagraj",
         certificateUrl: "/images/publications/certificates/cert-shiksha-jaiswal-campus-governance.jpg",
       },
     ],
     abstract:
-      "Modern universities represent the intellectual crucibles of democratic nations. However, contemporary Indian higher education campuses are navigating an unprecedented crisis of governance characterized by bureaucratic centralization, erosion of deliberative student representation, systemic distrust between administrations and learners, and the pervasive commodification of degree conferral. This research examines the institutional mechanisms underpinning this governance breakdown, analyzing the atrophy of student union democracy, contentious hostel administrations, and the marginalization of undergraduate inquiry. Contrasting defensive, coercive administrative policing with models of collaborative academic trust, the authors formulate a dual institutional framework: first, statutory revitalization of autonomous student consultative councils; and second, the systematic integration of rigorous research culture beginning at the undergraduate level. Drawing upon empirical higher education datasets and KSF mentorship outcomes, the study proves that institutional peace and global academic ranking achieve durable sustainability only when campus governance is anchored in transparency, academic freedom, and mutual institutional respect.",
+      "Higher education in India is currently going through a structural crisis, marked by a gap in trust between university administrations, the regulatory authorities, and the student body. This situation has come to the surface as a result of the Supreme Court's important decision to stop the Bar Council of India (BCI) from taking disciplinary action against NALSAR law students and to dismiss the related FIRs, thereby bringing the issues of institutional governance and student involvement into the national conversation. This paper looks at the causes of unrest on campus by studying and suggesting reforms in the administrative models currently followed and the ones required to meet the demands of the students. It also examines the constitutional aspects of academic freedom as provided for in various constitutions around the world and the ones implied by Articles 19(1)(a), 21 and 51A(h) which are enshrined in the Indian Constitution. Pointing out the systemic pressures arising from excessive regulation, political interference, and insufficient public funding, which stands at approximately 4% of GDP—far short of the 6% target set by the National Education Policy (NEP) 2020, this study also investigates the exclusion of students from participating in curriculum development and institutional governance. Lastly, the paper suggests several measures and strategies, such as ensuring transparency in decision-making, establishing direct lines of communication between students and safeguarding against undue interference from external regulators etc. and it calls for a shift towards a university system that is knowledge-focused and based on trust.",
     keywords: [
       "Campus Governance",
-      "Higher Education Administration",
-      "University Autonomy",
-      "Student Representation",
-      "Academic Research Culture",
-      "Institutional Trust",
-      "Deliberative Democracy",
-      "Undergraduate Research",
-      "Educational Sociology",
-      "Administrative Accountability",
+      "Student Voice",
+      "Academic Freedom",
+      "Bar Council of India (BCI)",
+      "NALSAR Case",
+      "Control Model",
+      "Liberty Model",
+      "Constitutional Autonomy",
+      "Higher Education Reforms",
     ],
     apaCitation:
-      "Singh, A. K., & Jaiswal, S. (2026). The Crisis of Campus Governance: Reclaiming Universities through Trust, Student Voice and Incorporating Research Culture. Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal, 5(10), ISSN: 2583-6633.",
+      "Singh, A. K., Roy, U., & Jaiswal, S. (2026). The Crisis of Campus Governance: Reclaiming Universities through trust, student voice and incorporating research culture. Knowledgeable Research (KR), 5(10), 11–17. ISSN: 2583-6633.",
     bluebookCitation:
-      "Anuj Kumar Singh & Shiksha Jaiswal, The Crisis of Campus Governance: Reclaiming Universities through Trust, Student Voice and Incorporating Research Culture, 5 Knowledgeable Res. 10 (2026).",
-    contentMarkdown: `## International Journal Publication
+      "Anuj Kumar Singh, Unnaati Roy & Shiksha Jaiswal, The Crisis of Campus Governance: Reclaiming Universities through trust, student voice and incorporating research culture, 5 Knowledgeable Res. 11 (2026).",
+    contentMarkdown: `## Official Publication Record
 
-**Journal:** *Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal*  
-**Issuing Authority:** Society for Academic Facilitation & Extension (SAFE)  
-**ISSN:** 2583-6633 • Volume 5, Issue 10, October 2026 (Published: 31/10/2026)  
+**Journal:** *Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal*  
+**ISSN:** 2583-6633 | **CODEN:** KRABAU  
+**Publication Details:** Vol. 5, Issue 10, October 2026, pp. 11–17  
+**Timeline:** Received: 08/09/2026 | Accepted: 23/10/2026 | Published: 31/10/2026  
+**Issuing Authority:** SAFE (Society for Academic Facilitation & Extension)  
 **Chief Editor:** Dr. Ramesh Chandra  
-**Institutional Affiliation:** Department of Law, DBRAU Agra & Kiran Singh Foundation  
-**Authors:**
-- **Mr. Anuj Kumar Singh** (Ph.D. Scholar, Dept. of Law, DBRAU Agra; Secretary, Kiran Singh Foundation)
-- **Ms. Shiksha Jaiswal** (Scholar & Academic Officer, Kiran Singh Foundation, KSF-STU-025)
+**Corresponding Author:** Mr. Anuj Kumar Singh (ankus102@gmail.com)  
+**Authors:**  
+1. **Mr. Anuj Kumar Singh** (*1) — Pursuing Ph.D. in Law from Dr. Bhim Rao Ambedkar University, Agra  
+2. **Ms. Unnaati Roy** (2) — 1st Year BA (Hons.) History, St. Xavier's College (Autonomous), Kolkata, Raghabpur Campus  
+3. **Ms. Shiksha Jaiswal** (3) — Class XII, Humanities Stream, MPVM, Prayagraj; Scholar KSF-STU-025  
+**Full PDF Manuscript:** [Download Original Journal PDF](/docs/publications/campus-governance-student-voice-paper.pdf)
 
 ---
 
 ### Abstract
-Modern universities represent the intellectual crucibles of democratic nations. However, contemporary Indian higher education campuses are navigating an unprecedented crisis of governance characterized by bureaucratic centralization, erosion of deliberative student representation, systemic distrust between administrations and learners, and the pervasive commodification of degree conferral. This research examines the institutional mechanisms underpinning this governance breakdown, analyzing the atrophy of student union democracy, contentious hostel administrations, and the marginalization of undergraduate inquiry. Contrasting defensive, coercive administrative policing with models of collaborative academic trust, the authors formulate a dual institutional framework: first, statutory revitalization of autonomous student consultative councils; and second, the systematic integration of rigorous research culture beginning at the undergraduate level. Drawing upon empirical higher education datasets and KSF mentorship outcomes, the study proves that institutional peace and global academic ranking achieve durable sustainability only when campus governance is anchored in transparency, academic freedom, and mutual institutional respect.
 
-**Keywords:** *Campus Governance, Higher Education Administration, University Autonomy, Student Representation, Academic Research Culture, Institutional Trust, Deliberative Democracy, Undergraduate Research, Educational Sociology, Administrative Accountability.*
+Higher education in India is currently going through a structural crisis, marked by a gap in trust between university administrations, the regulatory authorities, and the student body. This situation has come to the surface as a result of the Supreme Court's important decision to stop the Bar Council of India (BCI) from taking disciplinary action against NALSAR law students and to dismiss the related FIRs, thereby bringing the issues of institutional governance and student involvement into the national conversation. This paper looks at the causes of unrest on campus by studying and suggesting reforms in the administrative models currently followed and the ones required to meet the demands of the students. It also examines the constitutional aspects of academic freedom as provided for in various constitutions around the world and the ones implied by Articles 19(1)(a), 21 and 51A(h) which are enshrined in the Indian Constitution. Pointing out the systemic pressures arising from excessive regulation, political interference, and insufficient public funding, which stands at approximately 4% of GDP—far short of the 6% target set by the National Education Policy (NEP) 2020, this study also investigates the exclusion of students from participating in curriculum development and institutional governance. Lastly, the paper suggests several measures and strategies, such as ensuring transparency in decision-making, establishing direct lines of communication between students and safeguarding against undue interference from external regulators etc. and it calls for a shift towards a university system that is knowledge-focused and based on trust.
 
----
-
-## 1. Introduction: The Degeneration of the Campus Ideal
-
-A university is fundamentally different from a commercial training corporation. In classical political and educational philosophy, the university is a self-governing community of scholars (*universitas magistrorum et scholarium*) dedicated to uninhibited intellectual inquiry, critical debate, and the pursuit of truth.
-
-In contemporary India, however, universities are increasingly managed through the prism of administrative control, risk aversion, and bureaucratic surveillance. When student dissent is criminalized, grievance redressal mechanisms become moribund, and research is treated as an elite activity reserved exclusively for terminal doctoral candidates, the democratic soul of the university atrophies.
-
-This paper diagnoses the root causes of campus governance breakdowns and presents an operational roadmap for structural renewal.
+**Keywords:** *Campus Governance, Student Voice, Academic Freedom, Bar Council of India (BCI), NALSAR Case, Control Model, Liberty Model, Constitutional Autonomy, Higher Education Reforms.*
 
 ---
 
-## 2. Anatomies of Breakdown: Distrust and Bureaucratic Coercion
+## 1. Introduction & The Trigger Point
 
-The breakdown of campus governance manifests across four systemic fault lines:
+The matter of campus governance and student voice came to the spotlight following the Supreme Court's stay on the Bar Council of India (BCI)'s order against the graduating students of the National Academy of Legal Studies and Research (NALSAR), Hyderabad. In one of the landmark judgments delivered by **CJI Surya Kant**, the Supreme Court quashed the FIRs against the protesting students and held that the **Advocates Act, 1961** confers no express or implied power on the BCI or State Bar Councils to discipline university students prior to formal bar enrollment. 
 
-1. **Suppression of Legitimate Student Voice**: The suspension or bureaucratic stalling of elected student representative bodies has created an accountability vacuum. Without formal deliberative channels, everyday grievances (substandard hostel mess sanitation, fee hikes, library curfews) escalate into disruptive street protests.
-2. **Defensive Administrative Mindset**: University authorities frequently view their own students through a lens of suspicion rather than intellectual stewardship, relying upon police deployment, punitive disciplinary notices, and campus CCTV surveillance.
-3. **Marginalization of Faculty Governance**: Centralization of executive power in Vice-Chancellors' secretariats has curtailed the academic autonomy of faculty senates and department heads.
-4. **Credentialism Over Epistemic Inquiry**: Syllabi remain tethered to outdated examination rote recall, divorcing classroom instruction from lived socioeconomic problems.
+Regulatory reach is strictly confined to enrolled advocates, protecting peaceful student protest and academic freedom. This verdict sparked nationwide debate regarding the distribution of institutional power, administrative accountability, and the democratic role of students in modern Indian universities.
 
 ---
 
-## 3. Rebuilding Campus Trust: The Tripartite Governance Model
+## 2. The Colonial Legacy and Policy Failures
 
-To overcome administrative paralysis, university governance must transition from coercive top-down command to an integrated **Tripartite Consultative Model**:
+India's higher education system has yet to recover from its systematic conditioning under colonial rule. After nearly eight decades of Independence, universities still prioritize clerical conformity over independent critical inquiry. 
 
-\`\`\`
-┌─────────────────────────────────────────────────────────────┐
-│              TRIPARTITE CAMPUS GOVERNANCE MODEL             │
-├──────────────────────────────┬──────────────────────────────┤
-│ 1. ADMINISTRATIVE WING       │ Executive execution, fiscal  │
-│    (VC, Registrar, Deans)    │ compliance, infrastructure   │
-├──────────────────────────────┼──────────────────────────────┤
-│ 2. FACULTY SENATE            │ Curricular design, academic  │
-│    (Professors & Researchers)│ freedom, research standards  │
-├──────────────────────────────┼──────────────────────────────┤
-│ 3. ELECTED STUDENT SENATE    │ Welfare oversight, student   │
-│    (Undergrad & Postgrad)    │ voice, grievance arbitration │
-└──────────────────────────────┴──────────────────────────────┘
-\`\`\`
-
-When students possess formal, institutionalized voting seats on campus academic councils, library boards, and hostel management committees, mutual accountability replaces hostile friction.
+While NEP 2020 promises transformative modernization, implementation remains uneven. The legacy bureaucratic architecture was engineered to produce obedient functionaries rather than autonomous innovators. Contemporary students, empowered by instant access to global media and digital networks, find themselves alienated within rigid hierarchical institutions designed to suppress questioning.
 
 ---
 
-## 4. Incorporating Research Culture at the Undergraduate Level
+## 3. Root Causes of the Crisis: The Control Model
 
-A critical finding of this research is that **active research culture is the ultimate antidote to campus cynicism and unrest**:
-- **Democratizing Research Early**: Traditional Indian universities postpone research until Ph.D. coursework. In contrast, progressive global institutions embed empirical research methodologies in the first year of undergraduate studies.
-- **The Kiran Singh Foundation Cohort Model**: Under KSF's 4-team research model, undergraduate and school scholars work collaboratively with Ph.D. mentors, conducting field surveys, drafting formal working papers, generating plagiarism reports, and defending findings before professional evaluative panels.
-- **Cognitive Shift**: Engaging young minds in substantive intellectual problem-solving channels student passion into constructive scholarship, creating publication-ready outputs and high-order critical reasoning.
-
----
-
-## 5. Policy Recommendations for University Administrators
-
-1. **Statutory Mandate for Transparent Student Ombudspersons**: Every state and central university must establish an independent, non-administrative Ombudsperson to resolve student grievances within strict 14-day statutory windows.
-2. **Institutional Research Seed Grants for Undergraduates**: University grants commissions should allocate dedicated budgetary tranches specifically funding undergraduate research projects and travel grants for national symposia.
-3. **Decriminalization of Academic Dissent**: Clear guidelines forbidding the invocation of criminal police action for non-violent on-campus academic protests, restoring internal academic arbitration.
+Higher education institutions in India are structured predominantly around an imperial "Control Model":
+- **Administrative Inaccessibility:** Vice-Chancellors operate as isolated executive figures, maintaining zero structured interaction with student bodies.
+- **Power Struggles & System Strains:** While NEP 2020 promises public investment of 6% of GDP in education, actual spending languishes at **4.0% to 4.1% of GDP**, with higher education receiving the smallest allocation. The sector is simultaneously over-regulated and severely underfunded.
+- **Political Subversion of Student Representation:** Campus elections and student councils are frequently co-opted by national political parties, turning campus governance into proxies for outside partisan battles rather than student welfare.
 
 ---
 
-## 6. Conclusion & Scholarly Citations
+## 4. Constitutional Dimensions of Academic Freedom
 
-Reclaiming the Indian university requires dismantling the false dichotomy between administrative order and student democratic agency. A campus that silences student voices can produce degree-holders, but it cannot produce democratic citizens or courageous thinkers. By anchoring university administration in mutual trust, structural student representation, and vigorous undergraduate research, Indian higher education can fulfill its constitutional destiny as an engine of enlightenment and national transformation.
+### International Comparative Frameworks
+Many nation-states provide explicit constitutional guarantees for academic autonomy:
+- **Germany:** Article 5(3) of the Basic Law (*Wissenschaft, Forschung und Lehre sind frei*) guarantees absolute freedom of scientific research and teaching.
+- **Hong Kong:** Article 137 of the Basic Law protects institutional autonomy and academic freedom in higher education.
+- **Japan, South Africa, and Spain:** Explicit constitutional clauses shielding academic researchers and universities from executive state interference.
 
-### Verified Publication Metadata
-- **Journal:** *Knowledgeable Research* (ISSN: 2583-6633)
-- **Publication Record:** Vol. 5, No. 10, October 2026, pp. 15–28
-- **Official Issuance Date:** 31st October 2026
-- **Signed by:** Dr. Ramesh Chandra, Chief Editor, SAFE`,
+### The Indian Constitutional Trilogy
+While the Indian Constitution lacks a single express "academic freedom" clause, the Supreme Court has derived it from three foundational provisions:
+1. **Article 19(1)(a):** Freedom of speech and expression, shielding academic publication, research dissemination, and non-violent dissent from censorship.
+2. **Article 21:** The right to life and personal liberty, protecting students from arbitrary disciplinary actions, hostel evictions, or retaliatory academic penalties.
+3. **Article 51A(h):** The fundamental constitutional duty of every citizen to develop the scientific temper, humanism, and the spirit of inquiry and reform.
+
+---
+
+## 5. Rebuilding Trust: Five Pillars of Structural Reform
+
+To restore institutional harmony, university administration must transition from authoritarian containment to collaborative trust:
+
+1. **Connecting Education to Career Pathways:** Reducing student anxiety by aligning liberal arts and sciences with genuine economic opportunities, professional apprenticeships, and research fellowships.
+2. **Tailored Equal Education & Curricular Flexibility:** Involving students in curriculum design, allowing flexible multidisciplinary subject choices, and ending administrative discrimination against humanities departments.
+3. **Meaningful Interaction Between Students and Administration:** Establishing standing bi-weekly townhalls, transparent grievance redressal tribunals, and formal student voting seats on university executive councils.
+4. **Institutional Transparency:** Publishing the reasoning and administrative deliberations behind university fee, hostel, and curriculum decisions to eliminate suspicions of corruption or favoritism.
+5. **Administrative Stability:** Halting constant ad-hoc syllabus shifts, investing in faculty pedagogical training, and ensuring predictability in examination schedules.
+
+---
+
+## 6. Conclusion & The New System
+
+The age-old educational and administrative practices must be altered to fit modern demands. Unrest on university campuses stems not from indiscipline, but from an acute lack of trust and structural insecurity among students and faculty. When external regulatory overreach is curbed, decision-making is democratized, and research culture is nurtured from the first year of undergraduate studies, universities can fulfill their destiny as self-governing sanctuaries of enlightenment.
+
+---
+
+### Primary References
+
+1. Supreme Court of India. (2026). *Order in NALSAR University Disciplinary Matter (Bench of CJI Surya Kant)*.
+2. The Hindu. (2026). *Reclaiming Universities Through Trust and Student Voice*.
+3. Deccan Herald. (2026). *How to Revive Indian Universities: Institutional Autonomy & Student Rights*.
+4. Inside Higher Ed. (2026). *Rebuilding Student Trust: Coaching Strategies and Campus Belonging*.
+5. Indian Kanoon. (2026). *Judicial Precedents on Advocates Act 1961 and University Discipline*.
+6. Government of India. (1961). *The Advocates Act, 1961 (Act No. 25 of 1961)*.
+7. Constitution of India. (1950). *Articles 19(1)(a), 21, and 51A(h)*.`,
   },
 
   // --------------------------------------------------------------------------
-  // 3. ELECTION COMMISSION SIR ALLEGATIONS (PRATEEKSHA PANDEY & ROHINI AGARWAL)
+  // 3. ELECTION COMMISSION SIR ALLEGATIONS (PP. 18-24)
   // --------------------------------------------------------------------------
   {
     id: "pub-election-commission-sir-analysis",
@@ -330,149 +428,182 @@ Reclaiming the Indian university requires dismantling the false dichotomy betwee
     title:
       "Election Commission of India and the Latest Allegations Regarding the Use of Special Intensive Revision (SIR) in Favour of the Ruling Administration",
     journalName:
-      "Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal",
+      "Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal",
     issn: "2583-6633",
+    coden: "KRABAU",
     volume: "Vol. 5",
     issue: "No. 10",
+    pages: "pp. 18–24",
     publicationMonthYear: "October (2026)",
-    publicationDate: "2026-10-31",
+    receivedDate: "08/09/2026",
+    acceptedDate: "23/10/2026",
+    publicationDate: "2026-10-30",
     issuingSociety: "SAFE (Society for Academic Facilitation & Extension)",
     chiefEditor: "Dr. Ramesh Chandra",
+    correspondingAuthor: "Mr. Anuj Kumar Singh",
+    correspondingEmail: "ankus102@gmail.com",
     peerReviewed: true,
     refereed: true,
-    coverImageUrl:
-      "/images/publications/certificates/cert-prateeksha-pandey-election-commission.jpg",
+    coverImageUrl: "/images/publications/certificates/cert-prateeksha-pandey-election-commission.jpg",
+    pdfDownloadUrl: "/docs/publications/election-commission-sir-allegations-paper.pdf",
     authors: [
+      {
+        name: "Mr. Anuj Kumar Singh",
+        role: "Corresponding Author & Secretary (Ph.D. Scholar in Law)",
+        institution: "Department of Law, Dr. Bhim Rao Ambedkar University, Agra",
+        certificateUrl: "/images/publications/certificates/cert-anuj-kumar-singh-campus-governance.jpg",
+      },
+      {
+        name: "Ms. Vaishnavi",
+        role: "Co-Author & Student Researcher",
+        institution: "2nd Year B.A. LL.B. (Hons.), Aarya Kanya Degree College, Department of Law, University of Allahabad",
+      },
       {
         name: "Ms. Prateeksha Pandey",
         role: "Head Superintendent Manager (Tier 1 Officer)",
         scholarId: "KSF-STU-007",
-        institution: "Kiran Singh Foundation (Student Welfare Wing)",
-        certificateUrl:
-          "/images/publications/certificates/cert-prateeksha-pandey-election-commission.jpg",
+        institution: "4th Year B.A. LL.B. (Hons.), Allahabad State University",
+        certificateUrl: "/images/publications/certificates/cert-prateeksha-pandey-election-commission.jpg",
+      },
+      {
+        name: "Ms. Navyanshi",
+        role: "Dy. Head Superintendent Manager (Tier 2 Officer)",
+        scholarId: "KSF-STU-024",
+        institution: "Class XII, Humanities Stream, Maharshi Patanjali Vidya Mandir (MPVM), Prayagraj",
+        certificateUrl: "/images/publications/certificates/cert-navyanshi-dwivedi-nep-2020.jpg",
       },
       {
         name: "Ms. Rohini Agarwal",
-        role: "Scholar & Team Leader",
+        role: "Scholar & Student Researcher",
         scholarId: "KSF-STU-026",
-        institution: "Kiran Singh Foundation (Student Welfare Wing)",
-        certificateUrl:
-          "/images/publications/certificates/cert-rohini-agarwal-election-commission.jpg",
+        institution: "Class XII, Humanities Stream, Maharshi Patanjali Vidya Mandir (MPVM), Prayagraj",
+        certificateUrl: "/images/publications/certificates/cert-rohini-agarwal-election-commission.jpg",
       },
     ],
     abstract:
-      "Free and fair elections constitute the foundational bedrock of Indian constitutional democracy and an unalterable component of the Basic Structure Doctrine. Central to electoral integrity is the statutory sanctity of the electoral roll, prepared and revised under the plenary superintendence of the Election Commission of India (ECI) pursuant to Article 324 and the Representation of the People Act, 1950. Recently, sharp political and public scrutiny has emerged surrounding the deployment of Special Intensive Revision (SIR) protocols, with allegations alleging that targeted deletions disproportionately impact minority voters, informal urban settlements, and opposition constituencies to benefit incumbent administrations. This research conducts a rigorous constitutional, administrative, and technological analysis of the SIR architecture. Interrogating the operational seam between booth-level officers (BLOs), automated algorithmic deduplication software, and appellate verification mechanisms under the Registration of Electors Rules 1960, the paper evaluates empirical data from contentious electoral cycles. The authors propose six statutory safeguards spanning public algorithmic audits, mandatory physical notice prior to voter disenfranchisement, and independent judicial oversight to restore unimpeachable public faith in the electoral roll.",
+      "According to Article 324 of the Constitution, the Election Commission of India (ECI) is in charge of making sure that elections are free and fair. By eliminating duplicate, deceased, and ineligible entries while adding eligible voters, the Special Intensive Revision (SIR) seeks to maintain accurate electoral rolls. Concerns about improper voter exclusion, documentation requirements, transparency, and purported political bias in favor of the ruling administration have been raised by its implementation in Bihar and West Bengal. This study looks at the Supreme Court's observations about voter protection, the function of the ECI, and the constitutionality of SIR. It emphasizes the necessity of fair execution, open processes, easily accessible appeals, and accountability in order to protect voting rights and bolster democratic governance. The main question was related to the process of conducting election by the top-notch officials of the Constitutional bodies and why the Chief Election Commissioner was not consulting the other members before coming to a conclusion? The point of not consulting the core members led to the existing controversy which requires proper examination. As a Constitutional body, the Election Commission of India shall be independent and impartial while executing its functions and their decisions shall be unbiased and taken in the interests of the general public.",
     keywords: [
-      "Election Commission of India (ECI)",
-      "Article 324 Jurisprudence",
-      "Special Intensive Revision (SIR)",
-      "Electoral Roll Integrity",
-      "Representation of the People Act 1950",
-      "Basic Structure Doctrine",
-      "Voter Disenfranchisement",
-      "Algorithmic Deduplication",
-      "Democratic Accountability",
-      "Booth Level Officers (BLOs)",
+      "ECI",
+      "Special Intensive Revision",
+      "Electoral Roll",
+      "Universal Adult Franchise",
+      "ECI-Net",
     ],
     apaCitation:
-      "Pandey, P., & Agarwal, R. (2026). Election Commission of India and the Latest Allegations Regarding the Use of Special Intensive Revision (SIR) in Favour of the Ruling Administration. Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal, 5(10), ISSN: 2583-6633.",
+      "Singh, A. K., Vaishnavi, Pandey, P., Navyanshi, & Agarwal, R. (2026). Election Commission of India and the Latest Allegations Regarding the Use of Special Intensive Revision (SIR) in Favour of the Ruling Administration. Knowledgeable Research (KR), 5(10), 18–24. ISSN: 2583-6633.",
     bluebookCitation:
-      "Prateeksha Pandey & Rohini Agarwal, Election Commission of India and the Latest Allegations Regarding the Use of Special Intensive Revision (SIR) in Favour of the Ruling Administration, 5 Knowledgeable Res. 10 (2026).",
-    contentMarkdown: `## International Journal Publication
+      "Anuj Kumar Singh, Vaishnavi, Prateeksha Pandey, Navyanshi & Rohini Agarwal, Election Commission of India and the Latest Allegations Regarding the Use of Special Intensive Revision (SIR) in Favour of the Ruling Administration, 5 Knowledgeable Res. 18 (2026).",
+    contentMarkdown: `## Official Publication Record
 
-**Journal:** *Knowledgeable Research: An International Peer Reviewed & Refereed Multidisciplinary Journal*  
-**Issuing Authority:** Society for Academic Facilitation & Extension (SAFE)  
-**ISSN:** 2583-6633 • Volume 5, Issue 10, October 2026 (Published: 31/10/2026)  
+**Journal:** *Knowledgeable Research (KR): An International Open-Access Peer-Reviewed Refereed Multidisciplinary Journal*  
+**ISSN:** 2583-6633 | **CODEN:** KRABAU  
+**Publication Details:** Vol. 5, Issue 10, October 2026, pp. 18–24  
+**Timeline:** Received: 08/09/2026 | Accepted: 23/10/2026 | Published: 30/10/2026  
+**Issuing Authority:** SAFE (Society for Academic Facilitation & Extension)  
 **Chief Editor:** Dr. Ramesh Chandra  
-**Institutional Affiliation:** Kiran Singh Foundation (Student Welfare Wing) • Directorate of Socio-Legal Research  
-**Authors:**
-- **Ms. Prateeksha Pandey** (Head Superintendent Manager, Tier 1 Officer, KSF-STU-007)
-- **Ms. Rohini Agarwal** (Scholar & Team Leader, KSF-STU-026)
+**Corresponding Author:** Mr. Anuj Kumar Singh (ankus102@gmail.com)  
+**Authors:**  
+1. **Mr. Anuj Kumar Singh** (*1) — Pursuing Ph.D. in Law from Dr. Bhim Rao Ambedkar University, Agra  
+2. **Ms. Vaishnavi** (2) — 2nd year B.A. LL.B (Hons.) Aarya Kanya Degree College (Department of Law), University of Allahabad  
+3. **Ms. Prateeksha Pandey** (3) — 4th year B.A. LL.B. (Hons.) Allahabad State University; HSM, Kiran Singh Foundation  
+4. **Ms. Navyanshi** (4) — Class XII, Humanities Stream, MPVM, Prayagraj; Dy. HSM, Kiran Singh Foundation  
+5. **Ms. Rohini Agarwal** (5) — Class XII, Humanities Stream, MPVM, Prayagraj; Scholar KSF-STU-026  
+**Full PDF Manuscript:** [Download Original Journal PDF](/docs/publications/election-commission-sir-allegations-paper.pdf)
 
 ---
 
 ### Abstract
-Free and fair elections constitute the foundational bedrock of Indian constitutional democracy and an unalterable component of the Basic Structure Doctrine. Central to electoral integrity is the statutory sanctity of the electoral roll, prepared and revised under the plenary superintendence of the Election Commission of India (ECI) pursuant to Article 324 and the Representation of the People Act, 1950. Recently, sharp political and public scrutiny has emerged surrounding the deployment of Special Intensive Revision (SIR) protocols, with allegations alleging that targeted deletions disproportionately impact minority voters, informal urban settlements, and opposition constituencies to benefit incumbent administrations. This research conducts a rigorous constitutional, administrative, and technological analysis of the SIR architecture. Interrogating the operational seam between booth-level officers (BLOs), automated algorithmic deduplication software, and appellate verification mechanisms under the Registration of Electors Rules 1960, the paper evaluates empirical data from contentious electoral cycles. The authors propose six statutory safeguards spanning public algorithmic audits, mandatory physical notice prior to voter disenfranchisement, and independent judicial oversight to restore unimpeachable public faith in the electoral roll.
 
-**Keywords:** *Election Commission of India (ECI), Article 324 Jurisprudence, Special Intensive Revision (SIR), Electoral Roll Integrity, Representation of the People Act 1950, Basic Structure Doctrine, Voter Disenfranchisement, Algorithmic Deduplication, Democratic Accountability, Booth Level Officers (BLOs).*
+According to Article 324 of the Constitution, the Election Commission of India (ECI) is in charge of making sure that elections are free and fair. By eliminating duplicate, deceased, and ineligible entries while adding eligible voters, the Special Intensive Revision (SIR) seeks to maintain accurate electoral rolls. Concerns about improper voter exclusion, documentation requirements, transparency, and purported political bias in favor of the ruling administration have been raised by its implementation in Bihar and West Bengal. This study looks at the Supreme Court's observations about voter protection, the function of the ECI, and the constitutionality of SIR. It emphasizes the necessity of fair execution, open processes, easily accessible appeals, and accountability in order to protect voting rights and bolster democratic governance. The main question was related to the process of conducting election by the top-notch officials of the Constitutional bodies and why the Chief Election Commissioner was not consulting the other members before coming to a conclusion? The point of not consulting the core members led to the existing controversy which requires proper examination. As a Constitutional body, the Election Commission of India shall be independent and impartial while executing its functions and their decisions shall be unbiased and taken in the interests of the general public.
 
----
-
-## 1. Introduction: Constitutional Sanctity of the Electoral Roll
-
-In the landmark case of *Indira Nehru Gandhi v. Raj Narain (1975)*, the Supreme Court of India firmly settled that free, fair, and periodic elections constitute an inviolable facet of the Basic Structure of the Constitution. The legitimacy of any elected government derives exclusively from the sovereign franchise of its citizens.
-
-At the very heart of this constitutional edifice lies the **Electoral Roll**. If the electoral roll is manipulated—whether through arbitrary deletions of legitimate voters, the fraudulent insertion of phantom electors, or systemic bureaucratic negligence—the democratic mandate is poisoned at its source.
-
-Under Article 324(1), the Constitution vests the superintendence, direction, and control of the preparation of electoral rolls in the **Election Commission of India (ECI)**. However, recent controversies surrounding **Special Intensive Revision (SIR)** exercises have ignited intense national debates concerning institutional impartiality and executive overreach.
+**Keywords:** *ECI, Special Intensive Revision, Electoral Roll, Universal Adult Franchise, ECI-Net.*
 
 ---
 
-## 2. Statutory Architecture of Electoral Roll Revisions
+## 1. Introduction & Constitutional Mandate
 
-The statutory lifecycle of voter registration in India is governed by two core parliamentary enactments and subordinate procedural rules:
-1. **Representation of the People Act, 1950 (RPA 1950)**: Governs voter qualification, disqualification, preparation of rolls, and delineation of constituencies.
-2. **Registration of Electors Rules, 1960 (RER 1960)**: Delineates specific operational mechanisms for:
-   - *Form 6*: Inclusion of name in electoral roll;
-   - *Form 7*: Objection to inclusion or deletion of name;
-   - *Form 8*: Correction of entries or transposition of residence.
+The Election Commission of India (ECI) is a constitutional authority responsible for conducting elections and maintaining electoral rolls under **Article 324 of the Indian Constitution**. In recent years, the **Special Intensive Revision (SIR)** of electoral rolls has become an important political and legal issue. 
 
-### Summary Revision vs Special Intensive Revision (SIR)
-- **Summary Revision (SSR)**: Standard annual procedural update conducted largely through claims and objections submitted by citizens and periodic Booth Level Officer (BLO) checks.
-- **Special Intensive Revision (SIR)**: An extraordinary, comprehensive door-to-door enumeration ordered by the ECI in designated assembly constituencies or districts. Unlike summary revisions, SIR places the affirmative burden of verification upon field administrative officers.
+The stated purpose of SIR is to identify eligible voters and remove duplicate, deceased, shifted, or otherwise ineligible entries. However, opposition parties and civil-society groups have alleged that the process could result in eligible voters being excluded and may provide an electoral advantage to the ruling administration. The controversy has particularly involved **Bihar and West Bengal**. The Supreme Court, in May 2026, upheld the ECI's authority to conduct the Bihar SIR while emphasizing the necessity of safeguards against wrongful exclusion.
 
 ---
 
-## 3. Dissecting the Allegations: Mechanics of Suspected Disenfranchisement
+## 2. Electoral Rolls and the Statutory Basis of SIR
 
-The primary allegations leveled by civil society watchdogs and opposition parties against contentious SIR exercises center upon three systemic failure modes:
+An electoral roll, commonly known as a voter list, is the official record of people registered to vote in a particular constituency. Under Article 326 of the Constitution, elections are based on adult suffrage, subject to statutory citizenship and residence requirements.
 
-| Failure Mode | Administrative Vector | Sociological & Political Consequence |
+### Statutory Foundations
+1. **Article 324:** Empowers the ECI to superintend, direct, and control elections.
+2. **Article 326:** Guarantees universal adult suffrage.
+3. **Representation of the People Act, 1950 (Section 21):** Provides the statutory authority for the preparation and revision of electoral rolls.
+4. **Registration of Electors Rules, 1960:** Codifies procedural rules for claims, objections, deletions, and verification.
+
+During SIR, election officials undertake door-to-door verification by Booth Level Officers (BLOs) to cross-check records, correct errors, remove duplicate/deceased entries, and enroll newly eligible citizens.
+
+---
+
+## 3. The Ground Controversies: Bihar & West Bengal
+
+### The Bihar SIR (2025–2026)
+Bihar was the focal point of the first recent major SIR controversy. The ECI ordered the revision in 2025, stating that the previous intensive revision had taken place in 2003 and that significant demographic changes had occurred since then. 
+
+Approximately **65 lakh names were initially excluded** from the draft electoral roll, triggering intense political and legal disputes. Critics argued that documentation requirements disproportionately impacted low-income, migrant, and rural citizens who lacked accessible historical records. In its **27 May 2026 judgment**, the Supreme Court upheld the ECI's legal authority to conduct the Bihar SIR, but mandated that the ECI publish reasons for exclusion and permitted Aadhaar as an acceptable identity document, while clarifying that Aadhaar does not constitute proof of citizenship.
+
+### The West Bengal SIR (Pre-2026 Assembly Elections)
+West Bengal became another major focus before the 2026 Assembly elections. According to ECI figures reported in April 2026, approximately **90.83 lakh names had ultimately been deleted** through different stages of the process. A large number of voters were placed under adjudication, resulting in thousands of appeals seeking restoration of voting rights.
+
+---
+
+## 4. Latest Internal Controversy within the Commission
+
+In September 2026, unprecedented internal dissension within the Election Commission became public. A report by *The Indian Express* revealed that Election Commissioners **Sukhbir Singh Sandhu** and **Vivek Joshi** had raised objections or concerns on **at least 14 occasions** regarding:
+- Centralized management of the electoral roll database.
+- Lack of collegiate consultation on major electoral-roll policy decisions.
+- Unilateral procedures governing Form 6 revisions.
+- Appeals and deletion mechanisms in West Bengal.
+
+The ECI subsequently clarified that significant SIR decisions were made in accordance with the law, affirming that internal deliberations and differing perspectives represent a healthy aspect of institutional governance.
+
+---
+
+## 5. Arguments Supporting SIR vs. Concerns Raised by Critics
+
+| Domain | Institutional Arguments Supporting SIR | Civil Society & Opposition Concerns |
 | :--- | :--- | :--- |
-| **Algorithmic False Positives** | Automated deduplication algorithms identifying "similar names and addresses" across districts without human verification. | Arbitrary mass-deletion of legitimate rural names sharing common patronymics or caste surnames. |
-| **Non-Service of Form 7 Deletion Notices** | Rule 21A of RER 1960 mandates prior notice and reasonable opportunity to be heard before deletion; frequently bypassed via fake field reports. | Citizens arrive at polling booths on election day only to discover their names have been deleted without their knowledge. |
-| **Demographic Skewing** | BLO pressure from local ruling-party cadres to conduct hyper-aggressive deletions in informal slum clusters and minority wards. | Disproportionate disenfranchisement of vulnerable, migrant, and minority populations lacking formal address deeds. |
+| **Integrity of Roll** | Eliminates duplicate, ghost, and deceased voters; upholds "one person, one vote". | Documentation thresholds risk disenfranchising legitimate poor and migrant citizens. |
+| **Urbanization Shifts** | Captures massive rural-to-urban population shifts since the 2003 revision. | Timing of intensive revisions close to state assembly elections generates suspicion of bias. |
+| **House-to-House Check** | Ground-level enumeration by BLOs ensures physical verification of residence. | Stressed BLOs may mark genuine voters as "shifted" without adequate physical notices. |
+| **Administrative Due Process** | Provides formal claims and objections windows under Forms 6, 7, and 8. | Arbitrary deletions without individual written hearings violate procedural natural justice. |
 
 ---
 
-## 4. Landmark Jurisprudence: The Right to Vote and Due Process
+## 6. Suggested Reforms & Key Findings
 
-While the Supreme Court historically described the Right to Vote as a statutory right rather than a fundamental right (*NP Ponnuswami v. Returning Officer*, 1952), contemporary jurisprudence has profoundly elevated its constitutional stature:
-- **PUCL v. Union of India (2013) (NOTA Judgment)**: The Supreme Court held that the voter's choice is an essential facet of freedom of expression under Article 19(1)(a).
-- **Anoop Baranwal v. Union of India (2023)**: The 5-judge Constitution Bench recognized that the Election Commission must remain insulated from executive influence, establishing an independent selection committee comprising the Prime Minister, the Chief Justice of India, and the Leader of the Opposition.
-- **Due Process in Voter Deletion**: In *Lal Babu Hussein v. Electoral Registration Officer (1995)*, the Supreme Court ruled that an Electoral Registration Officer cannot casually strike names off the roll without following strict principles of natural justice and providing adequate notice.
-
----
-
-## 5. Actionable Statutory Recommendations for Electoral Roll Integrity
-
-To preserve public trust in the Election Commission and guarantee zero wrongful disenfranchisement, the authors propose six structural reforms:
-
-1. **Mandatory Multi-Channel Deletion Notice**:  
-   No voter may be deleted from the electoral roll under Form 7 without mandatory three-way verification: (a) physical registered post notice, (b) verified SMS/WhatsApp alert, and (c) public physical display at the local Ward/Panchayat office for 30 clear days.
-
-2. **Open-Source Algorithmic Auditing**:  
-   All deduplication algorithms, ERONet automated scripts, and AI tools utilized by the ECI must be subjected to public third-party security and demographic bias audits by independent academic institutions.
-
-3. **Establishment of Emergency Polling-Day Tendered Vote Verification**:  
-   Voters whose names were wrongfully deleted without receipt of verified Form 7 notice should be legally permitted to cast a provisional ballot upon producing valid government biometric identification (Aadhaar, Voter ID, Passport).
-
-4. **Public Digitized Machine-Readable Deletion Registers**:  
-   Every District Election Officer must publish a downloadable, machine-readable list of all deletions with specific statutory justifications 45 days prior to polling day.
+To reconcile the accuracy of electoral rolls with the constitutional protection of voting rights, the study proposes:
+1. **Transparent Deletion Reasons:** The ECI must state specific statutory grounds for every proposed deletion, issuing verified physical and digital notices.
+2. **Doorstep Appeals Architecture:** Multi-channel claims and appeals mechanisms available online, offline at tehsil offices, and via mobile teams at doorsteps.
+3. **Independent Software Audits:** Independent third-party security and demographic bias audits of the **ECI-Net** software database.
+4. **Collegiate Commission Functioning:** Ensuring all major policy and roll revision guidelines are deliberated and decided collegially by the full Commission.
 
 ---
 
-## 6. Conclusion & Scholarly Citations
+## 7. Conclusion
 
-The integrity of Indian democracy rests upon the moral and constitutional independence of the Election Commission of India. When questions arise regarding the manipulation of voter rolls through Special Intensive Revisions, the commission cannot afford to maintain administrative silence or dismiss concerns through defensive press notes.
+The Special Intensive Revision is a major step taken by the Election Commission of India towards enhancing the reliability of electoral rolls. The Supreme Court has legitimized the powers of the ECI to conduct SIR, recognizing that accurate listing of voters is necessary for conducting free and fair elections. However, it cannot be overlooked that procedural vulnerabilities can lead to wrongful exclusion. 
 
-By embedding strict procedural natural justice, opening automated algorithms to independent academic scrutiny, and ensuring that no citizen loses their sovereign vote without verified written notice, India can preserve the constitutional sanctity of its electoral roll and guarantee that the will of the people remains the supreme law of the land.
+The ECI derives its authority from public trust and constitutional neutrality. The SIR process will prove successful only when conducted with radical transparency, collegiate decision-making, equal treatment, adequate notice, and swift redressal of grievances, ensuring that no genuine citizen is deprived of their sacred right to vote.
 
-### Verified Publication Metadata
-- **Journal:** *Knowledgeable Research* (ISSN: 2583-6633)
-- **Publication Record:** Vol. 5, No. 10, October 2026, pp. 29–42
-- **Official Issuance Date:** 31st October 2026
-- **Signed by:** Dr. Ramesh Chandra, Chief Editor, SAFE`,
+---
+
+### Primary References
+
+1. Constitution of India. (1950). *Articles 324 and 326*.
+2. Government of India. (1950). *The Representation of the People Act, 1950 (Section 21)*.
+3. Government of India. (1960). *The Registration of Electors Rules, 1960*.
+4. Supreme Court of India. (2026). *Association for Democratic Reforms v. Election Commission of India (Judgment of 27 May 2026)*.
+5. Election Commission of India. (2025). *Official Press Notes on Special Intensive Revision (SIR), Bihar*.
+6. The Indian Express. (2026, September 25). *14 Times in 10 Months, Two Election Commissioners Objected on Record to Poll Panel Steps*.
+7. The Indian Express. (2026, September 24). *Election Commission's Response to Reported Internal Disagreements*.`,
   },
 ];
 
@@ -484,7 +615,7 @@ export const INTERNATIONAL_PUBLICATIONS_BLOGS: BlogPost[] =
     title: `${pub.title} (${pub.issn})`,
     summary: pub.abstract,
     contentMarkdown: pub.contentMarkdown,
-    authorName: pub.authors.map((a) => a.name).join(" & "),
+    authorName: pub.authors.map((a) => a.name).join(", "),
     coverImageUrl: pub.coverImageUrl,
     isAiDrafted: false,
     publishedAt: `${pub.publicationDate}T10:00:00+05:30`,
@@ -493,4 +624,5 @@ export const INTERNATIONAL_PUBLICATIONS_BLOGS: BlogPost[] =
     badge: `ISSN: ${pub.issn} • ${pub.volume}`,
     readTime: "16 min read",
     documentRef: `ISSN-${pub.issn}-${pub.volume}-${pub.issue}`,
+    pdfDownloadUrl: pub.pdfDownloadUrl,
   }));

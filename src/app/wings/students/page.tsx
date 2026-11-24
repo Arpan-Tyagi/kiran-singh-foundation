@@ -5,9 +5,20 @@ import StudentsRosterClient from "@/components/wings/StudentsRosterClient";
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Student Welfare Wing | 40 Scholars Cohort | Kiran Singh Foundation",
+  title: "Student Welfare Wing | NGO Internship & 40 Scholars Cohort | Kiran Singh Foundation",
   description:
-    "Comprehensive syllabus of soft skills incubation, executive personality development, and pro bono internships for our 40 sponsored scholars.",
+    "Flagship student welfare wing sponsoring 40 scholars in Prayagraj. Summer & winter research internships, executive soft skills incubation, and peer-reviewed international publications.",
+  keywords: [
+    "ngo internship in prayagraj",
+    "student research internship UP",
+    "law student internship allahabad",
+    "scholarship for graduation students prayagraj",
+    "Kiran Singh Foundation student welfare wing",
+    "UPES Dehradun internship partnership",
+  ],
+  alternates: {
+    canonical: "https://kiransinghfoundation.org/wings/students",
+  },
 };
 
 export default async function StudentsWingPage() {
