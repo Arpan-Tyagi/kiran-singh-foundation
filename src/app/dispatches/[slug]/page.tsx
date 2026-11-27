@@ -337,6 +337,39 @@ export default async function DispatchDetailPage({ params }: Props) {
         )}
       </div>
 
+      {/* Research Action Strip (for research papers & monographs) */}
+      {isResearch && (
+        <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-border text-xs font-mono shadow-sm">
+          <div className="flex items-center space-x-2 text-lion-gold-dark font-semibold">
+            <GraduationCap className="w-4 h-4" />
+            <span>Peer-Reviewed Student Research Working Paper &amp; Monograph</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            {post.pdfDownloadUrl && (
+              <a
+                href={post.pdfDownloadUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-lion-gold hover:bg-lion-gold-light text-obsidian transition-colors inline-flex items-center space-x-1.5 font-semibold"
+              >
+                <Download className="w-3 h-3" />
+                <span>
+                  Download Original ({post.pdfDownloadUrl.toLowerCase().endsWith(".pptx") ? "PPTX" : "PDF"})
+                </span>
+              </a>
+            )}
+            <Link
+              href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-lion-gold/15 text-obsidian hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1.5 font-medium"
+            >
+              <ExternalLink className="w-3 h-3" />
+              <span>Symposium Dossier</span>
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* International Journal Verification Banner */}
       {isInternationalJournal && (
         <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-white via-amber-50/25 to-slate-50 border border-lion-gold/40 shadow-elevation-1 space-y-4">

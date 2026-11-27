@@ -110,6 +110,37 @@ test("Student Research Topics & Responsive Audit Verification", async (t) => {
     assert.ok(paperContent.includes("Ms. Stuti Singh"), "Must include author Ms. Stuti Singh");
     assert.ok(paperContent.includes("THE POWER OF QUESTIONING"), "Must include title THE POWER OF QUESTIONING");
     assert.ok(paperContent.includes("Socratic Method"), "Must include Socratic Method");
+
+    // Newly uploaded monographs: Luvleen & Stuti Dwivedi, Annanya Arora, Sacrifices & Success
+    assert.ok(paperContent.includes("DON'T SPEAK WHEN YOU ARE ANGRY"), "Must include Luvleen & Stuti monograph title");
+    assert.ok(paperContent.includes("Ms. Luvleen Kaur Puri & Ms. Stuti Dwivedi"), "Must credit Luvleen Kaur Puri & Stuti Dwivedi");
+    assert.ok(paperContent.includes("THE POWER OF CONSISTENCY: CAN IT OVERPOWER TALENT?"), "Must include Annanya Arora report title");
+    assert.ok(paperContent.includes("Ms. Annanya Arora"), "Must credit Annanya Arora");
+    assert.ok(paperContent.includes("SACRIFICES ARE DIRECTLY PROPORTIONAL TO SUCCESS"), "Must include Sacrifices & Success monograph title");
+  });
+
+  await t.test("All new monograph cover images and original submission files must exist on disk", () => {
+    const coverFiles = [
+      "public/images/publications/monographs/luvleen-stuti-dont-speak-angry.jpg",
+      "public/images/publications/monographs/annanya-arora-consistency-talent.jpg",
+      "public/images/publications/monographs/ksf-sacrifices-success.jpg",
+    ];
+    for (const c of coverFiles) {
+      const p = path.resolve(c);
+      assert.ok(fs.existsSync(p), `Monograph cover must exist: ${c}`);
+      assert.ok(fs.statSync(p).size > 50000, `Monograph cover must be > 50KB: ${c}`);
+    }
+
+    const docFiles = [
+      "public/docs/monographs/dont-speak-when-angry-luvleen-stuti.pptx",
+      "public/docs/monographs/power-of-consistency-annanya-arora.pdf",
+      "public/docs/monographs/sacrifices-directly-proportional-to-success.pdf",
+    ];
+    for (const d of docFiles) {
+      const p = path.resolve(d);
+      assert.ok(fs.existsSync(p), `Monograph source document must exist: ${d}`);
+      assert.ok(fs.statSync(p).size > 100000, `Monograph source document must be > 100KB: ${d}`);
+    }
   });
 
   await t.test("Component StudentResearchTopicsDossier must exist, render interactive elements, and support full paper reader", () => {

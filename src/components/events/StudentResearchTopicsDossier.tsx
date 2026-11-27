@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   STUDENT_RESEARCH_TOPIC_DOSSIERS_2026,
   StudentResearchTopic,
@@ -192,7 +193,7 @@ export default function StudentResearchTopicsDossier() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `KSF-Monograph-Vanya-Not-Every-Battle-Worth-Fighting.md`;
+    link.download = `KSF-${m.id}.md`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -481,64 +482,62 @@ export default function StudentResearchTopicsDossier() {
               </div>
             )}
 
-            {/* Featured Scholar Monograph Callout (Team I & Team II) */}
+            {/* Featured Scholar Monographs Callout (All Monographs Matched to Selected Team) */}
             {(() => {
-              const teamMonograph = SCHOLAR_SPECIAL_MONOGRAPHS.find(
+              const teamMonographs = SCHOLAR_SPECIAL_MONOGRAPHS.filter(
                 (m) => m.teamCode === activeTopic.teamCode
               );
-              if (!teamMonograph) return null;
-              const isTeamI = teamMonograph.teamCode === "Team I";
+              if (teamMonographs.length === 0) return null;
               return (
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-lion-gold/40 shadow-md space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
-                    <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-wider">
-                      Featured Scholar Monograph &bull; {teamMonograph.teamCode}
-                    </span>
-                    <span className="text-[10px] font-mono text-stone-300">
-                      {isTeamI
-                        ? "Decision Science \u2022 BATNA \u2022 Rogers Commission Case Study"
-                        : "Epistemic Inquiry \u2022 Socratic Dialogue \u2022 Dr. Ambedkar Mahad Case Study"}
-                    </span>
-                  </div>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                      <h4 className="font-serif text-base sm:text-lg font-bold text-white">
-                        &ldquo;{teamMonograph.title}&rdquo;
-                      </h4>
-                      <p className="text-xs text-stone-300 font-sans max-w-xl">
-                        {isTeamI ? (
-                          <>
-                            Authored by scholar{" "}
-                            <strong className="text-white">{teamMonograph.scholarName}</strong>{" "}
-                            ({teamMonograph.scholarId}). Explores conflict triage, Harvard
-                            negotiation theory (BATNA), the Space Shuttle Challenger disaster,
-                            and why walking away reflects cognitive self-control.
-                          </>
-                        ) : (
-                          <>
-                            Authored by scholar{" "}
-                            <strong className="text-white">{teamMonograph.scholarName}</strong>{" "}
-                            ({teamMonograph.scholarId}), supervised by{" "}
-                            <strong className="text-white">Ms. Prateeksha Pandey (HSM)</strong>.
-                            Examines the Socratic method, Dr. B.R. Ambedkar&rsquo;s Mahad Satyagraha,
-                            Article 51A(h), Harvard conversational psychology, and epistemic
-                            vigilance against misinformation.
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    <div className="shrink-0 flex items-center space-x-2">
-                      <button
-                        onClick={() => setReadingMonograph(teamMonograph)}
-                        className="px-4 py-2 rounded-full bg-lion-gold text-obsidian text-xs font-mono font-bold hover:bg-lion-gold-light active:scale-95 transition-all inline-flex items-center space-x-1.5 shadow-md min-h-[44px]"
-                      >
-                        <BookOpen className="w-3.5 h-3.5 text-obsidian" />
-                        <span>
-                          Read {isTeamI ? "Vanya" : "Stuti"}&rsquo;s Monograph
+                <div className="space-y-3">
+                  {teamMonographs.map((teamMonograph) => (
+                    <div
+                      key={teamMonograph.id}
+                      className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-lion-gold/40 shadow-md space-y-3"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+                        <span className="px-2.5 py-0.5 rounded-full bg-lion-gold/20 text-lion-gold text-[10px] font-mono font-bold uppercase tracking-wider">
+                          Scholar Monograph &bull; {teamMonograph.teamCode} &bull; {teamMonograph.scholarId}
                         </span>
-                      </button>
+                        <span className="text-[10px] font-mono text-stone-300">
+                          {teamMonograph.caseStudyBadge || "Empirical Monograph"}
+                        </span>
+                      </div>
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div className="space-y-1">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-white">
+                            &ldquo;{teamMonograph.title}&rdquo;
+                          </h4>
+                          <p className="text-xs text-stone-300 font-sans max-w-2xl leading-relaxed">
+                            Authored by{" "}
+                            <strong className="text-white">{teamMonograph.scholarName}</strong>{" "}
+                            ({teamMonograph.scholarRole}). {teamMonograph.subTitle}.
+                          </p>
+                        </div>
+                        <div className="shrink-0 flex flex-wrap items-center gap-2">
+                          <button
+                            onClick={() => setReadingMonograph(teamMonograph)}
+                            className="px-4 py-2 rounded-full bg-lion-gold text-obsidian text-xs font-mono font-bold hover:bg-lion-gold-light active:scale-95 transition-all inline-flex items-center space-x-1.5 shadow-md min-h-[44px]"
+                          >
+                            <BookOpen className="w-3.5 h-3.5 text-obsidian" />
+                            <span>Read Monograph</span>
+                          </button>
+                          {teamMonograph.sourceDocUrl && (
+                            <a
+                              href={teamMonograph.sourceDocUrl}
+                              download
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-mono hover:text-lion-gold transition-colors inline-flex items-center space-x-1.5 min-h-[44px]"
+                            >
+                              <Download className="w-3.5 h-3.5" />
+                              <span>{teamMonograph.sourceDocLabel || "Original File"}</span>
+                            </a>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               );
             })()}
@@ -745,6 +744,79 @@ export default function StudentResearchTopicsDossier() {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* C2. Complete Scholar Monographs & Field Submissions Library */}
+          <div className="space-y-4 pt-2 border-t border-border/80">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center space-x-2">
+                <Bookmark className="w-4 h-4 text-lion-gold-dark" />
+                <span className="text-xs font-mono uppercase tracking-wider text-obsidian font-bold">
+                  Scholar Monographs &amp; Research Submissions ({SCHOLAR_SPECIAL_MONOGRAPHS.length} Works)
+                </span>
+              </div>
+              <Link
+                href="/blogs?category=scholar_monograph"
+                className="text-xs font-mono text-lion-gold-dark hover:underline inline-flex items-center space-x-1 font-semibold"
+              >
+                <span>Open Full Blogs Library</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {SCHOLAR_SPECIAL_MONOGRAPHS.map((mono) => (
+                <div
+                  key={mono.id}
+                  className="p-4 rounded-2xl bg-white border border-border hover:border-lion-gold/50 transition-all shadow-2xs flex flex-col justify-between gap-3"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2 text-[10px] font-mono">
+                      <span className="px-2 py-0.5 rounded-full bg-lion-gold/15 text-lion-gold-dark font-bold">
+                        {mono.teamCode} &bull; {mono.scholarId}
+                      </span>
+                      {mono.sourceDocUrl && (
+                        <a
+                          href={mono.sourceDocUrl}
+                          download
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate hover:text-lion-gold-dark inline-flex items-center space-x-1 font-medium"
+                        >
+                          <Download className="w-3 h-3" />
+                          <span>{mono.sourceDocUrl.toLowerCase().endsWith(".pptx") ? "PPTX" : "PDF"}</span>
+                        </a>
+                      )}
+                    </div>
+                    <h4 className="font-serif font-bold text-sm text-obsidian leading-snug line-clamp-2">
+                      {mono.title}
+                    </h4>
+                    <p className="text-[11px] font-mono text-slate line-clamp-1">
+                      {mono.scholarName}
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-border/70 flex items-center justify-between gap-2 text-[11px] font-mono">
+                    <button
+                      onClick={() => setReadingMonograph(mono)}
+                      className="text-lion-gold-dark hover:underline font-semibold inline-flex items-center space-x-1"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Quick Reader</span>
+                    </button>
+                    {mono.blogSlug && (
+                      <Link
+                        href={`/blogs/${mono.blogSlug}`}
+                        className="text-obsidian hover:text-lion-gold-dark inline-flex items-center space-x-1 font-medium"
+                      >
+                        <span>Full Essay</span>
+                        <ArrowUpRight className="w-3 h-3" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* D. Footer Affirmation */}
@@ -1141,6 +1213,31 @@ export default function StudentResearchTopicsDossier() {
               </div>
 
               <div className="flex items-center space-x-2 shrink-0">
+                {readingMonograph.sourceDocUrl && (
+                  <a
+                    href={readingMonograph.sourceDocUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-lion-gold/20 border border-lion-gold/40 text-[11px] font-mono text-lion-gold-dark font-semibold hover:bg-lion-gold/30 transition-colors"
+                    title="Download Original Submitted Document"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>{readingMonograph.sourceDocLabel || "Original File"}</span>
+                  </a>
+                )}
+
+                {readingMonograph.blogSlug && (
+                  <Link
+                    href={`/blogs/${readingMonograph.blogSlug}`}
+                    className="hidden md:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-porcelain border border-border text-[11px] font-mono text-obsidian hover:bg-white transition-colors"
+                    title="Open Full Article in Blogs Hub"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-lion-gold-dark" />
+                    <span>Blogs View</span>
+                  </Link>
+                )}
+
                 <button
                   onClick={() => downloadMonographMarkdown(readingMonograph)}
                   className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-porcelain border border-border text-[11px] font-mono text-obsidian hover:bg-white transition-colors"
@@ -1233,9 +1330,9 @@ export default function StudentResearchTopicsDossier() {
                   </div>
                   <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
                     <span className="font-mono text-[10px] uppercase font-bold text-lion-gold-dark block">
-                      3. ALTERNATIVE
+                      3. ALTERNATIVE / INSIGHT
                     </span>
-                    <strong className="text-xs font-semibold text-obsidian block">Would walking away serve me?</strong>
+                    <strong className="text-xs font-semibold text-obsidian block">Strategic Path Forward</strong>
                     <p className="text-[11px] text-slate leading-relaxed">{readingMonograph.decisionTest.alternative}</p>
                   </div>
                 </div>
@@ -1274,13 +1371,15 @@ export default function StudentResearchTopicsDossier() {
                 ))}
               </div>
 
-              {/* Case Study: The Challenger Disaster */}
+              {/* Empirical / Historical Case Study */}
               <div className="p-5 sm:p-6 rounded-2xl bg-stone-900 text-white space-y-3 shadow-lg border border-lion-gold/40">
                 <div className="flex items-center justify-between border-b border-white/10 pb-2">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-lion-gold font-bold">
-                    Historical Case Study &bull; {readingMonograph.caseStudy.eventDate}
+                    Case Study &bull; {readingMonograph.caseStudy.eventDate}
                   </span>
-                  <span className="text-[10px] font-mono text-stone-300">The Rogers Commission</span>
+                  <span className="text-[10px] font-mono text-stone-300">
+                    {readingMonograph.caseStudyBadge || "Empirical Inquiry"}
+                  </span>
                 </div>
                 <h4 className="font-serif text-lg font-bold text-white">
                   {readingMonograph.caseStudy.title}
@@ -1292,7 +1391,7 @@ export default function StudentResearchTopicsDossier() {
                 ))}
                 <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 text-xs text-amber-200 space-y-1">
                   <strong className="block font-mono text-[10px] uppercase text-lion-gold">
-                    Theoretical Nuance &bull; Normalization of Deviance:
+                    Theoretical &amp; Applied Insight:
                   </strong>
                   <p className="leading-relaxed">
                     {readingMonograph.caseStudy.theoreticalNuance}
@@ -1303,7 +1402,7 @@ export default function StudentResearchTopicsDossier() {
               {/* Real-Life Applications Matrix */}
               <div className="space-y-3">
                 <h3 className="font-serif text-lg font-bold text-obsidian border-b border-stone-200 pb-1">
-                  Real-Life Applications: Conflict Triage
+                  Real-Life Applications &amp; Field Guidelines
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {readingMonograph.applications.map((app, aIdx) => (
@@ -1325,7 +1424,7 @@ export default function StudentResearchTopicsDossier() {
               {/* Analysis & Conclusion */}
               <div className="space-y-4">
                 <div className="p-5 rounded-2xl bg-white border border-stone-200 space-y-2">
-                  <h4 className="font-serif font-bold text-sm text-obsidian">Analysis: Proportionality</h4>
+                  <h4 className="font-serif font-bold text-sm text-obsidian">Analytical Synthesis</h4>
                   {readingMonograph.analysisText.map((ap, apIdx) => (
                     <p key={apIdx} className="text-xs sm:text-sm text-stone-700 leading-relaxed">
                       {ap}
@@ -1358,7 +1457,19 @@ export default function StudentResearchTopicsDossier() {
               </div>
 
               {/* Sign-Off Footer */}
-              <div className="text-center space-y-2 pt-4 pb-8">
+              <div className="flex flex-wrap justify-center gap-3 pt-4 pb-8">
+                {readingMonograph.sourceDocUrl && (
+                  <a
+                    href={readingMonograph.sourceDocUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-full bg-lion-gold hover:bg-lion-gold-light text-obsidian text-xs font-mono font-bold transition-colors inline-flex items-center space-x-2 shadow-sm"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>{readingMonograph.sourceDocLabel || "Download Original File"}</span>
+                  </a>
+                )}
                 <button
                   onClick={() => downloadMonographMarkdown(readingMonograph)}
                   className="px-5 py-2.5 rounded-full bg-obsidian text-white text-xs font-mono font-semibold hover:bg-stone-800 transition-colors inline-flex items-center space-x-2"

@@ -4072,6 +4072,7 @@ export const OFFICIAL_TEAM_POSTERS_2026: TeamHierarchyPoster[] = [
 export * from "./student-papers-data";
 export * from "./research-blogs-data";
 export * from "./international-publications-data";
+export * from "./press-coverage-data";
 
 
 

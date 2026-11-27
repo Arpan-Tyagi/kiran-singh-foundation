@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { FoundationEvent, EventGalleryImage } from "@/lib/data/foundation-data";
 import EventExpenseReport from "@/components/events/EventExpenseReport";
+import MediaAndPublicationsShowcase from "@/components/press/MediaAndPublicationsShowcase";
 
 export default function EventsListClient({
   events,
@@ -516,7 +517,12 @@ export default function EventsListClient({
         </div>
       </div>
 
-      {/* 5. Image Lightbox Modal */}
+      {/* 6. Official Print Press Feature (Amar Ujala) & Published Research Papers */}
+      <div className="pt-8 border-t border-border">
+        <MediaAndPublicationsShowcase />
+      </div>
+
+      {/* 7. Image Lightbox Modal */}
       {activeLightboxImage && (
         <div
           role="dialog"

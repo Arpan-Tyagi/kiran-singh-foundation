@@ -17,6 +17,7 @@ import {
   UPES_ACADEMIC_PARTNERSHIP,
 } from "@/lib/data/foundation-data";
 import OperationalHierarchy from "@/components/OperationalHierarchy";
+import MediaAndPublicationsShowcase from "@/components/press/MediaAndPublicationsShowcase";
 
 export const metadata = {
   title: 'About Us | Kiran Singh Foundation',
@@ -820,6 +821,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Press Recognition (Amar Ujala) & Published Peer-Reviewed Papers */}
+      <MediaAndPublicationsShowcase />
     </div>
   );
 }

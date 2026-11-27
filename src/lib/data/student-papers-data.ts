@@ -563,6 +563,11 @@ export interface ScholarMonograph {
   teamCode: string;
   title: string;
   subTitle: string;
+  coverImageUrl?: string;
+  sourceDocUrl?: string;
+  sourceDocLabel?: string;
+  blogSlug?: string;
+  caseStudyBadge?: string;
   epigraph: string;
   centralQuestion: string;
   decisionTest: {
@@ -600,6 +605,9 @@ export const SCHOLAR_SPECIAL_MONOGRAPHS: ScholarMonograph[] = [
     teamCode: "Team I",
     title: "NOT EVERY BATTLE IS WORTH FIGHTING",
     subTitle: "A Case Study and Everyday Decision Framework for Strategic Conflict Selection",
+    coverImageUrl: "/images/students-wing.jpg",
+    blogSlug: "not-every-battle-is-worth-fighting-strategic-conflict-selection",
+    caseStudyBadge: "The Rogers Commission",
     epigraph: "Persistence matters, but so does noticing when a conflict costs more than it is worth.",
     centralQuestion: "Is winning this battle worth what it will cost me?",
     decisionTest: {
@@ -699,6 +707,9 @@ export const SCHOLAR_SPECIAL_MONOGRAPHS: ScholarMonograph[] = [
     teamCode: "Team II",
     title: "THE POWER OF QUESTIONING",
     subTitle: "An Epistemic Inquiry into Critical Thinking, Socratic Dialogue, and Social Reform",
+    coverImageUrl: "/images/publications/monographs/stuti-singh-power-of-questioning.jpg",
+    blogSlug: "the-power-of-questioning-critical-thinking-social-change",
+    caseStudyBadge: "Historical Constitutional Inquiry",
     epigraph: "Perhaps the real power of questioning lies not just in finding answers, but in having the courage to ask.",
     centralQuestion: "How does the discipline of questioning transform personal curiosity into democratic progress and empathetic connection?",
     decisionTest: {
@@ -799,6 +810,253 @@ export const SCHOLAR_SPECIAL_MONOGRAPHS: ScholarMonograph[] = [
       "Plato. (c. 399 BCE). Apology (H. N. Fowler, Trans.). Harvard University Press (Loeb Classical Library).",
       "Sperber, D., Clément, F., Heintz, C., Mascaro, O., Mercier, H., Origgi, G., & Wilson, D. (2010). 'Epistemic Vigilance.' Mind & Language, 25(4), 359–393.",
       "Supreme Court of India. (2020). Mahad Satyagraha and the Constitutional Journey toward Equality. Supreme Court Legal Heritage Series.",
+    ],
+  },
+  {
+    id: "monograph-luvleen-stuti-emotional-restraint",
+    scholarId: "KSF-STU-003 / KSF-STU-005",
+    scholarName: "Ms. Luvleen Kaur Puri & Ms. Stuti Dwivedi",
+    scholarRole: "Designing Committee Scholars • Team III Winter Cohort (Command: Ms. Shubhangi Singh, HSM)",
+    teamCode: "Team III",
+    title: "DON'T SPEAK WHEN YOU ARE ANGRY",
+    subTitle: "Emotional Restraint, Responding vs. Reacting, and Self-Respect over Ego",
+    coverImageUrl: "/images/publications/monographs/luvleen-stuti-dont-speak-angry.jpg",
+    sourceDocUrl: "/docs/monographs/dont-speak-when-angry-luvleen-stuti.pptx",
+    sourceDocLabel: "Download Slides (.pptx)",
+    blogSlug: "dont-speak-when-angry-emotional-regulation-luvleen-stuti",
+    caseStudyBadge: "Behavioral Psychology & Conflict Ethics",
+    epigraph: "Sometimes, silence is the strongest response. Pause, walk away, choose peace.",
+    centralQuestion: "How does stepping back during acute anger distinguish authentic self-respect from ego-driven conflict?",
+    decisionTest: {
+      value: "Am I speaking to protect truth, fairness, or mutual dignity—or merely to win the last word?",
+      cost: "Will irreversible harsh words inflict lasting memory scars on an important human bond?",
+      alternative: "Can a deliberate physical and mental timeout let anger subside so I can respond calmly later?",
+    },
+    objectives: [
+      "To establish why stepping away during acute anger reflects emotional mastery rather than repression or weakness.",
+      "To contrast impulsive, emotion-hijacked reacting against deliberate, consequence-aware responding.",
+      "To examine the irreversibility of bitter speech and the cognitive hazard of misreading incomplete situations.",
+      "To differentiate principled self-respect from over-inflated ego in interpersonal disagreements.",
+      "To outline a three-step exit-and-pause protocol ('Think Clearly, Stay Calm, Protect Relationships').",
+    ],
+    coreArguments: [
+      {
+        heading: "Understanding the Quote: Disengagement Without Repression",
+        text: [
+          "The principle 'Don't speak when you are angry; get out of the situation' does not counsel suppressing genuine emotion indefinitely; it emphasizes understanding when and how to express oneself cleanly. When anger peaks, emotion obscures rational discernment, locking concentration narrowly onto one's own grievance while blinding one to the other person's viewpoint.",
+          "Temporarily removing oneself creates mental and physical breathing room to regroup and compose a measured response aligned with one's values. Reacting is an impulsive blast dictated by external provocation, whereas responding assesses the whole situation and evaluates speech impact beforehand.",
+        ],
+      },
+      {
+        heading: "Why We Shouldn't Speak Angry & The Risk of Misreading Context",
+        text: [
+          "Words carry immense power to uplift confidence or dismantle relationships permanently. In the grip of anger, people dredge up past grievances, deploy hurtful remarks contradictory to their true character, and prioritize 'winning' the argument over preserving fellowship. Once spoken, bitter words remain etched in memory despite later remorse.",
+          "Furthermore, we frequently lack complete information when upset. A friend's silence or unusual behavior may stem from private family stress or heavy responsibilities rather than intentional disrespect—making patience and empathetic inquiry indispensable.",
+        ],
+      },
+      {
+        heading: "Self-Respect Versus Over-Inflated Ego",
+        text: [
+          "Many prolonged arguments persist not because the issue carries genuine weight, but because an over-inflated ego resists conceding any possibility of error. Authentic self-respect honors personal dignity calmly and prevents unfair mistreatment without chasing the last word.",
+          "Choosing silence or walking away from fruitless hostility does not indicate low self-confidence; it takes greater courage and intelligence to preserve inner composure than to prove oneself right in every trivial battle.",
+        ],
+      },
+    ],
+    caseStudy: {
+      title: "Everyday Misattribution: Delayed Friend Communication & The Power of the Pause",
+      eventDate: "Interpersonal Field Scenario",
+      description: [
+        "When a trusted peer or colleague fails to reply promptly or acts unusually distant on a difficult day, an impulsive angry reaction assumes deliberate slight or indifference.",
+        "Confronting the friend under emotional flooding escalates misunderstanding into relational breach—only for hindsight to reveal the peer was navigating a silent personal hardship.",
+        "Empirical emotional intelligence frameworks (Daniel Goleman's amygdala hijack and John Gottman's physiological timeout research) confirm that pausing for composure transforms defensiveness into empathetic discernment.",
+      ],
+      theoreticalNuance:
+        "Stepping out of an escalating exchange is never defeat: we cannot control every external remark, yet we preserve complete sovereignty over our own response.",
+    },
+    applications: [
+      {
+        domain: "Peer & Family Friction",
+        context: "Hearing an unfair or inapplicable remark during a stressful conversation.",
+        guideline: "Introduce an intentional pause; decline reacting to every provocation and revisit genuine issues only after calm returns.",
+      },
+      {
+        domain: "Digital Messaging",
+        context: "Receiving a curt or misunderstood text message without tone or context.",
+        guideline: "Do not type back while agitated; assume incomplete facts first and wait until calm before seeking clarification.",
+      },
+    ],
+    analysisText: [
+      "Emotional regulation preserves human agency. Allowing transient anger to dictate words hands control of our character over to external irritants.",
+      "True strength lies not in winning verbal sparring matches, but in possessing the clarity, restraint, and self-respect to protect peace over ego.",
+    ],
+    conclusionText: [
+      "Deciding to walk away temporarily from an emotionally charged room is a courageous investment in peace and long-term dignity.",
+      "As KSF scholars Luvleen Kaur Puri and Stuti Dwivedi conclude, real strength rests in calmly managing difficult situations rather than chasing futile arguments.",
+    ],
+    references: [
+      "Puri, Luvleen Kaur, & Dwivedi, Stuti. (2026). Don't Speak When You're Angry: Get Out of the Situation. Monograph Submitted to Kiran Singh Foundation Directorate.",
+      "Goleman, Daniel. (1995). Emotional Intelligence: Why It Can Matter More Than IQ. Bantam Books.",
+      "Gottman, John M., & Silver, Nan. (1999). The Seven Principles for Making Marriage Work. Crown Publishers.",
+      "Rosenberg, Marshall B. (2015). Nonviolent Communication: A Language of Life. PuddleDancer Press.",
+    ],
+  },
+  {
+    id: "monograph-annanya-arora-consistency-vs-talent",
+    scholarId: "KSF-STU-023",
+    scholarName: "Ms. Annanya Arora",
+    scholarRole: "Winter Research Scholar • Team I (Command: Ms. Vaishnavi, HSM Senior Scale)",
+    teamCode: "Team I",
+    title: "THE POWER OF CONSISTENCY: CAN IT OVERPOWER TALENT?",
+    subTitle: "Deliberate Practice, Strategic Correction, and the Guided Improvement Cycle",
+    coverImageUrl: "/images/publications/monographs/annanya-arora-consistency-talent.jpg",
+    sourceDocUrl: "/docs/monographs/power-of-consistency-annanya-arora.pdf",
+    sourceDocLabel: "Download Report (PDF)",
+    blogSlug: "the-power-of-consistency-can-it-overpower-talent",
+    caseStudyBadge: "Cognitive Science & Deliberate Practice",
+    epigraph: "Perhaps what matters most is not how strongly someone begins, but how steadily they continue.",
+    centralQuestion: "Does having an innate talent advantage always guarantee superior outcomes, or can feedback-driven consistency outperform it?",
+    decisionTest: {
+      value: "Is my daily effort targeting real weaknesses through structured practice?",
+      cost: "Am I repeating identical errors day after day without seeking diagnosis or guidance?",
+      alternative: "Will applying a purposeful feedback loop ('Practice -> Seek Feedback -> Adjust') compound skill faster than raw starts?",
+    },
+    objectives: [
+      "To examine the tortoise-and-hare paradox: separating raw natural advantage from sustained execution.",
+      "To apply K. Anders Ericsson's research on deliberate practice to student skill mastery.",
+      "To critique 'blind consistency'—proving why daily repetition without feedback yields stagnation.",
+      "To model an actionable three-stage iterative cycle connecting purpose, error diagnosis, and adaptation.",
+    ],
+    coreArguments: [
+      {
+        heading: "Natural Ability vs. Sustained Progression",
+        text: [
+          "Innate aptitude creates an enviable head start, enabling gifted learners to absorb introductory ideas rapidly. Yet possessing an ability and realizing its full potential are distinct trajectories.",
+          "Once early excitement fades, effortless starters frequently plateau unless sustained daily discipline carries them through harder frontiers.",
+        ],
+      },
+      {
+        heading: "Deliberate Practice & Why Blind Consistency Stalls",
+        text: [
+          "As K. Anders Ericsson and colleagues established in deliberate practice research, expertise hinges less on passive hours logged than on how purposefully practice targets specific weaknesses.",
+          "A river cuts through rock through persistence—yet diligence devoid of structured guidance fails. A student who re-reads a textbook daily without analyzing test errors or seeking mentorship simply repeats the exact same mistakes without progress.",
+        ],
+      },
+    ],
+    caseStudy: {
+      title: "The Guided Practice Paradox: Why Textbook Hours Alone Fail Without Feedback",
+      eventDate: "Academic Learning Audit",
+      description: [
+        "Consider a conscientious student who studies their textbook steadily every evening yet makes minimal exam improvement.",
+        "The bottleneck is rarely laziness: lacking structured mentorship or error diagnosis, identical study habits keep reproducing identical conceptual gaps.",
+        "When the student shifts into the Three-Stage Effective Cycle—setting clear practice goals, welcoming mentor feedback on mistakes, and adjusting methods—steady consistency converts into compounding mastery.",
+      ],
+      theoreticalNuance:
+        "Talent may shape the starting gate, while structural resources also matter; yet purposeful, feedback-guided consistency expands how far anyone can rise from their baseline.",
+    },
+    applications: [
+      {
+        domain: "Examination & Legal Preparation",
+        context: "Studying long hours yet stalling at intermediate mock scores.",
+        guideline: "Practice with a narrow target, review mistakes with a mentor immediately, and adjust study strategy weekly.",
+      },
+      {
+        domain: "Research Drafting",
+        context: "Developing scholarly voice across multiple internship reports.",
+        guideline: "Integrate HSM plagiarism and methodological feedback before every iterative draft.",
+      },
+    ],
+    analysisText: [
+      "Meaningful consistency is not mindless repetition; it is the disciplined accumulation of mistake-diagnosis and strategic adaptation over time.",
+      "Even where socioeconomic opportunities and talent create unequal baselines, purposeful guided consistency extracts maximal growth from available abilities.",
+    ],
+    conclusionText: [
+      "Talent influences where an individual starts, but guided consistency governs how far they travel.",
+      "Combining steady persistence with structured mentor feedback turns fragile potential into durable real-world achievement.",
+    ],
+    references: [
+      "Arora, Annanya. (2026). The Power of Consistency: Can It Overpower Talent? Student Research Report, Kiran Singh Foundation.",
+      "Ericsson, K. A., Krampe, R. T., & Tesch-Römer, C. (1993). 'The Role of Deliberate Practice in the Acquisition of Expert Performance.' Psychological Review, 100(3), 363–406.",
+      "Duckworth, Angela. (2016). Grit: The Power of Passion and Perseverance. Scribner.",
+      "The Mission. 'The Profound Power of Consistency.' Medium Archive (medium.com/the-mission).",
+    ],
+  },
+  {
+    id: "monograph-sacrifices-proportional-to-success",
+    scholarId: "KSF-MONO-2026-005",
+    scholarName: "KSF Scholar Cohort (Author Attribution Pending Confirmation)",
+    scholarRole: "Winter Cohort Research & Case Study Series (sacrifices_success.pdf)",
+    teamCode: "Team IV",
+    title: "SACRIFICES ARE DIRECTLY PROPORTIONAL TO SUCCESS",
+    subTitle: "The Price Behind Every Achievement: Intertemporal Trade-Offs & Indian Case Studies",
+    coverImageUrl: "/images/publications/monographs/ksf-sacrifices-success.jpg",
+    sourceDocUrl: "/docs/monographs/sacrifices-directly-proportional-to-success.pdf",
+    sourceDocLabel: "Download Report (PDF)",
+    blogSlug: "sacrifices-are-directly-proportional-to-success-case-studies",
+    caseStudyBadge: "National & Global Achievers",
+    epigraph: "Dreams give you direction, discipline gives you movement, and sacrifice makes that movement sustainable.",
+    centralQuestion: "What invisible trade-offs separate the 1% public trophy from the 99% unseen preparation?",
+    decisionTest: {
+      value: "Is the long-term milestone worthy of the comfort, sleep, or distractions I surrender today?",
+      cost: "Am I preserving core relationships and personal health while declining short-term indulgence?",
+      alternative: "If I choose short-term convenience now, am I unconsciously sacrificing my long-term autonomy?",
+    },
+    objectives: [
+      "To dismantle the illusion of overnight success by surfacing the 99% hidden discipline behind public trophies.",
+      "To define authentic sacrifice as purposeful exchange of lower present ease for higher future value—not needless suffering.",
+      "To evaluate four real-world achievements: M.C. Mary Kom, D. Gukesh, ISRO's Chandrayaan-3, and Raj Shamani.",
+      "To balance focused ambition with genuine care for core family and personal well-being.",
+    ],
+    coreArguments: [
+      {
+        heading: "What Authentic Sacrifice Actually Means",
+        text: [
+          "Sacrifice does not mean pursuing purposeless pain. It is a voluntary, strategic trade: giving up fleeting ease, distractions, extra sleep, or social approval today to secure superior lasting value tomorrow.",
+          "Everyone makes sacrifices implicitly: sleeping late trades away future preparedness for morning comfort, while early discipline invests comfort into lasting capability.",
+        ],
+      },
+      {
+        heading: "Finite Resources, Time Horizons & Collective Effort",
+        text: [
+          "Time, stamina, and attention are strictly finite. Achieving extraordinary milestones requires directing these scarce resources toward sustained long-term horizons through discipline after fleeting motivation fades.",
+          "Furthermore, landmark triumphs—from an 18-year-old chess champion's family compromises to hundreds of ISRO engineers refining Chandrayaan-3 after Chandrayaan-2—often reflect shared sacrifices across families and scientific teams.",
+        ],
+      },
+    ],
+    caseStudy: {
+      title: "Mary Kom, D. Gukesh (2024), Chandrayaan-3 (2023) & Raj Shamani",
+      eventDate: "2012 – 2026 Verified Milestones",
+      description: [
+        "M.C. Mary Kom rose from rural Manipur scarcity and social resistance to win six World Titles and London 2012 Olympic bronze after motherhood; D. Gukesh became World Chess Champion in December 2024 at age 18 backed by his ENT-surgeon father's career compromises.",
+        "On 23 August 2023, ISRO's Chandrayaan-3 touched down near the Moon's south pole by turning lessons from the 2019 Chandrayaan-2 failure into engineering mastery; entrepreneur Raj Shamani scaled Figuring Out past 22M+ subscribers after starting at sixteen through years of early setbacks and missed social events.",
+      ],
+      theoreticalNuance:
+        "Prior setbacks never render earlier sacrifices worthless—when rigorously examined, past failure becomes the technical foundation of future breakthroughs.",
+    },
+    applications: [
+      {
+        domain: "Student Career Discipline",
+        context: "Feeling discouraged when peers celebrate effortless short-term leisure.",
+        guideline: "Recognize the 1% vs. 99% rule: track compounding daily inputs rather than comparing social highlight reels.",
+      },
+      {
+        domain: "Setback Recovery",
+        context: "Experiencing failure in an exam, prototype, or field campaign.",
+        guideline: "Treat earlier failure like Chandrayaan-2: extract concrete engineering or academic lessons to sharpen the next attempt.",
+      },
+    ],
+    analysisText: [
+      "Across sports, aerospace science, chess, and digital entrepreneurship, breakthroughs stem from cumulative deliberate choices rather than sudden luck.",
+      "While sustained ambition occasionally demands declining social festivities, healthy sacrifice must strengthen purpose without severing human well-being or empathy.",
+    ],
+    conclusionText: [
+      "No landmark accomplishment happens overnight. Achievement is sculpted as much by what we consciously decline as by what we pursue.",
+      "Dreams supply direction, discipline creates forward momentum, and purposeful sacrifice keeps that movement sustainable.",
+    ],
+    references: [
+      "Kiran Singh Foundation Monograph Series. (2026). Sacrifices Are Directly Proportional to Success: The Price Behind Every Achievement.",
+      "Mischel, W., Ebbesen, E. B., & Raskoff Zeiss, A. (1972). 'Cognitive and Attentional Mechanisms in Delay of Gratification.' Journal of Personality and Social Psychology, 21(2), 204–218.",
+      "ISRO. (2023). Chandrayaan-3 Lunar South Pole Soft Landing Mission Dossier (23 August 2023).",
+      "FIDE World Chess Championship Records. (December 2024). D. Gukesh Historic Victory.",
     ],
   },
 ];

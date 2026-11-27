@@ -81,6 +81,67 @@ test("Blogs & Research Papers Hub Architecture Verification", async (t) => {
     );
     assert.ok(content.includes("KSF Board of Trustees & Finance Directorate"), "KSF Board of Trustees & Finance Directorate must be credited.");
     assert.ok(content.includes("AABTK2317PF20231"), "80G URN must be declared in financial audit.");
+
+    // Check 3 Newly Uploaded Student Monographs (Luvleen & Stuti, Annanya Arora, Sacrifices & Success)
+    assert.ok(
+      content.includes("dont-speak-when-angry-emotional-regulation-luvleen-stuti"),
+      "Luvleen Kaur Puri & Stuti Dwivedi monograph slug must be present."
+    );
+    assert.ok(content.includes("Luvleen Kaur Puri"), "Author Luvleen Kaur Puri must be credited.");
+    assert.ok(content.includes("Stuti Dwivedi"), "Author Stuti Dwivedi must be credited.");
+
+    assert.ok(
+      content.includes("the-power-of-consistency-can-it-overpower-talent"),
+      "Annanya Arora consistency report slug must be present."
+    );
+    assert.ok(content.includes("KSF-STU-023"), "Scholar ID KSF-STU-023 for Annanya Arora must be present.");
+    assert.ok(content.includes("Ericsson"), "Anders Ericsson deliberate practice citation must be present.");
+
+    assert.ok(
+      content.includes("sacrifices-are-directly-proportional-to-success-case-studies"),
+      "Sacrifices and Success monograph slug must be present."
+    );
+    assert.ok(content.includes("Chandrayaan-3"), "Chandrayaan-3 case study must be present.");
+    assert.ok(content.includes("D. Gukesh"), "D. Gukesh case study must be present.");
+
+    // Check Amar Ujala Prayagraj Constitution Day Press Dispatch
+    assert.ok(
+      content.includes("amar-ujala-prayagraj-constitution-day-celebration-2026"),
+      "Amar Ujala Constitution Day press dispatch slug must be present."
+    );
+    assert.ok(
+      content.includes("https://epaper.amarujala.com/allahabad-city/2026-11-27/01.html?format=img&ed_code=allahabad-city"),
+      "Amar Ujala official ePaper URL must be linked."
+    );
+    assert.ok(content.includes("अल्पना डे") || content.includes("Alpana Dey"), "Alpana Dey must be credited.");
+    assert.ok(content.includes("अनघा सिंह") || content.includes("Anagha Singh"), "Anagha Singh must be credited.");
+  });
+
+  await t.test("Must verify Amar Ujala press coverage photos and showcase component exist", () => {
+    const pressImages = [
+      "public/images/press/amar-ujala-prayagraj-constitution-day-2026-11-27.jpg",
+      "public/images/press/constitution-day-2026-anuj-kumar-singh-alpana-dey.jpg",
+    ];
+    for (const img of pressImages) {
+      const p = path.resolve(root, img);
+      assert.ok(fs.existsSync(p), `Press coverage image must exist: ${img}`);
+      assert.ok(fs.statSync(p).size > 50000, `Press image must be > 50KB: ${img}`);
+    }
+    assert.ok(
+      fs.existsSync(path.resolve(root, "src/lib/data/press-coverage-data.ts")),
+      "press-coverage-data.ts must exist."
+    );
+    assert.ok(
+      fs.existsSync(path.resolve(root, "src/components/press/MediaAndPublicationsShowcase.tsx")),
+      "MediaAndPublicationsShowcase component must exist."
+    );
+
+    const homeContent = fs.readFileSync(path.resolve(root, "src/app/page.tsx"), "utf-8");
+    const aboutContent = fs.readFileSync(path.resolve(root, "src/app/about/page.tsx"), "utf-8");
+    const eventsContent = fs.readFileSync(path.resolve(root, "src/components/events/EventsListClient.tsx"), "utf-8");
+    assert.ok(homeContent.includes("MediaAndPublicationsShowcase"), "Homepage must showcase press and published papers.");
+    assert.ok(aboutContent.includes("MediaAndPublicationsShowcase"), "About page must showcase press and published papers.");
+    assert.ok(eventsContent.includes("MediaAndPublicationsShowcase"), "Events page must showcase press and published papers.");
   });
 
   await t.test("Must verify dedicated /donate portal exists with 80G receipt generator", () => {

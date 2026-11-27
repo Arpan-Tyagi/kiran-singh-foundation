@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import MemorialSection from "@/components/MemorialSection";
 import SplitWings from "@/components/SplitWings";
 import MutualAidForm from "@/components/MutualAidForm";
+import MediaAndPublicationsShowcase from "@/components/press/MediaAndPublicationsShowcase";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Newspaper, HeartPulse } from "lucide-react";
 import { fetchEvents, fetchBlogPosts } from "@/lib/supabase";
@@ -29,6 +30,9 @@ export default async function HomePage() {
 
       {/* 4. Interactive Mutual-Aid Intake & Emergency Grid */}
       <MutualAidForm />
+
+      {/* 4.5. Print Media Coverage (Amar Ujala) & Published Research Papers */}
+      <MediaAndPublicationsShowcase />
 
       {/* 5. Foundation Gatherings & Dispatches Showcase */}
       <section className="py-20 md:py-28 px-4 md:px-8 bg-white border-t border-border">

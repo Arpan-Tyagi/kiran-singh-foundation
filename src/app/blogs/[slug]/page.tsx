@@ -362,7 +362,21 @@ export default async function BlogDetailPage({ params }: Props) {
             <GraduationCap className="w-4 h-4" />
             <span>Peer-Reviewed Student Research Working Paper</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {post.pdfDownloadUrl && (
+              <a
+                href={post.pdfDownloadUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-lion-gold hover:bg-lion-gold-light text-obsidian transition-colors inline-flex items-center space-x-1.5 font-semibold"
+              >
+                <Download className="w-3 h-3" />
+                <span>
+                  Download Original ({post.pdfDownloadUrl.toLowerCase().endsWith(".pptx") ? "PPTX" : "PDF"})
+                </span>
+              </a>
+            )}
             <Link
               href="/events/upcoming-winter-internship-program-2026-27#student-research-topics"
               className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-lion-gold/15 text-obsidian hover:text-lion-gold-dark transition-colors inline-flex items-center space-x-1.5 font-medium"
